@@ -1,0 +1,111 @@
+
+.main_content {
+    color: #8C8888;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+
+}
+/* split layout */
+.main_left_content,
+.main_right_content {
+    width: 50%;
+    border: none;
+    padding-bottom: 100px;
+}
+/* css left content */
+.main_left_content {
+    background-color: #CBCEE8;
+    overflow: hidden;
+}
+
+.signup_img {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+/* css rigth content */
+.main_right_content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+}
+/* css sign in */
+.tittle_signin {
+    font-weight: 900;
+    font-size: 64px;
+    color: #333;
+}
+.text_in {
+    color: #2031CE;
+    font-weight: 900;
+}
+.text_sign_up{
+    color: #115AAF;
+}
+/* css input information */
+.input_info_signin{
+    margin-top: 50px;
+}
+.username,
+.password {
+    width: 70%;
+    height: 7vh;
+    background-color: #F6F2F2;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+}
+.input_info_signin input {
+    padding-left: 5%;
+}
+
+/* css remember and forgot password */
+.remember_and_forgot {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+}
+.forgot{
+    color: #8C8888;
+}
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+/* css button sign in */
+.signin {
+    width: 70%;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn_signin {
+    height: 69px;
+    width: 252px;
+    background-color: #115AAF;
+    color: #fff;
+    border-radius: 31px;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+}
+/* css button other sign in */
+.other_login {
+    width: 218px;
+    height: 69px;
+    border-radius: 39px;
+    border: 2px solid #34BCAD;
+}
+.container_other_login{
+    width: 70%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}

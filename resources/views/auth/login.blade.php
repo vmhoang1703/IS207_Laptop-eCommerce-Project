@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/resources/css/login.css">
+</head>
+
+<body>
+    <!-- header -->
+    <?php
+    include("header_signup.php");
+    ?>
+    <!-- main content -->
+    <!-- Left image -->
+    <div class="main_content">
+        <div class="main_left_content">
+            <img src="image/sign in _ sign up screen.png" alt="Sign in - Sign up" class="signup_img">
+        </div>
+        <div class="main_right_content">
+            <!-- text  -->
+            <div>
+                <h1 class="tittle_signin">SIGN
+                    <strong class="text_in">IN</strong>
+                </h1>
+                <p>You don't have an account?<a href="" class="text_sign_up">Sign up</a></p>
+            </div>
+            <!-- Input information  -->
+            <div class="input_info_signin">
+                <input type="username" placeholder="Username" class="username">
+                <input type="password" placeholder="Password" class="password">
+            </div>
+            <div class="remember_and_forgot">
+                <div class="remember">
+                    <input type="checkbox">
+                    <p>Remember me</p>
+                </div>
+                <a href="" class="forgot">Forgot password?</a>
+            </div>
+            <!-- Button -->
+            <div class="signin">
+                <button class="btn_signin">Sign In</button>
+                <p class="or_signin">Or sign in</p>
+            </div>
+            <div class="container_other_login">
+                <button class="other_login">
+                    <img src="image/FB icon in sign in.png" alt="facebook icon">
+                </button>
+                <button class="other_login">
+                    <img src="image/google icon.png" alt="google icon">
+                </button>
+            </div>
+        </div>
+    </div>
+    <?php
+    include("footer.php");
+    ?>
+</body>
+
+</html>

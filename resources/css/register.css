@@ -1,0 +1,64 @@
+.main_content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+   }
+/* split layout */
+.main_left_content,
+.main_right_content {
+    width: 50%;
+    border: none;
+    padding-bottom: 100px;
+}
+/* css left content */
+.main_left_content{
+  background-color:   #CBCEE8;
+  overflow: hidden; 
+}
+.signup_img{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+/* css right content */
+.main_right_content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+}
+.tittle_signup{
+    font-weight: 900;
+    font-size: 64px;
+}
+.text_up{
+    color: #2031CE;
+    font-weight: 900;
+}
+.text_signin{
+    color: #115AAF;
+}
+.fullname,
+.date_of_birth,
+.email,
+.password,
+.confirm_password,
+.choose{
+    width: 70%;
+    height: 7vh;
+    background-color: #F6F2F2;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 5%;
+    color: #8C8888;
+}
+.btn_signup_maincontent{
+height: 69px;
+width: 252px;
+background-color: #115AAF;
+color: #fff;
+border-radius: 31px;
+border: none;
+font-size: 24px;
+font-weight: 600;
+}
