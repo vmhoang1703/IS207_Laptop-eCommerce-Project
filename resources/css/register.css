@@ -1,0 +1,60 @@
+.main_content {
+    display: flex;
+    justify-content: space-between;
+    /* Các cột sẽ nằm ở hai bên */
+    margin-top: 100px;
+   
+}
+
+.main_left_content,
+.main_right_content {
+    width: 50%;
+    /* Độ rộng của mỗi cột */
+    border: none;
+    padding-bottom: 100px;
+}
+.main_left_content{
+  background-color:   #CBCEE8;
+  overflow: hidden; 
+}
+.signup_img{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+.main_right_content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+}
+.tittle_signup{
+    font-weight: 900;
+    font-size: 64px;
+}
+.text_up{
+    color: #2031CE;
+    font-weight: 900;
+}
+.input_info_signup{
+    width: 70%;
+    height: 7vh;
+    background-color: #F6F2F2;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+
+
+}
+.input_info_signup::placeholder, option{
+    text-indent: 3%;
+}
+.btn_signup_maincontent{
+height: 69px;
+width: 252px;
+background-color: #115AAF;
+color: #fff;
+border-radius: 31px;
+border: none;
+font-size: 24px;
+font-weight: 600;
+}
