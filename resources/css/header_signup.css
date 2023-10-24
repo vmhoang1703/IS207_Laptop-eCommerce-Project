@@ -1,0 +1,82 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border: none;
+}
+a{
+    text-decoration: none;
+}
+.top_header {
+    background-color:  #115AAF;
+    color: #fff;
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0; 
+    left: 0;
+    right: 0;
+}
+.shopping_now{
+    color:#fff;
+    float: right;
+}
+
+/* Navigation */
+.nav_content {
+    color: #333;
+    background-color: #fff;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    text-align: center; 
+    justify-content: center;
+    top: 0; 
+    left: 0;
+    right: 0;
+}
+.logo{
+    flex: 1;
+}
+.img_logo {
+  height: 48px;
+  width: 174px;
+}
+.bottom_logo{
+  font-size: 8px;
+  position: relative;
+  right: 4.7cm;
+  top: 15px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.nav_list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0 5%;
+    flex: 2;
+}
+.nav_link{
+    color: inherit;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 20%;
+
+}
+.nav_list li {
+    display: inline; 
+    margin: 0px 10px; 
+}
+.btn_login {
+    background-color: #FE7243;
+    color: #fff;
+    height: 49px;
+    width: 179px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 24px;
+}
