@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-    <link rel="stylesheet" href="/resources/css/footer.css">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
 </head>
 
@@ -13,12 +13,12 @@
        <!-- footer -->
     <div class="footer">
         <div class="footer_content footer_left">
-            <div class="footer_left_content"><img src="/Project/image/logo.jpg" alt="" class="img_footer_logo"></div>
+            <div class="footer_left_content"><img src="{{ asset('img/logo.jpg') }}" alt="" class="img_footer_logo"></div>
             <div class="footer_left_content"><a href="" class="footer_logo_text">Computer World - Electronic Components</a></div>
             <div class="footer_left_content">
-                <img src="/Project/image/facebook icon.png" alt="" class="footer_icon">
-                <img src="/Project/image/Linkedln icon.png" alt="" class="footer_icon">
-                <img src="/Project/image/youtube icon.png" alt="" class="footer_icon">
+                <img src="{{ asset('img/facebook icon.png') }}" alt="" class="footer_icon">
+                <img src="{{ asset('img/Linkedln icon.png') }}" alt="" class="footer_icon">
+                <img src="{{ asset('img/youtube icon.png') }}" alt="" class="footer_icon">
             </div>
         </div>
         <div class="footer_content footer_middle">

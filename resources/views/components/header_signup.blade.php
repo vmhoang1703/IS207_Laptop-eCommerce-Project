@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
+
 
 </head>
 
@@ -20,7 +21,7 @@
                 <ul class="nav_list">
                     <li>
                         <div class="logo">
-                            <img src="/Project/image/logo.jpg" alt="logo" class="img_logo">
+                            <img src="{{ asset('img/logo.jpg') }}" alt="logo" class="img_logo">
                             <a class="bottom_logo"><strong>Computer World - Electronic Components</strong></a>
                         </div>
                     </li>
