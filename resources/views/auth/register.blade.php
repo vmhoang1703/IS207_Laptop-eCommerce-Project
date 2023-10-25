@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    include("header_signup.php");
+    include("/xampp/htdocs/IS207_Laptop-eCommerce-Project/IS207_Laptop-eCommerce-Project/resources/views/components/index.blade.php");
     ?>
     <div class="main_content">
         <div class="main_left_content">
