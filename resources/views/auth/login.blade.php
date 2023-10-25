@@ -23,23 +23,24 @@
                 <h1 class="tittle_signin">SIGN
                     <strong class="text_in">IN</strong>
                 </h1>
-                <p>You don't have an account?<a href="register" class="text_sign_up">Sign up</a></p>
+                <p>You don't have an account? <a href="register" class="text_sign_up">Sign up</a></p>
             </div>
-            <!-- Input information  -->
-            <div class="input_info_signin">
-                <input type="username" placeholder="Username" class="username">
-                <input type="password" placeholder="Password" class="password">
-            </div>
+            <!-- Form for login -->
+            <form action="" method="POST" class="input_info_signin">
+                @csrf <!-- Add CSRF token for security -->
+                <input type="text" name="username" placeholder="Username" class="username">
+                <input type="password" name="password" placeholder="Password" class="password">
+            </form>
             <div class="remember_and_forgot">
                 <div class="remember">
-                    <input type="checkbox">
-                    <p>Remember me</p>
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">Remember me</label>
                 </div>
                 <a href="" class="forgot">Forgot password?</a>
             </div>
             <!-- Button -->
             <div class="signin">
-                <button class="btn_signin">Sign In</button>
+                <button type="submit" class="btn_signin">Sign In</button>
                 <p class="or_signin">Or sign in</p>
             </div>
             <div class="container_other_login">
