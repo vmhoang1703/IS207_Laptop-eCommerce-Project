@@ -5,22 +5,23 @@ body {
     border: 0;
     border: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .top_header {
-    background-color:  #115AAF;
+    background-color: #115AAF;
     color: #fff;
-    text-align: center; 
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0; 
-    left: 0;
-    right: 0;
+
 }
-.shopping_now{
-    color:#fff;
+
+.shopping_now {
+    color: #fff;
     float: right;
 }
 
@@ -31,46 +32,61 @@ a{
     border-bottom: 1px solid #333;
     display: flex;
     align-items: center;
-    text-align: center; 
-    justify-content: center;
-    top: 0; 
+    text-align: center;
+    width: 100%;
+    top: 0;
     left: 0;
     right: 0;
 }
-.logo{
-    flex: 1;
+
+.logo {
+    display: flex;
+    flex: 30%;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
 .img_logo {
-  height: 48px;
-  width: 174px;
+    height: 48px;
+    width: 174px;
 }
-.bottom_logo{
-  font-size: 8px;
-  position: relative;
-  right: 4.7cm;
-  top: 15px;
-  white-space: nowrap;
-  font-weight: 500;
+
+.container_img_logo,
+.bottom_logo {
+    width: 100%;
 }
-.nav_list{
+
+.bottom_logo {
+    font-size: 10px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.container_nav_list{
+    display: flex;
+    flex: 70%;
+}
+.nav_list {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 0 5%;
     flex: 2;
 }
-.nav_link{
+
+.nav_link {
     color: inherit;
     display: inline-block;
     font-size: 16px;
     font-weight: 400;
     margin-top: 20%;
+    white-space: nowrap;
+}
 
-}
 .nav_list li {
-    display: inline; 
-    margin: 0px 10px; 
+    display: inline;
+    margin: 0px 10px;
 }
+
 .btn_login {
     background-color: #FE7243;
     color: #fff;
