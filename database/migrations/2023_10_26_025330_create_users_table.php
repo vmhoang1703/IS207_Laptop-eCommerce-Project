@@ -14,12 +14,12 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('email')->unique();
-            $table->string('phone')->nullable;
-            $table->string('ident')->nullable;
-            $table->string('avatarLink')->nullable;
-            $table->string('role')->nullable;
-            $table->string('knownFrom')->nullable;
-            $table->string('momoWallet_id')->nullable;
+            $table->string('phone')->nullable()->default(null);
+            $table->string('ident')->nullable()->default(null);
+            $table->string('avatarLink')->nullable()->default(null);
+            $table->string('role')->nullable()->default(null);
+            $table->string('knownFrom')->nullable()->default(null);
+            $table->string('momoWallet_id')->nullable()->default(null);
             $table->timestamps();
         });
     }

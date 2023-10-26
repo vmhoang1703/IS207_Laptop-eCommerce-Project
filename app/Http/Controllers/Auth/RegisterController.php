@@ -38,11 +38,6 @@ class RegisterController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'phone' => '',
-            'ident' => '',
-            'avatarLink' => '',
-            'role' => '',
-            'momoWallet_id' => '',
             'knownFrom' => $request->how_did_you_hear,
         ]);
 
