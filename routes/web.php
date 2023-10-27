@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::post('/register', [RegisterController::class, 'sendForm'])->name('registe
 
 Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
+
+Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
+

@@ -2,7 +2,14 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use App\View\Components\Header;
+use App\View\Components\ProductCard;
+use App\View\Components\Footer;
+use App\View\Components\FeedbackCard;
+use App\View\Components\Filter;
+use App\View\Components\NewArrival;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +30,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::component('product-card', ProductCard::class);
+        Blade::component('header', Header::class);
+        Blade::component('footer', Footer::class);
+        Blade::component('feedback-card', FeedbackCard::class);
+        Blade::component('filter', Filter::class);
+        Blade::component('newarrival', NewArrival::class);
     }
 }

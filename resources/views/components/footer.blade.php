@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in</title>
+<div>
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-
-</head>
-
-<body>
-       <!-- footer -->
+    <!-- footer -->
     <div class="footer">
         <div class="footer_content footer_left">
             <div class="footer_left_content"><img src="{{ asset('img/logo.jpg') }}" alt="" class="img_footer_logo"></div>
@@ -39,6 +29,4 @@
             </ul>
         </div>
     </div>
-</body>
-
-</html>
+</div>
