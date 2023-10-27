@@ -1,6 +1,6 @@
 <div>
     <td>
-        <img src="images/usercomment.png" height="240px" width="240px">
+        <img src="{{ asset('img/usercomment.png') }}" height="240px" width="240px">
         <p style="font-weight:600;">Miss Lucy Nguyen</p>
         <p style="font-weight:300; font-style: italic; font-size: 15px">“Your products are so wonderful.”</p>
         <a>

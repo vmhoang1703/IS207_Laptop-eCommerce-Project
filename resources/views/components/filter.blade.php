@@ -31,11 +31,11 @@
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </div>
                             <ul class="menu-bar-1">
-                                <li>Power banks </li>
-                                <li>Cables, chargers </li>
-                                <li>Phone cases </li>
-                                <li>Speakers </li>
-                                <li>Headphones </li>
+                                <li><a href="">Power banks</a></li>
+                                <li><a href="">Cables, chargers</a></li>
+                                <li><a href="">Phone cases</a></li>
+                                <li><a href="">Speakers</a></li>
+                                <li><a href="">Headphones</a></li>
                             </ul>
                         </li>
                         <li class="li-hr">
@@ -47,10 +47,10 @@
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </div>
                             <ul class="menu-bar-1">
-                                <li>Printers </li>
-                                <li>Printer ink </li>
-                                <li>Monitor </li>
-                                <li>Gaming PC </li>
+                                <li><a href="">Printers</a></li>
+                                <li><a href="">Printer ink</a></li>
+                                <li><a href="">Monitor</a></li>
+                                <li><a href="">Gaming PC</a></li>
 
                             </ul>
                         </li>

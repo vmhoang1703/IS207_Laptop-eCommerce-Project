@@ -2,35 +2,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color:black;
+    color: black;
     font-weight: 500;
-  }
-  
-  .drop-down i {
+}
+
+.drop-down i {
     transition: 0.2s;
-  }
-  
-  .drop-down i.deactive {
+}
+
+.drop-down i.deactive {
     transform: rotate(-90deg);
-  }
-  
-  .filter-item i:hover {
+}
+
+.filter-item i:hover {
     font-weight: 600;
     cursor: pointer;
-  }
-  
-  li.li-hr {
+}
+
+li.li-hr {
     margin: 2vh 0;
-  }
-  
-  .main-content > div {
+}
+
+.main-content > div {
     display: flex;
     justify-content: space-between;
     height: 100%;
     align-items: center;
-  }
-  
-  .ads tr td:last-child {
+}
+
+.ads tr td:last-child {
     width: 50%;
-  }
-  
+}

@@ -263,6 +263,11 @@ body {
   width: 100px;
 }
 
+.menu-bar-1 a {
+  font-size: 11px;
+  color: gray;
+}
+
 #min-max {
   display: flex;
   justify-content: center;
@@ -524,15 +529,13 @@ option {
   display: flex;
   height: 40px;
   background-color: black;
-
   justify-content: center;
   position: relative;
-  bottom: 155px;
+  /* bottom: 155px; */
 }
 .card:hover .AddtoCart a {
   display: block;
-  position: relative;
-  top: 0.3cm;
+  margin: auto auto;
   color: white;
 }
 .AddtoCart a {
@@ -541,7 +544,7 @@ option {
 .secondary1 {
   border-radius: 4px;
   background-color: #db4444;
-  height: 20px;
+  height: 25px;
   width: 40px;
   color: white;
   position: relative;
@@ -682,15 +685,13 @@ option {
   color: white;
   position: relative;
   text-align: center;
-  padding-top: 0.2cm;
-  position: relative;
-  right: 15%;
   text-align: center;
   cursor: pointer;
+  margin-right: 50px;
 }
 .All a {
   position: relative;
-  top: 25%;
+  top: 30%;
 }
 
 .Fa {
@@ -718,7 +719,7 @@ option {
 
 .Feedback td {
   text-align: center;
-  width: 25%;
+  width: 20%;
 }
 
 .Feedback td img {
@@ -730,10 +731,9 @@ option {
   width: 100%;
 }
 
-tbody, td, tfoot, th, thead, tr{
-  padding-left: 50px;
+/* tbody, td, tfoot, th, thead, tr{
   padding-top: 10px;
-}
+} */
 
 .mainboardads {
   width: 100%;
@@ -751,10 +751,15 @@ tbody, td, tfoot, th, thead, tr{
   justify-content: space-between;
 }
 
+
 .mainads {
   position: relative;
   padding-left: 40px;
   padding-top: 20px;
+}
+
+.mainads td {
+  padding-left: 50px;
 }
 
 .maintime {
@@ -781,7 +786,7 @@ tbody, td, tfoot, th, thead, tr{
   color: #fff;
   text-align: center;
   background: #fff;
-  margin: 10px 50px 10px -20px;
+  margin: 10px 10px 10px 20px;
   font-size: 10px;
   color: black;
   position: relative;

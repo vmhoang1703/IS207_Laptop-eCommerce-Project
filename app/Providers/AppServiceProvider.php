@@ -10,6 +10,7 @@ use App\View\Components\Footer;
 use App\View\Components\FeedbackCard;
 use App\View\Components\Filter;
 use App\View\Components\NewArrival;
+use App\View\Components\Countdown;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,5 +37,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('feedback-card', FeedbackCard::class);
         Blade::component('filter', Filter::class);
         Blade::component('newarrival', NewArrival::class);
+        Blade::component('countdown', Countdown::class);
     }
 }

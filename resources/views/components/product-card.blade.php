@@ -8,7 +8,7 @@
             <img class="img-fluid" alt="" style="margin: 0px auto;" height="150px" width="150px" src="{{ asset('img/gaming .png') }}">
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ $name }}</h5>
+            <h6 class="card-title">{{ $name }}</h6>
             <p style="color:#DB4444;"> $56 <a style="color:gainsboro;text-decoration:line-through;padding-left:20px ;">$60 </a> </p>
                 <a><i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -18,6 +18,8 @@
                     <a style="color:gainsboro;padding-left:20px;font-weight:600;">(88) </a>
                 </a>
         </div>
-        <div class="AddtoCart"><a href="#">Add to Cart</a></div>
+    <div class="AddtoCart"><a href="#">Add to Cart</a></div>
+
     </div>
 </div>
+
