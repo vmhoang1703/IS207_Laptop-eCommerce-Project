@@ -24,7 +24,7 @@
                         <a href="#" class="menu-link">STORE</a>
                     </li>
                     <li>
-                        <a href="#" class="menu-link" style="width:80px;">ABOUT US</a>
+                        <a href="#" class="menu-link">ABOUT US</a>
                     </li>
                     <li>
                         <a href="#" class="menu-link">CONTACT</a>

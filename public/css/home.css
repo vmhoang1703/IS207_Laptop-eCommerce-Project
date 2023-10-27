@@ -499,6 +499,27 @@ option {
   width: 190px;
   margin: 10%;
 }
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s;
+}
+
+.card {
+  flex: 0 0 25%;
+  padding: 10px;
+}
+
+/* Thêm bất kỳ kiểu CSS tùy chỉnh cho card của bạn ở đây */
+
+.AllProduct {
+  text-align: center;
+}
 .card:hover .AddtoCart {
   display: flex;
   height: 40px;
@@ -573,6 +594,7 @@ option {
 }
 
 .product-text {
+  height: 90px;
   font-weight: 500;
   font-size: 16px;
   line-height: 30px;
@@ -676,8 +698,8 @@ option {
   justify-content: space-between;
 }
 
-.Feedback{
-  margin-bottom: 150px;
+.Feedback {
+  margin-bottom: 120px;
 }
 
 .Feedback table,
@@ -706,6 +728,11 @@ option {
 
 .mainarrival {
   width: 100%;
+}
+
+tbody, td, tfoot, th, thead, tr{
+  padding-left: 50px;
+  padding-top: 10px;
 }
 
 .mainboardads {
@@ -754,7 +781,7 @@ option {
   color: #fff;
   text-align: center;
   background: #fff;
-  margin: 10px;
+  margin: 10px 50px 10px -20px;
   font-size: 10px;
   color: black;
   position: relative;

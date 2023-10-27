@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Các thẻ meta và tiêu đề -->
+    <!-- Bao gồm các tệp CSS của bạn -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/filter.css') }}">
+
+    <!-- Bao gồm các tệp CSS của Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
+    <!-- Các thẻ script và đường dẫn JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -42,7 +46,7 @@
                     </div>
                     <table>
                         <tr>
-                            <td class="FSHeader">
+                            <td class="FSHeader" style="margin-left: -50px;">
                                 <a class="pro-textL"> Flash Sales</a>
                                 <div class="time">
                                     <div class="pro-textXS">Days </div>
@@ -65,35 +69,82 @@
                                         <div class="pro-textM">56</div>
                                     </div>
                                 </div>
-                                <div class="arrowcontrol">
+                                <!-- <div class="arrowcontrol">
                                     <ul>
                                         <li>
-                                            <a href="#" onclick="right(-1)" id="left">
+                                            <a href="#" id="left">
                                                 <span class="inner"></span>
                                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" onclick="right(1)" id="right">
+                                            <a href="#" id="right">
                                                 <span class="inner"></span>
                                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </td>
                         </tr>
                     </table>
 
-                    <div class="product-list" id="productList">
+                    <!-- <div class="product-list" id="productList">
                         <div class="wrapper">
                             <ul class="carousel">
-                                <!-- ProductCard -->
-
+                                ProductCard
+                                @foreach ($products as $product)
+                                @component('components.product-card', [
+                                'name' => $product->name,
+                                'price' => $product->price,
+                                'oldPrice' => $product->oldPrice,
+                                ])
+                                @endcomponent
+                                @endforeach
                             </ul>
                             <div class="AllProduct"><a href="#">All Products</a> </div>
                         </div>
-                    </div>
+                    </div> -->
+
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                </div>
+                                <div class="col-6 text-right" style="margin-top: -100px;">
+                                    <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                                        <i class="fa fa-arrow-left"></i>
+                                    </a>
+                                    <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @foreach ($products as $product)
+                                            @if ($loop->index % 3 == 0)
+                                            <div class="carousel-item{{ $loop->first ? ' active' : '' }}">
+                                                <div class="row">
+                                                    @endif
+                                                    @component('components.product-card', [
+                                                    'name' => $product->name,
+                                                    'price' => $product->price,
+                                                    'oldPrice' => $product->oldPrice,
+                                                    ])
+                                                    @endcomponent
+                                                    @if (($loop->last && $loop->index % 3 != 0) || $loop->index % 3 == 2)
+                                                </div>
+                                            </div>
+                                            @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
 
                 <hr>
@@ -111,7 +162,14 @@
                         </div>
                         <ul>
                             <!-- ProductCard -->
-
+                            @foreach ($products as $product)
+                            @component('components.product-card', [
+                            'name' => $product->name,
+                            'price' => $product->price,
+                            'oldPrice' => $product->oldPrice,
+                            ])
+                            @endcomponent
+                            @endforeach
                         </ul>
 
                     </div>
@@ -167,11 +225,11 @@
                             <div class="production" style="justify-content: left; padding-left: 0;">
                                 <div class="secondary2"></div> <a class="pro-textS"> Feature </a>
                             </div>
-                            <div>
+                            <div style="margin-left: -30px;">
                                 <table>
                                     <tr>
                                         <td class="TNAHeader">
-                                            <a class="pro-textL"> New Arrival</a>
+                                            <a class="pro-textL" style="margin-left: -20px;"> New Arrival</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -195,7 +253,7 @@
                                             </table>
                                         </li>
                                         <li>
-                                            <ul style="flex-direction: column;">
+                                            <ul style="flex-direction: column">
                                                 <li class="newarrival-menu" style="width: 600px; height: 295px;">
                                                     <table class="infonewarrival" style="width: 300;">
                                                         <tr>
@@ -212,6 +270,7 @@
                                                         </tr>
                                                     </table>
                                                     <img src="{{ asset('img/headphone.png') }}" class="bluetooth">
+                                                </li>
                                                 <li>
                                                     <ul style="padding-left: 10px;  flex-direction: row;">
                                                         <li class="newarrival-menu" style="width: 295px; height: 295px; margin-top: 10px; margin-right: 10px">
