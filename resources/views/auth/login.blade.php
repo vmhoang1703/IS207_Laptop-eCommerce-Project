@@ -26,30 +26,30 @@
                 <p>You don't have an account? <a href="register" class="text_sign_up">Sign up</a></p>
             </div>
             <!-- Form for login -->
-            <form action="" method="POST" class="input_info_signin">
+            <form action="{{ route('login.send') }}" method="POST" class="input_info_signin">
                 @csrf <!-- Add CSRF token for security -->
                 <input type="text" name="username" placeholder="Username" class="username">
                 <input type="password" name="password" placeholder="Password" class="password">
-            </form>
-            <div class="remember_and_forgot">
-                <div class="remember">
-                    <input type="checkbox" name="remember" id="remember">
-                    <label for="remember">Remember me</label>
+                <div class="remember_and_forgot">
+                    <div class="remember">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="" class="forgot">Forgot password?</a>
                 </div>
-                <a href="" class="forgot">Forgot password?</a>
-            </div>
-            <!-- Button -->
-            <div class="signin">
-                <button type="submit" class="btn_signin">Sign In</button>
-                <p class="or_signin">Or sign in</p>
-            </div>
+                <!-- Button -->
+                <div class="signin">
+                    <button type="submit" class="btn_signin">Sign In</button>
+                    <p class="or_signin">Or sign in</p>
+                </div>
+            </form>
             <div class="container_other_login">
                 <button class="other_login">
                     <img src="{{ asset('img/FB icon in sign in.png') }}" alt="facebook icon">
                 </button>
-                <button class="other_login">
+                <a href="{{ route('google.login') }}" class="other_login" role="button">
                     <img src="{{ asset('img/google icon.png') }}" alt="google icon">
-                </button>
+                </a>
             </div>
         </div>
     </div>
