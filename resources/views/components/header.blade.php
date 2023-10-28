@@ -46,7 +46,7 @@
                             </svg></a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-link" style="margin: auto auto;"> <img src="{{ asset('img/user.png') }}" width="40px" height="40px"></a>
+                        <a href="{{ route('login.show') }}" class="menu-link" style="margin: auto auto;"> <img src="{{ asset('img/user.png') }}" width="40px" height="40px"></a>
                     </li>
                 </ul>
             </div>
