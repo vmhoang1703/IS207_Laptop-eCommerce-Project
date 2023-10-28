@@ -1,10 +1,8 @@
-
 .main_content {
-    color: #8C8888;
+    color: #8c8888;
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
-
 }
 /* split layout */
 .main_left_content,
@@ -15,7 +13,7 @@
 }
 /* css left content */
 .main_left_content {
-    background-color: #CBCEE8;
+    background-color: #cbcee8;
     overflow: hidden;
 }
 
@@ -37,21 +35,21 @@
     color: #333;
 }
 .text_in {
-    color: #2031CE;
+    color: #2031ce;
     font-weight: 900;
 }
-.text_sign_up{
-    color: #115AAF;
+.text_sign_up {
+    color: #115aaf;
 }
 /* css input information */
-.input_info_signin{
+.input_info_signin {
     margin-top: 50px;
 }
 .username,
 .password {
     width: 70%;
     height: 7vh;
-    background-color: #F6F2F2;
+    background-color: #f6f2f2;
     margin-bottom: 20px;
     border: none;
     border-radius: 15px;
@@ -73,8 +71,8 @@
     display: flex;
     align-items: center;
 }
-.forgot{
-    color: #8C8888;
+.forgot {
+    color: #8c8888;
 }
 input[type="checkbox"] {
     margin-right: 10px;
@@ -89,7 +87,7 @@ input[type="checkbox"] {
 .btn_signin {
     height: 69px;
     width: 252px;
-    background-color: #115AAF;
+    background-color: #115aaf;
     color: #fff;
     border-radius: 31px;
     border: none;
@@ -101,9 +99,10 @@ input[type="checkbox"] {
     width: 218px;
     height: 69px;
     border-radius: 39px;
-    border: 2px solid #34BCAD;
+    border: 2px solid #34bcad;
 }
-.container_other_login{
+
+.container_other_login {
     width: 70%;
     justify-content: space-between;
     display: flex;

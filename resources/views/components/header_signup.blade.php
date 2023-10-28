@@ -1,3 +1,5 @@
+</html>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
     <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
-
 
 </head>
 
@@ -18,24 +19,26 @@
         </div>
         <div class="nav">
             <div class="nav_content">
-                <div class="logo">
-                    <div class="container_img_logo">
-                        <img src="{{ asset('img/logo.jpg') }}" alt="logo" class="img_logo">
-                    </div>
-                    <div class="bottom_logo">
-                        <a class="bottom_logo_text"><strong>Computer World - Electronic Components</strong></a>
-                    </div>
-                </div>
-
-                <div class="container_nav_list">
-                    <ul class="nav_list"></ul>
+                <ul class="nav_list">
+                    <li>
+                        <div class="logo">
+                           <div class="container_img_logo">
+                            <img src="{{ asset('img/logo.jpg') }}" alt="logo" class="img_logo">
+                           </div>
+                           <div class="bottom_logo">
+                            <a class="bottom_logo_text"><strong>Computer World - Electronic Components</strong></a>
+                           </div>
+                        </div>
+                    </li>
+                    <li></li>
                     <li><a href="#" class="nav_link">HOME</a></li>
                     <li><a href="#" class="nav_link">STORE</a></li>
                     <li><a href="#" class="nav_link">ABOUT US</a></li>
                     <li><a href="#" class="nav_link">CONTACT</a></li>
-                    <li><button class="btn_login"><a href="../Project/sign_up.php" class="btn_login">Sign Up</a></button></li>
-                    </ul>
-                </div>
+                    <li><button class="btn_login"><a href="{{ route('register.show') }}" class="btn_login">Sign Up</a></button></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
         </div>
     </div>

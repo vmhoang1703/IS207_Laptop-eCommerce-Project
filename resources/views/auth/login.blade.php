@@ -10,7 +10,8 @@
 
 <body>
     <!-- header -->
-    @include('../components/header_signup')
+    @component('components.header_signup')
+    @endcomponent
     <!-- main content -->
     <!-- Left image -->
     <div class="main_content">
@@ -44,16 +45,16 @@
                 </div>
             </form>
             <div class="container_other_login">
-                <button class="other_login">
-                    <img src="{{ asset('img/FB icon in sign in.png') }}" alt="facebook icon">
-                </button>
+                <a href="" class="other_login" role="button">
+                    <img style="position: relative; top: 25%; left: 45%;" src="{{ asset('img/FB icon in sign in.png') }}" alt="google icon">
+                </a>
                 <a href="{{ route('google.login') }}" class="other_login" role="button">
-                    <img src="{{ asset('img/google icon.png') }}" alt="google icon">
+                    <img style="position: relative; top: 25%; left: 40%;" class="other_login_img" src="{{ asset('img/google icon.png') }}" alt="google icon">
                 </a>
             </div>
         </div>
     </div>
-    @include('../components/footer')
+    @component('components.footer')
+    @endcomponent
 </body>
-
 </html>
