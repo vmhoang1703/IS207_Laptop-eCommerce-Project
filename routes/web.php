@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -24,3 +25,5 @@ Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 
 Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
 
+Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);

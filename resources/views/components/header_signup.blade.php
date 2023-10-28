@@ -20,7 +20,7 @@
             <div class="nav_content">
                 <div class="logo">
                     <div class="container_img_logo">
-                        <img src="/image/logo.jpg" alt="logo" class="img_logo">
+                        <img src="{{ asset('img/logo.jpg') }}" alt="logo" class="img_logo">
                     </div>
                     <div class="bottom_logo">
                         <a class="bottom_logo_text"><strong>Computer World - Electronic Components</strong></a>
