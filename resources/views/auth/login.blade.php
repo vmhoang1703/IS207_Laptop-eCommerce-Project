@@ -47,9 +47,9 @@
                 <button class="other_login">
                     <img src="{{ asset('img/FB icon in sign in.png') }}" alt="facebook icon">
                 </button>
-                <button class="other_login">
+                <a href="{{ route('google.login') }}" class="other_login" role="button">
                     <img src="{{ asset('img/google icon.png') }}" alt="google icon">
-                </button>
+                </a>
             </div>
         </div>
     </div>
