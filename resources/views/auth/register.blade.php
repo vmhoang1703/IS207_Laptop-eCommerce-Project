@@ -19,7 +19,7 @@
                 <h1 class="tittle_signup">SIGN
                     <strong class="text_up">UP</strong>
                 </h1>
-                <p style="color: #8C8888;">Already have an account? <a href="/login" class="text_signin">Sign in</a></p>
+                <p style="color: #8C8888;">Already have an account? <a href="{{ route('login.show') }}" class="text_signin">Sign in</a></p>
             </div>
             <form action="{{ route('register.send') }}" method="POST" class="input_info_signup">
                 @csrf
