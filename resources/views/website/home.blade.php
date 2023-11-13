@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang chủ</title>
+   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
-
-  <link rel="stylesheet" href="css/cssdetail/responsive.css">
+  <link rel="stylesheet" href="{{asset('css/responsive/home_res.css') }}">
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="js/jsdetail/dropdown.js"></script>
-  <script src="js/jsdetail/countdown.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="js/countdown.js"></script>
 
 </head>
 
