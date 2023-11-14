@@ -472,7 +472,7 @@ header {
     padding-bottom: 130px;
   }
 
-  .ads_jbl {
+  .ads_jbl_affix {
     max-width: 100%;
     height: auto;
     background-color: #000;
@@ -526,31 +526,19 @@ header {
   }
 
   /* Feature */
+  .feature-product
+  {
+    width: 100%;
+  }
   .DELL {
-    width: 49%;
     height: auto;
     background-color: #000;
     font-family: 'Inter', sans-serif;
     color: white;
     line-height: 40px;
+    border-bottom: 1px solid white;
   }
 
-  .DELL1 {
-    width: calc((100%) + 15px) ;
-    height: auto;
-    background-color: #000;
-    font-family: 'Inter', sans-serif;
-    color: white;
-    line-height: 40px;
-  }
-  .DELL2 {
-    width: 40%;
-    height: auto;
-    background-color: #000;
-    font-family: 'Inter', sans-serif;
-    color: white;
-    line-height: 40px;
-  }
 
   .textD1 {
     padding-top: 100px;
@@ -559,6 +547,24 @@ header {
   .heading {
     font-weight: 600;
     font-size: 24px;
+  }
+  .DELL img
+  {
+    width: 100%;
+  }
+
+  .DELL1 img
+  {
+    width: 100%;
+  }
+  .loa
+  {
+    background-image: url('../img/loa.png');
+  }
+
+  .PC
+  {
+    background-image: url('../img/PC.png');
   }
 
   .title-regular {
@@ -592,7 +598,10 @@ header {
   {
     margin-top: 240px;
   }
-
+  .Newarrival_res
+  {
+    display: none;
+  }
   /* feedback */
   .username
   {
@@ -632,7 +641,7 @@ header {
   {
     padding-top: 130px;
   }
-  @media screen and (max-width: 900px) {
+  @media screen  and (max-width: 900px) {
     .wrapper .carousel {
       grid-auto-columns: calc((100% / 2) - 9px);
     }
