@@ -1,98 +1,60 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border: none;
-}
-
-a {
-    text-decoration: none;
-}
-
 .top_header {
+    align-items: center;
     background-color: #115AAF;
-    color: #fff;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    padding: 10px;
+  }
+  
+  .text_topheader {
+    text-align: right;
+  }
+  .container_nav{
+    padding: 10px;
     align-items: center;
-
-}
-
-.shopping_now {
-    color: #fff;
-    float: right;
-}
-
-/* Navigation */
-.nav_content {
-    color: #333;
-    background-color: #fff;
     border-bottom: 1px solid #333;
-    display: flex;
+  }
+  .header_logo{
+    display: block;
     align-items: center;
-    text-align: center;
+  
+  }
+  .logo {
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-.logo {
-    display: flex;
-    flex: 30%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.img_logo {
     height: 48px;
-    width: 174px;
-}
-
-.container_img_logo,
-.bottom_logo {
-    width: 100%;
-}
-
-.bottom_logo {
-    font-size: 10px;
-    white-space: nowrap;
-    font-weight: 500;
-}
-.container_nav_list{
-    display: flex;
-    flex: 70%;
-}
-.nav_list {
-    list-style: none;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .nameee {
+    font-size: 9.75px;
+    position: relative;
+    left: 75%;
+  }
+  
+  .menu {
+    width: auto;
     display: flex;
     justify-content: space-between;
-    gap: 0 5%;
-    flex: 2;
-}
-
-.nav_link {
-    color: inherit;
-    display: inline-block;
+    flex: 0.7;
+    position: relative;
+    margin: auto;
+  }
+  
+  .nav-link {
     font-size: 16px;
     font-weight: 400;
-    margin-top: 20%;
-    white-space: nowrap;
-}
-
-.nav_list li {
-    display: inline;
-    margin: 0px 10px;
-}
-
-.btn_login {
+    display: inline-block;
+    background-position: left bottom; 
+    transition: background-size 0.5s; 
+  }
+  .nav-link:hover{
+    text-decoration: underline;
+  }
+  .btn{
     background-color: #FE7243;
-    color: #fff;
-    height: 49px;
-    width: 179px;
-    margin: 0px auto;
+    border-radius: 18px;
     border: none;
-    border-radius: 24px;
-}
+  }
+  .btn:hover{
+    background-color:#cf4d22;
+  }
+  

@@ -1,110 +1,99 @@
-.main_content {
-    color: #8c8888;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
-}
-/* split layout */
-.main_left_content,
-.main_right_content {
-    width: 50%;
-    border: none;
-    padding-bottom: 100px;
-}
-/* css left content */
-.main_left_content {
-    background-color: #cbcee8;
-    overflow: hidden;
+@charset "UTF-8";
+
+html {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.signup_img {
-    object-fit: cover;
-    width: 100%;
-    height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    color: #8C8888;
+
 }
-/* css rigth content */
-.main_right_content {
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container_img {
+    padding-bottom: 100px;
+    background-color: #CBCEE8;
     display: flex;
-    flex-direction: column;
-    padding-left: 10%;
 }
-/* css sign in */
+
+.img_signup {
+    object-fit: contain;
+}
+
 .tittle_signin {
     font-weight: 900;
     font-size: 64px;
     color: #333;
 }
-.text_in {
+
+.tittle_signin strong {
     color: #2031ce;
-    font-weight: 900;
 }
+
 .text_sign_up {
     color: #115aaf;
 }
-/* css input information */
-.input_info_signin {
-    margin-top: 50px;
+
+.container_information {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
 }
 .username,
-.password {
-    width: 70%;
-    height: 7vh;
+.password{
+    width: 100%;
+    height: 50px;
     background-color: #f6f2f2;
     margin-bottom: 20px;
     border: none;
     border-radius: 15px;
+    text-indent: 1cm;
 }
-.input_info_signin input {
-    padding-left: 5%;
-}
-
-/* css remember and forgot password */
 .remember_and_forgot {
     display: flex;
     align-items: center;
-    width: 70%;
     justify-content: space-between;
-    margin-bottom: 50px;
+    
 }
 
 .remember {
     display: flex;
     align-items: center;
 }
-.forgot {
+.forgot a{
     color: #8c8888;
 }
 input[type="checkbox"] {
     margin-right: 10px;
 }
-/* css button sign in */
-.signin {
-    width: 70%;
-    text-align: center;
-    justify-content: center;
-}
-
-.btn_signin {
-    height: 69px;
-    width: 252px;
-    background-color: #115aaf;
-    color: #fff;
-    border-radius: 31px;
+.btn_signin{
+    background-color: #115AAF;
+    width: 35%;
+    height: 50px;
+    font-size: 18px;
     border: none;
-    font-size: 24px;
-    font-weight: 600;
+    border-radius: 20px;
 }
-/* css button other sign in */
-.other_login {
+.other_login{
+    width: 35%;
+    height: 50px;
     width: 218px;
     height: 69px;
     border-radius: 39px;
     border: 2px solid #34bcad;
 }
-
-.container_other_login {
-    width: 70%;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
+.container{
+    margin-bottom: 10%;
 }
