@@ -1,0 +1,126 @@
+body {
+    font-family: Poppins;
+}
+.header-fake {
+    width: 100%;
+    height: 165px;
+    background-color: aliceblue;
+}
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #000;
+    opacity: 0.5;
+}
+.breadcrumb {
+    width: 100%;
+}
+.cart-main-section,
+.cart-section {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    width: 1170px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--Primary, #fff);
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+.card {
+    border: none;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+}
+.card img {
+    height: 54px;
+    width: 54px;
+}
+.card-body .product-title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.product-img {
+    transition: transform 0.3s ease-in-out;
+    border-radius: 4px;
+}
+.product-img:hover {
+    transform: scale(1.1);
+}
+.input-quantity {
+    width: 72px;
+    height: 44px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.coupon-btn {
+    display: flex;
+    width: 160px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    background: var(--Button2, #db4444);
+    color: #fafafa;
+}
+.coupon-btn:hover {
+    background: #ff6666;
+}
+.coupon-code {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.cart-total {
+    color: var(--Text2, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+.total-infor {
+    border-radius: 5.617px;
+    border: 2.106px solid #000;
+    color: var(--Text2, #000);
+}
+.total-infor__subtotal,
+.total-infor__shipping,
+.total-infor__total {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.line-grey {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.4;
+}
+.total-infor__checkout {
+    width: 365.123px;
+    height: 78.642px;
+    border-radius: 5.617px;
+    background: var(--Button2, #db4444);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--Text, #fafafa);
+    text-align: center;
+}
+.footer-fake {
+    width: 100%;
+    height: 365px;
+    background-color: aliceblue;
+}
