@@ -18,6 +18,7 @@
     <script src="js/dropdown.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/carousel.js" defer> </script>
+    <script src="js/range.js" defer></script>
 
 
 
