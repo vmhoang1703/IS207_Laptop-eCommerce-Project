@@ -1,82 +1,4 @@
-/* header */
-header {
-    font-family: "Poppins", sans-serif;
-  }
 
-  .Top-header {
-    background-color: #115AAF;
-    width: 100%;
-    height: 10%;
-    color: #FAFAFA;
-    font-size: 14px;
-
-  }
-
-  .Top-header a {
-    font-weight: 600;
-    color: #FAFAFA;
-  }
-
-  .Top-header .container {
-    text-align: center;
-    position: static;
-    left: 3cm;
-  }
-
-  .logo-text {
-    color: #080707;
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 9.95px;
-
-  }
-
-  .menu-header a {
-    display: inline-block;
-    text-decoration: none;
-    color: #080707;
-    font-size: 14px;
-    background-image: linear-gradient(#000 0 0);
-    background-position: left bottom;
-    /* OR left bottom*/
-    background-size: 0% 2px;
-    background-repeat: no-repeat;
-    transition: background-size 0.5s;
-    font-weight: 600;
-  }
-
-  .menu-header a:hover {
-    background-size: 100% 2px;
-  }
-
-  .btn-signup {
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    background-color: #FE7243;
-    border-radius: 18.12px;
-    width: 80px;
-    height: 30px;
-    border-style: none;
-
-  }
-
-  .menu-bar {
-    list-style: none;
-    font-weight: 400;
-    font-size: 10px;
-
-  }
-
-  .responsive-menu {
-    display: none;
-  }
-
-  .menu-bar a {
-    text-decoration: none;
-    color: #9B9B9B;
-
-  }
 
   /* filer bar & menu */
   .filter {
@@ -115,36 +37,74 @@ header {
     font-size: 12px;
   }
 
+.title_text
+{
+   width: 180px;
+    justify-content:space-between;
+    padding-top: 10px;
+}
 
-  #min-max {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 10px;
-
-  }
-
-  #vol {
-    max-width: 200px;
+.title_text .filter-item
+{
+    color: #9B9B9B;
+}
+  .group{
+    background-color: white;
+    width: 180px;
+    margin: 20px auto;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px #9d968f;
+    position: relative;
+}
+.range-input input{
+    -webkit-appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 5px;
     margin: 0;
+    background-color: transparent;
+    transform: translateY(2px);
+    pointer-events: none;
+}
+.range-input input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    background-color: #115AAF;
+    border-radius: 50%;
+    pointer-events: auto;
     cursor: pointer;
+}
+.progress{
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    background-attachment: fixed;
+}
+.range-text div{
+    position: absolute;
+    background-color: #115AAF;
+    color: #eee;
+    font-size: 7px;
+    padding: 5px;
+    left: 0;
+    width: 20px;
+    text-align: center;
+    border-radius: 3px;
+    top: 15px;
+    transform: translateX(-50%);
+    width: auto;
 
-  }
-
-  datalist {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    writing-mode: sideways-lr;
-    width: 200px;
-    font-size: 10px;
-  }
-
-  option {
-    padding: 0%;
-  }
+}
+.range-text .text-max{
+    left: unset;
+    right: 0;
+    transform: translateX(50%);
+}
 
   .drop-down {
     display: flex;
@@ -360,15 +320,15 @@ header {
     font-size: 16px;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-
   }
 
   .carousel .card .img {
-    height: 300px;
+    height: 100%;
     width: 100%;
     background-color: whitesmoke;
     margin-bottom: -50px;
     margin-top: -30px;
+    border-radius: 8px;
 
   }
 
