@@ -15,8 +15,10 @@ class Product extends Model
         'description',
         'price',
         'oldPrice',
+        'discount',
         'stock_quantity',
         'category_id',
+        'favorite_count',
         'image',
         'image_url',
         'video',
@@ -24,4 +26,8 @@ class Product extends Model
     ];
 
     // ...
+    public function scopeOrderByFavoriteCountDesc($query)
+    {
+        return $query->orderBy('total_favorite_count', 'desc');
+    }
 }

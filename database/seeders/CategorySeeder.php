@@ -15,10 +15,37 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        // Thêm bản ghi cho danh mục "laptop"
         DB::table('categories')->insert([
             'category_id' => 1,
             'name' => 'laptop',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('categories')->insert([
+            'category_id' => 2,
+            'name' => 'phụ kiện',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('categories')->insert([
+            'category_id' => 3,
+            'name' => 'pc',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('categories')->insert([
+            'category_id' => 4,
+            'name' => 'flash sales',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('categories')->insert([
+            'category_id' => 5,
+            'name' => 'none',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
