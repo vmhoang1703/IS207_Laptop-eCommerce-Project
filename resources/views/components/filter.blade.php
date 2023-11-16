@@ -1,10 +1,9 @@
-<div>
-    <!-- filter -->
+<div class="col-sm-2 pb-5 filter-responsive">
     <div class="filter">
         <table class="filter-content">
             <tr>
                 <td>
-                    <a class="filtertext">Filter</a>
+                    <a class="filtertext ps-5">Filter</a>
                 </td>
             </tr>
             <tr>
@@ -30,12 +29,12 @@
                                 <span>Accessories</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </div>
-                            <ul class="menu-bar-1">
-                                <li><a href="">Power banks</a></li>
-                                <li><a href="">Cables, chargers</a></li>
-                                <li><a href="">Phone cases</a></li>
-                                <li><a href="">Speakers</a></li>
-                                <li><a href="">Headphones</a></li>
+                            <ul class="menu-bar">
+                                <li><a href="#">Power banks </a></li>
+                                <li><a href="#">Cables, chargers </a></li>
+                                <li><a href="#">Phone cases </a> </li>
+                                <li><a href="#">Speakers</a> </li>
+                                <li><a href="#">Headphones </a> </li>
                             </ul>
                         </li>
                         <li class="li-hr">
@@ -46,12 +45,11 @@
                                 <span>PCs, printer, screens</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </div>
-                            <ul class="menu-bar-1">
-                                <li><a href="">Printers</a></li>
-                                <li><a href="">Printer ink</a></li>
-                                <li><a href="">Monitor</a></li>
-                                <li><a href="">Gaming PC</a></li>
-
+                            <ul class="menu-bar">
+                                <li><a href="#"> Printers </a></li>
+                                <li> <a href="#"> Printer ink </a></li>
+                                <li><a href="#"> Monitor </a></li>
+                                <li><a href="#">Gaming PC </a></li>
                             </ul>
                         </li>
                     </ul>
@@ -59,5 +57,4 @@
             </tr>
         </table>
     </div>
-    <script src="{{ asset('js/dropdown.js') }}"></script>
 </div>

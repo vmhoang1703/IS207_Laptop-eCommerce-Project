@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable()->default(null);
             $table->string('ident')->nullable()->default(null);
             $table->string('avatarLink')->nullable()->default(null);
-            $table->string('role')->nullable()->default(null);
+            $table->string('role')->nullable()->default('customer');
             $table->string('knownFrom')->nullable()->default(null);
             $table->string('momoWallet_id')->nullable()->default(null);
             $table->timestamps();

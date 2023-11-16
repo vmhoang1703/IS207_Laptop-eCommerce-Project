@@ -1,22 +1,18 @@
-<script src="{{ asset('js/countdown.js') }}"></script>
-<div class="time">
-    <div class="pro-textXS">Days </div>
-    <div class="pro-textXS">Hours </div>
-    <div class="pro-textXS">Minutes </div>
-    <div class="pro-textXS">Seconds </div>
-    <div class="time-text">
-        <div class="pro-textM" id="Days">00 </div>
-        <div class="pro-textM-dot" style="padding-left:10px"> : </div>
+<div class="countdown col-4">
+    <div class="row textdate">
+        <div class="col-3">Days</div>
+        <div class="col-3 ps-3">Hours</div>
+        <div class="col-3 ps-4 ">Minutes</div>
+        <div class="col-3 ps-5">Seconds</div>
     </div>
-    <div class="time-text">
-        <div class="pro-textM" id="Hours">00</div>
-        <div class="pro-textM-dot" style="padding-left:10px"> : </div>
+    <div class="row " style=" flex-wrap:nowrap;">
+        <div class="Time col" id="Days">00 </div>
+        <div class="col text-danger pt-2" style="font-size: 16px;font-weight: 600;">:</div>
+        <div class="Time col" id="Hours">00</div>
+        <div class="col text-danger pt-2" style="font-size: 16px;font-weight: 600;">:</div>
+        <div class="Time col pe-4" id="Minutes">00</div>
+        <div class="col text-danger pt-2" style="font-size: 16px;font-weight: 600;">:</div>
+        <div class="Time col" id="Seconds">00</div>
     </div>
-    <div class="time-text">
-        <div class="pro-textM" id="Minutes">00</div>
-        <div class="pro-textM-dot" style="padding-left:10px"> : </div>
-    </div>
-    <div class="time-text">
-        <div class="pro-textM" id="Seconds">00</div>
-    </div>
+
 </div>

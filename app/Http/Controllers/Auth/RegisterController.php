@@ -33,7 +33,7 @@ class RegisterController extends Controller
             'how_did_you_hear' => 'required|string',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
@@ -43,7 +43,7 @@ class RegisterController extends Controller
 
         // Đăng nhập người dùng sau khi đăng ký (tuỳ chọn)
         // Auth::login($user);
-
+        // Hoặc chuyển hướng đến đăng nhập để đăng nhập lại
         return redirect('login')->with('success', 'Đăng ký thành công!');
     }
 }
