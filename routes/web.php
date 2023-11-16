@@ -25,6 +25,7 @@ Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 //Route home
 Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
+Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCount']);
 //Route đăng nhập với Google
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);

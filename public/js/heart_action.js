@@ -1,38 +1,51 @@
-document.querySelectorAll(".heart").forEach((item) =>
-    item.addEventListener("click", function () {
-        var productId = this.parentElement.dataset.id;
+$(document).ready(function () {
+    $(".heart").on("click", function () {
+        // Get the closest parent <li> element
+        var parentLi = $(this).closest("li");
+
+        // Get the product_id from the data-id attribute of the parent <li> element
+        var productId = parentLi.data("id");
+
+        console.log(productId);
 
         // Toggle color
-        if (this.style.color != "red") {
-            this.style.color = "red";
+        if ($(this).css("color") != "rgb(255, 0, 0)") {
+            $(this).css("color", "red");
             // Send request to update favorite count on the server
             updateFavoriteCount(productId, true);
         } else {
-            this.style.color = "black";
+            $(this).css("color", "black");
             // Send request to update favorite count on the server
             updateFavoriteCount(productId, false);
         }
-    })
-);
+    });
+});
 
 function updateFavoriteCount(productId, isIncrement) {
+    // Get the CSRF token from the meta tag
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+    console.log(csrfToken);
+
     // Send AJAX request to update favorite count on the server
-    fetch("/update-favorite-count", {
-        method: "POST",
+    $.ajax({
+        url: "/update-favorite-count",
+        type: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            "X-CSRF-TOKEN": csrfToken, // Include the CSRF token in the headers
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             product_id: productId,
             increment: isIncrement,
         }),
-    })
-        .then((response) => response.json())
-        .then((data) => {
+        success: function (data) {
             // Update the total favorite count on the page
-            document.getElementById("total-favorite-count").textContent =
-                data.total_favorite_count;
-        })
-        .catch((error) => console.error("Error:", error));
+            $("#total-favorite-count").text(
+                data.total_favorite_count_per_product
+            );
+        },
+        error: function (error) {
+            console.error("Error:", error);
+        },
+    });
 }
