@@ -24,7 +24,6 @@
 </head>
 
 <body>
-
     <!-- main content -->
     <section class="main-content">
         <div class="header-content">

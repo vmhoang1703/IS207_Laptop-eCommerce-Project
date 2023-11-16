@@ -406,7 +406,7 @@
 
 
   .card:hover img {
-    transform: translateY(-50px) rotate(-20deg);
+    transform: translateY(-25px) rotate(-20deg);
     transition: 0.5s;
     transition-delay: 0.4s;
 
