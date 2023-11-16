@@ -1,0 +1,60 @@
+.top_header {
+    align-items: center;
+    background-color: #115AAF;
+    padding: 10px;
+  }
+  
+  .text_topheader {
+    text-align: right;
+  }
+  .container_nav{
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  .header_logo{
+    display: block;
+    align-items: center;
+  
+  }
+  .logo {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .nameee {
+    font-size: 9.75px;
+    position: relative;
+    left: 75%;
+  }
+  
+  .menu {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    flex: 0.7;
+    position: relative;
+    margin: auto;
+  }
+  
+  .nav-link {
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    background-position: left bottom; 
+    transition: background-size 0.5s; 
+  }
+  .nav-link:hover{
+    text-decoration: underline;
+  }
+  .btn{
+    background-color: #FE7243;
+    border-radius: 18px;
+    border: none;
+  }
+  .btn:hover{
+    background-color:#cf4d22;
+  }
+  

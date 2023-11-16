@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+html {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #8C8888;
+
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container_img {
+    padding-bottom: 100px;
+    background-color: #CBCEE8;
+    display: flex;
+}
+
+.img_signup {
+    object-fit: contain;
+}
+
+.tittle_signup {
+    font-weight: 900;
+    font-size: 64px;
+    color: #333;
+}
+
+.tittle_signup strong {
+    color: #2031ce;
+}
+
+.text_signin {
+    color: #115aaf;
+}
+
+.container_information {
+    display: flex;
+    justify-content: center;
+}
+
+.fullname,
+.username,
+.email,
+.password,
+.confirm_password,
+.choose {
+    width: 90%;
+    height: 7vh;
+    background-color: #f6f2f2;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    color: #8c8888;
+    text-indent: 1cm;
+}
+.btn_signup_maincontent {
+    height: 69px;
+    width: 252px;
+    background-color: #115aaf;
+    color: #fff;
+    border-radius: 31px;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px; /* Khoảng cách giữa button và các input */
+}

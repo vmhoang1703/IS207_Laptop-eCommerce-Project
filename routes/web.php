@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/register', [RegisterController::class, 'showForm'])->name('register.show');
+Route::post('/register', [RegisterController::class, 'sendForm'])->name('register.send');
+
+Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
+Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
+
+Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
+
+Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
