@@ -1,0 +1,484 @@
+/* Tablet: 740px < width < 1281px  */
+@media only screen and (min-width: 741px) and (max-width: 1281px){
+    /* header */
+  .signup{
+      padding-left: 30px;
+  }
+  .container
+  {
+      max-width: 90%;
+  }
+  /* advertise */
+  .ads{
+    display: none;
+  }
+  .advertise
+  {
+    height: 300px;
+  }
+  .advertise_responsive{
+    display: flex;
+    justify-content: center;
+  }
+  .mySlides
+  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+  }
+  .mySlides img {
+    width: 100%;
+    height: 250px;
+    padding-bottom:  1%;
+
+  }
+   /* flashsale */
+
+  .textdate
+  {
+     margin-left: -60px;
+
+  }
+
+  .countdown .Time
+  {
+  margin-left:-30px;
+  }
+  .textdate
+  {
+
+     margin-left: -30px;
+  }
+  #Seconds
+  {
+    margin-right: -30px;
+  }
+  .introduction
+  {
+    margin-right: 5%;
+  }
+  .countdown
+  {
+    padding: 100px 0 ;
+  }
+
+    /* card */
+
+    .discount-tag
+    {
+      width: 40px;
+      height: 20px;
+      margin-left: 25px;
+      top:-1px;
+    }
+    .card-action button
+     {
+        padding: 3%;
+        margin-right: -9%;
+       border :1px solid white;
+     }
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 12px);
+    }
+
+
+      /* advertise jbl  */
+      .ads_jbl
+      {
+        width: 80%;
+
+        margin-right: 20%;
+        justify-content: center;
+        height: 700px;
+      }
+      .ads_jbl img
+      {
+        width: 100%;
+        padding-bottom: 80%;
+        padding-left: 20%;
+      }
+      .ESE
+      {
+        font-size: 30px;
+        white-space: nowrap;
+        padding-right: -100px;
+      }
+
+      .jbl-details
+      {
+        width: auto;
+      }
+      .ads_jbl_affix
+      {
+        margin-left: -30%;
+      }
+      .JBL_BOOMBOX {
+        margin-top: 47px;
+    }
+    .circle
+    {
+      width: 55px;
+      height: 55px;
+    }
+    .Timetext1 .circle div
+    {
+      font-size: 12px;
+    }
+    .introduction
+    {
+      font-size: 20px;
+    }
+    /* feature */
+    .Newarrival_res{
+        display: block;
+    }
+    .Newarrival_res .card .DELL .title-medium:hover {
+        background-size: 100% 2px;
+    }
+
+
+
+    .feature-product
+    {
+        display: none;
+    }
+    /* feedback */
+   /* feedback */
+.lastcontent .row
+{
+    display: grid;
+    justify-content: center;
+}
+.lastcontent .row {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+  }
+  /* GalaxyFold */
+  @media only screen and (max-width: 300px)
+  {
+    .filter-responsive
+
+    {
+      position: relative;
+      right: 1cm;
+    }
+    .title
+    {
+      position: relative;
+      right: 1cm;
+    }
+    .introduction
+    {
+      position: relative;
+      right: 1cm;
+    }
+    /* card */
+    .discount-tag
+    {
+      width: 40px;
+      height: 20px;
+      margin-left: 25px;
+      top:-1px;
+    }
+    .card-action button
+    {
+      margin-right: -43px;
+      border :1px solid white;
+    }
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+
+
+   /* jbl */
+    .ads_jbl
+    {
+      width: 90%;
+
+      margin-right: 20%;
+    }
+     /* feature */
+     .Newarrival_res{
+        display: block;
+    }
+    .Newarrival_res .card .DELL .title-medium:hover {
+        background-size: 100% 2px;
+    }
+
+
+
+    .feature-product
+    {
+        display: none;
+    }
+
+    /* feedback */
+.lastcontent .row
+{
+    display: grid;
+    justify-content: center;
+}
+.lastcontent .row {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+
+  }
+
+  /* Mobile:  width < 740px  */
+  @media only screen  and (max-width: 740px)
+  {
+    /* header */
+
+    .SHOPNOW
+    {
+      padding-left: 20px;
+    }
+    .header-logo
+    {
+      max-width: 100%;
+    }
+    .logo
+    {
+      width: 100%;
+      height: auto;
+    }
+    .logo-text
+    {
+      text-align: center;
+    }
+    .menu-header
+    {
+      display: none;
+    }
+    .responsive-menu
+    {
+      display: block;
+    }
+    .responsive-menu button
+    {
+      color : white ;
+      background-color: #115AAF;
+      border-color: white;
+
+    }
+    .responsive-menu button:active
+    {
+      animation: fade ;
+    -webkit-animation: fade 5s;
+    -moz-animation: fade 5s;
+    -o-animation: fade 5s;
+    -ms-animation: fade 5s;
+    transition: 0.4s;
+    }
+    .responsive-menu
+    {
+
+      animation: fade ;
+      -webkit-animation: fade ;
+      transition-delay:0.4s;
+    }
+
+
+
+    .responsive-menu li a
+    {
+      color : #115AAF;
+      font-weight: 500;
+
+    }
+
+    /* advertise */
+
+    .advertise
+    {
+      display: none;
+    }
+
+    .menu-text
+    {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .responsive-menu button
+    {
+      width: 30px;
+      height: 30px;
+    }
+    .signup
+    {
+      padding-left: 70%;
+    }
+    /* filter */
+    .filter-responsive
+    {
+      padding: 0 25%;
+    }
+     /* flashsale */
+
+  .countdown
+  {
+    padding: 100px 0 ;
+  }
+
+  .countdown .Time
+  {
+  margin-left:-32px;
+  font-size: 20px;
+  margin-top: 8px;
+
+  }
+  .textdate
+  {
+     margin-left: -60px;
+     flex-wrap: nowrap;
+  }
+  #Seconds
+  {
+    margin-right: -60px;
+  }
+  #Minutes
+  {
+    margin-right: -20px;
+  }
+  #Hours
+  {
+    margin-left: -40px;
+    margin-right: -20px;
+  }
+  #Days
+  {
+    margin-left: -40px;
+    margin-right: -20px;
+  }
+  /* card */
+  .card-action button
+    {
+
+        padding: 3%;
+        margin-right: -9%;
+       border :1px solid white;
+
+    }
+    .discount-tag
+    {
+        width: 40px;
+        margin-left:20px ;
+    }
+    .heart
+    {
+       left:2cm;
+    }
+
+    /* advertise jbl  */
+    .ads_jbl
+    {
+      width: 90%;
+
+      margin-right: 20%;
+      justify-content: center;
+    }
+    .ads_jbl img
+    {
+      width: 200px;
+      padding-bottom: 80%;
+      padding-left: 20%;
+    }
+    .ESE
+    {
+      font-size: 16px;
+      white-space: nowrap;
+      padding-right: -100px;
+    }
+
+    .jbl-details
+    {
+      width: auto;
+    }
+    .ads_jbl_affix
+    {
+      margin-left: -30%;
+    }
+    .JBL_BOOMBOX {
+      margin-top: 47px;
+  }
+  .circle
+  {
+    width: 38px;
+    height: 38px;
+  }
+  .Timetext1 .circle div
+  {
+    font-size: 9px;
+  }
+  .introduction
+  {
+    font-size: 20px;
+  }
+
+   /* feature */
+   .Newarrival_res{
+    display: block;
+  }
+  .Newarrival_res .card .DELL .title-medium:hover {
+    background-size: 100% 2px;
+}
+
+
+
+.feature-product
+{
+    display: none;
+}
+/* feedback */
+
+.lastcontent .row {
+   display: flex;
+   flex-direction: column;
+}
+.lastcontent .row .col-4 {
+width: auto;
+}
+
+
+
+
+
+}
+
+  @media only screen and (min-width: 1023px) and (max-width: 1281px)
+  {
+
+   .wrapper .carousel {
+       grid-auto-columns: calc((100% / 3) - 12px);
+   }
+   .ads_jbl {
+      width: 80%;
+
+      margin-left: -6%;
+      justify-content: end;
+      height: 700px;
+  }
+  .Newarrival_res{
+    display: none;
+  }
+  .feature-product
+{
+    display: flex;
+}
+
+/* feedback */
+
+.lastcontent .row {
+    display: flex;
+    flex-direction: row;
+}
+
+}
