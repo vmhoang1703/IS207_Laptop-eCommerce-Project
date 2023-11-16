@@ -1,56 +1,70 @@
-.main_content {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
+@charset "UTF-8";
+
+html {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-/* split layout */
-.main_left_content,
-.main_right_content {
-    width: 50%;
-    border: none;
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #8C8888;
+
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container_img {
     padding-bottom: 100px;
-}
-/* css left content */
-.main_left_content {
-    background-color: #cbcee8;
-    overflow: hidden;
-}
-.signup_img {
-    object-fit: cover;
-    width: 100%;
-    height: 100vh;
-}
-/* css right content */
-.main_right_content {
+    background-color: #CBCEE8;
     display: flex;
-    flex-direction: column;
-    padding-left: 10%;
 }
+
+.img_signup {
+    object-fit: contain;
+}
+
 .tittle_signup {
     font-weight: 900;
     font-size: 64px;
+    color: #333;
 }
-.text_up {
+
+.tittle_signup strong {
     color: #2031ce;
-    font-weight: 900;
 }
+
 .text_signin {
     color: #115aaf;
 }
+
+.container_information {
+    display: flex;
+    justify-content: center;
+}
+
 .fullname,
 .username,
 .email,
 .password,
 .confirm_password,
 .choose {
-    width: 70%;
+    width: 90%;
     height: 7vh;
     background-color: #f6f2f2;
     margin-bottom: 20px;
     border: none;
     border-radius: 15px;
-    padding-left: 5%;
     color: #8c8888;
+    text-indent: 1cm;
 }
 .btn_signup_maincontent {
     height: 69px;
@@ -61,4 +75,5 @@
     border: none;
     font-size: 24px;
     font-weight: 600;
+    margin-top: 20px; /* Khoảng cách giữa button và các input */
 }
