@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 10, 2);
             $table->decimal('oldPrice', 10, 2);
+            $table->integer('discount')->nullable()->default(null);
             $table->integer('stock_quantity');
             $table->unsignedBigInteger('category_id');
             $table->string('image')->nullable()->default(null);
