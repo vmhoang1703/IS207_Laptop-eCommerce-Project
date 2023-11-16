@@ -1,0 +1,126 @@
+body{
+    font-family: Poppins;
+}
+.header-fake{
+    width: 100%;
+    height:165px ;
+    background-color: aliceblue;
+}
+.footer-fake{
+    width: 100%;
+    height: 365px;
+    background-color: aliceblue;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #000;
+    opacity: 0.5;
+}
+.breadcrumb{
+    width: 100%;
+}
+.title-form{
+    font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px;
+letter-spacing: 1.44px;
+color: #000000;
+}
+.form-custommer-infor label:not(.exclude) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 0.6;
+}
+.form-custommer-infor input:not(.exclude) {
+    width: 470px;
+    height: 50px;
+    border-radius: 4px;
+    background: var(--Secondary, #F5F5F5);
+}
+.infor-payment{
+color: var(--Text2, #000);
+font-size: 19.849px;
+font-style: normal;
+font-weight: 400;
+line-height: 29.773px; 
+}
+
+.line-grey{
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.4;
+}
+.product-tite{
+    
+    gap: 15px;
+}
+.product-img{
+    transition: transform 0.3s ease-in-out;
+    border-radius: 4px;
+}
+.product-img:hover{
+    transform: scale(1.1);
+}
+/* Đảm bảo cửa sổ modal hiển thị ở giữa trang */
+.modal-dialog {
+    margin: auto;
+}
+
+/* Đặt chiều rộng cho cửa sổ modal */
+
+.modal-content {
+    width: 521px;
+}
+.modal-dialog{
+    position: fixed;
+    top: 0;
+    right: 0  ;
+    bottom: 0;
+    left: 0;
+}
+.modal-content{
+margin: auto;
+width: 600px;
+height: 700px;
+}
+.modal-title{
+    color: #000;
+
+text-align: center;
+font-family: Poppins;
+font-size: 21.891px;
+font-style: normal;
+font-weight: 500;
+line-height: 16.294px; 
+}
+.modal-bs5-none{
+    justify-content: initial !important;
+}
+.method-line{
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(145,158,171,.239);
+    gap: 15px;
+    padding: 10px 15px;
+    position: relative;
+    transition: .1s ease;
+}
+.method-line__active{
+    border: 1px solid #ff2840 !important;
+}
+#paymentMethodBtn {
+    border: none;  /* Bỏ border */
+    background-color: transparent;  /* Bỏ background color */
+    padding: 0;  /* Bỏ padding để không giữ lại khoảng trắng xung quanh nội dung */
+    cursor: pointer;  /* Biến con trỏ thành kiểu pointer khi di chuột qua nút */
+}
+
+#paymentMethodBtn:focus {
+    outline: none;  /* Bỏ viền khi button được focus */
+}

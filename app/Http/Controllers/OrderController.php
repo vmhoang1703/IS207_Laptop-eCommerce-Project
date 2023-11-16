@@ -10,6 +10,6 @@ class OrderController extends Controller
     //
     public function showOrderPage():View
     {
-        return view('website\oder_process\oder_show');
+        return view('website.oder_process.oder_show');
     }
 }

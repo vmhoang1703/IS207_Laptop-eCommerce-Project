@@ -12,7 +12,10 @@
 
 <body class="d-flex flex-column">
     <!-- header  -->
-    <div class="header-fake"></div>
+    <!-- <div class="header-fake"></div> -->
+     <!-- Header -->
+    @component('components.header')
+    @endcomponent
     <!-- breadcrumb -->
     <div class="container-xxl ">
         <ul id="myBreadcrumb" class="breadcrumb">
