@@ -40,9 +40,10 @@ function updateFavoriteCount(productId, isIncrement) {
         }),
         success: function (data) {
             // Update the total favorite count on the page
-            $("#total-favorite-count").text(
-                data.total_favorite_count_per_product
-            );
+            // $("#total-favorite-count").text(
+            //     data.total_favorite_count_per_product
+            // );
+            console.log(data.total_favorite_count_per_product);
         },
         error: function (error) {
             console.error("Error:", error);
