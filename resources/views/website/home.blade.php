@@ -25,6 +25,9 @@
 </head>
 
 <body>
+    <!-- header -->
+    @component("components.header_signup")
+    @endcomponent
     <!-- main content -->
     <section class="main-content">
         <div class="header-content">
@@ -632,6 +635,10 @@
 
     <section class="mt-5">
     </section>
+     <!-- footer -->
+     @component("components.footer")
+     @endcomponent
+     <!-- - -->
 
     <script src="js/bootstrap.bundle.min.js"> </script>
 </body>

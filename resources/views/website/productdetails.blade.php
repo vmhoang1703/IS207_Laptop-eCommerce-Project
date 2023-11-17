@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mb-5">
         <div class="title ">
             <span class="Deactive">Store / </span>
             <span class="Deactive"> Laptop / </span>
@@ -38,8 +38,10 @@
                             <script>
                                 document.querySelectorAll(".heart1").forEach(item =>
                                     item.addEventListener('click', function() {
-                                        if (this.style.fill != "black")
-                                            this.style.fill = "black"
+                                        if (this.style.fill != "red")
+                                          {
+                                             this.style.fill = "red";
+                                          }
                                         else
                                             this.style.fill = "none"
                                     })
@@ -316,7 +318,13 @@
                 </div>
             </div>
         </div>
+
     </div>
+      <!-- footer -->
+      @component("components.footer")
+      @endcomponent
+     <!-- - -->
+
 </body>
 
 </html>
