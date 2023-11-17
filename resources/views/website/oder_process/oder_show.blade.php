@@ -17,7 +17,7 @@
     @component('components.header')
     @endcomponent
     <!-- breadcrumb -->
-    <div class="container-xxl ">
+    <div class="container-xxl container-sm container-lg container-md ">
         <ul id="myBreadcrumb" class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Cửa hàng </a></li>
             <li class="breadcrumb-item"><a href="#">Laptop </a></li>
@@ -27,31 +27,31 @@
     </div>
     <form id="checkoutForm" action="">
         <!-- Nội dung chính -->
-        <div class="container-xxl d-flex flex-column ">
+        <div class="container-xxl container-sm container-lg container-md d-flex flex-column ">
             <!-- Dòng tiêu đề bảng -->
-            <div class="cart-main-section mb-xxl-4 row w-100">
-                <div class="text-xl-start col-xl-4 ps-5 ">Product</div>
-                <div class="text-center col-xl-3 ">Price</div>
-                <div class="text-center col-xl-2">Quantity</div>
-                <div class="text-center col-xl-3">Subtotal</div>
+            <div class="cart-main-section mb-sm-4 mb-lg-4 mb-md-4  mb-xxl-4 row w-100">
+                <div class="text-xl-start col-sm-4 col-lg-4 col-md-4 col-xl-4 ps-5 ">Product</div>
+                <div class="text-center col-sm-3 col-md-3 col-lg-3  col-xl-3 ">Price</div>
+                <div class="text-center col-sm-2 col-md-2 col-lg-2 col-xl-2">Quantity</div>
+                <div class="text-center col-sm-3 col-md-3 col-lg-3 col-xl-3">Subtotal</div>
             </div>
             <!-- khung chức các sản phẩm đã đặt -->
             <div class="d-flex flex-column  ">
                 <!-- Dòng thông tin 1 sản phẩm -->
-                <div class="cart-section mb-xxl-2 row  w-100">
-                    <a class="card flex-row col-xl-4" id="product-img" href="">
+                <div class="cart-section mb-sm-1 mb-md-2 mb-lg-2 mb-xxl-2 row  w-100">
+                    <a class="card flex-row col-sm-4 col-md-4 col-lg-4 col-xl-4" id="product-img" href="">
                         <img src="https://via.placeholder.com/150" class="card-img-left product-img">
                         <div class="card-body">
                             <p id="product-name" class="card-title product-title ">Dell XPS 9710 17 inch Core i7</p>
                         </div>
                     </a>
-                    <div class="text-center col-xl-3 d-flex align-items-center justify-content-center">$<div
+                    <div class="text-center col-sm-3 col-md-3 col-lg-3 col-xl-3 d-flex align-items-center justify-content-center">$<div
                             id=" product-price">650</div>
                     </div>
-                    <div class="text-center col-xl-2">
+                    <div class="text-center col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <input type="number" class="input-quantity " id="quantityInput" value="1" min="1">
                     </div>
-                    <div class="text-center col-xl-3 d-flex align-items-center justify-content-center">$<div
+                    <div class="text-center col-sm-3 col-md-3 col-lg-3 col-xl-3 d-flex align-items-center justify-content-center">$<div
                             id=" subtotal-price">2000</div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                             <div id="total-infor__total " class=" col-6 text-end"> $2000 </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button id="total-infor-btn__checkout" type="button"
+                            <button id="total-infor-btn__checkout"  type="submit"
                                 class="total-infor__checkout btn btn-danger  mt-3 ">Checkout</button>
                         </div>
                     </div>

@@ -124,3 +124,129 @@ a {
     height: 365px;
     background-color: aliceblue;
 }
+
+
+/* responsive */
+
+@media (min-width: 990px) and (max-width: 1400px) {
+    .container-lg{
+        width: 85%;
+    }
+    
+    .payment-infor{
+    
+    display: flex !important;
+    align-content: flex-start;
+    gap: 20px;
+         
+    }
+    .coupon-code{
+        width: 100% !important;
+        margin-top: 40px;
+        padding-right: 0 !important;
+    }
+    .input-group{
+        width: 100%;
+    }
+   
+    .total-infor{
+
+        width: 100% !important;
+    }
+  }
+
+  @media (min-width: 767px) and (max-width: 989px) {
+   .breadcrumb{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 20px;
+   }
+   .container-md{
+    width: 85%;
+}
+
+
+
+.payment-infor{
+    
+    display: flex !important;
+    align-content: flex-start;
+    gap: 20px;
+         
+    }
+    .coupon-code{
+        width: 100% !important;
+        margin-top: 40px;
+        padding-right: 0 !important;
+    }
+    .input-group{
+        width: 100%;
+    }
+   
+    .total-infor{
+
+        width: 100% !important;
+    }
+    .input-quantity {
+        width: 50px;
+    height: 30px;
+    }
+  }
+
+  @media  (max-width: 766px) {
+    .breadcrumb{
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 19px;
+       }
+       .container-sm{
+        width: 85%;
+    }
+    
+    
+    
+    .payment-infor{
+        
+        display: flex !important;
+        align-content: flex-start;
+        gap: 20px;
+             
+        }
+        .coupon-code{
+            width: 100% !important;
+            margin-top: 40px;
+            padding-right: 0 !important;
+        }
+        .input-group{
+            width: 100%;
+        }
+       
+        .total-infor{
+    
+            width: 100% !important;
+        }
+        .input-quantity {
+        width: 50px;
+        height: 30px;
+        }
+
+        .cart-main-section{
+            height: 40px;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 350;
+            line-height: 20px;
+        }
+        .card img{
+        height: 32px;
+        width: 32px;
+        }
+        .product-title,
+        .cart-section{
+            font-size: 14px !important;
+            font-weight: 300 !important;
+            line-height: 20px !important;
+        }
+  }
