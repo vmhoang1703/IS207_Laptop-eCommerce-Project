@@ -35,6 +35,7 @@ Route::get('/admin/tables', [AdminController::class, 'showTablesPage']);
 Route::get('/admin/charts', [AdminController::class, 'showChartsPage']);
 // Route products management
 Route::get('/admin/products-management', [AdminController::class, 'showProductsManagementPage']);
+Route::get('/products/{id}/view', [AdminController::class, 'viewProductPage'])->name('product.view');
 Route::get('/products/{id}/edit', [AdminController::class, 'editProductPage'])->name('product.edit');
 Route::put('/products/{id}', [AdminController::class, 'updateProduct'])->name('product.update');
 // Route orders management

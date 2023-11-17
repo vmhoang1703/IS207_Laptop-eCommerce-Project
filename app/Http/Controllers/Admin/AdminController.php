@@ -26,6 +26,11 @@ class AdminController extends Controller
         $products = Product::all();
         return view('admin.products', compact('products'));
     }
+    public function viewProductPage($id)
+    {
+        $product = Product::find($id);
+        return view('admin.product_view', compact('product'));
+    }
     public function editProductPage($id)
     {
         $product = Product::find($id);

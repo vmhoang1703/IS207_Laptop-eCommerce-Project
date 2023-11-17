@@ -63,6 +63,10 @@
                             <a href="{{ route('product.edit', $product->product_id) }}">
                                 <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
                             </a>
+                            &nbsp;
+                            <a href="{{ route('product.view', $product->product_id) }}">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
                         </td>
                     </tr>
                     @endforeach
