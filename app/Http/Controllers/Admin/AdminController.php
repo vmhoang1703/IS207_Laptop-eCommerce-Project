@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Contracts\View\View;
 
 class AdminController extends Controller
@@ -21,7 +22,8 @@ class AdminController extends Controller
     }
     public function showProductsManagementPage(): View
     {
-        return view('admin.products');
+        $products = Product::all();
+        return view('admin.products', compact('products'));
     }
     public function showOrdersManagementPage(): View
     {
