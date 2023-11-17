@@ -24,58 +24,60 @@
     </div>
     <!--  -->
     <div class="container   w-100 ">
+      <form action="">
         <div class="row w-100 ">
             <div class="col-6 d-flex flex-column mt-4">
                 <h3 class="title-form"> Billing Dettails</h3>
-                    <form action="" class=" form-custommer-infor ">
-                        <div class="mb-3 mt-3">
-                          <label for="first-name" class="form-label">First Name:
+                    <div class="form-custommer-infor">
+                      <div class="mb-3 mt-3">
+                        <label for="first-name" class="form-label">First Name:
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="first-name"  name="first-name"required>
+                      </div>
+  
+                      <div class="mb-3 mt-3">
+                          <label for="street-address" class="form-label">Street Address:
                             <span class="text-danger">*</span>
                           </label>
-                          <input type="text" class="form-control" id="first-name"  name="first-name"required>
+                          <input type="text" class="form-control" id="street-address"  name="street-address" required>
                         </div>
-    
+  
                         <div class="mb-3 mt-3">
-                            <label for="street-address" class="form-label">Street Address:
-                              <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" class="form-control" id="street-address"  name="street-address" required>
-                          </div>
-    
-                          <div class="mb-3 mt-3">
-                            <label for="apartment" class="form-label">Apartment:
-                            </label>
-                            <input type="text" class="form-control" id="apartment"  name="apartment">
-                          </div>
-    
-                          <div class="mb-3 mt-3">
-                            <label for="city" class="form-label">Town/City:
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" class="form-control" id="city"  name="city" required>
-                          </div>
-    
-                          <div class="mb-3 mt-3">
-                            <label for="phone" class="form-label">Phone Number:
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="tel" class="form-control" id="phone"  name="phone" required>
-                          </div>
-                        
-                          <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email Address:
-                                <span class="text-danger">*</span>
-                            </label>
-                            <input type="email" class="form-control" id="email"  name="email" required>
-                          </div>
-    
-                        <div class="form-check  mb-3">
-                          <label class="form-check-label exclude ">
-                            <input class=" exclude form-check-input" type="checkbox" name="remember">Save this information for faster check-out next time
+                          <label for="apartment" class="form-label">Apartment:
                           </label>
+                          <input type="text" class="form-control" id="apartment"  name="apartment">
                         </div>
+  
+                        <div class="mb-3 mt-3">
+                          <label for="city" class="form-label">Town/City:
+                              <span class="text-danger">*</span>
+                          </label>
+                          <input type="text" class="form-control" id="city"  name="city" required>
+                        </div>
+  
+                        <div class="mb-3 mt-3">
+                          <label for="phone" class="form-label">Phone Number:
+                              <span class="text-danger">*</span>
+                          </label>
+                          <input type="tel" class="form-control" id="phone"  name="phone" required>
+                        </div>
+                      
+                        <div class="mb-3 mt-3">
+                          <label for="email" class="form-label">Email Address:
+                              <span class="text-danger">*</span>
+                          </label>
+                          <input type="email" class="form-control" id="email"  name="email" required>
+                        </div>
+  
+                      <div class="form-check  mb-3">
+                        <label class="form-check-label exclude ">
+                          <input class=" exclude form-check-input" type="checkbox" name="remember">Save this information for faster check-out next time
+                        </label>
+                      </div>
+                    </div>
                      
-                  </form>
+                  
                 
             </div>
             <div class="col-6  ">
@@ -162,13 +164,13 @@
                 
 
                     <div class="d-grid mt-4">
-                        <button type="button" class="btn btn-danger btn-oder">Oder</button>
+                        <button type="button" class="btn btn-danger btn-oder">Order</button>
                       </div>
-
                 </div>
             </div>
         </div>
     </div>
+      </form>
 
     <div class="footer-fake mt-5"></div>
      <script src="./index_demo.js"> </script>

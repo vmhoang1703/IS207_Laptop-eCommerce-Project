@@ -88,7 +88,7 @@
                             <div id="total-infor__total " class=" col-6 text-end"> $2000 </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button id="total-infor-btn__checkout"  type="submit"
+                            <button id="total-infor-btn__checkout"  type="button"
                                 class="total-infor__checkout btn btn-danger  mt-3 ">Checkout</button>
                         </div>
                     </div>
