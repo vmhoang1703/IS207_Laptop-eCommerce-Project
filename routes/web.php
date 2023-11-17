@@ -33,6 +33,11 @@ Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('/admin/dashboard', [AdminController::class, 'showDashboardPage']);
 Route::get('/admin/tables', [AdminController::class, 'showTablesPage']);
 Route::get('/admin/charts', [AdminController::class, 'showChartsPage']);
+// Route products management
 Route::get('/admin/products-management', [AdminController::class, 'showProductsManagementPage']);
+Route::get('/products/{id}/edit', [AdminController::class, 'editProductPage'])->name('product.edit');
+Route::put('/products/{id}', [AdminController::class, 'updateProduct'])->name('product.update');
+// Route orders management
 Route::get('/admin/orders-management', [AdminController::class, 'showOrdersManagementPage']);
+// Route users management
 Route::get('/admin/users-management', [AdminController::class, 'showUsersManagementPage']);

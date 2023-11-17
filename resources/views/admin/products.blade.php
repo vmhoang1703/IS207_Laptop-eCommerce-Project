@@ -50,19 +50,21 @@
                 </tfoot>
                 <tbody>
                     @foreach($products as $product)
-                        <tr>
-                            <td>{{ $product->product_id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->price }}$</td>
-                            <td>{{ $product->stock_quantity }}</td>
-                            <td>{{ $product->created_at }}</td>
-                            <td>{{ $product->updated_at }}</td>
-                            <td>
-                                <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
-                                &nbsp;
+                    <tr>
+                        <td>{{ $product->product_id }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->price }}$</td>
+                        <td>{{ $product->stock_quantity }}</td>
+                        <td>{{ $product->created_at }}</td>
+                        <td>{{ $product->updated_at }}</td>
+                        <td>
+                            <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
+                            &nbsp;
+                            <a href="{{ route('product.edit', $product->product_id) }}">
                                 <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
-                            </td>
-                        </tr>
+                            </a>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
