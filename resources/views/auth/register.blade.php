@@ -26,7 +26,6 @@
                     <p style="color: #8C8888;">Already have an account? <a href="{{ route('login.show') }}" class="text_signin">Sign in</a></p>
                 </div>
                 <form action="{{ route('register.send') }}" method="POST" class="input_info_signup">
-
                     <input type="text" name="name" placeholder="Name" class="fullname ">
                     <input type="text" name="username" placeholder="Username" class="username">
                     <input type="email" name="email" placeholder="Email" class="email">
@@ -38,10 +37,9 @@
                         <option value="friend">Friend</option>
                         <option value="advertising">Advertising</option>
                     </select>
+                    <input type="submit" value="Sign up" class=" offset-3 btn_signup">
                 </form>
-                <div>
-                    <button type="submit" class="btn_signup_maincontent ">Sign Up</button>
-                </div>
+
             </div>
         </div>
     </div>

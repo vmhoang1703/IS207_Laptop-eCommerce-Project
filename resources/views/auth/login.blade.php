@@ -29,12 +29,12 @@
                     <p>You don't have an account?<a href="../Project/sign_up.php" class="text_sign_up">Sign up</a></p>
                 </div>
                 <!-- Input information  -->
-                <div class="container">
-                    <form action="" class="input_info_signin">
+                <form class="container text-center">
+                    <div action="" class="input_info_signin">
                         <input type="username" placeholder="Username" class="username ">
                         <input type="password" placeholder="Password" class="password">
-                    </form>
-                    <div class="remember_and_forgot">
+                    </div>
+                    <div class="remember_and_forgot pb-3">
                         <div class="remember">
                             <input type="checkbox">
                             Remember me
@@ -43,12 +43,10 @@
                             <a href="" class="">Forgot password?</a>
                         </div>
                     </div>
-                </div>
+                    <input type="submit" value="Sign in" class="btn_signin text-white">
+                    <p class="or_signin mt-2">Or sign in</p>
+                </form>
                 <!-- Button -->
-                <div class="container text-center">
-                    <button class="btn_signin text-white">Sign in</button>
-                    <p class="or_signin">Or sign in</p>
-                </div>
                 <div class="col-sm-12 col-lg-12 row container text-center">
                     <button class=" col-sm-5 col-lg-5 other_login">
                         <img src="{{ asset('img/FB icon in sign in.png') }}" alt="facebook icon">
