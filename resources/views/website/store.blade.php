@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header
     <section class="header ">
         <div class="Top-header">
             <div class="container py-2 px-5 ">
@@ -88,7 +88,7 @@
             </div>
         </div>
         <hr style="width: 100%">
-    </section>
+    </section> -->
     <section class="maincontain">
         <!-- main content -->
         <section class="main-content">
