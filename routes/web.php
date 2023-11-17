@@ -32,5 +32,6 @@ Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 //Route giao diện Order
 Route::get('/order', [OrderController::class,'showOrderPage'])->name('order.show');
+Route::get('/orderpayment', [OrderController::class,'showOrderPaymentPage'])->name('order.payment');
 
 Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
