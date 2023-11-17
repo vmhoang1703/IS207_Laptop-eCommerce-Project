@@ -29,4 +29,10 @@ Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
+// Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
+Route::get('/admin/dashboard', [AdminController::class, 'showDashboardPage']);
+Route::get('/admin/tables', [AdminController::class, 'showTablesPage']);
+Route::get('/admin/charts', [AdminController::class, 'showChartsPage']);
+Route::get('/admin/products-management', [AdminController::class, 'showProductsManagementPage']);
+Route::get('/admin/orders-management', [AdminController::class, 'showOrdersManagementPage']);
+Route::get('/admin/users-management', [AdminController::class, 'showUsersManagementPage']);

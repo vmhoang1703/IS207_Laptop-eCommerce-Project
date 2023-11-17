@@ -1,0 +1,229 @@
+[33mcommit 41182b91db212bac4aa13e79e6d467bcbe3dcae0[m[33m ([m[1;36mHEAD -> [m[1;32madmin-dev[m[33m, [m[1;31morigin/admin-dev[m[33m)[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Fri Nov 17 20:08:17 2023 +0700
+
+    create the layout of admin pages and some pages for admin by bootstrap, the route and controller for showing page
+
+[33mcommit 0e329db5e7f12fd13da64ac91566358fdefaf482[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m
+Author: MinhAnh-Manh <nguyenanh.3566@gmail.com>
+Date:   Thu Nov 16 18:44:43 2023 +0700
+
+     Tao nhanh dev
+
+[33mcommit 60d6674eac78810d3e2c4751b0ad41b85930baba[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 831ba19 a926b7b
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Thu Nov 16 18:17:50 2023 +0700
+
+    Merge pull request #10 from vmhoang1703/bao_cao_gki
+    
+    create components from home.blade.php and make Authorization function for admin, customer
+
+[33mcommit a926b7b94892255db9f09587d95f54da0254fcb2[m[33m ([m[1;31morigin/bao_cao_gki[m[33m, [m[1;32mbao_cao_gki[m[33m)[m
+Merge: db99e72 4d80446
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Thu Nov 16 18:16:07 2023 +0700
+
+    Merge branch 'bao_cao_gki' of https://github.com/vmhoang1703/IS207_Laptop-eCommerce-Project into bao_cao_gki
+
+[33mcommit 831ba1938eae42041f298903c1c300a53bf81e5c[m
+Merge: 25a3348 4d80446
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Thu Nov 16 18:12:52 2023 +0700
+
+    Merge pull request #9 from vmhoang1703/bao_cao_gki
+    
+    bao cao gki
+
+[33mcommit db99e729d6e7b8ca98b3cdac1ec9d090716a73a1[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Thu Nov 16 18:08:07 2023 +0700
+
+    create components from home.blade.php and make Authorization function for admin, customer
+
+[33mcommit 4d804467b1007d2946b53de5a369f39fba257382[m
+Merge: 943b9cc 0de668e
+Author: MinhAnh.Manh <nguyenanh.3566@gmail.com>
+Date:   Thu Nov 16 17:56:53 2023 +0700
+
+    Merge branch 'bao_cao_gki' of https://github.com/vmhoang1703/IS207_Laptop-eCommerce-Project into bao_cao_gki
+
+[33mcommit 943b9cc0ccb9d9e79a3122b624652a134fb67d16[m
+Author: MinhAnh.Manh <nguyenanh.3566@gmail.com>
+Date:   Wed Nov 15 20:58:06 2023 +0700
+
+    push login and register
+
+[33mcommit 0de668e3919b2a6ac983c9e3e10785e6f647574e[m
+Author: Hungpq13 <anhhungtg036@gmail.com>
+Date:   Tue Nov 14 12:32:48 2023 +0700
+
+    homePage update 14/11
+
+[33mcommit 0531418d6746921802d9b7c33032db30396d58c2[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Mon Nov 13 14:25:54 2023 +0700
+
+    create seeder test for Category and Product
+
+[33mcommit 326ad4e4679feb4354eb3d736d88fcfb142c89e5[m
+Author: Hungpq13 <anhhungtg036@gmail.com>
+Date:   Mon Nov 13 14:08:48 2023 +0700
+
+    homePage update 2:08 pm 13/11
+
+[33mcommit 35f06271f1706f395d180c23ac1d6358184e7ae1[m
+Author: Hungpq13 <anhhungtg036@gmail.com>
+Date:   Mon Nov 13 13:41:36 2023 +0700
+
+    homePage update
+
+[33mcommit c3778ee47cedde3d902c012db482e164c383f5dc[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Sat Oct 28 10:29:53 2023 +0700
+
+    fix login and register header
+
+[33mcommit c4e82a50c6887861060c95f6b29b97abbf03e602[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Sat Oct 28 09:50:06 2023 +0700
+
+    add route ftom home to login
+
+[33mcommit 80642cf439819ea32882fdefacc87e9892f2fe79[m
+Merge: 2939833 645607f
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Sat Oct 28 09:33:34 2023 +0700
+
+    Merge pull request #8 from vmhoang1703/home-dev
+    
+    Home page
+
+[33mcommit 645607f02c524d419c5355bc9c7f1e7034655cf8[m[33m ([m[1;31morigin/home-dev[m[33m, [m[1;32mhome-dev[m[33m)[m
+Merge: e6202f2 2939833
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Sat Oct 28 09:32:34 2023 +0700
+
+    Merge branch 'bao_cao_gki' of https://github.com/vmhoang1703/IS207_Laptop-eCommerce-Project into home-dev
+
+[33mcommit 29398333e18e3523c017a0115c159608717add9d[m
+Merge: c11370d 0f9d22a
+Author: Nguyen Thi Thuy Trang <128286207+TrangNguyen0909@users.noreply.github.com>
+Date:   Sat Oct 28 09:08:38 2023 +0700
+
+    Merge pull request #7 from vmhoang1703/register-BE
+    
+    Register and Login for interim statement
+
+[33mcommit 0f9d22a6d514ca835cb9da08c6edb561cdaeee15[m[33m ([m[1;31morigin/register-BE[m[33m, [m[1;32mregister-BE[m[33m)[m
+Author: TrangNguyen0909 <fandymees@gmail.com>
+Date:   Sat Oct 28 09:05:38 2023 +0700
+
+    add users migration
+
+[33mcommit 1e727f52e2864edfabc430d9c1d24261578f138d[m
+Merge: c9d143e 64d48cc
+Author: Nguyen Thi Thuy Trang <128286207+TrangNguyen0909@users.noreply.github.com>
+Date:   Sat Oct 28 09:03:16 2023 +0700
+
+    Merge pull request #6 from vmhoang1703/login-BE
+    
+    Completed the basic login function and login with Google account
+
+[33mcommit 64d48ccb9e4e404289495f0f3ff5889dcf965444[m[33m ([m[1;31morigin/login-BE[m[33m, [m[1;32mlogin-BE[m[33m)[m
+Author: TrangNguyen0909 <fandymees@gmail.com>
+Date:   Sat Oct 28 08:59:09 2023 +0700
+
+    Completed Login with Google
+
+[33mcommit e6202f23bb8922463f90c3faed34a5069b004564[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Fri Oct 27 23:03:27 2023 +0700
+
+    Fixed the interface of Home page (80%), note: need to fix the footer
+
+[33mcommit ba61b283378af2d13be90496d802a2468f1e3c3e[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Fri Oct 27 21:06:10 2023 +0700
+
+    Completed the basic of Login function
+
+[33mcommit 9dfcca79894d984373221da502d3986cceb9b966[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Fri Oct 27 20:40:44 2023 +0700
+
+    fix Home Interface
+
+[33mcommit 13358f4c1d687dd424efc611756d4a26effbe9e2[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Fri Oct 27 14:23:55 2023 +0700
+
+    create some components (header, footer, product card, filter,...) and home page layout
+
+[33mcommit c11370d8bbb4d0cd59dfbe834807cf600243d82b[m
+Merge: f5dcc7d c9d143e
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Fri Oct 27 12:49:44 2023 +0700
+
+    Merge pull request #5 from vmhoang1703/register-BE
+    
+    Complete basic register function
+
+[33mcommit c9d143ed29136bd5f9451facc99ea74d2bdaaafb[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Thu Oct 26 10:03:14 2023 +0700
+
+    optimize the code of creating the value of users table's attribute
+
+[33mcommit f5dcc7d1ec5975bcae174b35383fd499bb582330[m
+Merge: ca7b75a ab26e18
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Thu Oct 26 07:57:14 2023 +0700
+
+    Merge pull request #4 from vmhoang1703/frontend-dev
+    
+    update header signup signin
+
+[33mcommit ab26e183487920054b9f84f8116edaa061f02f1c[m[33m ([m[1;32mfrontend-dev[m[33m)[m
+Merge: ea4fb89 df73ead
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Thu Oct 26 07:56:37 2023 +0700
+
+    Merge branch 'frontend-dev' of https://github.com/vmhoang1703/IS207_Laptop-eCommerce-Project into frontend-dev
+
+[33mcommit 0e6c876eb030fcb8266b220653211f98ed5d94e1[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Thu Oct 26 07:53:57 2023 +0700
+
+    completed the basic of Register function
+
+[33mcommit df73ead5037059ca7a945813696d9cd16e2c51e4[m
+Author: MinhAnh.Manh <nguyenanh.3566@gmail.com>
+Date:   Wed Oct 25 20:45:24 2023 +0700
+
+    update header signup
+
+[33mcommit ca7b75abb69f7d4f2a8cf2856a9bc98a88a02dd4[m
+Author: vmhoang1703 <vmhoang1703@gmail.com>
+Date:   Wed Oct 25 14:12:59 2023 +0700
+
+    fix login, register form
+
+[33mcommit 80b3357ef306a5e980f97d9c13da023fdbe374fa[m
+Merge: ea4fb89 5e01902
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Wed Oct 25 10:09:26 2023 +0700
+
+    Merge pull request #3 from vmhoang1703/register_login-FE
+    
+    Update R\register login fe
+
+[33mcommit 5e01902a4828e71c01a399becbffac9ee46f4b50[m[33m ([m[1;31morigin/register_login-FE[m[33m, [m[1;32mregister_login-FE[m[33m)[m
+Merge: ce1d216 ea4fb89
+Author: Vu Minh Hoang <115143361+vmhoang1703@users.noreply.github.com>
+Date:   Wed Oct 25 10:09:19 2023 +0700
+
+    Merge branch 'dev' into register_login-FE
+
+[33mcommit ce1d216c8c05a42015dd844aa08e9824a5d746ef[m
+Merge: 3418110 abf585
