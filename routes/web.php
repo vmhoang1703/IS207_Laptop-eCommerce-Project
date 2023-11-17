@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\DetailProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,11 @@ Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
 //Route đăng nhập với Google
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+//Route cửa hàng
+Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
+
+//Route chi tiết sản phẩm
+Route::get('/productdetail', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
 
 Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
