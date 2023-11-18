@@ -26,13 +26,14 @@
                     <h1 class="tittle_signin">SIGN
                         <strong>IN</strong>
                     </h1>
-                    <p>You don't have an account?<a href="../Project/sign_up.php" class="text_sign_up">Sign up</a></p>
+                    <p>You don't have an account?<a href="{{ route('login.show') }}" class="text_sign_up">Sign up</a></p>
                 </div>
                 <!-- Input information  -->
-                <form class="container text-center">
-                    <div action="" class="input_info_signin">
-                        <input type="username" placeholder="Username" class="username ">
-                        <input type="password" placeholder="Password" class="password">
+                <form class="container text-center" action="{{ route('login.send') }}" method="post">
+                    @csrf
+                    <div class="input_info_signin">
+                        <input type="text" name="username" placeholder="Username" class="username">
+                        <input type="password" name="password" placeholder="Password" class="password">
                     </div>
                     <div class="remember_and_forgot pb-3">
                         <div class="remember">
@@ -52,7 +53,7 @@
                         <img src="{{ asset('img/FB icon in sign in.png') }}" alt="facebook icon">
                     </button>
                     <button class="col-sm-5 col-lg-5 offset-2 other_login">
-                        <img src="{{ asset('img/google icon.png') }}" alt="google icon">
+                        <a href="{{ route('google.login') }}"><img src="{{ asset('img/google icon.png') }}" alt="google icon"></a>
                     </button>
                 </div>
             </div>
