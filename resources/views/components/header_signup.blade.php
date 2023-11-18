@@ -27,8 +27,9 @@
                 <div class="menu-header col-sm-1">
                     <a href="#">STORE </a>
                 </div>
-                <div class="menu-header col-sm-1">
+                <div class="menu-header col-sm-1" style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
+
                 </div>
                 <div class="menu-header col-sm-1">
                     <a href="#">CONTACT </a>
