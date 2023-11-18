@@ -30,7 +30,7 @@
     border: none;
 }
 
-img {
+.card-wrapper .card img {
     width: 100%;
     display: block;
 }
@@ -220,6 +220,13 @@ img {
     height: 43px;
     border-radius: 4px;
 }
+.line
+{
+  padding: 0 0.04rem;
+  margin-left: 1rem;
+  background-color: black;
+
+}
 /* title */
 .secondary2 {
     width: 20px;
@@ -235,119 +242,12 @@ img {
     color: #DB4444;
     ;
   }
-  .store
-{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    column-gap: 10px;
-    row-gap: 10px;
-}
-.store .card {
-    scroll-snap-align: start;
-    height: 342px;
-    width: auto;
-    list-style: none;
-    background: #fff;
-    cursor: pointer;
-    flex-direction: column;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-  }
-
-  .store .card .img {
-    display: flex;
-    height: 50%;
-    width: 100%;
-    background-color: whitesmoke;
-    border-radius: 8px;
-
-  }
-
-  .store .card .img img {
-    width: 90%;
-    height: auto;
-    transition: 0.5s;
-
-  }
-
-.card .productname {
-    white-space: wrap;
-    margin: 2px 0 5px;
-    padding-top: 40px;
-    font: size 14px;
-  }
-
-  .line
-  {
-    padding: 0 0.04rem;
-    margin-left: 1rem;
-    background-color: black;
-
-  }
-
-  .card .cost {
-    color: red;
-
-
-  }
-
-  .card .discount {
-    color: whitesmoke;
-    text-decoration: line-through;
-    font-weight: 700;
-    padding-right: 120px;
-    padding-left: 10px;
-  }
-
-.store .card .card-action .btn
-{
-    padding-right: 0px;
-    background-color: whitesmoke;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.store .card .heart
-{
-    margin-left: 90%;
-}
-.card-action {
-    width: 100%;
-    height: auto;
-    display: none;
-
-  }
-  .card:hover .card-action
-  {
-    display: flex;
-    margin-top:-40px;
-    margin-bottom: -40px ;
-  }
-
-  .card-action .btn {
-    padding-right: 80px;
-  }
-
-  .card-action button {
-    background-color: #DB4444;
-    color: white;
-    border: none;
-    outline: none;
-    font-size: 9px;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-
 
 @media screen and (min-width: 992px) {
     .card {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1.5rem;
     }
-
 
     .card-wrapper {
         height: 100vh;
@@ -365,21 +265,6 @@ img {
     .product-content {
         padding-top: 0;
     }
-}
-@media screen and (min-width: 413px) and (max-width: 992px) {
-    .store
-    {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media screen and (max-width: 412px)  {
-    .store
-    {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
 }
 
 

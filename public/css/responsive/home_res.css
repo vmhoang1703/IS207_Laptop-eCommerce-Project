@@ -55,24 +55,7 @@
       padding: 100px 0 ;
     }
 
-      /* card */
 
-      .discount-tag
-      {
-        width: 40px;
-        height: 20px;
-        margin-left: 25px;
-        top:-1px;
-      }
-      .card-action button
-       {
-          padding: 3%;
-          margin-right: -9%;
-         border :1px solid white;
-       }
-      .wrapper .carousel {
-          grid-auto-columns: calc((100% / 2) - 12px);
-      }
 
 
         /* advertise jbl  */
@@ -168,22 +151,7 @@
         position: relative;
         right: 1cm;
       }
-      /* card */
-      .discount-tag
-      {
-        width: 40px;
-        height: 20px;
-        margin-left: 25px;
-        top:-1px;
-      }
-      .card-action button
-      {
-        margin-right: -43px;
-        border :1px solid white;
-      }
-      .wrapper .carousel {
-          grid-auto-columns: 100%;
-      }
+
 
 
      /* jbl */
@@ -292,24 +260,7 @@
       margin-left: -40px;
       margin-right: -20px;
     }
-    /* card */
-    .card-action button
-      {
 
-          padding: 3%;
-          margin-right: -9%;
-         border :1px solid white;
-
-      }
-      .discount-tag
-      {
-          width: 40px;
-          margin-left:20px ;
-      }
-      .heart
-      {
-         left:2cm;
-      }
 
       /* advertise jbl  */
       .ads_jbl

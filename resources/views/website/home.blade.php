@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/responsive/home_res.css') }}">
+    <link rel="stylesheet" href="{{asset('css/product_card.css') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,8 +34,8 @@
         <div class="header-content">
             <div class="container">
                 <div class="row">
-                   <!-- filter bar & menu -->
-                   <div class="col-sm-2 filter-responsive">
+                    <!-- filter bar & menu -->
+                    <div class="col-sm-2 filter-responsive">
                         <div class="filter">
                             <table class="filter-content">
                                 <tr>
@@ -56,13 +57,14 @@
                                                 <div class="text-max">10000</div>
                                             </div>
                                         </div>
-                                       <div class="title_text d-flex" >
+                                        <div class="title_text d-flex">
                                             <div class="filter-item">lowest </div>
                                             <div class="filter-item">highest </div>
-                                       </div>
+                                        </div>
                                     </td>
                                 </tr>
-                                <tr> <td>
+                                <tr>
+                                    <td>
                                         <div id="cat_link"><a>Categories</a></div>
                                         <ul class="menu-bar">
                                             <li class="filter-item">Laptop</li>
@@ -214,238 +216,276 @@
                             <ul class="carousel">
                                 <li class="card">
                                     <div class="discount-tag">-40% </div>
-                                    <div class="img"><img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false"></div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
                                     <div class="card-action">
 
                                         <div class="btn">
                                             <button>Buy now</button>
-                                            <button>Add Cart</button>
+                                            <button>Add cart</button>
                                         </div>
-                                        <div class="fa fa-heart heart"> </div>
                                     </div>
-                                    <div class="productname">AK-900 Wired Keyboard1</div>
-                                    <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                    <div class="star-bar ms-4">
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="numbered">(4.3)</span>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="card">
-                                    <div class="discount-tag">-40%</div>
-                                    <div class="img"><img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false"></div>
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
                                     <div class="card-action">
+
                                         <div class="btn">
                                             <button>Buy now</button>
-                                            <button>Add Cart</button>
+                                            <button>Add cart</button>
                                         </div>
-                                        <div class="fa fa-heart heart"> </div>
                                     </div>
-                                    <div class="productname">AK-900 Wired Keyboard2</div>
-                                    <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                    <div class="star-bar ms-4">
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="numbered">(4.3)</span>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="card">
-                                    <div class="discount-tag">-40%</div>
-                                    <div class="img"><img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false"></div>
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
                                     <div class="card-action">
 
                                         <div class="btn">
                                             <button>Buy now</button>
-                                            <button>Add Cart</button>
+                                            <button>Add cart</button>
                                         </div>
-                                        <div class="fa fa-heart heart"> </div>
                                     </div>
-                                    <div class="productname">AK-900 Wired Keyboard3</div>
-                                    <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                    <div class="star-bar ms-4">
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="numbered">(4.3)</span>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="card">
-                                    <div class="discount-tag">-40%</div>
-                                    <div class="img"><img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false"></div>
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
                                     <div class="card-action">
 
                                         <div class="btn">
                                             <button>Buy now</button>
-                                            <button>Add Cart</button>
+                                            <button>Add cart</button>
                                         </div>
-                                        <div class="fa fa-heart heart"> </div>
                                     </div>
-                                    <div class="productname">AK-900 Wired Keyboard4</div>
-                                    <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                    <div class="star-bar ms-4">
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="numbered">(4.3)</span>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="card">
-                                    <div class="discount-tag">-40%</div>
-                                    <div class="img"><img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false"></div>
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
                                     <div class="card-action">
 
                                         <div class="btn">
                                             <button>Buy now</button>
-                                            <button>Add Cart</button>
+                                            <button>Add cart</button>
                                         </div>
-                                        <div class="fa fa-heart heart"> </div>
                                     </div>
-                                    <div class="productname">AK-900 Wired Keyboard5</div>
-                                    <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                    <div class="star-bar ms-4">
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="numbered">(4.3)</span>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="card">
-                                    <div class="discount-tag">-40%</div>
-                                    <div class="img"><img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false"></div>
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
                                     <div class="card-action">
 
                                         <div class="btn">
                                             <button>Buy now</button>
-                                            <button>Add Cart</button>
-                                        </div>
-                                        <div class="fa fa-heart heart">
-
+                                            <button>Add cart</button>
                                         </div>
                                     </div>
-                                    <div class="productname">AK-900 Wired Keyboard6</div>
-                                    <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                    <div class="star-bar ms-4">
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="fa fa-star star"></span>
-                                        <span class="numbered">(4.3)</span>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
                                     </div>
                                 </li>
+
                             </ul>
                             <i id="right" class="fa fa-angle-right"></i>
                         </div>
-
                         <!-- ----------------------------------------- -->
                     </div>
                     <hr style="margin-top: 100px;">
                 </div>
                 <!-- Favorite Products -->
                 <div class="title d-flex mt-5">
-          <div class="secondary2 ms-5 "></div>
-          <div class="secondary2-text px-2 py-2">Best seller </div>
-        </div>
+                    <div class="secondary2 ms-5 "></div>
+                    <div class="secondary2-text px-2 py-2">Best seller </div>
+                </div>
 
-        <div class="introduction secondary1 col-3 my-3 ps-5">Favorite Products</div>
+                <div class="introduction secondary1 col-3 my-3 ps-5">Favorite Products</div>
 
-        <div class="wrapper">
-          <ul class="carousel ">
-            <li class="card ">
-              <div class="img mb-0">
-                <div class="fa fa-heart heart heart-item"> </div>
-                <img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false">
-              </div>
+                <div class="store">
+                    <div class="carousel">
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-              <div class="productname">AK-900 Wired Keyboard</div>
-              <div class="cost"> 50$ <span class="discount">53$</span></div>
-              <div class="star-bar ms-4">
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="numbered">(4.3)</span>
-              </div>
-            </li>
-            <li class="card ">
-              <div class="img mb-0">
-                <div class="fa fa-heart heart heart-item"> </div>
-                <img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false">
-              </div>
 
-              <div class="productname">AK-900 Wired Keyboard</div>
-              <div class="cost"> 50$ <span class="discount">53$</span></div>
-              <div class="star-bar ms-4">
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="numbered">(4.3)</span>
-              </div>
-            </li>
-            <li class="card">
-
-              <div class="img mb-0">
-                <div class="fa fa-heart heart heart-item"> </div>
-                <img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false">
-              </div>
-
-              <div class="productname">AK-900 Wired Keyboard</div>
-              <div class="cost"> 50$ <span class="discount">53$</span></div>
-              <div class="star-bar ms-4">
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="numbered">(4.3)</span>
-              </div>
-            </li>
-            <li class="card ">
-              <div class="img mb-0">
-                <div class="fa fa-heart heart heart-item"> </div>
-                <img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false">
-              </div>
-
-              <div class="productname">AK-900 Wired Keyboard</div>
-              <div class="cost"> 50$ <span class="discount">53$</span></div>
-              <div class="star-bar ms-4">
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="numbered">(4.3)</span>
-              </div>
-            </li>
-            <!-- heart action -->
-            <script>
-              document.querySelectorAll(".heart").forEach(item =>
-                item.addEventListener('click', function () {
-                  if (this.style.color != "red")
-                    this.style.color = "red"
-                  else
-                    this.style.color = "black"
-                })
-              )
-            </script>
-            <!-- ----------------------------------------- -->
-          </ul>
-        </div>
+                <!-- heart action -->
+                <script>
+                                document.querySelectorAll(".heart1").forEach(item =>
+                                    item.addEventListener('click', function() {
+                                        if (this.style.fill == "none")
+                                          {
+                                             this.style.fill = "#DB4444";
+                                             this.style.stroke = "#DB4444";
+                                          }
+                                        else
+                                            {
+                                                this.style.fill = "none";
+                                                this.style.stroke = "black";
+                                            }
+                                    })
+                                )
+                            </script>
+                        <!-- ----------------------------------------- -->
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
                         <div class="jbl-details col-4 my-5 mx-5">
@@ -472,173 +512,181 @@
                             <button class="btn_jbl">Buy now!</button>
                         </div>
                         <div class="JBL_BOOMBOX col-6 ms-5 my-5">
-                          <img src="{{ asset('img/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png') }}" alt="img" width="100%">
+                            <img src="{{ asset('img/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png') }}" alt="img" width="100%">
                         </div>
                     </div>
                 </div>
                 <!-- Feature-->
                 <div class="title d-flex" style="margin-top:150px;">
-          <div class="secondary2 ms-5 "></div>
-          <div class="secondary2-text px-2 py-2">Feature </div>
-        </div>
-
-        <div class="introduction secondary1 col-3 my-3 ps-5">New arrival</div>
-        <div class="feature-product row ms-5">
-          <div class="DELL col-5 me-2 px-5 py-5">
-              <img src="{{ asset('img/laptop.png')}}">
-              <div class="heading">DELL-XPS-7590-0 </div>
-              <div class="title-regular">Black and White versions</div>
-              <div class="title-medium">Buy now</div>
-          </div>
-          <div class="col-6 DELL" >
-            <div class="row me-5 " style="border-bottom: 1px solid white;">
-           <div class="textD1 col-6 ps-3" >
-              <div class="heading"> Bluetooth Philips </div>
-              <div class="title-regular">Bluetooth Philips headphone</div>
-              <div class="title-medium">Buy now</div>
-            </div>
-              <div class="col-6" ><img src="{{asset('img/headphone.png')}}"> </div>
-            </div>
-            <div class="row">
-                <div class="DELL loa background  col-6" style="border-right:1px solid white">
-                  <div class="heading">Speakers </div>
-                  <div class="title-regular"> Amazon wireless speakers</div>
-                  <div class="title-medium">Buy now</div>
+                    <div class="secondary2 ms-5 "></div>
+                    <div class="secondary2-text px-2 py-2">Feature </div>
                 </div>
-                <div class="DELL PC background col-6">
-                  <div class="heading">BTS NC 01 </div>
-                  <div class="title-regular">BTS NC 01</div>
-                  <div class="title-medium">Buy now</div>
-                </div>
-            </div>
-          </div>
-        </div>
-               <!-- Newarrival responsive -->
-               <div class="wrapper Newarrival_res">
-          <ul class="carousel">
-            <li class="card" style="background-color:black;">
-              <div class="img mb-0" style="background-color:black;">
-                <img src="{{ asset('img/laptop.png') }}" style="width: 100%;" alt="img" draggable="false">
-              </div>
-              <div class="DELL mb-3">
-                <div class="heading">DELL-XPS-7590-0 </div>
-              <div class="title-regular">Black and White versions</div>
-              <div class="title-medium">Buy now</div>
-            </div>
-            </li>
-            <li class="card " style="background-color:black;">
-              <div class="img mb-0" style="background-color:black;">
-                <img src="{{ asset('img/headphone.png') }}" alt="img" draggable="false">
-              </div>
-              <div class="DELL"><div class="heading"> Bluetooth Philips </div>
-              <div class="title-regular">Bluetooth Philips headphone</div>
-              <div class="title-medium">Buy now</div></div>
-            </li>
-            <li class="card" style="background-color:black;">
 
-              <div class="img mb-0" style="background-color:black;">
-                <img src="{{ asset('img/PC.png') }}" alt="img" draggable="false">
-              </div>
-              <div class="DELL"><div class="heading">BTS NC 01 </div>
-                  <div class="title-regular">BTS NC 01</div>
-                  <div class="title-medium">Buy now</div></div>
-            </li>
-            <li class="card " style="background-color:black;">
-              <div class="img mb-0 " style="background-color:black;">
-                <img src="{{ asset('img/loa.png') }}" alt="img" draggable="false">
-              </div>
-              <div class="DELL me-2"><div class="heading">Speakers </div>
-                  <div class="title-regular"> Amazon wireless speakers</div>
-                  <div class="title-medium">Buy now</div></div>
-            </li>
-          </ul> </div>
+                <div class="introduction secondary1 col-3 my-3 ps-5">New arrival</div>
+                <div class="feature-product row ms-5">
+                    <div class="DELL col-5 me-2 px-5 py-5">
+                        <img src="{{ asset('img/laptop.png')}}">
+                        <div class="heading">DELL-XPS-7590-0 </div>
+                        <div class="title-regular">Black and White versions</div>
+                        <div class="title-medium">Buy now</div>
+                    </div>
+                    <div class="col-6 ms-4 ">
+                        <div class="row DELL mb-4 " style="padding-left: 0%;">
+                            <div class="textD1 col-6 ps-3">
+                                <div class="heading"> Bluetooth Philips </div>
+                                <div class="title-regular">Bluetooth Philips headphone</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                            <div class="col-6"><img src="{{asset('img/headphone.png')}}"> </div>
+                        </div>
+                        <div class="row">
+                            <div class="DELL loa background  col-6" style="border-right:1px solid white">
+                                <div class="heading">Speakers </div>
+                                <div class="title-regular"> Amazon wireless speakers</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                            <div class="DELL PC background col-6">
+                                <div class="heading">BTS NC 01 </div>
+                                <div class="title-regular">BTS NC 01</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Newarrival responsive -->
+                <div class="store Newarrival_res">
+                    <ul class="carousel">
+                        <li class="card" style="background-color:black;">
+                            <div class="img">
+                                <img src="{{ asset('img/laptop.png') }}" alt="img" >
+                            </div>
+                            <div class="DELL mb-3">
+                                <div class="heading">DELL-XPS-7590-0 </div>
+                                <div class="title-regular">Black and White versions</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                        </li>
+                        <li class="card " style="background-color:black;">
+                            <div class="img ">
+                                <img src="{{ asset('img/headphone.png') }}" alt="img" style="width:80%">
+                            </div>
+                            <div class="DELL mb-5">
+                                <div class="heading"> Bluetooth Philips </div>
+                                <div class="title-regular">Bluetooth Philips headphone</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                        </li>
+                        <li class="card" style="background-color:black;">
+
+                            <div class="img" >
+                                <img src="{{ asset('img/PC.png') }}" alt="img" style="width:80%">
+                            </div>
+                            <div class="DELL mb-5">
+                                <div class="heading">BTS NC 01 </div>
+                                <div class="title-regular">BTS NC 01</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                        </li>
+                        <li class="card " style="background-color:black;">
+                            <div class="img">
+                                <img src="{{ asset('img/loa.png') }}" alt="img" style="width:70%">
+                            </div>
+                            <div class="DELL mb-4">
+                                <div class="heading">Speakers </div>
+                                <div class="title-regular"> Amazon wireless speakers</div>
+                                <div class="title-medium">Buy now</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
                 <!-- Feedback-->
-         <div class="title d-flex" style="margin-top:150px;">
-          <div class="secondary2 ms-5 "></div>
-          <div class="secondary2-text px-2 py-2">Feedback </div>
-        </div>
+                <div class="title d-flex" style="margin-top:150px;">
+                    <div class="secondary2 ms-5 "></div>
+                    <div class="secondary2-text px-2 py-2">Feedback </div>
+                </div>
 
-        <div class="introduction secondary1 col-3 my-3 ps-5">Testimonials</div>
-        <div class="lastcontent">
-        <div class="row ms-5">
-            <div class="col-4">
-                <img src="images/usercomment.png" height="240px" width="240px">
-                <div class="user ms-5 mt-4">
-                <div class="username">Miss Lucy Nguyen</div>
-                <div class="usercomment">“Your products are so wonderful.”</div>
-                <div> <span class="fa fa-star star"></span>
-                  <span class="fa fa-star star"></span>
-                  <span class="fa fa-star star"></span>
-                  <span class="fa fa-star star"></span>
-                  <span class="fa fa-star star"></span>
-                  <span class="numbered">(4.3)</span>
-                </div>
-                </div>
-            </div>
-            <div class="col-4">
-              <img src="images/usercomment.png" height="240px" width="240px">
-              <div class="user ms-5 mt-4">
-              <div class="username">Miss Lucy Nguyen</div>
-              <div class="usercomment">“Your products are so wonderful.”</div>
-              <div> <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="fa fa-star star"></span>
-                <span class="numbered">(4.3)</span> </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <img src="images/usercomment.png" height="240px" width="240px">
-            <div class="user ms-5 mt-4">
-            <div class="username">Miss Lucy Nguyen</div>
-            <div class="usercomment">“Your products are so wonderful.”</div>
-            <div> <span class="fa fa-star star"></span>
-              <span class="fa fa-star star"></span>
-              <span class="fa fa-star star"></span>
-              <span class="fa fa-star star"></span>
-              <span class="fa fa-star star"></span>
-              <span class="numbered">(4.3)</span>
-            </div>
-            </div>
-        </div>
+                <div class="introduction secondary1 col-3 my-3 ps-5">Testimonials</div>
+                <div class="lastcontent">
+                    <div class="row ms-5">
+                        <div class="col-4">
+                            <img src="images/usercomment.png" height="240px" width="240px">
+                            <div class="user ms-5 mt-4">
+                                <div class="username">Miss Lucy Nguyen</div>
+                                <div class="usercomment">“Your products are so wonderful.”</div>
+                                <div> <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="numbered">(4.3)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img src="images/usercomment.png" height="240px" width="240px">
+                            <div class="user ms-5 mt-4">
+                                <div class="username">Miss Lucy Nguyen</div>
+                                <div class="usercomment">“Your products are so wonderful.”</div>
+                                <div> <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="numbered">(4.3)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img src="images/usercomment.png" height="240px" width="240px">
+                            <div class="user ms-5 mt-4">
+                                <div class="username">Miss Lucy Nguyen</div>
+                                <div class="usercomment">“Your products are so wonderful.”</div>
+                                <div> <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="numbered">(4.3)</span>
+                                </div>
+                            </div>
+                        </div>
 
-        </div>
-        <div class="row ms-5 mt-5 service">
-          <div class="col-4">
-            <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">
-            <div class="user ms-5 mt-4">
-            <div class="username">Fast delivery</div>
-            <div class="service" >Free shipping for orders over 100$ </div>
-            </div>
-            </div>
-            <div class="col-4 ps-4">
-              <img src="{{asset('img/Services (1).png')}}" class="ms-5"  height="113px" width="113px">
-              <div class="user ms-3 mt-4">
-              <div class="username">24/7 Customer Service</div>
-              <div class="service ps-4" >24/7 Customer Support and Care </div>
-              </div>
-              </div>
-              <div class="col-4 ps-4">
-                <img src="{{asset('img/Services (2).png')}}" class="ms-5"  height="113px" width="113px">
-                <div class="user ms-4 mt-4">
-                <div class="username ps-3">Warranty Policy</div>
-                <div class="service ps-4" >30-day money-back guarantee </div>
+                    </div>
+                    <div class="row ms-5 mt-5 service">
+                        <div class="col-4">
+                            <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">
+                            <div class="user ms-5 mt-4">
+                                <div class="username">Fast delivery</div>
+                                <div class="service">Free shipping for orders over 100$ </div>
+                            </div>
+                        </div>
+                        <div class="col-4 ps-4">
+                            <img src="{{asset('img/Services (1).png')}}" class="ms-5" height="113px" width="113px">
+                            <div class="user ms-3 mt-4">
+                                <div class="username">24/7 Customer Service</div>
+                                <div class="service ps-4">24/7 Customer Support and Care </div>
+                            </div>
+                        </div>
+                        <div class="col-4 ps-4">
+                            <img src="{{asset('img/Services (2).png')}}" class="ms-5" height="113px" width="113px">
+                            <div class="user ms-4 mt-4">
+                                <div class="username ps-3">Warranty Policy</div>
+                                <div class="service ps-4">30-day money-back guarantee </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-        </div>
-      </div>
             </div>
         </div>
     </section>
 
     <section class="mt-5">
     </section>
-     <!-- footer -->
-     @component("components.footer")
-     @endcomponent
-     <!-- - -->
+    <!-- footer -->
+    @component("components.footer")
+    @endcomponent
+    <!-- - -->
 
     <script src="js/bootstrap.bundle.min.js"> </script>
 </body>
