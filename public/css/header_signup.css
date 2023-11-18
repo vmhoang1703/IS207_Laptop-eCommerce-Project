@@ -1,5 +1,5 @@
 /* header */
-header {
+.header {
     font-family: "Poppins", sans-serif;
   }
 
@@ -9,7 +9,20 @@ header {
     height: 10%;
     color: #FAFAFA;
     font-size: 14px;
+  }
+  .SSS
+  {
+    margin-left: 10% ;
+    color: white;
+  }
+  .header .container
+  {
+    margin: 0 auto;
+  }
 
+  .Top-header .container
+  {
+    margin: 0 auto;
   }
 
   .Top-header a {
