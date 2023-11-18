@@ -4,7 +4,7 @@
 <div class="Top-header">
             <div class="container py-2 px-5 ">
                 <div class="row ">
-                    <div class="col-sm-8 ">
+                    <div class="SSS col-sm-8 ">
                         SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
                     </div>
                     <div class="SHOPNOW col-sm-2 pe-3 ">
@@ -29,7 +29,6 @@
                 </div>
                 <div class="menu-header col-sm-1" style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
-
                 </div>
                 <div class="menu-header col-sm-1">
                     <a href="#">CONTACT </a>
