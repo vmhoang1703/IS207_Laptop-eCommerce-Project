@@ -1,7 +1,7 @@
- <link rel="stylesheet" href="{{asset('css/header_signup.css')}}">
- <!-- Header -->
- <section class="header ">
-        <div class="Top-header">
+<link rel="stylesheet" href="{{asset('css/header_signup.css')}}">
+<!-- header -->
+<section class="header">
+<div class="Top-header">
             <div class="container py-2 px-5 ">
                 <div class="row ">
                     <div class="col-sm-8 ">
