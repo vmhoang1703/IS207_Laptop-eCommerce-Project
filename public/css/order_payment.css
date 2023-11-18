@@ -124,3 +124,133 @@ line-height: 16.294px;
 #paymentMethodBtn:focus {
     outline: none;  /* Bỏ viền khi button được focus */
 }
+.modal-body{
+    max-width: 506px;
+    overflow-y: auto;
+}
+
+
+/* responsive */
+/* xl */
+@media (min-width: 1200px) {
+
+.form-control{
+    width: 100% !important;
+}
+.padding-right-xl{
+    padding-right: 30px;
+
+}
+
+}
+/* lg */
+@media (min-width: 992px)  {
+.form-control{
+    width: 100% !important;
+    font-size: 22px;
+}
+}
+/* md  min-width: 768px */
+@media (min-width: 577px) {
+
+    .form-control{
+        width: 100% !important;
+        font-size: 20px;
+    }
+    .margin-left-mobile-0{
+        margin-left: 0 !important;
+    }
+    .height-mobile-5{
+        height: 5px !important;
+    }
+
+}
+/* mobile */
+@media (max-width: 576px) {
+
+    .form-control{
+        width: 100% !important;
+        font-size: 18px;
+    }
+    .breadcrumb{
+        display: none;
+    }
+    .title-form {
+        font-size: 25px;
+    }
+    .form-custommer-infor label:not(.exclude){
+        font-size: 14px;
+    }
+    .form-custommer-infor input:not(.exclude){
+        height: 35px;
+    }
+    .infor-payment{
+        font-weight: 350;
+        line-height: 25px;
+        margin-top: 16px !important;
+    }
+   
+    .product-img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .text-mobile-size-14{
+        font-size: 14px;
+    }
+    .margin-left-mobile-0{
+        margin-left: 0 !important;
+    }
+    .margin-top-mobile-16{
+        margin-top: 16px !important;
+    }
+    .total-infor__subtotal{
+        margin-top: 0 !important;
+    }
+    .line-grey{
+        margin-top: 8px !important;
+    }
+    .img-mobile-40x40{
+        height: 40px !important;
+        width: 40px !important;
+    }
+    .payment-method{
+        margin-top: 0;
+    }
+    .modal-content {
+        width: 400px;
+        height: 500px;
+        margin-bottom: 0 !important;
+    }
+    .method-img{
+        height: 40px !important;
+        width: 40px !important;
+    }
+    .modal-header{
+        height: 50px !important;
+    }
+    .modal-body{
+        max-width: 506px;
+        overflow-y: auto;
+    }
+    .modal-title{
+        font-size: 18px;
+    }
+    .height-mobile-5{
+        height: 5px !important;
+    }
+   
+    .mobile-w100{
+        width: 100%;
+    }
+    .modal.fade .modal-dialog {
+        transform: translate(0, 100%);
+    }
+    .modal.show .modal-dialog {
+        transform: translate(0, 0);
+    }
+    
+    .modal-backdrop {
+        transform: translate(0, -100%);
+    }
+
+}

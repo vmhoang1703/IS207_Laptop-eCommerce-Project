@@ -13,7 +13,7 @@
     <!-- header  -->
     <div class="header-fake"></div>
      <!-- breadcrumb -->
-     <div class="container-xxl ">          
+     <div class=" container container-md container-lg container-xxl container-xl container-lg container-md container-sm ">          
         <ul id="myBreadcrumb" class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Cửa hàng </a></li>
             <li class="breadcrumb-item"><a href="#">Laptop </a></li>
@@ -23,10 +23,10 @@
         </ul>
     </div>
     <!--  -->
-    <div class="container   w-100 ">
+    <div class="container-xxl container-xl container-lg container-md container-sm w-100 ">
       <form action="">
-        <div class="row w-100 ">
-            <div class="col-6 d-flex flex-column mt-4">
+        <div class="  row w-100 margin-left-mobile-0 ">
+            <div class=" padding-right-xl  col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 d-flex flex-column mt-4">
                 <h3 class="title-form"> Billing Dettails</h3>
                     <div class="form-custommer-infor">
                       <div class="mb-3 mt-3">
@@ -71,7 +71,7 @@
                         </div>
   
                       <div class="form-check  mb-3">
-                        <label class="form-check-label exclude ">
+                        <label class="form-check-label exclude text-mobile-size-14 ">
                           <input class=" exclude form-check-input" type="checkbox" name="remember">Save this information for faster check-out next time
                         </label>
                       </div>
@@ -80,35 +80,35 @@
                   
                 
             </div>
-            <div class="col-6  ">
-                <div class=" infor-payment  d-flex flex-column mt-5 ">
-                    <div class="row mt-5 mb-3 ">
-                        <div class="product-tite col-6 d-flex "> 
+            <div class=" col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 ">
+                <div class=" infor-payment  d-flex flex-column mt-5 text-mobile-size-14 ">
+                    <div class="row mt-5 mb-3 margin-top-mobile-16">
+                        <div class="product-tite col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-8 col-8 d-flex "> 
                             <img src="https://via.placeholder.com/150" style="height: 65px; width: 65px; object-fit: cover;"  class="product-img " >
-                            <div class="text-start" > Dell XPS 9710 17 inch Core i7 </div>
+                            <div class=" text-start" > Dell XPS 9710 17 inch Core i7 </div>
                         </div>
                        
-                        <div class="product-price col-6 text-end  "> $2000 </div>
+                        <div class="product-price col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-4 col-4 text-end  "> $2000 </div>
                     </div>
                     <!--  -->
                     <div class="total-infor__subtotal row mt-3 "> 
-                        <div class=" col-6 text-start"> Subtotal: </div>
-                        <div id="total-infor__subtotal " class=" col-6 text-end"> $2000  </div>
+                        <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start"> Subtotal: </div>
+                        <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end"> $2000  </div>
                     </div>
                     <div class="line-grey mt-2 mb-3"></div>
                     <div class="total-infor__shipping row mt-2 "> 
-                        <div class=" col-6 text-start"> Shipping: </div>
-                        <div id="total-infor__shipping " class=" col-6 text-end"> Free  </div>
+                        <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start"> Shipping: </div>
+                        <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end"> Free  </div>
                     </div>
                     <div class="line-grey mt-2 mb-3"></div>
                     <div class="total-infor__discount row mt-2 "> 
-                        <div class=" col-6 text-start"> Discount: </div>
-                        <div id="total-infor__discount " class=" col-6 text-end"> $5 </div>
+                        <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start"> Discount: </div>
+                        <div id="total-infor__discount " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end"> $5 </div>
                     </div>
                     <div class="line-grey mt-2 mb-3"></div>
                     <div class="total-infor__total row mt-2 "> 
-                        <div class=" col-6 text-start"> Total: </div>
-                        <div id="total-infor__total " class=" col-6 text-end"> $1995 </div>
+                        <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start"> Total: </div>
+                        <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end"> $1995 </div>
                     </div>
 
                       <!--  -->
@@ -116,21 +116,21 @@
                     <div class="line-grey mt-2 mb-3"></div>
 
                     
-                    <button class="row payment-method mt-3 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal"  id="paymentMethodBtn" >
-                        <img id="method-img-main" class="col-1"  src="./payment-icon.svg"  alt="payment-icon">
-                        <div class=" method-name col-6 text-start ">Choose Payment Method </div>
-                        <div class="col-5 text-end method-change "> >> </div>
-                    </button>
+                    <div class="row payment-method mt-3 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal"  id="paymentMethodBtn" >
+                        <img id="method-img-main" class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 img-mobile-40x40" style="width: 60px; height: 60px; object-fit: contain;"  src="{{asset('img/payment-icon.svg')}}"  alt="payment-icon">
+                        <div class=" method-name col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start ">Choose Payment Method </div>
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-3 col-sm-3 col-3 text-end method-change text-end ms-auto">  </div>
+                    </div>
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog d-flex ">
                         <div class="modal-content "  >
-                          <div class="modal-header" style="height: 116px;" >
-                            <h5 class=" modal-title w-100 text-center" id="exampleModalLabel">Payment Method</h5>
+                          <div class="modal-header " style="height: 116px;" >
+                            <h5 class=" modal-title w-100 text-center " id="exampleModalLabel">Payment Method</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
 
-                          <div class=" w-100" style="height: 10px;background: #DEDDDD; "></div>
+                          <div class=" w-100 height-mobile-5 " style="height: 10px;background: #DEDDDD; "></div>
                           <div class="modal-body d-flex flex-column gap-3 ">
                             
                             <div id="method-pay-in-store" class="method-line d-flex  ">
@@ -154,9 +154,11 @@
                               <div class="method-name">ZaloPay</div>
                             </div>
 
+
+                         
                           </div>
                           <div class="modal-footer modal-bs5-none  d-grid">
-                            <button type="button" id="btn-agree" class=" btn   btn-danger " data-bs-dismiss="modal" > I agree</button>
+                            <button type="button" id="btn-agree" class=" btn  btn-danger mobile-w100 " data-bs-dismiss="modal" > I agree</button>
                           </div>
                         </div>
                       </div>
