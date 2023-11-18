@@ -19,7 +19,7 @@
 
 <body>
     <div class="container mb-5">
-        <div class="title ">
+        <div class="title pt-5">
             <span class="Deactive">Store / </span>
             <span class="Deactive"> Laptop / </span>
             <span class="Active"> Dell XPS 9710 17 inch Core i7</span>
@@ -31,19 +31,23 @@
                 <div class="product-imgs">
                     <div class="img-display">
                         <div class="heart">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" class="heart1">
-                                <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <!-- heart action -->
                             <script>
                                 document.querySelectorAll(".heart1").forEach(item =>
                                     item.addEventListener('click', function() {
-                                        if (this.style.fill != "red")
+                                        if (this.style.fill == "none")
                                           {
-                                             this.style.fill = "red";
+                                             this.style.fill = "#DB4444";
+                                             this.style.stroke = "#DB4444";
                                           }
                                         else
-                                            this.style.fill = "none"
+                                            {
+                                                this.style.fill = "none";
+                                                this.style.stroke = "black";
+                                            }
                                     })
                                 )
                             </script>
@@ -97,7 +101,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
                             <path opacity="0.25" d="M14.673 7.17173C15.7437 6.36184 15.1709 4.65517 13.8284 4.65517H11.3992C10.7853 4.65517 10.243 4.25521 10.0617 3.66868L9.33754 1.32637C8.9309 0.0110567 7.0691 0.0110564 6.66246 1.32637L5.93832 3.66868C5.75699 4.25521 5.21469 4.65517 4.60078 4.65517H2.12961C0.791419 4.65517 0.215919 6.35274 1.27822 7.16654L3.39469 8.78792C3.85885 9.1435 4.05314 9.75008 3.88196 10.3092L3.11296 12.8207C2.71416 14.1232 4.22167 15.1704 5.30301 14.342L7.14861 12.9281C7.65097 12.5432 8.34903 12.5432 8.85139 12.9281L10.6807 14.3295C11.7636 15.159 13.2725 14.1079 12.8696 12.8046L12.09 10.2827C11.9159 9.71975 12.113 9.10809 12.5829 8.75263L14.673 7.17173Z" fill="black" />
                         </svg>
-                        <span>(150)</span>
+                        <span>(150 Reviews) <span class="line"> </span></span> <span class=" ms-4" style="color:#00FF66;cursor:pointer;">In stock </span>
                     </div>
 
                     <div class="product-price">

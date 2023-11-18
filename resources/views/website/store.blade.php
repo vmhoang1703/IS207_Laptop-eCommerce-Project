@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/store.css') }}">
     <link rel="stylesheet" href="{{asset('css/responsive/store_res.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}"
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-    <!-- Header
+    <!-- Header -->
     <section class="header ">
         <div class="Top-header">
             <div class="container py-2 px-5 ">
@@ -88,7 +89,7 @@
             </div>
         </div>
         <hr style="width: 100%">
-    </section> -->
+    </section>
     <section class="maincontain">
         <!-- main content -->
         <section class="main-content">
@@ -235,6 +236,7 @@
                             </table>
                         </div>
                     </div>
+                    <!-- Store -->
                     <div class="col-sm-9 fix  ms-5 mt-5">
                         <div class="store">
                             <div class="card">
