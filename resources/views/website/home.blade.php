@@ -21,7 +21,7 @@
 
 <body>
     <!-- Header -->
-    @component('components.header')
+    @component('components.header_signup')
     @endcomponent
     <!-- main content -->
     <section class="main-content">
@@ -89,7 +89,7 @@
                         item.addEventListener('click', function() {
                             if (this.style.color != "red") {
                                 this.style.color = "red";
-                                
+
                             } else
                                 this.style.color = "black"
                         })
