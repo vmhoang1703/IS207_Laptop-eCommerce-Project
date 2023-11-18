@@ -1,66 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
-</head>
-
-<body>
-    <div>
-        <div class="container-fluid row h-100 top_header">
-            <div class="col-sm-7 text-white text_topheader ">
-                SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
-            </div>
-            <div class="col-sm-4 ">
-                <a href="#" class="font-weight-bold text-white">SHOP NOW</a>
-            </div>
-        </div>
-        <!-- navigation -->
-        <div class="container_nav row ">
-            <div class="col-3 navbar-expand-lg navbar-light ">
-                    <a class="navbar-brand" href="#">
-                        <div class="nameee font-weight-bold">
-                            <img src="{{ asset('img/logo.jpg') }}" alt="" class="logo">
-                            Computer World - Electronic Components
-                        </div>
-                    </a>
-            </div>
-            <div class="col-6 navbar-expand-lg navbar-light ">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto menu text-dark">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">STORE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">ABOUT US</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">CONTACT</a>
-                        </li>
-                    </ul>
+ <!-- Header -->
+ <section class="header ">
+        <div class="Top-header">
+            <div class="container py-2 px-5 ">
+                <div class="row ">
+                    <div class="col-sm-8 ">
+                        SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
+                    </div>
+                    <div class="SHOPNOW col-sm-2 pe-3 ">
+                        <a href="#">SHOP NOW </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-3 navbar-expand-lg navbar-light ">
-                    <a href="../Project/sign_up.php" class="btn text-white w-50">Sign Up</a>
+        </div>
+
+        <div class="container pt-5">
+            <div class="row">
+                <div class="header-logo col-sm-4">
+
+                    <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
+                    <div class="logo-text">Computer World - Electronic Components </div>
+                </div>
+                <div class="menu-header col-sm-1">
+                    <a href="#">HOME </a>
+                </div>
+                <div class="menu-header col-sm-1">
+                    <a href="#">STORE </a>
+                </div>
+                <div class="menu-header col-sm-1">
+                    <a href="#">ABOUT US </a>
+                </div>
+                <div class="menu-header col-sm-1">
+                    <a href="#">CONTACT </a>
+                </div>
+                <div class="responsive-menu col-sm-1 mt-5">
+                    <div class="drop-down filter-item">
+                        <button><i class="fa fa-bars" aria-hidden="true"></i></button>
+                        <i></i>
+                    </div>
+                    <ul class="menu-bar menu-text">
+                        <li><a href="#"> HOME </a></li>
+                        <li> <a href="#"> STORE </a></li>
+                        <li><a href="#"> ABOUT US </a></li>
+                        <li><a href="#"> CONTACT </a></li>
+                    </ul>
+                </div>
+                <div class="signup col-sm-1 ">
+                    <button class="btn-signup"> Sign up </button>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+        <hr style="width: 100%">
+    </section>
