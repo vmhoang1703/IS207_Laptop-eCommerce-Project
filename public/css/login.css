@@ -79,12 +79,15 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 .btn_signin{
-    background-color: #115AAF;
-    width: 35%;
-    height: 50px;
-    font-size: 18px;
+    height: 7vh;
+    width: 30%;
+    background-color: #115aaf;
+    color: #fff;
+    border-radius: 31px;
     border: none;
-    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px;
 }
 .other_login{
     width: 35%;

@@ -44,6 +44,6 @@ class RegisterController extends Controller
         // Đăng nhập người dùng sau khi đăng ký (tuỳ chọn)
         // Auth::login($user);
         // Hoặc chuyển hướng đến đăng nhập để đăng nhập lại
-        return redirect('login')->with('success', 'Đăng ký thành công!');
+        return redirect('/login')->with('success', 'Đăng ký thành công!');
     }
 }
