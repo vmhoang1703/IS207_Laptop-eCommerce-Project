@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    @component('components.header')
+    @component('components.header_signup')
     @endcomponent
     <div class="row container-fluid mt-5">
         <div class="col-lg-6 col-sm-6 container_img ">
