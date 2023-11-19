@@ -112,9 +112,9 @@
                         <div class="Description mt-2 ">Quantity </div>
                     </div>
                     <div class="purchase-info ms-5 mt-3">
-                        <span class="minus">-</span>
-                        <span class="num">0</span>
-                        <span class="plus">+</span>
+                        <div class="minus">-</div>
+                        <div class="num" > 0 </div>
+                        <div class="plus">+</div>
                         <script>
                             const plus = document.querySelector(".plus"),
                                 minus = document.querySelector(".minus"),
@@ -124,6 +124,7 @@
                                 a++;
                                 a = (a < 10) ? "" + a : a;
                                 num.innerText = a;
+
                             });
                             minus.addEventListener("click", () => {
                                 if (a > 0) {
