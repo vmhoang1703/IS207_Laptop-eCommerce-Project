@@ -7,7 +7,6 @@
     <title>Trang chủ</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/responsive/home_res.css') }}">
     <link rel="stylesheet" href="{{asset('css/product_card.css') }}">
@@ -16,7 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="js/dropdown.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/carousel.js" defer> </script>
     <script src="js/range.js" defer></script>

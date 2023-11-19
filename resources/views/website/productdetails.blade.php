@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{{ asset('css/productdetails.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/product_card.css') }}">
-
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,6 +18,9 @@
 </head>
 
 <body>
+     <!-- header -->
+     @component("components.header")
+    @endcomponent
     <div class="container mb-5">
         <div class="title pt-5">
             <span class="Deactive">Store / </span>
@@ -321,7 +322,7 @@
 
 
 
-        </div>
+        </div></div>
 
     </div>
       <!-- footer -->
