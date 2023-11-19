@@ -43,6 +43,7 @@
     border-radius: 8px;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    column-gap: 10px;
 
 }
 
