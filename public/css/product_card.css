@@ -302,9 +302,9 @@
     column-gap: 5% !important;
 }
 @media screen and (min-width: 901px) and (max-width: 1190px) {
-    /* .wrapper .carousel {
-        grid-auto-columns: calc((100% / 3) - 9px);
-    } */
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2.5) - 1px)!important;
+    }
     .store
     {
         width: 90%;
@@ -332,7 +332,7 @@
     }
     .store .carousel {
         grid-template-columns: repeat(1, 1fr) !important;
-        
+
     }
 }
 
@@ -348,7 +348,12 @@
 @media screen and (max-width: 1279px) {
     .store
 {
-    overflow-x: scroll;
+    overflow-x:scroll
+
+}
+
+.store::-webkit-scrollbar {
+    display: none;
 }
  }
 

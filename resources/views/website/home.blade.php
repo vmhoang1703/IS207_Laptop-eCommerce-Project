@@ -27,7 +27,7 @@
 
 <body>
     <!-- header -->
-    @component("components.header_signup")
+    @component("components.header")
     @endcomponent
     <!-- main content -->
     <section class="main-content">
@@ -469,7 +469,7 @@
 
 
                 <!-- heart action -->
-                
+
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
                         <div class="jbl-details col-4 my-5 mx-5">

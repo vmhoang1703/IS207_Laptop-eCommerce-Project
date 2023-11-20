@@ -20,7 +20,7 @@
 
     <div class="container pt-5">
         <div class="row">
-            <div class="header-logo col-sm-4">
+            <div class="header-logo col-sm-4 mb-5">
 
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
@@ -29,17 +29,17 @@
                 <div class="menu-header">
                     <a href="{{ route('home.show') }}">HOME </a>
                 </div>
-                <div class="menu-header ">
+                <div class="menu-header ps-5">
                     <a href="{{ route('store.show') }}">STORE </a>
                 </div>
-                <div class="menu-header " style="white-space: nowrap;">
+                <div class="menu-header ps-5 " style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
                 </div>
-                <div class="menu-header ">
+                <div class="menu-header ps-5 ">
                     <a href="#">CONTACT </a>
                 </div>
                 </div>
-                <div class="signup col-sm-4">
+                <div class="signup col-sm-4 ps-5">
                     <button class="btn-signup"> Sign up </button>
                 </div>
             </div>

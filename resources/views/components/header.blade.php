@@ -28,13 +28,13 @@
                 <div class="menu-header ms-5">
                     <a href="{{ route('home.show') }}">HOME </a>
                 </div>
-                <div class="menu-header ">
+                <div class="menu-header ps-5 ">
                     <a href="{{ route('store.show') }}">STORE </a>
                 </div>
-                <div class="menu-header " style="white-space: nowrap;">
+                <div class="menu-header ps-5 " style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
                 </div>
-                <div class="menu-header ">
+                <div class="menu-header  ps-5">
                     <a href="#">CONTACT </a>
                 </div>
                 </div>
