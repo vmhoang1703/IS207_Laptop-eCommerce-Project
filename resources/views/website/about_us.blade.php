@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    @component('components.header_signup')
+    @component('components.header')
     @endcomponent
     <div class="row container-aboutus">
         <div class="row col-12 col-lg-12 col-md-12 col-sm-12 container-fluid container-text " style="margin-top: 5%;">
@@ -56,5 +56,4 @@
     @component('components.footer')
     @endcomponent
 </body>
-
 </html>
