@@ -1,6 +1,5 @@
-
- <!-- styles  -->
- <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
+<!-- styles  -->
+<link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
 <!-- scripts -->
 <script src="js/dropdown.js" ></script>
  <!-- Header -->
@@ -17,10 +16,11 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container pt-5">
-            <div class="row">
-                <div class="header-logo col-sm-4">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="header-logo col-sm-4">
 
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
@@ -59,5 +59,6 @@
 
             </div>
         </div>
-        <hr style="width: 100%">
-    </section>
+    </div>
+    <hr style="width: 100%">
+</section>

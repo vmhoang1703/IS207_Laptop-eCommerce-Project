@@ -22,8 +22,8 @@
 </head>
 
 <body>
-        <!-- header -->
-        @component("components.header")
+    <!-- header -->
+    @component("components.header")
     @endcomponent
     <section class="maincontain">
         <!-- main content -->
@@ -173,341 +173,342 @@
                     </div>
                     <!-- Store -->
                     <div class="col-sm-9 fix  ms-5 mt-5">
-                    <div class="store ms-5" >
-                    <div class="carousel_store carousel ms-5">
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
+                        <div class="store">
+                            <div class="carousel_store carousel ">
+                                @foreach($products as $product)
+                                @component('components.card', ['product' => $product])
+                                @endcomponent
+                                @endforeach
+                                <!-- <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="heart">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                            <div class="card-action">
-                                <div class="btn">
-                                    <button>Buy now</button>
-                                    <button>Add cart</button>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="productname">AK-900 Wired Keyboard1</div>
-                                <div class="cost"> 50$ <span class="discount">53$</span></div>
-                                <div class="star-bar">
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                    <span class="fa fa-star star"></span>
-                                </div>
-                            </div>
-                        </div>
-                         <!-- heart action -->
-                         <script>
-                                document.querySelectorAll(".heart1").forEach(item =>
-                                    item.addEventListener('click', function() {
-                                        if (this.style.fill == "none")
-                                          {
-                                             this.style.fill = "#DB4444";
-                                             this.style.stroke = "#DB4444";
-                                          }
-                                        else
-                                            {
+                                <div class="card">
+                                    <div class="heart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                                    <div class="card-action">
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- heart action -->
+                                <script>
+                                    document.querySelectorAll(".heart1").forEach(item =>
+                                        item.addEventListener('click', function() {
+                                            if (this.style.fill == "none") {
+                                                this.style.fill = "#DB4444";
+                                                this.style.stroke = "#DB4444";
+                                            } else {
                                                 this.style.fill = "none";
                                                 this.style.stroke = "black";
                                             }
-                                    })
-                                )
-                            </script>
-                        <!-- ----------------------------------------- -->
+                                        })
+                                    )
+                                </script>
+                                <!-- ----------------------------------------- -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-                </div>
         </section>
         <div class="box">
-        <div class="pagination">
-                    <ul>
-                           <!-- trong script -->
-                   </ul>
-                </div>
+            <div class="pagination">
+                <ul>
+                    <!-- trong script -->
+                </ul>
+            </div>
         </div>
-         <!-- footer -->
-      @component("components.footer")
-      @endcomponent
-     <!-- - -->
+        <!-- footer -->
+        @component("components.footer")
+        @endcomponent
+        <!-- - -->
 
 </body>
 

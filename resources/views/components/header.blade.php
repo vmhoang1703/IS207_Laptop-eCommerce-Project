@@ -63,21 +63,22 @@
                     <div class="mb-4" style="cursor:pointer">
                     <img src="{{asset('img/user.png')}}" width="36px" height="36px"> </div>
 
-                </div>
-            </div>
-            <div class="row">
-            <div class="responsive-menu col-sm-1">
-                    <div class="drop-down filter-item">
-                        <button><i class="fa fa-bars" aria-hidden="true"></i></button>
-                        <i></i>
-                    </div>
-                    <ul class="menu-bar menu-text">
-                        <li><a href="#"> HOME </a></li>
-                        <li> <a href="#"> STORE </a></li>
-                        <li><a href="#"> ABOUT US </a></li>
-                        <li><a href="#"> CONTACT </a></li>
-                    </ul>
-                </div> </div>
-        </div>
-        <hr style="width: 100%">
-    </section>
+             </div>
+         </div>
+         <div class="row">
+             <div class="responsive-menu col-sm-1">
+                 <div class="drop-down filter-item">
+                     <button><i class="fa fa-bars" aria-hidden="true"></i></button>
+                     <i></i>
+                 </div>
+                 <ul class="menu-bar menu-text">
+                     <li><a href="#"> HOME </a></li>
+                     <li> <a href="#"> STORE </a></li>
+                     <li><a href="#"> ABOUT US </a></li>
+                     <li><a href="#"> CONTACT </a></li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <hr style="width: 100%">
+ </section>
