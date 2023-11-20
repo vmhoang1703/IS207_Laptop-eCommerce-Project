@@ -35,6 +35,6 @@ Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
 
 //Route chi tiết sản phẩm
-Route::get('/productdetail', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
+Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
 
 Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
