@@ -53,17 +53,22 @@ class ProductsManagementController extends Controller
             // Xử lý upload ảnh
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
-                    $path = $image->store('public/img/product_images/' . $product->product_id);
+                    // Generate a unique filename for the image
+                    $image_name = uniqid() . '.' . $image->getClientOriginalExtension();
 
-                    // Lưu thông tin ảnh vào bảng product_images
+                    // Store the image in the storage
+                    $path = $image->storeAs('public/img/product_images/' . $product->product_id, $image_name);
+
+                    // Save the relative path to the image in the database
                     $productImage = new ProductImage([
                         'product_id' => $product->product_id,
-                        'image_path' => $path,
+                        'image_path' => 'img/product_images/' . $product->product_id . '/' . $image_name,
                     ]);
 
                     $productImage->save();
                 }
             }
+
 
             // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
             return redirect()->route('products.management')->with('success', 'Product created successfully');
