@@ -411,7 +411,13 @@
   {
     padding-top: 130px;
   }
-  @media screen  and (max-width: 900px) {
+@media screen and (min-width: 901px) and (max-width: 1300px)   {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 3.7) - 9px) !important;
+      }
+}
+
+  @media screen and (max-width: 900px) {
     .wrapper .carousel {
       grid-auto-columns: calc((100% / 2) - 9px);
     }
