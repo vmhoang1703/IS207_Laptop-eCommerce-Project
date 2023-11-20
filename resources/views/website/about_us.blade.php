@@ -16,11 +16,11 @@
 </head>
 
 <body>
-    @component('components.header')
+    @component('components.header_signup')
     @endcomponent
     <div class="row container-aboutus">
         <div class="row col-12 col-lg-12 col-md-12 col-sm-12 container-fluid container-text " style="margin-top: 5%;">
-            <div class="offset-1 col-10 col-lg-5 col-md-5 col-sm-5 pt-5">
+            <div class="offset-1 col-10 col-lg-5 col-md-10 col-sm-10 pt-5">
                 <h1 class="mb-5">Our story</h1>
                 <p style="line-height: 26px;">Welcome to the ultimate hub for all your computing needs! Our cutting-edge e-commerce platform offers an extensive range of the latest laptops and top-of-the-line components, meticulously curated to meet your every tech requirement. Whether you're seeking high-performance laptops for professional endeavors or sleek and portable models for everyday use, we have a diverse selection to cater to your unique preferences.
                 </p>
@@ -28,7 +28,7 @@
                     Our commitment doesn't end with laptops; we also boast an exhaustive collection of components and accessories, ensuring that you have access to everything necessary for customizing and optimizing your computing experience. From powerful processors and high-speed RAM to reliable storage solutions and top-tier graphics cards, our comprehensive inventory has you covered.
                 </p>
             </div>
-            <div class="col-10 col-lg-5 col-md-5 col-sm-5 img-aboutus">
+            <div class="col-10 col-lg-5 col-md-10 col-sm-10 img-aboutus">
                 <img src="{{ asset('img/image 64.png') }}" alt="image" class="img-fluid">
             </div>
         </div>

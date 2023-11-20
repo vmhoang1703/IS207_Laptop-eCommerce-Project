@@ -40,7 +40,7 @@ a {
 .service-aboutus strong{
     font-size: 32px;
 }
-@media only screen and  (max-width: 576px){
+@media only screen and  (max-width: 992px){
     .img-aboutus{
         margin-left: 9%;
     }
