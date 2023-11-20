@@ -1,8 +1,10 @@
+
 <!-- <li class="card " data-id="{{ $product->id }}">
     <div class="img mb-0">
         <div class="fa fa-heart heart heart-item">
             <div id="total-favorite-count"></div>
         </div>
+
         <img src="{{ asset('img/keboard.png') }}" alt="img" draggable="false">
     </div>
 

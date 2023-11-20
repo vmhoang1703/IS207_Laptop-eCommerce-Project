@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Trang chủ</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -467,23 +469,7 @@
 
 
                 <!-- heart action -->
-                <script>
-                                document.querySelectorAll(".heart1").forEach(item =>
-                                    item.addEventListener('click', function() {
-                                        if (this.style.fill == "none")
-                                          {
-                                             this.style.fill = "#DB4444";
-                                             this.style.stroke = "#DB4444";
-                                          }
-                                        else
-                                            {
-                                                this.style.fill = "none";
-                                                this.style.stroke = "black";
-                                            }
-                                    })
-                                )
-                            </script>
-                        <!-- ----------------------------------------- -->
+                
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
                         <div class="jbl-details col-4 my-5 mx-5">
@@ -687,6 +673,9 @@
     <!-- - -->
 
     <script src="js/bootstrap.bundle.min.js"> </script>
+
+    <script src="js/heart_action.js"></script>
+
 </body>
 
 </html>
