@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             // $table->integer('favorite_count')->nullable()->default(null)->after('category_id');
             // $table->dropColumn('favorite_count');
-            $table->unsignedInteger('total_favorite_count')->default(0)->after('category_id');
+            // $table->unsignedInteger('total_favorite_count')->default(0)->after('category_id');
+            $table->dropColumn('image');
+            $table->dropColumn('image_url');
+            $table->dropColumn('video');
+            $table->dropColumn('video_url');
         });
     }
 

@@ -31,4 +31,9 @@ class Product extends Model
     {
         return $query->orderBy('total_favorite_count', 'desc');
     }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
 }

@@ -29,8 +29,9 @@ class GoogleController extends Controller
          // Tạo người dùng mới
          $newUser = User::create([
             'name' => $user->name,
-            'username' => ' ',
+            'username' => '',
             'email' => $user->email,
+            'password'=> bcrypt(''),
             // Thêm các trường thông tin khác tùy theo yêu cầu
          ]);
          auth()->login($newUser);
