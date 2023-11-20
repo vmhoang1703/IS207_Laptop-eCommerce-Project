@@ -7,8 +7,8 @@
  <section class="header ">
         <div class="Top-header">
             <div class="container py-2 px-5 ">
-                <div class="row ">
-                    <div class="SSS col-sm-8">
+                <div class="row ms-5 ">
+                    <div class="SSS col-sm-6">
                         SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
                     </div>
                     <div class="SHOPNOW col-sm-2 pe-3 ">
@@ -25,19 +25,26 @@
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
                 </div>
-                <div class="menu-header col-sm-1">
+               <div class="col-sm-4 d-flex justify-content-evenly">
+                <div class="menu-header">
                     <a href="#">HOME </a>
                 </div>
-                <div class="menu-header col-sm-1">
+                <div class="menu-header ">
                     <a href="#">STORE </a>
                 </div>
-                <div class="menu-header col-sm-1" style="white-space: nowrap;">
+                <div class="menu-header " style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
                 </div>
-                <div class="menu-header col-sm-1">
+                <div class="menu-header ">
                     <a href="#">CONTACT </a>
                 </div>
-                <div class="responsive-menu col-sm-1 mt-5">
+                </div>
+                <div class="signup col-sm-4">
+                    <button class="btn-signup"> Sign up </button>
+                </div>
+            </div>
+            <div class="row">
+            <div class="responsive-menu col-sm-1 mt-5">
                     <div class="drop-down filter-item">
                         <button><i class="fa fa-bars" aria-hidden="true"></i></button>
                         <i></i>
@@ -49,9 +56,7 @@
                         <li><a href="#"> CONTACT </a></li>
                     </ul>
                 </div>
-                <div class="signup col-sm-1 ">
-                    <button class="btn-signup"> Sign up </button>
-                </div>
+
             </div>
         </div>
         <hr style="width: 100%">

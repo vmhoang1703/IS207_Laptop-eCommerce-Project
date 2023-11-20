@@ -341,9 +341,9 @@
     @media only screen and (min-width: 1023px) and (max-width: 1281px)
     {
 
-     .wrapper .carousel {
+     /* .wrapper .carousel {
          grid-auto-columns: calc((100% / 3) - 12px);
-     }
+     } */
      /* .ads_jbl {
         width: 80%;
 

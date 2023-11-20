@@ -12,8 +12,13 @@
   }
   .SSS
   {
-    margin-left: 10% ;
+    margin-left: 20% ;
     color: white;
+
+  }
+  .SHOPNOW
+  {
+    text-decoration: underline;
   }
   .header .container
   {
@@ -41,6 +46,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-size: 9.95px;
+    white-space: nowrap;
 
   }
 
@@ -61,6 +67,10 @@
   .menu-header a:hover {
     background-size: 100% 2px;
   }
+  .signup
+  {
+    position: relative;
+  }
 
   .btn-signup {
     color: white;
@@ -71,7 +81,9 @@
     width: 80px;
     height: 30px;
     border-style: none;
-
+    position: absolute;
+    right: 0;
+    top : 0 ;
   }
 
   .menu-bar {
@@ -249,4 +261,20 @@
  {
     flex-direction: column-reverse;
  }
+ .SSS
+ {
+  display: contents;
+ }
+ .btn-signup
+ {
+    top : 1cm;
+ }
+}
+
+@media screen and (min-width:915px) and (max-width: 1200px)
+{
+   .icon_menu
+   {
+     display: flex;
+   }
 }

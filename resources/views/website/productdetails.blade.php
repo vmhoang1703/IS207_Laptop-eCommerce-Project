@@ -115,6 +115,10 @@
                         <div class="minus">-</div>
                         <div class="num" > 0 </div>
                         <div class="plus">+</div>
+                    </div>
+                    <hr class="mt-5">
+                    <div class="btn">
+                        <button class="plus">Add to cart </button>
                         <script>
                             const plus = document.querySelector(".plus"),
                                 minus = document.querySelector(".minus"),
@@ -134,10 +138,6 @@
                                 }
                             });
                         </script>
-                    </div>
-                    <hr class="mt-5">
-                    <div class="btn">
-                        <button>Add to cart </button>
                         <button>Buy now</button>
                     </div>
                     <div class="mt-5" style="margin-left:15%;">

@@ -198,7 +198,10 @@
 .product-content .btn {
     display: flex;
     justify-content: space-between;
+    outline: none;
 }
+
+
 .product-content table
 {
     border: 1px solid black;
