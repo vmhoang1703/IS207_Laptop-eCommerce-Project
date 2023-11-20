@@ -30,10 +30,11 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
                 </div>
-                <div class="sidebar-brand-text mx-3">E-LEC WORLD Admin</div>
+                <div class="sidebar-brand-text mx-3">E-LEC WORLD </div>
             </a>
 
             <!-- Divider -->
@@ -116,14 +117,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/charts">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <span>Business Overview Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="/admin/tables">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Business Overview Tables</span></a>
             </li>
 
             <!-- Divider -->
@@ -343,7 +344,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; E-LEC WORLD 2023</span>
                     </div>
                 </div>
             </footer>
@@ -398,6 +399,7 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('js/demo/chart-bar-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
