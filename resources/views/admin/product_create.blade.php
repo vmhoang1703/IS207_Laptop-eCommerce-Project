@@ -31,15 +31,15 @@
                 <input type="text" name="price" class="form-control" value="{{ old('price') }}">
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="oldPrice">Old Price:</label>
                 <input type="text" name="oldPrice" class="form-control" value="{{ old('oldPrice') }}">
-            </div> -->
+            </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="discount">Discount:</label>
                 <input type="text" name="discount" class="form-control" value="{{ old('discount') }}">
-            </div> -->
+            </div>
 
             <div class="form-group">
                 <label for="stock_quantity">Stock Quantity:</label>

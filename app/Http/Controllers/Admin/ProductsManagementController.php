@@ -75,7 +75,7 @@ class ProductsManagementController extends Controller
 
     public function viewProductPage($id)
     {
-        $product = Product::find($id);
+        $product = Product::with('images')->find($id);
         return view('admin.product_view', compact('product'));
     }
 
