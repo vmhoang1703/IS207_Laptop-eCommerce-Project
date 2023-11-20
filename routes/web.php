@@ -43,6 +43,8 @@ Route::post('/admin/products-management', [ProductsManagementController::class, 
 Route::get('/admin/products-management/{id}/view', [ProductsManagementController::class, 'viewProductPage'])->name('product.view');
 Route::get('/admin/products-management/{id}/edit', [ProductsManagementController::class, 'editProductPage'])->name('product.edit');
 Route::put('/admin/products-management/{id}', [ProductsManagementController::class, 'updateProduct'])->name('product.update');
+Route::get('/admin/products-management/{id}/delete', [ProductsManagementController::class, 'deleteProduct'])->name('product.delete');
+
 // Route orders management
 Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage']);
 // Route users management

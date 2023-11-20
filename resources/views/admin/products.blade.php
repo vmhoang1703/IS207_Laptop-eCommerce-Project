@@ -45,13 +45,15 @@
                         <td>{{ $product->created_at }}</td>
                         <td>{{ $product->updated_at }}</td>
                         <td>
-                            <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
+                            <a href="{{ route('product.delete', $product->product_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
+                            </a>
                             &nbsp;
-                            <a href="{{ route('product.edit', $product->product_id) }}">
+                            <a href="{{ route('product.edit', $product->product_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
                             </a>
                             &nbsp;
-                            <a href="{{ route('product.view', $product->product_id) }}">
+                            <a href="{{ route('product.view', $product->product_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
                         </td>

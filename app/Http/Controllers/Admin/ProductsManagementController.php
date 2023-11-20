@@ -21,7 +21,7 @@ class ProductsManagementController extends Controller
     {
         return view('admin.product_create');
     }
-    
+
     public function storeProduct(Request $request)
     {
         // Đánh giá, kiểm tra form
@@ -91,5 +91,14 @@ class ProductsManagementController extends Controller
         $product->update($request->all());
 
         return redirect('/admin/products-management')->with('success', 'Product updated successfully!');
+    }
+
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        // Redirect về trang quản lý sản phẩm với thông báo thành công
+        return redirect()->route('products.management')->with('success', 'Product deleted successfully');
     }
 }
