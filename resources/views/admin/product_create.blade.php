@@ -8,8 +8,13 @@
 
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="{{ route('product.store') }}" method="POST">
+        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            <div class="form-group">
+                <label for="images">Hình ảnh sản phẩm:</label>
+                <input type="file" name="images[]" id="images" multiple accept="image/*" value="{{ old('images') }}">
+            </div>
 
             <div class="form-group">
                 <label for="name">Name:</label>

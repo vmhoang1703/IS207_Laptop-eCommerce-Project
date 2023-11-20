@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -37,31 +38,53 @@ class AdminController extends Controller
     {
         // Đánh giá, kiểm tra form
         $request->validate([
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required',
             'price' => 'required|numeric',
             'stock_quantity' => 'required|integer',
-            'description' => 'required', 
+            'description' => 'required',
             // Thêm các quy tắc kiểm tra khác tùy thuộc vào yêu cầu của bạn
         ]);
 
-        // Gán dữ liệu nhập vào các trường thông tin
-        $product = new Product([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'oldPrice' => $request->input('oldPrice'),
-            'discount' => $request->input('discount'),
-            'stock_quantity' => $request->input('stock_quantity'),
-            'category_id' => $request->input('category_id'),
-            // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
-        ]);
+        try {
+            // Gán dữ liệu nhập vào các trường thông tin
+            $product = new Product([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'price' => $request->input('price'),
+                'oldPrice' => $request->input('oldPrice'),
+                'discount' => $request->input('discount'),
+                'stock_quantity' => $request->input('stock_quantity'),
+                'category_id' => $request->input('category_id'),
+                // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
+            ]);
 
-        // Lưu vào db
-        $product->save();
+            // Lưu vào db
+            $product->save();
 
-        // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
-        return redirect()->route('products.management')->with('success', 'Product created successfully');
+            // Xử lý upload ảnh
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $path = $image->store('public/img/product_images/'.$product->product_id);
+
+                    // Lưu thông tin ảnh vào bảng product_images
+                    $productImage = new ProductImage([
+                        'product_id' => $product->product_id,
+                        'image_path' => $path,
+                    ]);
+
+                    $productImage->save();
+                }
+            }
+
+            // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
+            return redirect()->route('products.management')->with('success', 'Product created successfully');
+        } catch (\Exception $e) {
+            // Nếu có lỗi, quay trở lại form với thông báo lỗi
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
+
     public function viewProductPage($id)
     {
         $product = Product::find($id);
@@ -81,14 +104,14 @@ class AdminController extends Controller
     }
 
 
-     // Controller for orders management
+    // Controller for orders management
     public function showOrdersManagementPage(): View
     {
         return view('admin.orders');
     }
-    
 
-     // Controller for users management
+
+    // Controller for users management
     public function showUsersManagementPage(): View
     {
         return view('admin.users');
