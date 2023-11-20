@@ -38,7 +38,7 @@
   .Top-header .container {
     text-align: center;
     position: static;
-    left: 3cm;
+    left: 3cm; }
 
   .Top-header .container {
     text-align: center;
@@ -63,7 +63,7 @@
     font-weight: 600;
     font-size: 9.95px;
 
-  }
+  } }
 
   .menu-header a {
     display: inline-block;
@@ -90,7 +90,7 @@
   }
 
   .menu-header a:hover {
-    background-size: 100% 2px;
+    background-size: 100% 2px; }
 
   .menu-header a:hover {
     background-size: 100% 2px;
@@ -104,6 +104,7 @@
     color: white;
     text-align: center;
     font-size: 12px;
+}
 
   .btn-signup {
     color: white;
