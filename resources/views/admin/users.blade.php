@@ -47,7 +47,21 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                     @foreach($users as $user)
                     <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->created_at}}</td>
+                        <td>{{ $user->phone	}}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            <a href="{{ route('user.view', $user->id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                    <!-- <tr>
                         <td>Tiger Nixon</td>
                         <td>System Architect</td>
                         <td>Edinburgh</td>
@@ -106,7 +120,7 @@
                             &nbsp;
                             <img src="./img/edit.png" alt="" width="20px" height="20px" />
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
