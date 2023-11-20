@@ -11,7 +11,8 @@ class StoreController extends Controller
     //
     public function showStorePage(): View
     {
-        $products = Product::with('images')->get();
+        // $products = Product::with('images')->get();
+        $products = Product::all();
         return view('website.store', compact('products'));
     }
 }

@@ -26,10 +26,10 @@
                 </div>
                 <div class="col-sm-5 d-flex justify-content-evenly">
                 <div class="menu-header ms-5">
-                    <a href="#">HOME </a>
+                    <a href="{{ route('home.show') }}">HOME </a>
                 </div>
                 <div class="menu-header ">
-                    <a href="#">STORE </a>
+                    <a href="{{ route('store.show') }}">STORE </a>
                 </div>
                 <div class="menu-header " style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
@@ -72,8 +72,8 @@
                      <i></i>
                  </div>
                  <ul class="menu-bar menu-text">
-                     <li><a href="#"> HOME </a></li>
-                     <li> <a href="#"> STORE </a></li>
+                     <li><a href="{{ route('home.show') }}"> HOME </a></li>
+                     <li> <a href="{{ route('store.show') }}"> STORE </a></li>
                      <li><a href="#"> ABOUT US </a></li>
                      <li><a href="#"> CONTACT </a></li>
                  </ul>
