@@ -20,7 +20,11 @@ html {
 a {
     text-decoration: none;
 }
-
+.img-aboutus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container-service-aboutus {
     justify-content: center;
 }
@@ -41,8 +45,5 @@ a {
     font-size: 32px;
 }
 @media only screen and  (max-width: 992px){
-    .img-aboutus{
-        margin-left: 9%;
-    }
 
 }

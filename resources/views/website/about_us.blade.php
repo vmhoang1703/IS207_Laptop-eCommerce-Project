@@ -29,7 +29,7 @@
                 </p>
             </div>
             <div class="col-10 col-lg-5 col-md-10 col-sm-10 img-aboutus">
-                <img src="{{ asset('img/image 64.png') }}" alt="image" class="img-fluid">
+                <img src="{{ asset('img/image 64.png') }}" alt="image" class=" img-fluid">
             </div>
         </div>
         <div class="row col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center" style="margin: 100px 0 100px;">
