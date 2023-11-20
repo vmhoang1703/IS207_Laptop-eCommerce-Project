@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
+
+//Route About us
+Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');

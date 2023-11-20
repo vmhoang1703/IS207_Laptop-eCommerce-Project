@@ -41,7 +41,7 @@
                     <ul class="menu-bar menu-text">
                         <li><a href="#"> HOME </a></li>
                         <li> <a href="#"> STORE </a></li>
-                        <li><a href="#"> ABOUT US </a></li>
+                        <li><a href="{{ route('aboutus.show') }}"> ABOUT US </a></li>
                         <li><a href="#"> CONTACT </a></li>
                     </ul>
                 </div>

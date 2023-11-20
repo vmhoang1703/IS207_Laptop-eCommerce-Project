@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function updateFavoriteCount(Request $request)
     {
         $productId = $request->input('product_id');
-        $increment = $request->input('increment');
+        $increment = $request->input('increment');        
 
         // Logic to update favorite count in the database
         $product = Product::find($productId);
