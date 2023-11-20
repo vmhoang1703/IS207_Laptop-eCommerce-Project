@@ -9,19 +9,23 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/responsive/home_res.css') }}">
+    <link rel="stylesheet" href="{{asset('css/product_card.css') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="js/dropdown.js"></script>
     <script src="js/countdown.js"></script>
-    <script src="js/carousel.js"> </script>
+    <script src="js/carousel.js" defer> </script>
+    <script src="js/range.js" defer></script>
+
+
+
 </head>
 
 <body>
-    <!-- Header -->
-    @component('components.header')
+    <!-- header -->
+    @component("components.header_signup")
     @endcomponent
     <!-- main content -->
     <section class="main-content">
@@ -29,38 +33,321 @@
             <div class="container">
                 <div class="row">
                     <!-- filter bar & menu -->
-                    @component('components.filter')
-                    @endcomponent
+                    <div class="col-sm-2 filter-responsive">
+                        <div class="filter">
+                            <table class="filter-content">
+                                <tr>
+                                    <td>
+                                        <a class="filtertext ps-5">Filter</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="group">
+                                            <div class="progress"></div>
+                                            <div class="range-input">
+                                                <input class="range-min" max="10000" type="range" value="0" step="500">
+
+                                                <input class="range-max" max="10000" type="range" value="10000" step="500">
+                                            </div>
+                                            <div class="range-text">
+                                                <div class="text-min">0</div>
+                                                <div class="text-max">10000</div>
+                                            </div>
+                                        </div>
+                                        <div class="title_text d-flex">
+                                            <div class="filter-item">lowest </div>
+                                            <div class="filter-item">highest </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div id="cat_link"><a>Categories</a></div>
+                                        <ul class="menu-bar">
+                                            <li class="filter-item">Laptop</li>
+                                            <li class="li-hr">
+                                                <hr>
+                                            </li>
+                                            <li>
+                                                <div class="drop-down filter-item">
+                                                    <span>Accessories</span>
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </div>
+                                                <ul class="menu-bar">
+                                                    <li><a href="#">Power banks </a></li>
+                                                    <li><a href="#">Cables, chargers </a></li>
+                                                    <li><a href="#">Phone cases </a> </li>
+                                                    <li><a href="#">Speakers</a> </li>
+                                                    <li><a href="#">Headphones </a> </li>
+                                                </ul>
+                                            </li>
+                                            <li class="li-hr">
+                                                <hr>
+                                            </li>
+                                            <li>
+                                                <div class="drop-down filter-item">
+                                                    <span>PCs, printer, screens</span>
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </div>
+                                                <ul class="menu-bar">
+                                                    <li><a href="#"> Printers </a></li>
+                                                    <li> <a href="#"> Printer ink </a></li>
+                                                    <li><a href="#"> Monitor </a></li>
+                                                    <li><a href="#">Gaming PC </a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <div class="col-sm-10 pt-4">
                         <!-- advertise MACBOOK -->
-                        @component('components.advertise')
-                        @endcomponent
+                        <div class="advertise ">
+                            <div class="advertise_responsive row">
+                                <div class="ads col-5 p-5 ms-5">
+                                    <div class="aditems"> <img src="{{ asset('img/apple logo.png') }}" class="img-fluid me-4">
+                                        <span> Macbook pro 16 inch 2023 (M2 Max) </span>
+                                    </div>
+                                    <div class="aditems">
+                                        <p class="ads New-arrival"> New arrival </p>
+                                    </div>
+                                    <div class="aditems pt-5 mt-5">
+                                        <a href="#" style="color:white ;text-decoration: underline;">Shop now <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <div class="slideshow-container">
+                                        <div class="mySlides animation">
+                                            <img src="{{ asset('img/macbook intro.png') }}" class="img-fluid">
+                                        </div>
+                                        <div class="mySlides animation ">
+                                            <img src="{{ asset('img/macbook intro(1).png') }}" class="img-fluid">
+                                        </div>
+                                        <div class="mySlides animation ">
+                                            <img src="{{ asset('img/macbook intro(2).png') }}" class="img-fluid">
+                                        </div>
+                                        <div class="mySlides animation ">
+                                            <img src="{{ asset('img/macbook intro(3).png') }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="mb-5" style="text-align:center">
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
+                                <span class="dot" onclick="currentSlide(4)"></span>
+                            </div>
+                            <script>
+                                let slideIndex = 1;
+                                setInterval(function() {
+                                    slideIndex++;
+                                    showSlides(slideIndex);
+                                }, 5000)
+                                showSlides(slideIndex);
+
+                                function plusSlides(n) {
+                                    showSlides(slideIndex += n);
+                                }
+
+                                function currentSlide(n) {
+                                    showSlides(slideIndex = n);
+                                }
+
+                                function showSlides(n) {
+                                    let i;
+                                    let slides = document.getElementsByClassName("mySlides");
+                                    let dots = document.getElementsByClassName("dot");
+                                    if (n > slides.length) {
+                                        slideIndex = 1
+                                    }
+                                    if (n < 1) {
+                                        slideIndex = slides.length
+                                    }
+                                    for (i = 0; i < slides.length; i++) {
+                                        slides[i].style.display = "none";
+                                    }
+                                    for (i = 0; i < dots.length; i++) {
+                                        dots[i].className = dots[i].className.replace(" active", "");
+                                    }
+                                    slides[slideIndex - 1].style.display = "block";
+                                    dots[slideIndex - 1].className += " active";
+                                }
+                            </script>
+                        </div>
                     </div>
                 </div>
                 <div class="title d-flex ">
                     <div class="secondary2 ms-5"></div>
-                    <div class="secondary2-text px-2 py-2">Today</div>
+                    <div class="secondary2-text px-2 py-2">Today </div>
                 </div>
                 <div class="flashsales">
+
                     <div class=" container">
                         <div class=" row">
                             <div class="introduction secondary1 col-3 my-3 ps-5">Flash Sales</div>
-                            <!-- Countdown -->
-                            @component('components.countdown')
-                            @endcomponent
+                            <div class="countdown col-4">
+                                <div class="row textdate">
+                                    <div class="col-3">Days</div>
+                                    <div class="col-3 ps-3">Hours</div>
+                                    <div class="col-3 ps-4 ">Minutes</div>
+                                    <div class="col-3 ps-5">Seconds</div>
+                                </div>
+                                <div class="row " style=" flex-wrap:nowrap;">
+                                    <div class="Time col" id="Days">00 </div>
+                                    <div class="col text-danger pt-2" style="font-size: 16px;font-weight: 600;">:</div>
+                                    <div class="Time col" id="Hours">00</div>
+                                    <div class="col text-danger pt-2" style="font-size: 16px;font-weight: 600;">:</div>
+                                    <div class="Time col pe-4" id="Minutes">00</div>
+                                    <div class="col text-danger pt-2" style="font-size: 16px;font-weight: 600;">:</div>
+                                    <div class="Time col" id="Seconds">00</div>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="wrapper">
-                            <!-- Carousel Flashsale -->
                             <i id="left" class="fa fa-angle-left"></i>
                             <ul class="carousel">
-                                @foreach($flashSalesProducts as $product)
-                                @component('components.card_flashsales', ['product' => $product])
-                                @endcomponent
-                                @endforeach
+                                <li class="card">
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
+                                    <div class="card-action">
+
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card">
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
+                                    <div class="card-action">
+
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card">
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
+                                    <div class="card-action">
+
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card">
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
+                                    <div class="card-action">
+
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card">
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
+                                    <div class="card-action">
+
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="card">
+                                    <div class="discount-tag">-40% </div>
+                                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img" draggable="false"></div>
+                                    <div class="card-action">
+
+                                        <div class="btn">
+                                            <button>Buy now</button>
+                                            <button>Add cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="info-card">
+                                        <div class="productname">AK-900 Wired Keyboard1</div>
+                                        <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                        <div class="star-bar">
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                            <span class="fa fa-star star"></span>
+                                        </div>
+                                    </div>
+                                </li>
+
                             </ul>
                             <i id="right" class="fa fa-angle-right"></i>
                         </div>
-                        <!-- carousel  -->
                         <!-- ----------------------------------------- -->
                     </div>
                     <hr style="margin-top: 100px;">
@@ -73,28 +360,130 @@
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Favorite Products</div>
 
-                <div class="wrapper">
-                    <!-- Carousel Favorite Products -->
-                    <ul class="carousel ">
-                        @foreach($products as $product)
-                        @component('components.card', ['product' => $product])
-                        @endcomponent
-                        @endforeach
-                        <!-- ----------------------------------------- -->
-                    </ul>
+                <div class="store">
+                    <div class="carousel">
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="heart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
+                                    <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
+                            <div class="card-action">
+                                <div class="btn">
+                                    <button>Buy now</button>
+                                    <button>Add cart</button>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <div class="productname">AK-900 Wired Keyboard1</div>
+                                <div class="cost"> 50$ <span class="discount">53$</span></div>
+                                <div class="star-bar">
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
                 <!-- heart action -->
                 <script>
-                    document.querySelectorAll(".heart").forEach(item =>
-                        item.addEventListener('click', function() {
-                            if (this.style.color != "red") {
-                                this.style.color = "red";
-                                
-                            } else
-                                this.style.color = "black"
-                        })
-                    )
-                </script>
+                                document.querySelectorAll(".heart1").forEach(item =>
+                                    item.addEventListener('click', function() {
+                                        if (this.style.fill == "none")
+                                          {
+                                             this.style.fill = "#DB4444";
+                                             this.style.stroke = "#DB4444";
+                                          }
+                                        else
+                                            {
+                                                this.style.fill = "none";
+                                                this.style.stroke = "black";
+                                            }
+                                    })
+                                )
+                            </script>
+                        <!-- ----------------------------------------- -->
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
                         <div class="jbl-details col-4 my-5 mx-5">
@@ -120,7 +509,7 @@
                             </div>
                             <button class="btn_jbl">Buy now!</button>
                         </div>
-                        <div class="JBL_BOOMBOX col-6 mx-5 my-5">
+                        <div class="JBL_BOOMBOX col-6 ms-5 my-5">
                             <img src="{{ asset('img/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png') }}" alt="img" width="100%">
                         </div>
                     </div>
@@ -139,8 +528,8 @@
                         <div class="title-regular">Black and White versions</div>
                         <div class="title-medium">Buy now</div>
                     </div>
-                    <div class="col-6 DELL">
-                        <div class="row me-5 " style="border-bottom: 1px solid white;">
+                    <div class="col-6 ms-4 ">
+                        <div class="row DELL mb-4 " style="padding-left: 0%;">
                             <div class="textD1 col-6 ps-3">
                                 <div class="heading"> Bluetooth Philips </div>
                                 <div class="title-regular">Bluetooth Philips headphone</div>
@@ -163,11 +552,11 @@
                     </div>
                 </div>
                 <!-- Newarrival responsive -->
-                <div class="wrapper Newarrival_res">
+                <div class="store Newarrival_res">
                     <ul class="carousel">
                         <li class="card" style="background-color:black;">
-                            <div class="img mb-0" style="background-color:black;">
-                                <img src="{{ asset('img/laptop.png') }}" style="width: 100%;" alt="img" draggable="false">
+                            <div class="img">
+                                <img src="{{ asset('img/laptop.png') }}" alt="img" >
                             </div>
                             <div class="DELL mb-3">
                                 <div class="heading">DELL-XPS-7590-0 </div>
@@ -176,10 +565,10 @@
                             </div>
                         </li>
                         <li class="card " style="background-color:black;">
-                            <div class="img mb-0" style="background-color:black;">
-                                <img src="{{ asset('img/headphone.png') }}" alt="img" draggable="false">
+                            <div class="img ">
+                                <img src="{{ asset('img/headphone.png') }}" alt="img" style="width:80%">
                             </div>
-                            <div class="DELL">
+                            <div class="DELL mb-5">
                                 <div class="heading"> Bluetooth Philips </div>
                                 <div class="title-regular">Bluetooth Philips headphone</div>
                                 <div class="title-medium">Buy now</div>
@@ -187,20 +576,20 @@
                         </li>
                         <li class="card" style="background-color:black;">
 
-                            <div class="img mb-0" style="background-color:black;">
-                                <img src="{{ asset('img/PC.png') }}" alt="img" draggable="false">
+                            <div class="img" >
+                                <img src="{{ asset('img/PC.png') }}" alt="img" style="width:80%">
                             </div>
-                            <div class="DELL">
+                            <div class="DELL mb-5">
                                 <div class="heading">BTS NC 01 </div>
                                 <div class="title-regular">BTS NC 01</div>
                                 <div class="title-medium">Buy now</div>
                             </div>
                         </li>
                         <li class="card " style="background-color:black;">
-                            <div class="img mb-0 " style="background-color:black;">
-                                <img src="{{ asset('img/loa.png') }}" alt="img" draggable="false">
+                            <div class="img">
+                                <img src="{{ asset('img/loa.png') }}" alt="img" style="width:70%">
                             </div>
-                            <div class="DELL me-2">
+                            <div class="DELL mb-4">
                                 <div class="heading">Speakers </div>
                                 <div class="title-regular"> Amazon wireless speakers</div>
                                 <div class="title-medium">Buy now</div>
@@ -292,9 +681,13 @@
 
     <section class="mt-5">
     </section>
+    <!-- footer -->
+    @component("components.footer")
+    @endcomponent
+    <!-- - -->
 
     <script src="js/bootstrap.bundle.min.js"> </script>
-    <script src="js/heart_action"></script>
 </body>
 
 </html>
+

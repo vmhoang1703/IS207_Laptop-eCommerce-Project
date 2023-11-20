@@ -5,10 +5,12 @@ use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
 use App\Http\Controllers\Admin\UsersManagementController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\DetailProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,11 @@ Route::get('/admin/products-management/{id}/delete', [ProductsManagementControll
 Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage']);
 // Route users management
 Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage']);
+
+//Route cửa hàng
+Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
+
+//Route chi tiết sản phẩm
+Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
+
+
