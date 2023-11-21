@@ -12,6 +12,7 @@ class Category extends Model
 
     // Các trường khác trong bảng "categories".
     protected $fillable = [
+        'category_id',
         'name',
     ];
 

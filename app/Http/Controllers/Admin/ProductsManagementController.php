@@ -35,8 +35,13 @@ class ProductsManagementController extends Controller
         ]);
 
         try {
+            // Tạo user_id mới và kiểm tra xem nó có tồn tại trong cơ sở dữ liệu hay không
+            do {
+                $product_id = $this->generateProductId();
+            } while (Product::where('product_id', $product_id)->exists());
             // Gán dữ liệu nhập vào các trường thông tin
             $product = new Product([
+                'product_id' => $product_id,
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
                 'price' => $request->input('price'),
@@ -105,5 +110,18 @@ class ProductsManagementController extends Controller
 
         // Redirect về trang quản lý sản phẩm với thông báo thành công
         return redirect()->route('products.management')->with('success', 'Product deleted successfully');
+    }
+
+
+    private function generateProductId(): string
+    {
+        // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+=';
+        $product_id = '';
+        for ($i = 0; $i < 6; $i++) {
+            $product_id .= $characters[rand(0, strlen($characters) - 1)];
+        }
+
+        return $product_id;
     }
 }

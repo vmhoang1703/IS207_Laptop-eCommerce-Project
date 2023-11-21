@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'products'; 
-
+    protected $table = 'products';
+    public $incrementing = false;
     protected $primaryKey = 'product_id';
 
     protected $fillable = [
@@ -19,19 +19,27 @@ class Product extends Model
         'discount',
         'stock_quantity',
         'category_id',
-        'favorite_count',
-        'image',
-        'image_url',
-        'video',
-        'video_url',
+        'total_favourite_count',
     ];
 
     // ...
+
+    /**
+     * Scope to order products by favorite count in descending order.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopeOrderByFavoriteCountDesc($query)
     {
-        return $query->orderBy('total_favorite_count', 'desc');
+        return $query->orderBy('total_favourite_count', 'desc');
     }
 
+    /**
+     * Define the relationship between Product and ProductImage.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id');
