@@ -1,23 +1,24 @@
 $(document).ready(function () {
-    $(".heart").on("click", function () {
-        // Get the closest parent <li> element
-        var parentLi = $(this).closest("li");
+    $(".heart1").on("click", function () {
+        // Get the closest parent <div> element with class "card"
+        var parentCard = $(this).closest(".card");
 
-        // Get the product_id from the data-id attribute of the parent <li> element
-        var productId = parentLi.data("id");
+        // Get the product_id from the data-id attribute of the parent <div> element
+        var productId = parentCard.data("id");
 
         console.log(productId);
 
         // Toggle color
-        if ($(this).css("color") != "rgb(255, 0, 0)") {
-            $(this).css("color", "red");
-            // Send request to update favorite count on the server
-            updateFavoriteCount(productId, true);
+        if ($(this).css("fill") == "none") {
+            $(this).css("fill", "#DB4444");
+            $(this).css("stroke", "#DB4444");
         } else {
-            $(this).css("color", "black");
-            // Send request to update favorite count on the server
-            updateFavoriteCount(productId, false);
+            $(this).css("fill", "none");
+            $(this).css("stroke", "black");
         }
+
+        // Send request to update favorite count on the server
+        updateFavoriteCount(productId, $(this).css("fill") != "none");
     });
 });
 

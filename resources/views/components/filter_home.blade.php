@@ -1,4 +1,4 @@
-<div class="col-sm-2 pb-5 filter-responsive">
+<div class="col-sm-2 filter-responsive">
     <div class="filter">
         <table class="filter-content">
             <tr>
@@ -7,13 +7,23 @@
                 </td>
             </tr>
             <tr>
-                <td id="min-max">
-                    <label for="price" style="font-size:12px">Price</label><br />
-                    <input type="range" id="vol" name="vol" min="0" max="100">
-                    <datalist id="values">
-                        <option value="0" label="lowest"></option>
-                        <option value="100" label="highest" id="highest"></option>
-                    </datalist>
+                <td>
+                    <div class="group">
+                        <div class="progress"></div>
+                        <div class="range-input">
+                            <input class="range-min" max="10000" type="range" value="0" step="500">
+
+                            <input class="range-max" max="10000" type="range" value="10000" step="500">
+                        </div>
+                        <div class="range-text">
+                            <div class="text-min">0</div>
+                            <div class="text-max">10000</div>
+                        </div>
+                    </div>
+                    <div class="title_text d-flex">
+                        <div class="filter-item">lowest </div>
+                        <div class="filter-item">highest </div>
+                    </div>
                 </td>
             </tr>
             <tr>
