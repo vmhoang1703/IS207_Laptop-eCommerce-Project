@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -34,3 +35,5 @@ Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('che
 
 //Route About us
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
+//Route Contact
+Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
