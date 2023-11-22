@@ -30,7 +30,7 @@ class Product extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOrderByFavoriteCountDesc($query)
+    public function scopeOrderByFavouriteCountDesc($query)
     {
         return $query->orderBy('total_favourite_count', 'desc');
     }

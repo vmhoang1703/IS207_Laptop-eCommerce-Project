@@ -50,11 +50,19 @@
                         </div>
                     </div>
                     <div class="img-select">
-                        @foreach($product->images as $image)
+                        <!-- @foreach($product->images as $image)
                         <div class="img-item">
                             <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}" class="img-fluid">
                         </div>
+                        @endforeach -->
+                        @foreach($product->images as $index => $image)
+                        <div class="img-item">
+                            <a href="#" data-id="{{ $index + 1 }}">
+                                <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}">
+                            </a>
+                        </div>
                         @endforeach
+
                         <!-- <div class="img-item">
                             <a href="#" data-id="1">
                                 <img src="{{asset('img/detail product 4.png')}}" alt="shoe image">

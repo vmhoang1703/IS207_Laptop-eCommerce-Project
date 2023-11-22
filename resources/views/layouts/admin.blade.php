@@ -29,12 +29,12 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.show') }}">
                 <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
                 </div>
-                <div class="sidebar-brand-text mx-3">E-LEC WORLD </div>
+                <div class="sidebar-brand-text mx-3">E-LEC WORLD</div>
             </a>
 
             <!-- Divider -->
@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/admin/dashboard">
+                <a class="nav-link" href="{{ route('dashboard.show') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -106,23 +106,23 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/admin/products-management">Products</a>
-                        <a class="collapse-item" href="/admin/users-management">Users</a>
-                        <a class="collapse-item" href="/admin/orders-management">Orders</a>
+                        <a class="collapse-item" href="{{ route('products.management') }}">Products</a>
+                        <a class="collapse-item" href="{{ route('users.management') }}">Users</a>
+                        <a class="collapse-item" href="{{ route('orders.management') }}">Orders</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="/admin/charts">
+                <a class="nav-link" href="{{ route('charts.show') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Business Overview Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="/admin/tables">
+                <a class="nav-link" href="{{ route('tables.show') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Business Overview Tables</span></a>
             </li>

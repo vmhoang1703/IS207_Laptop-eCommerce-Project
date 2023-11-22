@@ -23,6 +23,10 @@ return new class extends Migration
             $table->integer('stock_quantity');
             $table->string('category_id');
             $table->unsignedInteger('total_favourite_count')->default(0);
+            $table->string('screen_size');
+            $table->string('CPU');
+            $table->unsignedInteger('RAM');
+            $table->unsignedInteger('hard_disk_drive');
             $table->timestamps();
 
             $table->foreign('category_id')->references('category_id')->on('categories');

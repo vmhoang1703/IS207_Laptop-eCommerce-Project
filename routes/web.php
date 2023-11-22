@@ -30,15 +30,15 @@ Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 //Route home
 Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
-Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCount']);
+Route::post('/update-favourite-count', [HomeController::class, 'updateFavouriteCount']);
 //Route đăng nhập với Google
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 // Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
-Route::get('/admin/dashboard', [AdminController::class, 'showDashboardPage']);
-Route::get('/admin/tables', [AdminController::class, 'showTablesPage']);
-Route::get('/admin/charts', [AdminController::class, 'showChartsPage']);
+Route::get('/admin', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
+Route::get('/admin/tables', [AdminController::class, 'showTablesPage'])->name('tables.show');
+Route::get('/admin/charts', [AdminController::class, 'showChartsPage'])->name('charts.show');
 // Route products management
 Route::get('/admin/products-management', [ProductsManagementController::class, 'showProductsManagementPage'])->name('products.management');
 Route::get('/admin/products-management/create', [ProductsManagementController::class, 'createProductPage'])->name('product.create');
@@ -49,12 +49,13 @@ Route::put('/admin/products-management/{id}', [ProductsManagementController::cla
 Route::get('/admin/products-management/{id}/delete', [ProductsManagementController::class, 'deleteProduct'])->name('product.delete');
 
 // Route orders management
-Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage']);
+Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('orders.management');
 // Route users management
-Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage']);
+Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage'])->name('users.management');
 
 //Route cửa hàng
 Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
+Route::post('/store/filter', [StoreController::class,'filterProduct'])->name('store.filter');
 
 //Route chi tiết sản phẩm
 Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');

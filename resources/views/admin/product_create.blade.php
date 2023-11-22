@@ -47,13 +47,45 @@
             </div>
 
             <div class="form-group">
-                <label for="category_id">Category:</label>
+                <label for="category_id">Category</label>
                 <select name="category_id" class="form-control">
                     <option value="1" {{ old('category_id') == 1 ? 'selected' : '' }}>Laptop</option>
                     <option value="2" {{ old('category_id') == 2 ? 'selected' : '' }}>Phụ kiện</option>
                     <option value="3" {{ old('category_id') == 3 ? 'selected' : '' }}>PC</option>
                     <option value="4" {{ old('category_id') == 4 ? 'selected' : '' }}>Flash Sales</option>
                     <option value="5" {{ old('category_id') == 5 ? 'selected' : '' }}>None</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="screen_size">Screen Size</label>
+                <select name="screen_size" class="form-control">
+                    <option value="13inch" {{ old('screen_size') == '13inch' ? 'selected' : '' }}>Trên 13 inch</option>
+                    <option value="14inch" {{ old('screen_size') == '14inch' ? 'selected' : '' }}>Trên 14 inch</option>
+                    <option value="15inch" {{ old('screen_size') == '15inch' ? 'selected' : '' }}>Trên 15 inch</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="CPU">CPU</label>
+                <select name="CPU" class="form-control">
+                    <option value="intel celeron" {{ old('CPU') == 'intel celeron' ? 'selected' : '' }}>Intel celeron</option>
+                    <option value="intel pentinum" {{ }}>intel pentinumn</option>
+                    <option value="intel core i5" {{ }}>intel core i5</option>
+                    <option value="intel core i7" {{ }}>intel core i7s</option>
+                    <option value="amd ryzen 5" {{ }}>amd ryzen 5</option>
+                    <option value="amd ryzen 7" {{ }}>amd ryzen 7</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category_id">Category:</label>
+                <select name="category_id" class="form-control">
+                    <option value="1" {{ }}>Laptop</option>
+                    <option value="2" {{ }}>Phụ kiện</option>
+                    <option value="3" {{ }}>PC</option>
+                    <option value="4" {{ }}>Flash Sales</option>
+                    <option value="5" {{ }}>None</option>
                 </select>
             </div>
 

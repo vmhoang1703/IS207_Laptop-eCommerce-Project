@@ -15,12 +15,12 @@ class HomeController extends Controller
         // Truy vấn sản phẩm có danh mục là "flash sale"
         $flashSalesProducts = Product::where('category_id', 4)->get();
         // Truy vấn sản phẩm ở tùy chọn "Sản phẩm yêu thích"
-        $products = Product::orderByFavoriteCountDesc()->get();
+        $products = Product::orderByFavouriteCountDesc()->get();
 
         return view('website.home', compact('flashSalesProducts', 'products'));
     }
 
-    public function updateFavoriteCount(Request $request)
+    public function updateFavouriteCount(Request $request)
     {
         $productId = $request->input('product_id');
         $increment = $request->input('increment');
@@ -29,13 +29,13 @@ class HomeController extends Controller
         $product = Product::find($productId);
         // dd($product);
         if ($product) {
-            $product->total_favorite_count += $increment ? 1 : -1;
+            $product->total_favourite_count += $increment ? 1 : -1;
             $product->save();
         }
 
         // Lấy tổng số lượt yêu thích của từng sản phẩm
-        $totalFavoriteCountPerProduct =  $product->total_favorite_count;
+        $totalFavouriteCountPerProduct =  $product->total_favourite_count;
 
-        return response()->json(['total_favorite_count_per_product' => $totalFavoriteCountPerProduct]);
+        return response()->json(['total_favorite_count_per_product' => $totalFavouriteCountPerProduct]);
     }
 }
