@@ -3,6 +3,7 @@
 html {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+
 }
 
 * {
@@ -18,4 +19,74 @@ html {
 
 a {
     text-decoration: none;
+}
+
+.title-contact-us{
+    justify-content: center;
+}
+.container-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-mes {
+    width: 30%;
+    height: 7vh;
+}
+.input-mes,
+.message{
+    border: none;
+    text-indent: 15px;
+    border-radius: 4px;
+    background: #F5F5F5;
+    margin-bottom: 32px;
+}
+
+.btn-send-message {
+    border-radius: 10px;
+    border: none;
+    background: #DB4444;
+    color: #FAFAFA;
+    font-size: 16px;
+    height: 7vh;
+}
+
+.contaniner-contact {
+    border-radius: 4px;
+    background: #FFF;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+.call-to-us,
+.write-to-us{
+    display: flex;
+    align-items: center;
+}
+.contact-detail{
+    word-wrap: break-word;}
+
+@media screen and (max-width:768px) {
+    .icon-contact {
+        width: 50px;
+    }
+    .contact-detail{
+        font-size: 10px;
+    }
+  
+}
+@media screen and (max-width:576px){
+    .none-dis-res{
+        display: none;
+    }
+    .input-mes{
+        width: 100%;
+        
+    }
+    .container-input,
+    .message{
+        margin-left: 0px;
+    }
+    .input-mes,
+    .message{
+        margin-bottom: 15px;
+    }
 }
