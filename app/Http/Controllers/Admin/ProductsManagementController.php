@@ -19,7 +19,7 @@ class ProductsManagementController extends Controller
 
     public function createProductPage(): View
     {
-        return view('admin.product_create');
+        return view('admin.product.product_create');
     }
 
     public function storeProduct(Request $request)
@@ -49,6 +49,10 @@ class ProductsManagementController extends Controller
                 'discount' => $request->input('discount'),
                 'stock_quantity' => $request->input('stock_quantity'),
                 'category_id' => $request->input('category_id'),
+                'screen_size' => $request->input('screen_size'),
+                'CPU' => $request->input('CPU'),
+                'RAM' => $request->input('RAM'),
+                'hard_disk_drive' => $request->input('hard_disk_drive'),
                 // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
             ]);
 
@@ -86,13 +90,13 @@ class ProductsManagementController extends Controller
     public function viewProductPage($id)
     {
         $product = Product::with('images')->find($id);
-        return view('admin.product_view', compact('product'));
+        return view('admin.product.product_view', compact('product'));
     }
 
     public function editProductPage($id)
     {
         $product = Product::find($id);
-        return view('admin.product_edit', compact('product'));
+        return view('admin.product.product_edit', compact('product'));
     }
 
     public function updateProduct(Request $request, $id)
@@ -116,7 +120,7 @@ class ProductsManagementController extends Controller
     private function generateProductId(): string
     {
         // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+=';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $product_id = '';
         for ($i = 0; $i < 6; $i++) {
             $product_id .= $characters[rand(0, strlen($characters) - 1)];

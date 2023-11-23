@@ -59,11 +59,11 @@
                                 </div>
                                 <ul class="menu-bar">
                                     <li><label><input name="intel celeron" type="checkbox"> Intel celeron</label> </li>
-                                    <li><label><input name="intel pentinum" type="checkbox"> Intel pentium</label> </li>
-                                    <li><label><input name="intel core i5" type="checkbox"> Intel core i5</label> </li>
-                                    <li><label><input name="intel core i7" type="checkbox"> Intel core i7</label> </li>
-                                    <li><label><input name="amd ryzen 5" type="checkbox"> Amd ryzen 5</label> </li>
-                                    <li><label><input name="amd ryzen 7" type="checkbox"> Amd ryzen 7</label> </li>
+                                    <li><label><input name="intel pentinum" type="checkbox"> Intel pentinum</label> </li>
+                                    <li><label><input name="intel core i5" type="checkbox"> Intel Core i5</label> </li>
+                                    <li><label><input name="intel core i7" type="checkbox"> Intel Core i7</label> </li>
+                                    <li><label><input name="amd ryzen 5" type="checkbox"> AMD Ryzen 5</label> </li>
+                                    <li><label><input name="amd ryzen 7" type="checkbox"> AMD Ryzen 7</label> </li>
                                 </ul>
                             </li>
                             <li class="li-hr">

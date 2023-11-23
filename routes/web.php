@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoriesManagementController;
 use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
 use App\Http\Controllers\Admin\UsersManagementController;
@@ -39,6 +40,15 @@ Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('/admin', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
 Route::get('/admin/tables', [AdminController::class, 'showTablesPage'])->name('tables.show');
 Route::get('/admin/charts', [AdminController::class, 'showChartsPage'])->name('charts.show');
+
+// Route categories management
+Route::get('/admin/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('categories.management');
+Route::get('/admin/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('category.create');
+Route::post('/admin/categories-management', [CategoriesManagementController::class, 'storeCategory'])->name('category.store');
+Route::get('/admin/categories-management/{id}/edit', [CategoriesManagementController::class, 'editCategoryPage'])->name('category.edit');
+Route::put('/admin/categories-management/{id}', [CategoriesManagementController::class, 'updateCategory'])->name('category.update');
+Route::get('/admin/categories-management/{id}/delete', [CategoriesManagementController::class, 'deleteCategory'])->name('category.delete');
+
 // Route products management
 Route::get('/admin/products-management', [ProductsManagementController::class, 'showProductsManagementPage'])->name('products.management');
 Route::get('/admin/products-management/create', [ProductsManagementController::class, 'createProductPage'])->name('product.create');

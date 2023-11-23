@@ -20,6 +20,11 @@ class Product extends Model
         'stock_quantity',
         'category_id',
         'total_favourite_count',
+        'screen_size',
+        'CPU',
+        'RAM',
+        'hard_disk_drive',
+        'event'
     ];
 
     // ...

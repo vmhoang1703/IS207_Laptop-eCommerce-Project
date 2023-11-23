@@ -48,6 +48,7 @@
                     <p><strong>Stock Quantity:</strong> {{ $product->stock_quantity }}</p>
                     <p><strong>Category:</strong> {{ getCategoryName($product->category_id) }}</p>
                     <p><strong>Favourites:</strong> {{ $product->total_favorite_count }}</p>
+                    <p><strong>Favourites:</strong> {{ $product->total_favorite_count }}</p>
                     <!-- Add other product details based on your model's attributes -->
 
                     <!-- You can also add an "Edit" button that links to the edit page -->
