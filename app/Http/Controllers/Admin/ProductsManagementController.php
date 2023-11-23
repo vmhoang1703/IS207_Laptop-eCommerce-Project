@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
@@ -19,7 +20,8 @@ class ProductsManagementController extends Controller
 
     public function createProductPage(): View
     {
-        return view('admin.product.product_create');
+        $categories = Category::all();
+        return view('admin.product.product_create', compact('categories'));
     }
 
     public function storeProduct(Request $request)
@@ -52,12 +54,17 @@ class ProductsManagementController extends Controller
                 'screen_size' => $request->input('screen_size'),
                 'CPU' => $request->input('CPU'),
                 'RAM' => $request->input('RAM'),
-                'hard_disk_drive' => $request->input('hard_disk_drive'),
+                'storage' => $request->input('storage'),
+                'event' => $request->input('event'),
                 // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
             ]);
 
+            $category = Category::find($request->input('category_id'));
+            $category->total_products += 1; // Increment by 1
+
             // Lưu vào db
             $product->save();
+            $category->save();
 
             // Xử lý upload ảnh
             if ($request->hasFile('images')) {
@@ -78,7 +85,6 @@ class ProductsManagementController extends Controller
                 }
             }
 
-
             // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
             return redirect()->route('products.management')->with('success', 'Product created successfully');
         } catch (\Exception $e) {
@@ -90,13 +96,15 @@ class ProductsManagementController extends Controller
     public function viewProductPage($id)
     {
         $product = Product::with('images')->find($id);
-        return view('admin.product.product_view', compact('product'));
+        $categories = Category::all();
+        return view('admin.product.product_view', compact('product', 'categories'));
     }
 
     public function editProductPage($id)
     {
         $product = Product::find($id);
-        return view('admin.product.product_edit', compact('product'));
+        $categories = Category::all();
+        return view('admin.product.product_edit', compact('product', 'categories'));
     }
 
     public function updateProduct(Request $request, $id)
@@ -111,6 +119,10 @@ class ProductsManagementController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+
+        $category = Category::find($product->category_id);
+        $category->total_products -= 1; // Decrement by 1
+        $category->save();
 
         // Redirect về trang quản lý sản phẩm với thông báo thành công
         return redirect()->route('products.management')->with('success', 'Product deleted successfully');

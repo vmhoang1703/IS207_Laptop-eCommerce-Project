@@ -74,8 +74,7 @@ class CategoriesManagementController extends Controller
         // Redirect về trang quản lý sản phẩm với thông báo thành công
         return redirect()->route('categories.management')->with('success', 'Category deleted successfully');
     }
-
-
+    
     private function generateCategoryId(): string
     {
         // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)

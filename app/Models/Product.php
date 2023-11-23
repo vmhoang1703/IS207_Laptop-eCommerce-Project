@@ -8,8 +8,7 @@ class Product extends Model
 {
     protected $table = 'products';
     public $incrementing = false;
-    protected $primaryKey = 'product_id';
-
+    protected $primaryKey = 'product_id'; // Đặt khóa chính của bảng.
     protected $fillable = [
         'product_id',
         'name',
@@ -23,7 +22,7 @@ class Product extends Model
         'screen_size',
         'CPU',
         'RAM',
-        'hard_disk_drive',
+        'storage',
         'event'
     ];
 

@@ -38,6 +38,7 @@
                     <tr>
                         <td>{{ $category->category_id }}</td>
                         <td>{{ $category->name }}</td>
+                        <td>{{ $category->total_products }}</td>
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at }}</td>
                         <td>

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->string('category_id', 6)->primary();
             $table->string('name')->unique();
+            $table->unsignedInteger('total_products')->default(0);
             $table->timestamps();
         });
     }

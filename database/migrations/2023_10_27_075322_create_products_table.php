@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('screen_size');
             $table->string('CPU');
             $table->string('RAM');
-            $table->string('hard_disk_drive');
+            $table->string('storage');
             $table->string('event');
             $table->timestamps();
 
