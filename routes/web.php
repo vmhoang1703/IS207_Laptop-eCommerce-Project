@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoriesManagementController;
 use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
 use App\Http\Controllers\Admin\UsersManagementController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DetailProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
@@ -35,6 +37,11 @@ Route::post('/update-favourite-count', [HomeController::class, 'updateFavouriteC
 //Route đăng nhập với Google
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+//Route About us
+Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
+//Route Contact
+Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
 
 // Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
 Route::get('/admin', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
@@ -70,5 +77,4 @@ Route::get('/store/filter/{id}/main-image', [StoreController::class,'getMainImag
 
 //Route chi tiết sản phẩm
 Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
-
 
