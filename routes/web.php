@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
 use App\Http\Controllers\Admin\UsersManagementController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DetailProductController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,10 @@ Route::post('/update-favourite-count', [HomeController::class, 'updateFavouriteC
 //Route đăng nhập với Google
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+//Route giao diện Order
+Route::get('/order', [OrderController::class,'showOrderPage'])->name('order.show');
+Route::get('/orderpayment', [OrderController::class,'showOrderPaymentPage'])->name('order.payment');
 
 //Route About us
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
