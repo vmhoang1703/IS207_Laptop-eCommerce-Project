@@ -1,0 +1,360 @@
+/* carousel card */
+.wrapper {
+
+    width: 100%;
+    position: relative;
+    padding-left: 2.3%;
+}
+
+.wrapper i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+    text-align: center;
+}
+
+.wrapper i:active {
+    transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+    left: -22px;
+}
+
+.wrapper i:last-child {
+    right: -22px;
+}
+
+.wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 4) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    column-gap: 10px;
+
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel.no-transition {
+    scroll-behavior: auto;
+}
+
+.carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel .card {
+    scroll-snap-align: start;
+    height: 342px;
+    width: 250px;
+    list-style: none;
+    background: whitesmoke;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+
+}
+
+.carousel .card .img {
+    width: 100%;
+    margin-top: 15%;
+}
+
+.card .img img {
+    width: 100%;
+    height: auto;
+    transition: 0.5s;
+
+}
+
+.carousel .card .info-card .cost {
+    color: red;
+
+
+}
+
+.carousel .card .info-card .cost .discount {
+    color: rgba(0, 0, 0, 0.09);
+    text-decoration: line-through;
+    font-weight: bold;
+    padding-left: 0.4cm;
+}
+
+.star {
+    color: #FFAD33;
+    text-decoration: none;
+}
+
+.discount-tag {
+    background-color: #DB4444;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400px;
+    width: 60px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-action {
+    width: 100%;
+    height: auto;
+}
+
+.card-action .btn {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.card-action button {
+    background-color: #DB4444;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 9px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.card:hover img {
+    transform: scale(0.8);
+    transition: 0.5s;
+    transition-delay: 0.4s;
+
+}
+
+.card-action {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: 0.4s;
+}
+
+.card:hover .card-action {
+    visibility: visible;
+    opacity: 100;
+    bottom: 0.5cm;
+    transition: 0.5s;
+    transition-delay: 0.4s;
+}
+
+
+
+/* store_card */
+
+.store {
+
+    width: 100%;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.store .heart {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.store .carousel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1%;
+}
+
+.store .carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.store .carousel .card {
+    scroll-snap-align: start;
+    height: 342px;
+    width: 250px;
+    list-style: none;
+    background: whitesmoke;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    margin-top: 10%;
+
+}
+
+.store .carousel .card .img {
+    width: 100%;
+    margin-top: 15%;
+}
+
+.store .carousel .card .img img {
+    width: 100%;
+    height: auto;
+    transition: 0.5s;
+
+}
+
+.store .carousel .card .info-card .cost {
+    color: red;
+
+
+}
+
+.store .carousel .card .info-card .cost .discount {
+    color: rgba(0, 0, 0, 0.09);
+    text-decoration: line-through;
+    font-weight: bold;
+    padding-left: 0.4cm;
+}
+
+.store .carousel .card .info-card .star {
+    color: #FFAD33;
+    text-decoration: none;
+}
+
+.store .carousel .card-action {
+    width: 100%;
+    height: auto;
+}
+
+.store .carousel .card-action .btn {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.store .carousel .card-action button {
+    background-color: #DB4444;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 9px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.store .carousel .card:hover img {
+    transform: scale(0.8);
+    transition: 0.5s;
+    transition-delay: 0.4s;
+
+}
+
+.store .carousel .card-action {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: 0.4s;
+}
+
+.store .carousel .card:hover .card-action {
+    visibility: visible;
+    opacity: 100;
+    bottom: 0.5cm;
+    transition: 0.5s;
+    transition-delay: 0.4s;
+}
+.carousel_store
+{
+    grid-template-columns: repeat(3,1fr) !important ;
+    column-gap: 5% !important;
+}
+@media screen and (min-width: 901px) and (max-width: 1190px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2.5) - 1px)!important;
+    }
+    .store
+    {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .store .carousel {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 50px);
+    }
+    .store .carousel {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+
+@media screen and (max-width: 538px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+    .store .carousel {
+        grid-template-columns: repeat(1, 1fr) !important;
+
+    }
+}
+
+@media screen and (min-width : 539px) and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 70%;
+    }
+    .store .carousel {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+@media screen and (max-width: 1279px) {
+    .store
+{
+    overflow-x:scroll
+
+}
+
+.store::-webkit-scrollbar {
+    display: none;
+}
+ }
+
+

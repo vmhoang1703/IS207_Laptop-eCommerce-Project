@@ -9,8 +9,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
+    public $incrementing = false;
+    protected $primaryKey = 'user_id';
     protected $fillable = [
+        'user_id',
         'name',
         'username',
         'password',
@@ -18,7 +20,7 @@ class User extends Authenticatable
         'email',
         'phone',
         'ident',
-        'avatarLink',
+        'avatar_path',
         'role',
         'knownFrom',
         'momoWallet_id',
