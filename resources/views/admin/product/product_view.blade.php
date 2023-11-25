@@ -12,7 +12,7 @@
             <div class="col-md-6">
                 @if($product->images->isNotEmpty())
                 @foreach($product->images as $image)
-                <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}" class="img-fluid" width="200px" height="200px">
+                <img src="{{ asset($image->image_path) }}" alt="{{ $product->name }}" class="img-fluid" width="200px" height="200px">
                 @endforeach
                 @else
                 <p>No images available</p>

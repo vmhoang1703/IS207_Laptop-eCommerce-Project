@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Cửa hàng</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -18,6 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/range.js" defer></script>
     <script src="js/pagination.js" defer></script>
+    <script src="js/filter.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -59,7 +63,6 @@
         @endcomponent
         <!-- - -->
         <script src="js/heart_action.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 
 </html>

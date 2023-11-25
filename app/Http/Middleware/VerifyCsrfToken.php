@@ -14,5 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         '/update-favorite-count',
+        '/store/filter',
+        '/store/filter/{id}/main-image',
     ];
 }

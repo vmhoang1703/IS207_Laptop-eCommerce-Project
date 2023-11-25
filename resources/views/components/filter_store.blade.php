@@ -20,8 +20,8 @@
                     </div>
                 </div>
                 <div class="title_text d-flex">
-                    <div class="filter-item">lowest </div>
-                    <div class="filter-item">highest </div>
+                    <div class="filter-item">Lowest</div>
+                    <div class="filter-item">Highest </div>
                 </div>
             </td>
         </tr>
@@ -43,9 +43,9 @@
                                 </div>
 
                                 <ul class="menu-bar">
-                                    <li><label><input name="13inch" type="checkbox"> 13 inch</label> </li>
-                                    <li><label><input name="14inch" type="checkbox"> 14 inch</label> </li>
-                                    <li><label><input name="15inch" type="checkbox"> Trên 15 inch</label> </li>
+                                    <li><label><input name="screen_size" type="checkbox" value="13 inch"> 13 inch</label> </li>
+                                    <li><label><input name="screen_size" type="checkbox" value="14 inch"> 14 inch</label> </li>
+                                    <li><label><input name="screen_size" type="checkbox" value="Over 15 inch"> Over 15 inch</label> </li>
                                 </ul>
 
                             </li>
@@ -58,12 +58,12 @@
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </div>
                                 <ul class="menu-bar">
-                                    <li><label><input name="intel celeron" type="checkbox"> Intel celeron</label> </li>
-                                    <li><label><input name="intel pentinum" type="checkbox"> Intel pentinum</label> </li>
-                                    <li><label><input name="intel core i5" type="checkbox"> Intel Core i5</label> </li>
-                                    <li><label><input name="intel core i7" type="checkbox"> Intel Core i7</label> </li>
-                                    <li><label><input name="amd ryzen 5" type="checkbox"> AMD Ryzen 5</label> </li>
-                                    <li><label><input name="amd ryzen 7" type="checkbox"> AMD Ryzen 7</label> </li>
+                                    <li><label><input name="Intel Celeron" type="checkbox"> Intel Celeron</label> </li>
+                                    <li><label><input name="Intel Pentinum" type="checkbox"> Intel Pentinum</label> </li>
+                                    <li><label><input name="Intel Core i5" type="checkbox"> Intel Core i5</label> </li>
+                                    <li><label><input name="Intel Core i7" type="checkbox"> Intel Core i7</label> </li>
+                                    <li><label><input name="AMD Ryzen 5" type="checkbox"> AMD Ryzen 5</label> </li>
+                                    <li><label><input name="AMD Ryzen 7" type="checkbox"> AMD Ryzen 7</label> </li>
                                 </ul>
                             </li>
                             <li class="li-hr">
@@ -75,11 +75,11 @@
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </div>
                                 <ul class="menu-bar">
-                                    <li><label><input name="4gb" type="checkbox"> 4GB</label> </li>
-                                    <li><label><input name="8gb" type="checkbox"> 8GB</label> </li>
-                                    <li><label><input name="16gb" type="checkbox"> 16GB</label> </li>
-                                    <li><label><input name="32gb" type="checkbox"> 32GB</label> </li>
-                                    <li><label><input name="64gb" type="checkbox"> 64GB</label> </li>
+                                    <li><label><input name="4GB" type="checkbox"> 4GB</label> </li>
+                                    <li><label><input name="8GB" type="checkbox"> 8GB</label> </li>
+                                    <li><label><input name="16GB" type="checkbox"> 16GB</label> </li>
+                                    <li><label><input name="32GB" type="checkbox"> 32GB</label> </li>
+                                    <li><label><input name="64GB" type="checkbox"> 64GB</label> </li>
                                 </ul>
                             </li>
                             <li class="li-hr">
@@ -91,10 +91,10 @@
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </div>
                                 <ul class="menu-bar">
-                                    <li><label><input name="ssd 1tb" type="checkbox"> SSD 1TB</label> </li>
-                                    <li><label><input name="ssd 512gb" type="checkbox"> SSD 512GB</label> </li>
-                                    <li><label><input name="ssd 256gb" type="checkbox"> SSD 256GB</label> </li>
-                                    <li><label><input name="ssd 128gb" type="checkbox"> SSD 128GB</label> </li>
+                                    <li><label><input name="SSD 1TB" type="checkbox"> SSD 1TB</label> </li>
+                                    <li><label><input name="SSD 512GB" type="checkbox"> SSD 512GB</label> </li>
+                                    <li><label><input name="SSD 256GB" type="checkbox"> SSD 256GB</label> </li>
+                                    <li><label><input name="SSD 128GB" type="checkbox"> SSD 128GB</label> </li>
                                 </ul>
                             </li>
 

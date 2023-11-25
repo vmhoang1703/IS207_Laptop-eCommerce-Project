@@ -66,6 +66,7 @@ Route::get('/admin/users-management', [UsersManagementController::class, 'showUs
 //Route cửa hàng
 Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
 Route::post('/store/filter', [StoreController::class,'filterProduct'])->name('store.filter');
+Route::get('/store/filter/{id}/main-image', [StoreController::class,'getMainImage'])->name('store.getMainImage');
 
 //Route chi tiết sản phẩm
 Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');

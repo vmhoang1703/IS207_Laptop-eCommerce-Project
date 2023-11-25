@@ -1,7 +1,11 @@
 <li class="card">
     <div class="discount-tag">-{{ $product->discount }}% </div>
     <div class="img">
-        <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" alt="{{ $product->name }}" draggable="false" style="height: 150px; width: 190px">
+        @if ($product->images->where('is_main', 1)->isNotEmpty())
+        <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+        @else
+        <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+        @endif
     </div>
     <div class="card-action">
         <div class="btn">

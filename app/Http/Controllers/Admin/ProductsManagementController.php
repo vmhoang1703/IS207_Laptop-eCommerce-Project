@@ -28,6 +28,7 @@ class ProductsManagementController extends Controller
     {
         // Đánh giá, kiểm tra form
         $request->validate([
+            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required',
             'price' => 'required|numeric',
@@ -41,6 +42,7 @@ class ProductsManagementController extends Controller
             do {
                 $product_id = $this->generateProductId();
             } while (Product::where('product_id', $product_id)->exists());
+
             // Gán dữ liệu nhập vào các trường thông tin
             $product = new Product([
                 'product_id' => $product_id,
@@ -66,6 +68,22 @@ class ProductsManagementController extends Controller
             $product->save();
             $category->save();
 
+            // Xử lý upload ảnh chính
+            $mainImage = $request->file('main_image');
+            $mainImageName = uniqid() . '.' . $mainImage->getClientOriginalExtension();
+            $mainImagePath = 'public/img/product_images/' . $product->product_id . '/' . $mainImageName;
+
+            // Lưu ảnh chính vào bảng ProductImage
+            $productImage = new ProductImage([
+                'product_id' => $product->product_id,
+                'image_path' => 'storage/img/product_images/' . $product->product_id . '/' . $mainImageName,
+                'is_main' => true,
+            ]);
+            $productImage->save();
+
+            // Lưu ảnh chính vào thư mục lưu trữ
+            $mainImage->storeAs('public/img/product_images/' . $product->product_id, $mainImageName);
+
             // Xử lý upload ảnh
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
@@ -78,7 +96,8 @@ class ProductsManagementController extends Controller
                     // Save the relative path to the image in the database
                     $productImage = new ProductImage([
                         'product_id' => $product->product_id,
-                        'image_path' => 'img/product_images/' . $product->product_id . '/' . $image_name,
+                        'image_path' => 'storage/img/product_images/' . $product->product_id . '/' . $image_name,
+                        'is_main' => false,
                     ]);
 
                     $productImage->save();
@@ -92,6 +111,7 @@ class ProductsManagementController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
 
     public function viewProductPage($id)
     {

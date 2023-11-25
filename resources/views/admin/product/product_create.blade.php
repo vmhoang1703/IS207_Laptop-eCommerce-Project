@@ -10,9 +10,15 @@
     <div class="card-body">
         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
+            <!-- Thêm input cho ảnh chính -->
             <div class="form-group">
-                <label for="images">Hình ảnh sản phẩm:</label>
+                <label for="main_image">Main image:</label>
+                <input type="file" name="main_image" id="main_image" accept="image/*" value="{{ old('main_image') }}">
+            </div>
+
+            <!-- Thêm input cho các ảnh khác -->
+            <div class="form-group">
+                <label for="images">Other images:</label>
                 <input type="file" name="images[]" id="images" multiple accept="image/*" value="{{ old('images') }}">
             </div>
 
