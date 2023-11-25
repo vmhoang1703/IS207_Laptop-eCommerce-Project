@@ -58,12 +58,12 @@
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </div>
                                 <ul class="menu-bar">
-                                    <li><label><input name="Intel Celeron" type="checkbox"> Intel Celeron</label> </li>
-                                    <li><label><input name="Intel Pentinum" type="checkbox"> Intel Pentinum</label> </li>
-                                    <li><label><input name="Intel Core i5" type="checkbox"> Intel Core i5</label> </li>
-                                    <li><label><input name="Intel Core i7" type="checkbox"> Intel Core i7</label> </li>
-                                    <li><label><input name="AMD Ryzen 5" type="checkbox"> AMD Ryzen 5</label> </li>
-                                    <li><label><input name="AMD Ryzen 7" type="checkbox"> AMD Ryzen 7</label> </li>
+                                    <li><label><input name="CPU" value="Intel Celeron" type="checkbox"> Intel Celeron</label> </li>
+                                    <li><label><input name="CPU" value="Intel Pentinum" type="checkbox"> Intel Pentinum</label> </li>
+                                    <li><label><input name="CPU" value="Intel Core i5" type="checkbox"> Intel Core i5</label> </li>
+                                    <li><label><input name="CPU" value="Intel Core i7" type="checkbox"> Intel Core i7</label> </li>
+                                    <li><label><input name="CPU" value="AMD Ryzen 5" type="checkbox"> AMD Ryzen 5</label> </li>
+                                    <li><label><input name="CPU" value="AMD Ryzen 7" type="checkbox"> AMD Ryzen 7</label> </li>
                                 </ul>
                             </li>
                             <li class="li-hr">
@@ -75,11 +75,11 @@
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </div>
                                 <ul class="menu-bar">
-                                    <li><label><input name="4GB" type="checkbox"> 4GB</label> </li>
-                                    <li><label><input name="8GB" type="checkbox"> 8GB</label> </li>
-                                    <li><label><input name="16GB" type="checkbox"> 16GB</label> </li>
-                                    <li><label><input name="32GB" type="checkbox"> 32GB</label> </li>
-                                    <li><label><input name="64GB" type="checkbox"> 64GB</label> </li>
+                                    <li><label><input name="RAM" value="4GB" type="checkbox"> 4GB</label> </li>
+                                    <li><label><input name="RAM" value="8GB" type="checkbox"> 8GB</label> </li>
+                                    <li><label><input name="RAM" value="16GB" type="checkbox"> 16GB</label> </li>
+                                    <li><label><input name="RAM" value="32GB" type="checkbox"> 32GB</label> </li>
+                                    <li><label><input name="RAM" value="64GB" type="checkbox"> 64GB</label> </li>
                                 </ul>
                             </li>
                             <li class="li-hr">
@@ -91,10 +91,10 @@
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </div>
                                 <ul class="menu-bar">
-                                    <li><label><input name="SSD 1TB" type="checkbox"> SSD 1TB</label> </li>
-                                    <li><label><input name="SSD 512GB" type="checkbox"> SSD 512GB</label> </li>
-                                    <li><label><input name="SSD 256GB" type="checkbox"> SSD 256GB</label> </li>
-                                    <li><label><input name="SSD 128GB" type="checkbox"> SSD 128GB</label> </li>
+                                    <li><label><input name="storage" value="SSD 1TB" type="checkbox"> SSD 1TB</label> </li>
+                                    <li><label><input name="storage" value="SSD 512GB" type="checkbox"> SSD 512GB</label> </li>
+                                    <li><label><input name="storage" value="SSD 256GB" type="checkbox"> SSD 256GB</label> </li>
+                                    <li><label><input name="storage" value="SSD 128GB" type="checkbox"> SSD 128GB</label> </li>
                                 </ul>
                             </li>
 

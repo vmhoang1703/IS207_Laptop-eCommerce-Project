@@ -21,9 +21,21 @@ class StoreController extends Controller
     {
         $minPrice = $request->input('minPrice');
         $maxPrice = $request->input('maxPrice');
+        $filters = $request->input('filters', []);
 
-        // Thực hiện logic lọc sản phẩm ở đây, ví dụ:
-        $products = Product::whereBetween('price', [$minPrice, $maxPrice])->get();
+        $query = Product::query();
+
+        if ($minPrice && $maxPrice) {
+            $query->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
+        foreach ($filters as $category => $values) {
+            if (is_array($values)) {
+                $query->whereIn($category, $values);
+            }
+        }
+
+        $products = $query->get();
 
         return response()->json(['products' => $products]);
     }
@@ -37,7 +49,6 @@ class StoreController extends Controller
         if ($mainImage) {
             return response()->json(['main_image_path' => asset($mainImage->image_path)]);
         } else {
-            // Trả về một đường dẫn mặc định hoặc thông báo lỗi tùy thuộc vào yêu cầu của bạn.
             return response()->json(['error' => 'Main image not found']);
         }
     }

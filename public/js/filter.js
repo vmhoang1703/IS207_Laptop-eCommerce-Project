@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".filter-item input, .range-input input").on("change", function () {
+    $(".menu-bar input, .range-input input").on("change", function () {
         updateProducts();
     });
 });
@@ -11,7 +11,7 @@ function updateProducts() {
 
     // Lấy giá trị các lựa chọn từ filter
     var filters = {};
-    $(".filter-item input:checked").each(function () {
+    $(".menu-bar input:checked").each(function () {
         var category = $(this).attr("name");
         var value = $(this).val();
         if (!filters[category]) {
