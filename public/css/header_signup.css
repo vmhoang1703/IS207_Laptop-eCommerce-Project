@@ -1,5 +1,5 @@
 /* header */
-header {
+.header {
     font-family: "Poppins", sans-serif;
   }
 
@@ -9,21 +9,23 @@ header {
     height: 10%;
     color: #FAFAFA;
     font-size: 14px;
-
   }
-
   .SSS
   {
-    margin-left: 10% ;
+    margin-left: 20% ;
     color: white;
-  }
 
-  .Top-header .container
+  }
+  .SHOPNOW
+  {
+    text-decoration: underline;
+  }
+  .header .container
   {
     margin: 0 auto;
   }
 
-  .header .container
+  .Top-header .container
   {
     margin: 0 auto;
   }
@@ -36,6 +38,11 @@ header {
   .Top-header .container {
     text-align: center;
     position: static;
+    left: 3cm; }
+
+  .Top-header .container {
+    text-align: center;
+    position: static;
     left: 3cm;
   }
 
@@ -44,8 +51,19 @@ header {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     font-size: 9.95px;
+    white-space: nowrap;
 
   }
+
+  .menu-header a {
+
+  .logo-text {
+    color: #080707;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 9.95px;
+
+  } }
 
   .menu-header a {
     display: inline-block;
@@ -59,11 +77,34 @@ header {
     background-repeat: no-repeat;
     transition: background-size 0.5s;
     font-weight: 600;
+    text-decoration: none;
+    color: #080707;
+    font-size: 14px;
+    background-image: linear-gradient(#000 0 0);
+    background-position: left bottom;
+    /* OR left bottom*/
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s;
+    font-weight: 600;
   }
+
+  .menu-header a:hover {
+    background-size: 100% 2px; }
 
   .menu-header a:hover {
     background-size: 100% 2px;
   }
+  .signup
+  {
+    position: relative;
+  }
+
+  .btn-signup {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
 
   .btn-signup {
     color: white;
@@ -74,7 +115,9 @@ header {
     width: 80px;
     height: 30px;
     border-style: none;
-
+    position: absolute;
+    right: 0;
+    top : 0 ;
   }
 
   .menu-bar {
@@ -92,8 +135,43 @@ header {
     color: #9B9B9B;
 
   }
+
+  .search_box_input::placeholder
+  {
+      font-family: Poppins;
+      font-size: 12px;
+      text-align: center;
+  }
+
+
+   .search_box
+   {
+    display: flex;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    width: 200px;
+    height: 30px;
+
+   }
+   .search_box_input
+   {
+     width: 100% ;
+     border : none ;
+     background-color: transparent;
+     outline: none;
+   }
+   .btn_search
+   {
+    border: none;
+    background-color: whitesmoke;
+    border-radius: 4px;
+   }
+   .icon_menu
+   {
+    cursor: pointer;
+   }
 /* Tablet: 740px < width < 1281px  */
-  @media only screen and (min-width: 741px) and (max-width: 1281px){
+  @media only screen and (min-width: 741px) and (max-width: 915px){
     /* header */
   .signup{
       padding-left: 30px;
@@ -102,6 +180,53 @@ header {
   {
       max-width: 90%;
   }
+
+  .menu-header
+  {
+    display: none;
+  }
+  .responsive-menu
+  {
+    display: block;
+  }
+  .responsive-menu button
+  {
+    color : white ;
+    background-color: #115AAF;
+    border-color: white;
+
+  }
+  .responsive-menu button:active
+  {
+    animation: fade ;
+  -webkit-animation: fade 5s;
+  -moz-animation: fade 5s;
+  -o-animation: fade 5s;
+  -ms-animation: fade 5s;
+  transition: 0.4s;
+  }
+  .responsive-menu
+  {
+
+    animation: fade ;
+    -webkit-animation: fade ;
+    transition-delay:0.4s;
+  }
+
+
+
+  .responsive-menu li a
+  {
+    color : #115AAF;
+    font-weight: 500;
+
+  }
+ .right_header
+ {
+    width: 80%;
+    justify-content: center;
+ }
+
 }
 
 /* Mobile:  width < 740px  */
@@ -165,4 +290,25 @@ header {
     color : #115AAF;
     font-weight: 500;
 
-  }}
+  }
+ .right_header
+ {
+    flex-direction: column-reverse;
+ }
+ .SSS
+ {
+  display: contents;
+ }
+ .btn-signup
+ {
+    top : 1cm;
+ }
+}
+
+@media screen and (min-width:915px) and (max-width: 1200px)
+{
+   .icon_menu
+   {
+     display: flex;
+   }
+}

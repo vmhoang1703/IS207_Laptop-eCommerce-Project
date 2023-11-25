@@ -4,24 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Trang chủ</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap_css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/responsive/home_res.css') }}">
+    <link rel="stylesheet" href="{{asset('css/product_card.css') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="js/dropdown.js"></script>
     <script src="js/countdown.js"></script>
-    <script src="js/carousel.js"> </script>
+    <script src="js/carousel.js" defer> </script>
+    <script src="js/range.js" defer></script>
+
+
+
 </head>
 
 <body>
-    <!-- Header -->
-    @component('components.header_signup')
+    <!-- header -->
+    @component("components.header")
     @endcomponent
     <!-- main content -->
     <section class="main-content">
@@ -29,7 +35,7 @@
             <div class="container">
                 <div class="row">
                     <!-- filter bar & menu -->
-                    @component('components.filter')
+                    @component('components.filter_home')
                     @endcomponent
                     <div class="col-sm-10 pt-4">
                         <!-- advertise MACBOOK -->
@@ -39,9 +45,10 @@
                 </div>
                 <div class="title d-flex ">
                     <div class="secondary2 ms-5"></div>
-                    <div class="secondary2-text px-2 py-2">Today</div>
+                    <div class="secondary2-text px-2 py-2">Today </div>
                 </div>
                 <div class="flashsales">
+
                     <div class=" container">
                         <div class=" row">
                             <div class="introduction secondary1 col-3 my-3 ps-5">Flash Sales</div>
@@ -50,17 +57,17 @@
                             @endcomponent
                         </div>
                         <div class="wrapper">
-                            <!-- Carousel Flashsale -->
                             <i id="left" class="fa fa-angle-left"></i>
                             <ul class="carousel">
+
                                 @foreach($flashSalesProducts as $product)
                                 @component('components.card_flashsales', ['product' => $product])
                                 @endcomponent
                                 @endforeach
+
                             </ul>
                             <i id="right" class="fa fa-angle-right"></i>
                         </div>
-                        <!-- carousel  -->
                         <!-- ----------------------------------------- -->
                     </div>
                     <hr style="margin-top: 100px;">
@@ -73,28 +80,20 @@
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Favorite Products</div>
 
-                <div class="wrapper">
-                    <!-- Carousel Favorite Products -->
-                    <ul class="carousel ">
+                <div class="store">
+                    <div class="carousel">
+
                         @foreach($products as $product)
                         @component('components.card', ['product' => $product])
                         @endcomponent
                         @endforeach
-                        <!-- ----------------------------------------- -->
-                    </ul>
-                </div>
-                <!-- heart action -->
-                <script>
-                    document.querySelectorAll(".heart").forEach(item =>
-                        item.addEventListener('click', function() {
-                            if (this.style.color != "red") {
-                                this.style.color = "red";
 
-                            } else
-                                this.style.color = "black"
-                        })
-                    )
-                </script>
+                    </div>
+                </div>
+
+
+                <!-- heart action -->
+
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
                         <div class="jbl-details col-4 my-5 mx-5">
@@ -120,7 +119,7 @@
                             </div>
                             <button class="btn_jbl">Buy now!</button>
                         </div>
-                        <div class="JBL_BOOMBOX col-6 mx-5 my-5">
+                        <div class="JBL_BOOMBOX col-6 ms-5 my-5">
                             <img src="{{ asset('img/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png') }}" alt="img" width="100%">
                         </div>
                     </div>
@@ -139,8 +138,8 @@
                         <div class="title-regular">Black and White versions</div>
                         <div class="title-medium">Buy now</div>
                     </div>
-                    <div class="col-6 DELL">
-                        <div class="row me-5 " style="border-bottom: 1px solid white;">
+                    <div class="col-6 ms-4 ">
+                        <div class="row DELL mb-4 " style="padding-left: 0%;">
                             <div class="textD1 col-6 ps-3">
                                 <div class="heading"> Bluetooth Philips </div>
                                 <div class="title-regular">Bluetooth Philips headphone</div>
@@ -163,11 +162,11 @@
                     </div>
                 </div>
                 <!-- Newarrival responsive -->
-                <div class="wrapper Newarrival_res">
+                <div class="store Newarrival_res">
                     <ul class="carousel">
                         <li class="card" style="background-color:black;">
-                            <div class="img mb-0" style="background-color:black;">
-                                <img src="{{ asset('img/laptop.png') }}" style="width: 100%;" alt="img" draggable="false">
+                            <div class="img">
+                                <img src="{{ asset('img/laptop.png') }}" alt="img">
                             </div>
                             <div class="DELL mb-3">
                                 <div class="heading">DELL-XPS-7590-0 </div>
@@ -176,10 +175,10 @@
                             </div>
                         </li>
                         <li class="card " style="background-color:black;">
-                            <div class="img mb-0" style="background-color:black;">
-                                <img src="{{ asset('img/headphone.png') }}" alt="img" draggable="false">
+                            <div class="img ">
+                                <img src="{{ asset('img/headphone.png') }}" alt="img" style="width:80%">
                             </div>
-                            <div class="DELL">
+                            <div class="DELL mb-5">
                                 <div class="heading"> Bluetooth Philips </div>
                                 <div class="title-regular">Bluetooth Philips headphone</div>
                                 <div class="title-medium">Buy now</div>
@@ -187,20 +186,20 @@
                         </li>
                         <li class="card" style="background-color:black;">
 
-                            <div class="img mb-0" style="background-color:black;">
-                                <img src="{{ asset('img/PC.png') }}" alt="img" draggable="false">
+                            <div class="img">
+                                <img src="{{ asset('img/PC.png') }}" alt="img" style="width:80%">
                             </div>
-                            <div class="DELL">
+                            <div class="DELL mb-5">
                                 <div class="heading">BTS NC 01 </div>
                                 <div class="title-regular">BTS NC 01</div>
                                 <div class="title-medium">Buy now</div>
                             </div>
                         </li>
                         <li class="card " style="background-color:black;">
-                            <div class="img mb-0 " style="background-color:black;">
-                                <img src="{{ asset('img/loa.png') }}" alt="img" draggable="false">
+                            <div class="img">
+                                <img src="{{ asset('img/loa.png') }}" alt="img" style="width:70%">
                             </div>
-                            <div class="DELL me-2">
+                            <div class="DELL mb-4">
                                 <div class="heading">Speakers </div>
                                 <div class="title-regular"> Amazon wireless speakers</div>
                                 <div class="title-medium">Buy now</div>
@@ -292,9 +291,15 @@
 
     <section class="mt-5">
     </section>
+    <!-- footer -->
+    @component("components.footer")
+    @endcomponent
+    <!-- - -->
 
     <script src="js/bootstrap.bundle.min.js"> </script>
-    <script src="js/heart_action"></script>
+
+    <script src="js/heart_action.js"></script>
+
 </body>
 
 </html>

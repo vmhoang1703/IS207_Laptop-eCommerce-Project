@@ -1,10 +1,13 @@
-<link rel="stylesheet" href="{{asset('css/header_signup.css')}}">
-<!-- header -->
-<section class="header">
-<div class="Top-header">
+<!-- styles  -->
+<link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
+<!-- scripts -->
+<script src="js/dropdown.js" ></script>
+ <!-- Header -->
+ <section class="header ">
+        <div class="Top-header">
             <div class="container py-2 px-5 ">
-                <div class="row ">
-                    <div class="SSS col-sm-8 ">
+                <div class="row ms-5 ">
+                    <div class="SSS col-sm-6">
                         SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
                     </div>
                     <div class="SHOPNOW col-sm-2 pe-3 ">
@@ -13,42 +16,49 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container pt-5">
-            <div class="row">
-                <div class="header-logo col-sm-4">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="header-logo col-sm-4 mb-5">
 
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
                 </div>
-                <div class="menu-header col-sm-1">
-                    <a href="#">HOME </a>
+               <div class="col-sm-4 d-flex justify-content-evenly">
+                <div class="menu-header">
+                    <a href="{{ route('home.show') }}">HOME </a>
                 </div>
-                <div class="menu-header col-sm-1">
-                    <a href="#">STORE </a>
+                <div class="menu-header ps-5">
+                    <a href="{{ route('store.show') }}">STORE </a>
                 </div>
-                <div class="menu-header col-sm-1" style="white-space: nowrap;">
+                <div class="menu-header ps-5 " style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
                 </div>
-                <div class="menu-header col-sm-1">
+                <div class="menu-header ps-5 ">
                     <a href="#">CONTACT </a>
                 </div>
-                <div class="responsive-menu col-sm-1 mt-5">
+                </div>
+                <div class="signup col-sm-4 ps-5">
+                    <button class="btn-signup"> Sign up </button>
+                </div>
+            </div>
+            <div class="row">
+            <div class="responsive-menu col-sm-1 mt-5">
                     <div class="drop-down filter-item">
                         <button><i class="fa fa-bars" aria-hidden="true"></i></button>
                         <i></i>
                     </div>
                     <ul class="menu-bar menu-text">
-                        <li><a href="#"> HOME </a></li>
-                        <li> <a href="#"> STORE </a></li>
+                        <li><a href="{{ route('home.show') }}"> HOME </a></li>
+                        <li><a href="{{ route('store.show') }}"> STORE </a></li>
                         <li><a href="{{ route('aboutus.show') }}"> ABOUT US </a></li>
                         <li><a href="#"> CONTACT </a></li>
                     </ul>
                 </div>
-                <div class="signup col-sm-1 ">
-                    <button class="btn-signup"> Sign up </button>
-                </div>
+
             </div>
         </div>
-        <hr style="width: 100%">
-    </section>
+    </div>
+    <hr style="width: 100%">
+</section>
