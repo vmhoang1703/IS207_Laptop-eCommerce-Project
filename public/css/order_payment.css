@@ -8,7 +8,7 @@ body {
   }
   .footer-fake {
     width: 100%;
-    height: 365px;
+    height: auto;
     background-color: aliceblue;
   }
   

@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     //
-    public function showOrderPage():View
+    public function showCheckout():View
     {
         return view('website.oder_process.order_show');
     }
 
-    public function showOrderPaymentPage():View
+    public function showPaymentPage():View
     {
         return view('website.oder_process.order_payment');
     }

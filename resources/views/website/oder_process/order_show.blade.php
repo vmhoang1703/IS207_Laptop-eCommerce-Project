@@ -7,15 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/oder_show.css') }}">
-    <title>Oder Process</title>
+    <title>E-lec World</title>
 </head>
 
 <body class="d-flex flex-column">
-    <!-- header  -->
-    <div class="header-fake"></div>
-     <!-- Header -->
-    <!-- @component('components.header')
-    @endcomponent -->
+    <!-- Header  -->
+    @component('components.header')
+    @endcomponent
+
     <!-- breadcrumb -->
     <div class="container-xxl container-xl container-lg container-md  container-sm   ">
         <ul id="myBreadcrumb" class="breadcrumb">
@@ -45,50 +44,40 @@
                             <p id="product-name" class="card-title product-title mobile-font-size-14 ">Dell XPS 9710 17 inch Core i7</p>
                         </div>
                     </a>
-                    <div class="text-center  col-xxl-3 col-xl-3  col-lg-3  col-md-3 col-sm-3  d-flex align-items-center justify-content-center ">$<div
-                            id=" product-price">650</div>
+                    <div class="text-center  col-xxl-3 col-xl-3  col-lg-3  col-md-3 col-sm-3  d-flex align-items-center justify-content-center ">$<div id=" product-price">650</div>
                     </div>
                     <div class="text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2   ">
                         <input type="number" class="input-quantity mobile-font-size-14 " id="quantityInput" value="1" min="1">
                     </div>
-                    <div class="text-center col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  d-flex align-items-center justify-content-center">$<div
-                            id=" subtotal-price">2000</div>
+                    <div class="text-center col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  d-flex align-items-center justify-content-center">$<div id=" subtotal-price">2000</div>
                     </div>
                 </div>
 
                 <!-- Mobile  -->
 
                 <div class="cart-section-mobile d-none  w-100 mobile-font-size-14">
-                <a class=" " id="product-img" href="">
+                    <a class=" " id="product-img" href="">
                         <img src="https://via.placeholder.com/150" style="width: 70px " class="card-img-left product-img">
-                </a>
-                <div class=" cart-mobile-infor   ">
-                    <a class="cart-mobile-infor-title d-flex justify-content-between align-items-start" id="product-name-mobile" > Dell XPS 9710 17 inch Core i7 </a>
-                    <div class="  d-flex justify-content-between align-items-end ">
-                        <div class="cart-mobile-infor-price"  id=" product-price-mobile" > 650$ </div>
-                        <div class="input-quantity-mobile d-flex">
-                            <span class="minus d-flex justify-content-center align-items-center" onclick="decreaseQuantity()" >-</span> 
-                            <input type="text" value="1" readonly="readonly" id="quantityInput-mobile"> 
-                            <span class="plus d-flex justify-content-center align-items-center" onclick="increaseQuantity()">+</span>
+                    </a>
+                    <div class=" cart-mobile-infor   ">
+                        <a class="cart-mobile-infor-title d-flex justify-content-between align-items-start" id="product-name-mobile"> Dell XPS 9710 17 inch Core i7 </a>
+                        <div class="  d-flex justify-content-between align-items-end ">
+                            <div class="cart-mobile-infor-price" id=" product-price-mobile"> 650$ </div>
+                            <div class="input-quantity-mobile d-flex">
+                                <span class="minus d-flex justify-content-center align-items-center" onclick="decreaseQuantity()">-</span>
+                                <input type="text" value="1" readonly="readonly" id="quantityInput-mobile">
+                                <span class="plus d-flex justify-content-center align-items-center" onclick="increaseQuantity()">+</span>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-                </div>
-
-
-             
-
-
-               
-
             </div>
+
             <div class="w-100 payment-infor row mt-5 tablet-mt-14 margin-top-mobile-16 margin-left-mobile-none ">
 
                 <div class="coupon-code  col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 px-0 pe-5 padding-right-mobile-none">
                     <div class="input-group">
-                        <input id="couponInput mobile-font-size-14 " type="text" class="form-control" placeholder="Coupon Code"
-                            aria-label="Coupon Code">
+                        <input id="couponInput mobile-font-size-14 " type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon Code">
                         <button class="coupon-btn btn btn-outline-secondary mobile-font-size-14 " type="button" id="button-coupon">
                             Apply Coupon
                         </button>
@@ -112,34 +101,34 @@
                             <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $2000 </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button id="total-infor-btn__checkout"  type="button"
-                                class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14 ">Checkout</button>
+                            <button id="total-infor-btn__checkout" type="button" class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14 ">Checkout</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </form>
 
-
-
-    <div class="footer-fake mt-5"></div>
+    <!-- Footer -->
+    <div class="footer-fake mt-5">
+        @component('components.footer')
+        @endcomponent
+    </div>
     <script>
         // Tăng giảm số lượng trong giao diện mobile
         function decreaseQuantity() {
             var quantityInput = document.getElementById('quantityInput-mobile');
             var currentValue = parseInt(quantityInput.value, 10);
-    
+
             if (currentValue > 1) {
                 quantityInput.value = currentValue - 1;
             }
         }
-    
+
         function increaseQuantity() {
             var quantityInput = document.getElementById('quantityInput-mobile');
             var currentValue = parseInt(quantityInput.value, 10);
-    
+
             quantityInput.value = currentValue + 1;
         }
     </script>

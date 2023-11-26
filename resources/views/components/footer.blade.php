@@ -26,7 +26,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-6 ">
             <ul class="footer_list">
                 <li class="footer_list"><strong>Contact Us</strong></li>
-                <li class="footer_list">elecwork@gmail.com</li>
+                <li class="footer_list">elecworld@gmail.com</li>
                 <li class="footer_list">099-999-9999</li>
                 <li class="footer_list">Phường Linh Trung, Tp Thủ Đức</li>
             </ul>

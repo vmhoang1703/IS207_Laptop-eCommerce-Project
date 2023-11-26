@@ -29,24 +29,14 @@ use App\Http\Controllers\StoreController;
 //Route đăng ký
 Route::get('/register', [RegisterController::class, 'showForm'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'sendForm'])->name('register.send');
+
 //Route đăng nhập
 Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
-//Route home
-Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
-Route::post('/update-favourite-count', [HomeController::class, 'updateFavouriteCount']);
+
 //Route đăng nhập với Google
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
-
-//Route giao diện Order
-Route::get('/order', [OrderController::class,'showOrderPage'])->name('order.show');
-Route::get('/orderpayment', [OrderController::class,'showOrderPaymentPage'])->name('order.payment');
-
-//Route About us
-Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
-//Route Contact
-Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
 
 // Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
 Route::get('/admin', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
@@ -75,6 +65,11 @@ Route::get('/admin/orders-management', [OrdersManagementController::class, 'show
 // Route users management
 Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage'])->name('users.management');
 
+
+//Route home
+Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
+Route::post('/update-favourite-count', [HomeController::class, 'updateFavouriteCount']);
+
 //Route cửa hàng
 Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
 Route::post('/store/filter', [StoreController::class,'filterProduct'])->name('store.filter');
@@ -83,3 +78,11 @@ Route::get('/store/filter/{id}/main-image', [StoreController::class,'getMainImag
 //Route chi tiết sản phẩm
 Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
 
+//Route giao diện Order
+Route::get('/checkout', [OrderController::class,'showCheckout'])->name('order.show');
+Route::get('/checkout/payment', [OrderController::class,'showPaymentPage'])->name('order.payment');
+
+//Route About us
+Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
+//Route Contact
+Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');

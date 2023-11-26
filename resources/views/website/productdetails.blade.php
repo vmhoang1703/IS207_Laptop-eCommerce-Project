@@ -14,7 +14,7 @@
     <!-- Scripts -->
     <script src="js/cardslider.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <title>Chi tiết sản phẩm</title>
+    <title>E-lec World</title>
 </head>
 
 <body>
