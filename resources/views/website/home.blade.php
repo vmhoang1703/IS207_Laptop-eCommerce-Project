@@ -209,10 +209,10 @@
                 </div>
 
                 <!-- Feedback-->
-                <div class="title d-flex" style="margin-top:150px;">
-                    <div class="secondary2 ms-5 "></div>
-                    <div class="secondary2-text px-2 py-2">Feedback </div>
-                </div>
+                        <div class="title d-flex" style="margin-top:150px;">
+                            <div class="secondary2 ms-5 "></div>
+                            <div class="secondary2-text px-2 py-2">Feedback </div>
+                        </div>
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Testimonials</div>
                 <div class="lastcontent">
@@ -261,6 +261,13 @@
                         </div>
 
                     </div>
+
+                    <div class="title d-flex" style="margin-top:150px;">
+                            <div class="secondary2 ms-5 "></div>
+                            <div class="secondary2-text px-2 py-2">Advantages</div>
+                        </div>
+
+                        <div class="introduction secondary1 col-3 my-3 ps-5">Service</div>
                     <div class="row ms-5 mt-5 service">
                         <div class="col-4">
                             <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">

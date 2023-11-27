@@ -307,8 +307,12 @@
 
 @media screen and (min-width:915px) and (max-width: 1200px)
 {
-   .icon_menu
-   {
-     display: flex;
-   }
+   .btn-signup
+  {
+    width: 100px;
+    height: 30px;
+    margin-right: -100%;
+    margin-top: 30%;
+  }
+
 }

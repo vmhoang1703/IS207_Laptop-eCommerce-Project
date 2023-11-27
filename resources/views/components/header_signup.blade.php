@@ -1,7 +1,7 @@
 <!-- styles  -->
 <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
 <!-- scripts -->
-<script src="js/dropdown.js" ></script>
+<script src="js/home_dropdown.js" ></script>
  <!-- Header -->
  <section class="header ">
         <div class="Top-header">
@@ -39,12 +39,12 @@
                     <a href="#">CONTACT </a>
                 </div>
                 </div>
-                <div class="signup col-sm-2 ">
+                <div class="signup col-sm-2">
                     <button class="btn-signup"> Sign up </button>
                 </div>
             </div>
             <div class="row">
-            <div class="responsive-menu col-sm-1 mt-5">
+            <div class="responsive-menu col-sm-1 my-5 ">
                     <div class="drop-down filter-item">
                         <button><i class="fa fa-bars" aria-hidden="true"></i></button>
                         <i></i>
