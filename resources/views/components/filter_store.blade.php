@@ -109,11 +109,11 @@
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
                         <ul class="menu-bar">
-                            <li>Power banks </li>
-                            <li>Cables, chargers </li>
-                            <li>Phone cases </li>
-                            <li>Speakers </li>
-                            <li>Headphones </li>
+                            <li> <label><input name="accessories" value="POWER BANKS" type="checkbox">Power banks </li>
+                            <li> <label><input name="accessories" value="CABLES CHARGERS" type="checkbox">Cables, chargers </li>
+                            <li> <label><input name="accessories" value="PHONE CASES" type="checkbox">Phone cases </li>
+                            <li> <label><input name="accessories" value="SPEAKERS" type="checkbox">Speakers </li>
+                            <li> <label><input name="accessories" value="HEADPHONES" type="checkbox">Headphones </li>
                         </ul>
                     </li>
                     <li class="li-hr">
@@ -125,10 +125,10 @@
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
                         <ul class="menu-bar">
-                            <li>Printers </li>
-                            <li>Printer ink </li>
-                            <li>Monitor </li>
-                            <li>Gaming PC </li>
+                            <li> <label><input name="PCs, printer, screens" value="PRINTERS" type="checkbox">Printers </li>
+                            <li> <label><input name="PCs, printer, screens" value="PRINTER INK" type="checkbox">Printer ink </li>
+                            <li> <label><input name="PCs, printer, screens" value="MONITOR" type="checkbox">Monitor </li>
+                            <li> <label><input name="PCs, printer, screens" value="GAMING PC" type="checkbox">Gaming PC </li>
                         </ul>
                     </li>
                     <li class="li-hr">

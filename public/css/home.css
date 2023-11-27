@@ -412,7 +412,52 @@
   .lastcontent
   {
     padding-top: 130px;
+    position: relative;
+    overflow: hidden;
   }
+  .feedback_bar
+  {
+   flex-wrap: nowrap !important;
+   overflow-x: auto;
+   scroll-behavior: smooth;
+  }
+  .feedback_bar::-webkit-scrollbar {
+    display: none;
+  }
+
+.pre-btn,
+.nxt-btn {
+  font-size: 40px !important;
+  border: none;
+  position: absolute;
+  top: 6cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #BFB6B6 ;
+}
+
+.pre-btn {
+  left: 0;
+}
+
+.nxt-btn {
+  right: 1cm;
+}
+
+.feedback_bar::-webkit-scrollbar {
+    display: none;
+  }
+
+.heart
+{
+    position: absolute;
+    right: 0;
+    top: 0 ;
+}
+
+
 @media screen and (min-width: 901px) and (max-width: 1300px)   {
     .wrapper .carousel {
         grid-auto-columns: calc((100% / 3.7) - 9px) !important;

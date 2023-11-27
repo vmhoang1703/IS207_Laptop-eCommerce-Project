@@ -20,7 +20,7 @@
     <script src="js/countdown.js"></script>
     <script src="js/carousel.js" defer> </script>
     <script src="js/range.js" defer></script>
-
+    <script src="js/feedback_scroll.js" defer></script>
 
 
 </head>
@@ -43,7 +43,7 @@
                         @endcomponent
                     </div>
                 </div>
-                <div class="title d-flex ">
+                <div class="title d-flex pt-5 ">
                     <div class="secondary2 ms-5"></div>
                     <div class="secondary2-text px-2 py-2">Today </div>
                 </div>
@@ -80,7 +80,7 @@
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Favorite Products</div>
 
-                <div class="store">
+                <div class="wrapper">
                     <div class="carousel">
 
                         @foreach($products as $product)
@@ -90,10 +90,6 @@
 
                     </div>
                 </div>
-
-
-                <!-- heart action -->
-
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
                         <div class="jbl-details col-4 my-5 mx-5">
@@ -162,7 +158,7 @@
                     </div>
                 </div>
                 <!-- Newarrival responsive -->
-                <div class="store Newarrival_res">
+                <div class="wrapper Newarrival_res">
                     <ul class="carousel">
                         <li class="card" style="background-color:black;">
                             <div class="img">
@@ -209,14 +205,30 @@
                 </div>
 
                 <!-- Feedback-->
-                        <div class="title d-flex" style="margin-top:150px;">
-                            <div class="secondary2 ms-5 "></div>
-                            <div class="secondary2-text px-2 py-2">Feedback </div>
-                        </div>
+                <div class="title d-flex" style="margin-top:150px;">
+                    <div class="secondary2 ms-5 "></div>
+                    <div class="secondary2-text px-2 py-2">Feedback </div>
+                </div>
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Testimonials</div>
                 <div class="lastcontent">
-                    <div class="row ms-5">
+                    <i class="pre-btn fa fa-angle-left"></i>
+                    <i class="nxt-btn fa fa-angle-right"></i>
+                    <div class="feedback_bar row ms-5">
+                        <div class="col-4">
+                            <img src="images/usercomment.png" height="240px" width="240px">
+                            <div class="user ms-5 mt-4">
+                                <div class="username">Miss Lucy Nguyen</div>
+                                <div class="usercomment">“Your products are so wonderful.”</div>
+                                <div> <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="numbered">(4.3)</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-4">
                             <img src="images/usercomment.png" height="240px" width="240px">
                             <div class="user ms-5 mt-4">
@@ -263,31 +275,31 @@
                     </div>
 
                     <div class="title d-flex" style="margin-top:150px;">
-                            <div class="secondary2 ms-5 "></div>
-                            <div class="secondary2-text px-2 py-2">Advantages</div>
-                        </div>
+                        <div class="secondary2 ms-5 "></div>
+                        <div class="secondary2-text px-2 py-2">Advantages</div>
+                    </div>
 
-                        <div class="introduction secondary1 col-3 my-3 ps-5">Service</div>
+                    <div class="introduction secondary1 col-3 my-3 ps-5">Service</div>
                     <div class="row ms-5 mt-5 service">
-                        <div class="col-4">
+                        <div class="col-4 ms-5">
                             <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">
-                            <div class="user ms-5 mt-4">
+                            <div class="user ms-5 mt-4 me-5">
                                 <div class="username">Fast delivery</div>
-                                <div class="service">Free shipping for orders over 100$ </div>
+                                <div class="service" style="text-indent:-3cm;">Free shipping for orders over 100$ </div>
                             </div>
                         </div>
-                        <div class="col-4 ps-4">
+                        <div class="col-4 ms-3">
                             <img src="{{asset('img/Services (1).png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-3 mt-4">
                                 <div class="username">24/7 Customer Service</div>
-                                <div class="service ps-4">24/7 Customer Support and Care </div>
+                                <div class="service">24/7 Customer Support and Care </div>
                             </div>
                         </div>
-                        <div class="col-4 ps-4">
+                        <div class="col-2 ms-4">
                             <img src="{{asset('img/Services (2).png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-4 mt-4">
                                 <div class="username ps-3">Warranty Policy</div>
-                                <div class="service ps-4">30-day money-back guarantee </div>
+                                <div class="service" style="white-space: nowrap">30-day money-back guarantee </div>
                             </div>
                         </div>
                     </div>
@@ -296,12 +308,13 @@
         </div>
     </section>
 
-    <section class="mt-5">
-    </section>
-    <!-- footer -->
-    @component("components.footer")
+    <section style="margin-top: 150px;">
+      <!-- footer -->
+      @component("components.footer")
     @endcomponent
     <!-- - -->
+    </section>
+
 
     <script src="js/bootstrap.bundle.min.js"> </script>
 

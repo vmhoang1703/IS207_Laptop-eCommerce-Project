@@ -40,7 +40,7 @@
                     </div>
                     <!-- Store -->
                     <div class="col-sm-9 fix  ms-5 mt-5">
-                        <div class="store">
+                        <div class="store " style="margin-left:20%">
                             <div class="carousel_store carousel ">
                                 @foreach($products as $product)
                                 @component('components.card', ['product' => $product])

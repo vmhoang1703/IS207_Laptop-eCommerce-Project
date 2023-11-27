@@ -195,7 +195,7 @@
     color: white;
 }
 
-.product-content .btn {
+.product-content .btn1 {
     display: flex;
     justify-content: space-between;
     outline: none;
@@ -227,7 +227,7 @@
     text-decoration-line: underline;
 
 }
-.product-content .btn button
+.product-content .btn1 button
 {
     background-color: #DB4444;
     font-size: 16px;
@@ -262,7 +262,7 @@
     ;
   }
   .store .carousel .card .img{
-   
+
 }
 
 @media screen and (min-width: 992px) {

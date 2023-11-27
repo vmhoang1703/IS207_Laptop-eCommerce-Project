@@ -54,10 +54,6 @@
     {
       padding: 100px 0 ;
     }
-
-
-
-
         /* advertise jbl  */
         .ads_jbl
         {
@@ -119,18 +115,14 @@
           display: none;
       }
       /* feedback */
-     /* feedback */
-  .lastcontent .row
-  {
-      display: grid;
-      justify-content: center;
-  }
-  .lastcontent .row {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-  }
-
+     .feedback_bar
+     {
+        width: 120%;
+     }
+     .nxt-btn
+     {
+        right: 0;
+     }
     }
     /* GalaxyFold */
     @media only screen and (max-width: 300px)
@@ -177,16 +169,10 @@
       }
 
       /* feedback */
-  .lastcontent .row
-  {
-      display: grid;
-      justify-content: center;
-  }
-  .lastcontent .row {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-  }
+      .lastcontent i
+      {
+        display: none !important;
+      }
 
 
     }
@@ -323,34 +309,20 @@
       display: none;
   }
   /* feedback */
-
-  .lastcontent .row {
-     display: flex;
-     flex-direction: column;
+  .lastcontent i
+  {
+    display: none !important;
   }
   .lastcontent .row .col-4 {
   width: auto;
   }
-
-
-
-
 
   }
 
     @media only screen and (min-width: 1023px) and (max-width: 1281px)
     {
 
-     /* .wrapper .carousel {
-         grid-auto-columns: calc((100% / 3) - 12px);
-     } */
-     /* .ads_jbl {
-        width: 80%;
 
-        margin-left: -6%;
-        justify-content: end;
-        height: 700px;
-    } */
     .Newarrival_res{
       display: none;
     }
@@ -358,12 +330,4 @@
   {
       display: flex;
   }
-
-  /* feedback */
-
-  .lastcontent .row {
-      display: flex;
-      flex-direction: row;
-  }
-
   }
