@@ -7,16 +7,16 @@
     <div class="img">
         <a href="{{ route('detail.show', $product->product_id) }}" style="text-decoration: none;">
             @if ($product->images->where('is_main', 1)->isNotEmpty())
-            <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+            <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" >
             @else
             <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
-            @endif 
+            @endif
         </a>
     </div>
     <div class="card-action">
-        <div class="btn">
-            <button>Buy now</button>
-            <button>Add to cart</button>
+        <div class="btn1">
+            <button onclick="location.href='#'">Buy now</button>
+            <button onclick="location.href='#'">Add to cart</button>
         </div>
     </div>
     <div class="info-card">

@@ -25,7 +25,7 @@
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
                 </div>
-               <div class="col-sm-4 d-flex justify-content-evenly">
+               <div class="col-sm-4 d-flex justify-content-between">
                 <div class="menu-header">
                     <a href="{{ route('home.show') }}">HOME </a>
                 </div>
@@ -39,7 +39,7 @@
                     <a href="#">CONTACT </a>
                 </div>
                 </div>
-                <div class="signup col-sm-4 ps-5">
+                <div class="signup col-sm-2 ">
                     <button class="btn-signup"> Sign up </button>
                 </div>
             </div>
@@ -60,5 +60,5 @@
             </div>
         </div>
     </div>
-    <hr style="width: 100%">
+    <hr style="width: 100%;margin-top:-20px">
 </section>

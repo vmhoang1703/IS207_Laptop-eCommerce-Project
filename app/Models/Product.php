@@ -38,7 +38,6 @@ class Product extends Model
     {
         return $query->orderBy('total_favourite_count', 'desc');
     }
-
     /**
      * Define the relationship between Product and ProductImage.
      *

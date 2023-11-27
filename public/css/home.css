@@ -69,8 +69,8 @@
 }
 .range-input input::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 17px;
-    height: 17px;
+    width: 11px;
+    height: 11px;
     background-color: #115AAF;
     border-radius: 50%;
     pointer-events: auto;
@@ -84,6 +84,7 @@
     background-color: whitesmoke;
     border-radius: 5px;
     background-attachment: fixed;
+    --bs-progress-height: 0.6rem !important;
 }
 .range-text div{
     position: absolute;
@@ -238,7 +239,7 @@
   }
 
   /* favorite products*/
-  
+
   .heart-item {
     padding-bottom: 130px;
   }

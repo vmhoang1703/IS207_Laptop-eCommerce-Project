@@ -27,7 +27,7 @@
 
 <body>
     <!-- header -->
-    @component("components.header")
+    @component("components.header_signup")
     @endcomponent
     <!-- main content -->
     <section class="main-content">
