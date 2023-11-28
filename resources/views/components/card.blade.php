@@ -10,12 +10,12 @@
             <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
             @else
             <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
-            @endif 
+            @endif
         </a>
     </div>
     <div class="card-action">
         <div class="btn">
-            <button>Buy now</button>
+            <button onclick="location.href='/checkout'">Buy now</button>
             <button>Add to cart</button>
         </div>
     </div>

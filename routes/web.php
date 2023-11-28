@@ -79,8 +79,9 @@ Route::get('/store/filter/{id}/main-image', [StoreController::class,'getMainImag
 Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
 
 //Route giao diện Order
-Route::get('/checkout', [OrderController::class,'showCheckout'])->name('order.show');
-Route::get('/checkout/payment', [OrderController::class,'showPaymentPage'])->name('order.payment');
+Route::get('/checkout/{id}', [OrderController::class,'showCheckout'])->name('checkout.show');
+Route::get('/payment', [OrderController::class,'showPaymentPage'])->name('payment.show');
+Route::post('/checkout/update-quantity', [OrderController::class,'updateQuantity']);
 
 //Route About us
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
