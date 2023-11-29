@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('order_id');
             $table->string('status');
-            $table->integer('mode');
+            $table->string('mode');
             $table->text('content');
             $table->timestamps();
 
