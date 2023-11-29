@@ -17,9 +17,22 @@ return new class extends Migration
             $table->string('order_id', 6)->primary();
             $table->string('product_id');
             $table->string('user_id');
-            $table->decimal('subtotal', 10, 2);
-            $table->unsignedInteger('quantity');
             $table->string('status');
+            $table->decimal('subtotal', 10, 2);
+            $table->decimal('tax', 10, 2);
+            $table->decimal('shipping', 10, 2);
+            $table->decimal('total', 10, 2);
+            $table->string('promo')->nullable();
+            $table->decimal('discount', 10, 2);
+            $table->decimal('grandtotal', 10, 2);
+            $table->string('fullname');
+            $table->string('phone');
+            $table->string('email');
+            $table->text('street_address');
+            $table->text('number_address');
+            $table->string('city');
+            $table->string('province');
+            $table->text('note')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('product_id')->on('products');
