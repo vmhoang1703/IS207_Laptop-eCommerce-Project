@@ -12,8 +12,18 @@
             @csrf
 
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="meta_title">Meta Title:</label>
+                <input type="text" name="meta_title" class="form-control" value="{{ old('meta_title') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea name="content" class="form-control">{{ old('content') }}</textarea>
             </div>
 
             <!-- Add other form fields based on your model's $fillable attributes -->

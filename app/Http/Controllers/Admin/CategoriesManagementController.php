@@ -25,19 +25,18 @@ class CategoriesManagementController extends Controller
     {
         // Đánh giá, kiểm tra form
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
             // Thêm các quy tắc kiểm tra khác tùy thuộc vào yêu cầu của bạn
         ]);
 
         try {
-            // Tạo user_id mới và kiểm tra xem nó có tồn tại trong cơ sở dữ liệu hay không
             do {
                 $category_id = $this->generateCategoryId();
             } while (Category::where('category_id', $category_id)->exists());
             // Gán dữ liệu nhập vào các trường thông tin
             $category = new Category([
                 'category_id' => $category_id,
-                'name' => $request->input('name'),
+                'title' => $request->input('title'),
                 // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
             ]);
 
@@ -52,6 +51,11 @@ class CategoriesManagementController extends Controller
         }
     }
 
+    public function viewCategoryPage($id)
+    {
+        $category = Category::find($id);
+        return view('admin.product.product_view', compact('category'));
+    }
     public function editCategoryPage($id)
     {
         $category = Category::find($id);
