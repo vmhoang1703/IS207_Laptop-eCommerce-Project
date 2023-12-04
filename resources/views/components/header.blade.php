@@ -1,7 +1,7 @@
  <!-- styles  -->
 <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
 <!-- scripts -->
-<script src="js/dropdown.js" ></script>
+<script src="{{ asset('js/dropdown.js') }}" ></script>
 <!-- Header -->
 <section class="header ">
         <div class="Top-header">
