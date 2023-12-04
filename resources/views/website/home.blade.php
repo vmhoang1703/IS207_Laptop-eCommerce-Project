@@ -37,7 +37,7 @@
                     <!-- filter bar & menu -->
                     @component('components.filter_home')
                     @endcomponent
-                    <div class="col-sm-10 pt-4">
+                    <div class="col-lg-10 col-md-12 pt-4">
                         <!-- advertise MACBOOK -->
                         @component('components.advertise')
                         @endcomponent
@@ -92,7 +92,7 @@
                 </div>
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
-                        <div class="jbl-details col-4 my-5 mx-5">
+                        <div class="jbl-details col-lg-4 col-md-12 my-5 mx-5">
                             <div class="title_jbl"> New arrival</div>
                             <div class="ESE mt-5 mb-4">Enhance sound experience</div>
                             <div class="Timetext1 mb-5">
@@ -115,7 +115,7 @@
                             </div>
                             <button class="btn_jbl">Buy now!</button>
                         </div>
-                        <div class="JBL_BOOMBOX col-6 ms-5 my-5">
+                        <div class="JBL_BOOMBOX col-lg-6  col-md-12 ms-5 my-5">
                             <img src="{{ asset('img/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png') }}" alt="img" width="100%">
                         </div>
                     </div>
@@ -280,7 +280,7 @@
                     </div>
 
                     <div class="introduction secondary1 col-3 my-3 ps-5">Service</div>
-                    <div class="row ms-5 mt-5 service">
+                    <div class="row ms-5 mt-5 service" style="overflow:scroll">
                         <div class="col-4 ms-5">
                             <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-5 mt-4 me-5">
@@ -298,7 +298,7 @@
                         <div class="col-2 ms-4">
                             <img src="{{asset('img/Services (2).png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-4 mt-4">
-                                <div class="username ps-3">Warranty Policy</div>
+                                <div class="username ps-3" style="white-space:nowrap">Warranty Policy</div>
                                 <div class="service" style="white-space: nowrap">30-day money-back guarantee </div>
                             </div>
                         </div>

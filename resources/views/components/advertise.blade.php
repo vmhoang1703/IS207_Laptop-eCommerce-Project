@@ -1,6 +1,6 @@
 <div class="advertise ">
     <div class="advertise_responsive row">
-        <div class="ads col-5 p-5 ms-5">
+        <div class="ads col-lg-5 col-md-12 p-5 ms-5">
             <div class="aditems"> <img src="{{ asset('img/apple logo.png') }}" class="img-fluid me-4">
                 <span> Macbook pro 16 inch 2023 (M2 Max) </span>
             </div>
@@ -11,7 +11,7 @@
                 <a href="#" style="color:white ;text-decoration: underline;">Shop now <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-lg-6 col-md-12 mt-3">
             <div class="slideshow-container">
                 <div class="mySlides animation">
                     <img src="{{ asset('img/macbook intro.png') }}" class="img-fluid">

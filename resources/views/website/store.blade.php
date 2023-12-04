@@ -34,13 +34,13 @@
             <div class="container">
                 <div class="row pb-5">
                     <!-- filter bar & menu -->
-                    <div class="col-sm-2 filter-responsive">
+                    <div class="col-lg-3 col-md-2  filter-responsive">
                         @component('components.filter_store')
                         @endcomponent
                     </div>
                     <!-- Store -->
-                    <div class="col-sm-9 fix  ms-5 mt-5">
-                        <div class="store " style="margin-left:20%">
+                    <div class="col-lg-9 col-md-10  fix mt-5">
+                        <div class="store " >
                             <div class="carousel_store carousel ">
                                 @foreach($products as $product)
                                 @component('components.card', ['product' => $product])

@@ -1,4 +1,4 @@
-<div class="col-sm-2 filter-responsive">
+<div class="col-lg-2 col-md-12 filter-responsive">
     <div class="filter">
         <table class="filter-content">
             <tr>

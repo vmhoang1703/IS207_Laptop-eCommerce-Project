@@ -374,14 +374,14 @@
         margin-left: 5%;
     }
     .store .carousel {
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(3, 1fr);
     }
 
 }
 
 @media screen and (max-width: 900px) {
     .wrapper .carousel {
-        grid-auto-columns: calc((100% / 2) - 20px);
+        grid-auto-columns: calc((100% / 1.7) - 20px);
     }
     .store .carousel {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -408,16 +408,5 @@
     }
 
 }
-@media screen and (max-width: 1279px) {
-    .store
-{
-    overflow-x:scroll
-
-}
-
-.store::-webkit-scrollbar {
-    display: none;
-}
- }
 
 

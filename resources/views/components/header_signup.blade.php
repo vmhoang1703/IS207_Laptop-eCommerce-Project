@@ -1,16 +1,21 @@
 <!-- styles  -->
 <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
+ <!-- Fonts -->
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- scripts -->
-<script src="js/home_dropdown.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{asset('js/home_dropdown.js')}}"  ></script>
  <!-- Header -->
- <section class="header ">
+ <section class="header">
         <div class="Top-header">
             <div class="container py-2 px-5 ">
                 <div class="row ms-5 ">
-                    <div class="SSS col-sm-6">
+                    <div class="SSS col-lg-6 col-md-12 col-xs-12 ">
                         SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
                     </div>
-                    <div class="SHOPNOW col-sm-2 pe-3 ">
+                    <div class="SHOPNOW col-lg-2 col-md-12 pe-3 ">
                         <a href="#">SHOP NOW </a>
                     </div>
                 </div>
@@ -19,8 +24,8 @@
     </div>
 
     <div class="container pt-5">
-        <div class="row">
-            <div class="header-logo col-sm-4 mb-5">
+        <div class="row ress">
+            <div class="header-logo col-lg-4 col-md-12 mb-5">
 
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
@@ -39,7 +44,7 @@
                     <a href="#">CONTACT </a>
                 </div>
                 </div>
-                <div class="signup col-sm-2">
+                <div class="signup col-lg-2 col-md-12">
                     <button class="btn-signup"> Sign up </button>
                 </div>
             </div>
