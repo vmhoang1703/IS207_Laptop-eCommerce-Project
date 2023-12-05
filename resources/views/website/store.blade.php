@@ -62,6 +62,8 @@
         @component("components.footer")
         @endcomponent
         <!-- - -->
+        @component("components.toast")
+    @endcomponent
         <script src="js/heart_action.js"></script>
 </body>
 

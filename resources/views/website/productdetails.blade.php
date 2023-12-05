@@ -346,7 +346,8 @@
     @component("components.footer")
     @endcomponent
     <!-- - -->
-
+    @component("components.toast")
+    @endcomponent
 
 </body>
 

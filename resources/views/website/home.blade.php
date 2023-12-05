@@ -314,10 +314,10 @@
     @endcomponent
     <!-- - -->
     </section>
-
+    @component("components.toast")
+    @endcomponent
 
     <script src="js/bootstrap.bundle.min.js"> </script>
-
     <script src="js/heart_action.js"></script>
 
 </body>
