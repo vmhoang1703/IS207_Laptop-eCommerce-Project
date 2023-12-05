@@ -137,8 +137,8 @@
                         <div class="plus">+</div>
                     </div>
                     <hr class="mt-5">
-                    <div class="btn1">
-                        <button class="plus">Add to cart </button>
+                    <div class="btn1 buttons">
+                        <button class="btn" id="success">Add to cart </button>
                         <script>
                             const plus = document.querySelector(".plus"),
                                 minus = document.querySelector(".minus"),
