@@ -309,6 +309,8 @@
     color : black ;
     width: 13%;
     text-align: center;
+    font-size: 14px;
+    white-space: nowrap;
 
 }
 .allreview

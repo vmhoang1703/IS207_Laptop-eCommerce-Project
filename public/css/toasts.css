@@ -109,7 +109,7 @@
     background: var(--success);
   }
 
- .close
+.toast .close
  {
     color: grey !important;
     margin-right: 100px;
