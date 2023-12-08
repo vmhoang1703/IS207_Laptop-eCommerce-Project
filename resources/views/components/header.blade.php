@@ -23,17 +23,20 @@
 
         <div class="container pt-5">
             <div class="row">
-                <div class="header-logo col-lg-3 col-md-12 mb-5">
+                <div class="header-logo col-lg-2 col-md-12 mb-5">
 
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
                 </div>
-                <div class="col-sm-5 d-flex justify-content-evenly">
+                <div class="col-sm-6 d-flex justify-content-evenly">
                 <div class="menu-header ms-5">
                     <a href="{{ route('home.show') }}">HOME </a>
                 </div>
                 <div class="menu-header ps-5 ">
                     <a href="{{ route('store.show') }}">STORE </a>
+                </div>
+                <div class="menu-header ps-5 " style="white-space: nowrap;">
+                    <a href="#">BLOG </a>
                 </div>
                 <div class="menu-header ps-5 " style="white-space: nowrap;">
                     <a href="#">ABOUT US </a>
@@ -78,7 +81,8 @@
                  <ul class="menu-bar menu-text">
                      <li><a href="{{ route('home.show') }}"> HOME </a></li>
                      <li> <a href="{{ route('store.show') }}"> STORE </a></li>
-                     <li><a href="#"> ABOUT US </a></li>
+                     <li><a href="#"> BLOG </a></li>
+                     <li><a href="#" style="white-space:nowrap"> ABOUT US </a></li>
                      <li><a href="#"> CONTACT </a></li>
                  </ul>
              </div>
