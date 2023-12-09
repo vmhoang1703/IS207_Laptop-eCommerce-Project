@@ -25,7 +25,9 @@ class CategoriesManagementController extends Controller
     {
         // Đánh giá, kiểm tra form
         $request->validate([
-            'title' => 'required',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            'title' => 'required',  
+            'meta_title' => 'required',
+            'content' => 'required'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
             // Thêm các quy tắc kiểm tra khác tùy thuộc vào yêu cầu của bạn
         ]);
 
@@ -37,8 +39,13 @@ class CategoriesManagementController extends Controller
             $category = new Category([
                 'category_id' => $category_id,
                 'title' => $request->input('title'),
+                'meta_title' => $request->input('meta_title'),
+                'content' => $request->input('content')
                 // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
             ]);
+
+            // Generate and set the slug
+            $category->slug = $category->generateSlug();
 
             // Lưu vào db
             $category->save();
@@ -54,7 +61,7 @@ class CategoriesManagementController extends Controller
     public function viewCategoryPage($id)
     {
         $category = Category::find($id);
-        return view('admin.product.product_view', compact('category'));
+        return view('admin.category.category_view', compact('category'));
     }
     public function editCategoryPage($id)
     {

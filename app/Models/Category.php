@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -24,4 +25,8 @@ class Category extends Model
         'total_products' => 'integer',
     ];
 
+    public function generateSlug()
+    {
+        return Str::slug($this->title);
+    }
 }

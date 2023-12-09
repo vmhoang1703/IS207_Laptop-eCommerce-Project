@@ -47,7 +47,7 @@ Route::get('/admin/charts', [AdminController::class, 'showChartsPage'])->name('c
 Route::get('/admin/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('categories.management');
 Route::get('/admin/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('category.create');
 Route::post('/admin/categories-management', [CategoriesManagementController::class, 'storeCategory'])->name('category.store');
-Route::get('/admin/categories-management/{id}/view', [ProductsManagementController::class, 'viewCategoryPage'])->name('category.view');
+Route::get('/admin/categories-management/{id}/view', [CategoriesManagementController::class, 'viewCategoryPage'])->name('category.view');
 Route::get('/admin/categories-management/{id}/edit', [CategoriesManagementController::class, 'editCategoryPage'])->name('category.edit');
 Route::put('/admin/categories-management/{id}', [CategoriesManagementController::class, 'updateCategory'])->name('category.update');
 Route::get('/admin/categories-management/{id}/delete', [CategoriesManagementController::class, 'deleteCategory'])->name('category.delete');
