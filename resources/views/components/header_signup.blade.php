@@ -41,7 +41,7 @@
                     <a href="#">BLOG </a>
                 </div>
                 <div class="menu-header ps-5 " style="white-space: nowrap;">
-                    <a href="#">ABOUT US </a>
+                    <a href="{{ route('aboutus.show') }}">ABOUT US </a>
                 </div>
                 <div class="menu-header ps-5 ">
                     <a href="#">CONTACT </a>

@@ -39,7 +39,7 @@
                     <a href="#">BLOG </a>
                 </div>
                 <div class="menu-header ps-5 " style="white-space: nowrap;">
-                    <a href="#">ABOUT US </a>
+                    <a href="{{ route('aboutus.show') }}">ABOUT US </a>
                 </div>
                 <div class="menu-header  ps-5">
                     <a href="#">CONTACT </a>
@@ -82,7 +82,7 @@
                      <li><a href="{{ route('home.show') }}"> HOME </a></li>
                      <li> <a href="{{ route('store.show') }}"> STORE </a></li>
                      <li><a href="#"> BLOG </a></li>
-                     <li><a href="#" style="white-space:nowrap"> ABOUT US </a></li>
+                     <li><a href="{{ route('aboutus.show') }}" style="white-space:nowrap"> ABOUT US </a></li>
                      <li><a href="#"> CONTACT </a></li>
                  </ul>
              </div>
