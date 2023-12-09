@@ -285,7 +285,7 @@
                             <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-5 mt-4 me-5">
                                 <div class="username">Fast delivery</div>
-                                <div class="service" style="text-indent:-3cm;">Free shipping for orders over 100$ </div>
+                                <div class="service" style="text-indent:-2.7cm;">Free shipping for orders over 100$ </div>
                             </div>
                         </div>
                         <div class="col-4 ms-3">
