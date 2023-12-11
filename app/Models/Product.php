@@ -3,27 +3,37 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
     protected $table = 'products';
     public $incrementing = false;
     protected $primaryKey = 'product_id'; // Đặt khóa chính của bảng.
+    protected $keyType = 'string';
     protected $fillable = [
         'product_id',
-        'name',
+        'user_id',
+        'title',
+        'meta_title',
+        'slug',
         'description',
         'price',
-        'oldPrice',
         'discount',
-        'stock_quantity',
+        'quantity',
+        'status',
         'category_id',
-        'total_favourite_count',
+        'total_favorites',
+        'brand',
         'screen_size',
         'CPU',
         'RAM',
         'storage',
         'event'
+    ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
     ];
 
     // ...
@@ -34,9 +44,9 @@ class Product extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeOrderByFavouriteCountDesc($query)
+    public function scopeOrderByFavoriteCountDesc($query)
     {
-        return $query->orderBy('total_favourite_count', 'desc');
+        return $query->orderBy('total_favorites', 'desc');
     }
 
     /**
@@ -47,5 +57,10 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id');
+    }
+
+    public function generateSlug()
+    {
+        return Str::slug($this->title);
     }
 }

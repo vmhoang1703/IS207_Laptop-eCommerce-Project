@@ -155,7 +155,7 @@
                                 }
                             });
                         </script>
-                        <button>Buy now</button>
+                        <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
                     </div>
                     <div class="mt-5" style="margin-left:15%;">
                         <table>

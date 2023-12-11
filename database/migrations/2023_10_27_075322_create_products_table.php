@@ -15,14 +15,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->string('product_id', 6)->primary();
-            $table->string('name');
+            $table->string('user_id'); //Liên kết với nhân viên đăng sản phẩm
+            $table->string('title');
+            $table->string('meta_title');
+            $table->string('slug');
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->decimal('oldPrice', 10, 2);
             $table->integer('discount')->nullable()->default(0);
-            $table->integer('stock_quantity');
+            $table->integer('quantity');
+            $table->string('status');
             $table->string('category_id');
-            $table->unsignedInteger('total_favourite_count')->default(0);
+            $table->unsignedInteger('total_favorites')->default(0);
+            $table->string('brand');
             $table->string('screen_size');
             $table->string('CPU');
             $table->string('RAM');

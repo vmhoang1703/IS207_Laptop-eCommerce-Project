@@ -10,6 +10,7 @@
     <div class="card-body">
         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('POST')
             <!-- Thêm input cho ảnh chính -->
             <div class="form-group">
                 <label for="main_image">Main image:</label>
@@ -23,8 +24,14 @@
             </div>
 
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+            </div>
+
+
+            <div class="form-group">
+                <label for="meta_title">Meta title:</label>
+                <input type="text" name="meta_title" class="form-control" value="{{ old('meta_title') }}">
             </div>
 
             <div class="form-group">
@@ -38,37 +45,52 @@
             </div>
 
             <div class="form-group">
-                <label for="oldPrice">Old Price:</label>
-                <input type="text" name="oldPrice" class="form-control" value="{{ old('oldPrice') }}">
-            </div>
-
-            <div class="form-group">
                 <label for="discount">Discount:</label>
                 <input type="text" name="discount" class="form-control" value="{{ old('discount') }}">
             </div>
 
             <div class="form-group">
-                <label for="stock_quantity">Stock Quantity:</label>
-                <input type="text" name="stock_quantity" class="form-control" value="{{ old('stock_quantity') }}">
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" class="form-control" value="{{ old('quantity') }}">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select name="status" class="form-control">
+                    <option value="In stock" {{ old('status') == 'In stock' ? 'selected' : '' }}>In stock</option>
+                    <option value="Up coming" {{ old('status') == 'Up coming' ? 'selected' : '' }}>Up coming</option>
+                    <option value="Out stock" {{ old('status') == 'Out stock' ? 'selected' : '' }}>Out stock</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="category_id">Category:</label>
                 <select name="category_id" class="form-control">
                     @foreach($categories as $category)
-                    <option value="{{ $category->category_id }}" {{ old('category_id') == '$category->category_id' ? 'selected' : '' }}>
-                        {{ $category->name }}
+                    <option value="{{ $category->category_id }}" {{ old('category_id') == $category->category_id ? 'selected' : '' }}>
+                        {{ $category->title }}
                     </option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
+                <label for="brand">Brand:</label>
+                <select name="brand" class="form-control">
+                    <option value="Asus" {{ old('brand') == 'Asus' ? 'selected' : '' }}>Asus</option>
+                    <option value="Dell" {{ old('brand') == 'Dell' ? 'selected' : '' }}>Dell</option>
+                    <option value="HP" {{ old('brand') == 'HP' ? 'selected' : '' }}>HP</option>
+                    <option value="Lenovo" {{ old('brand') == 'Lenovo' ? 'selected' : '' }}>Lenovo</option>
+                    <option value="Samsung" {{ old('brand') == 'Samsung' ? 'selected' : '' }}>Samsung</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="screen_size">Screen Size:</label>
                 <select name="screen_size" class="form-control">
-                    <option value="13 inch" {{ old('screen_size') == '13inch' ? 'selected' : '' }}>13 inch</option>
-                    <option value="14 inch" {{ old('screen_size') == '14inch' ? 'selected' : '' }}>14 inch</option>
-                    <option value="Over 15 inch" {{ old('screen_size') == '15inch' ? 'selected' : '' }}>Over 15 inch</option>
+                    <option value="13 inch" {{ old('screen_size') == '13 inch' ? 'selected' : '' }}>13 inch</option>
+                    <option value="14 inch" {{ old('screen_size') == '14 inch' ? 'selected' : '' }}>14 inch</option>
+                    <option value="Over 15 inch" {{ old('screen_size') == 'Over 15 inch' ? 'selected' : '' }}>Over 15 inch</option>
                 </select>
             </div>
 

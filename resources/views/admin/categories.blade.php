@@ -16,7 +16,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Title</th>
                         <th>The number of products</th>
                         <th>Added date</th>
                         <th>Modified date</th>
@@ -37,7 +37,7 @@
                     @foreach($categories as $category)
                     <tr>
                         <td>{{ $category->category_id }}</td>
-                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->title }}</td>
                         <td>{{ $category->total_products }}</td>
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at }}</td>
@@ -48,6 +48,10 @@
                             &nbsp;
                             <a href="{{ route('category.edit', $category->category_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            &nbsp;
+                            <a href="{{ route('category.view', $category->category_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
                         </td>
                     </tr>
