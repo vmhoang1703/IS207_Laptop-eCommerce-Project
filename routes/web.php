@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DetailProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -88,3 +89,6 @@ Route::post('/checkout/update-quantity', [OrderController::class,'updateQuantity
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
 //Route Contact
 Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
+
+//Profile
+Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
