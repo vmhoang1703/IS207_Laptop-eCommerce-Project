@@ -1,0 +1,22 @@
+/*  Component navbar */
+.nav-title {
+    color: var(--Text2, #000);
+    font-size: 17.346px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26.019px;
+  }
+  .nav-item .active {
+    color: #db4444 !important;
+    opacity: 1 !important;
+  }
+  .nav-item .nav-link {
+    color: var(--Text2, #000);
+    font-size: 17.346px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26.019px;
+    opacity: 0.5;
+    margin-left: 7.5%;
+  }
+  /* end navbar */
