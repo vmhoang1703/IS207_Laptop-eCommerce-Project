@@ -92,3 +92,6 @@ Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->na
 
 //Profile
 Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
+
+// edit Profile
+Route::get('/profile/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');

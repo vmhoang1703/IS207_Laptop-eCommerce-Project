@@ -49,8 +49,7 @@
       </li>
       <button class=" btn-logout nav-title d-flex align-items-center gap-4 ">
         Log out
-        <img src="./Logout.svg" alt="">
+        <img src="{{asset('img/Logout.svg')}}" alt="">
       </button>
-
     </ul>
   </nav>
