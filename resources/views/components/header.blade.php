@@ -1,16 +1,20 @@
  <!-- styles  -->
 <link rel="stylesheet" href="{{ asset('css/header_signup.css') }}">
+ <!-- Fonts -->
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- scripts -->
-<script src="js/dropdown.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ asset('js/dropdown.js') }}" defer ></script>
 <!-- Header -->
 <section class="header ">
         <div class="Top-header">
             <div class="container py-2 px-5 ">
             <div class="row ms-3 ">
-                    <div class="SSS col-sm-6">
+                    <div class="SSS col-lg-6 col-md-12">
                         SUMMER SHOPPING SPREE WITH UP TO 50% OFF!
                     </div>
-                    <div class="SHOPNOW col-sm-2 pe-3 ">
+                    <div class="SHOPNOW col-lg-2 col-md-12 pe-3 ">
                         <a href="#">SHOP NOW </a>
                     </div>
                 </div>
@@ -19,12 +23,12 @@
 
         <div class="container pt-5">
             <div class="row">
-                <div class="header-logo col-sm-3 mb-5">
+                <div class="header-logo col-lg-2 col-md-12 mb-2">
 
                     <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                     <div class="logo-text">Computer World - Electronic Components </div>
                 </div>
-                <div class="col-sm-5 d-flex justify-content-evenly">
+                <div class="col-sm-6 d-flex justify-content-evenly">
                 <div class="menu-header ms-5">
                     <a href="{{ route('home.show') }}">HOME </a>
                 </div>
@@ -32,13 +36,16 @@
                     <a href="{{ route('store.show') }}">STORE </a>
                 </div>
                 <div class="menu-header ps-5 " style="white-space: nowrap;">
-                    <a href="#">ABOUT US </a>
+                    <a href="#">BLOG </a>
+                </div>
+                <div class="menu-header ps-5 " style="white-space: nowrap;">
+                    <a href="{{ route('aboutus.show') }}">ABOUT US </a>
                 </div>
                 <div class="menu-header  ps-5">
                     <a href="#">CONTACT </a>
                 </div>
                 </div>
-                <div class="col-sm-4 d-flex justify-content-evenly right_header">
+                <div class="col-lg-4 col-md-12 d-flex justify-content-evenly right_header">
                     <div class="search_box mb-4">
                         <input type="text" class="search_box_input" placeholder="what are you looking for?">
                         <button class="btn_search">
@@ -74,7 +81,8 @@
                  <ul class="menu-bar menu-text">
                      <li><a href="{{ route('home.show') }}"> HOME </a></li>
                      <li> <a href="{{ route('store.show') }}"> STORE </a></li>
-                     <li><a href="#"> ABOUT US </a></li>
+                     <li><a href="#"> BLOG </a></li>
+                     <li><a href="{{ route('aboutus.show') }}" style="white-space:nowrap"> ABOUT US </a></li>
                      <li><a href="#"> CONTACT </a></li>
                  </ul>
              </div>

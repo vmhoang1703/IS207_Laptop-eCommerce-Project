@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function showHomePage(): View
     {
         // Truy vấn sản phẩm có danh mục là "flash sale"
-        $flashSalesProducts = Product::where('category_id', 4)->get();
+        $flashSalesProducts = Product::where('event', 'Flash Sales')->get();
         // Truy vấn sản phẩm ở tùy chọn "Sản phẩm yêu thích"
         $products = Product::orderByFavouriteCountDesc()->get();
 
@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function updateFavouriteCount(Request $request)
     {
         $productId = $request->input('product_id');
-        $increment = $request->input('increment');        
+        $increment = $request->input('increment');
 
         // Logic to update favorite count in the database
         $product = Product::find($productId);

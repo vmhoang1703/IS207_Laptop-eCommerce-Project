@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Scripts -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/range.js" defer></script>
     <script src="js/pagination.js" defer></script>
@@ -34,13 +35,13 @@
             <div class="container">
                 <div class="row pb-5">
                     <!-- filter bar & menu -->
-                    <div class="col-sm-2 filter-responsive">
+                    <div class="col-lg-3 col-md-2  filter-responsive">
                         @component('components.filter_store')
                         @endcomponent
                     </div>
                     <!-- Store -->
-                    <div class="col-sm-9 fix  ms-5 mt-5">
-                        <div class="store">
+                    <div class="col-lg-9 col-md-10  fix mt-5">
+                        <div class="store " >
                             <div class="carousel_store carousel ">
                                 @foreach($products as $product)
                                 @component('components.card', ['product' => $product])
@@ -62,6 +63,8 @@
         @component("components.footer")
         @endcomponent
         <!-- - -->
+        @component("components.toast")
+    @endcomponent
         <script src="js/heart_action.js"></script>
 </body>
 

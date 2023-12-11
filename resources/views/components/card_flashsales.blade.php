@@ -1,6 +1,7 @@
 <li class="card">
     <div class="discount-tag">-{{ $product->discount }}% </div>
     <div class="img">
+
         @if ($product->images->where('is_main', 1)->isNotEmpty())
         <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
         @else
@@ -8,9 +9,9 @@
         @endif
     </div>
     <div class="card-action">
-        <div class="btn">
-            <button>Buy now</button>
-            <button>Add cart</button>
+        <div class="btn1 buttons">
+            <button onclick="location.href='#'" >Buy now</button>
+            <button class="btn" id="success">Add to cart</button>
         </div>
     </div>
     <div class="info-card">
@@ -30,4 +31,5 @@
                 @endfor -->
         </div>
     </div>
+
 </li>

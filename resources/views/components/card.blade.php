@@ -7,7 +7,7 @@
     <div class="img">
         <a href="{{ route('detail.show', $product->product_id) }}" style="text-decoration: none;">
             @if ($product->images->where('is_main', 1)->isNotEmpty())
-            <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+            <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" >
             @else
             <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
             @endif

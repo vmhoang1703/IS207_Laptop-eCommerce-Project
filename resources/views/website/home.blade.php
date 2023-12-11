@@ -20,14 +20,14 @@
     <script src="js/countdown.js"></script>
     <script src="js/carousel.js" defer> </script>
     <script src="js/range.js" defer></script>
-
+    <script src="js/feedback_scroll.js" defer></script>
 
 
 </head>
 
 <body>
     <!-- header -->
-    @component("components.header")
+    @component("components.header_signup")
     @endcomponent
     <!-- main content -->
     <section class="main-content">
@@ -37,13 +37,13 @@
                     <!-- filter bar & menu -->
                     @component('components.filter_home')
                     @endcomponent
-                    <div class="col-sm-10 pt-4">
+                    <div class="col-lg-10 col-md-12 pt-4">
                         <!-- advertise MACBOOK -->
                         @component('components.advertise')
                         @endcomponent
                     </div>
                 </div>
-                <div class="title d-flex ">
+                <div class="title d-flex pt-5 ">
                     <div class="secondary2 ms-5"></div>
                     <div class="secondary2-text px-2 py-2">Today </div>
                 </div>
@@ -80,7 +80,7 @@
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Favorite Products</div>
 
-                <div class="store">
+                <div class="wrapper">
                     <div class="carousel">
 
                         @foreach($products as $product)
@@ -90,13 +90,9 @@
 
                     </div>
                 </div>
-
-
-                <!-- heart action -->
-
                 <div class="ads_jbl_affix ms-5">
                     <div class="ads_jbl row  ">
-                        <div class="jbl-details col-4 my-5 mx-5">
+                        <div class="jbl-details col-lg-4 col-md-12 my-5 mx-5">
                             <div class="title_jbl"> New arrival</div>
                             <div class="ESE mt-5 mb-4">Enhance sound experience</div>
                             <div class="Timetext1 mb-5">
@@ -119,7 +115,7 @@
                             </div>
                             <button class="btn_jbl">Buy now!</button>
                         </div>
-                        <div class="JBL_BOOMBOX col-6 ms-5 my-5">
+                        <div class="JBL_BOOMBOX col-lg-6  col-md-12 ms-5 my-5">
                             <img src="{{ asset('img/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png') }}" alt="img" width="100%">
                         </div>
                     </div>
@@ -162,7 +158,7 @@
                     </div>
                 </div>
                 <!-- Newarrival responsive -->
-                <div class="store Newarrival_res">
+                <div class="wrapper Newarrival_res">
                     <ul class="carousel">
                         <li class="card" style="background-color:black;">
                             <div class="img">
@@ -216,7 +212,23 @@
 
                 <div class="introduction secondary1 col-3 my-3 ps-5">Testimonials</div>
                 <div class="lastcontent">
-                    <div class="row ms-5">
+                    <i class="pre-btn fa fa-angle-left"></i>
+                    <i class="nxt-btn fa fa-angle-right"></i>
+                    <div class="feedback_bar row ms-5">
+                        <div class="col-4">
+                            <img src="images/usercomment.png" height="240px" width="240px">
+                            <div class="user ms-5 mt-4">
+                                <div class="username">Miss Lucy Nguyen</div>
+                                <div class="usercomment">“Your products are so wonderful.”</div>
+                                <div> <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="fa fa-star star"></span>
+                                    <span class="numbered">(4.3)</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-4">
                             <img src="images/usercomment.png" height="240px" width="240px">
                             <div class="user ms-5 mt-4">
@@ -261,26 +273,33 @@
                         </div>
 
                     </div>
-                    <div class="row ms-5 mt-5 service">
-                        <div class="col-4">
+
+                    <div class="title d-flex" style="margin-top:150px;">
+                        <div class="secondary2 ms-5 "></div>
+                        <div class="secondary2-text px-2 py-2">Advantages</div>
+                    </div>
+
+                    <div class="introduction secondary1 col-3 my-3 ps-5">Service</div>
+                    <div class="row ms-5 mt-5 service" style="overflow:scroll">
+                        <div class="col-4 ms-5">
                             <img src="{{asset('img/Services.png')}}" class="ms-5" height="113px" width="113px">
-                            <div class="user ms-5 mt-4">
+                            <div class="user ms-5 mt-4 me-5">
                                 <div class="username">Fast delivery</div>
-                                <div class="service">Free shipping for orders over 100$ </div>
+                                <div class="service" style="text-indent:-2.7cm;">Free shipping for orders over 100$ </div>
                             </div>
                         </div>
-                        <div class="col-4 ps-4">
+                        <div class="col-4 ms-3">
                             <img src="{{asset('img/Services (1).png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-3 mt-4">
                                 <div class="username">24/7 Customer Service</div>
-                                <div class="service ps-4">24/7 Customer Support and Care </div>
+                                <div class="service">24/7 Customer Support and Care </div>
                             </div>
                         </div>
-                        <div class="col-4 ps-4">
+                        <div class="col-2 ms-4">
                             <img src="{{asset('img/Services (2).png')}}" class="ms-5" height="113px" width="113px">
                             <div class="user ms-4 mt-4">
-                                <div class="username ps-3">Warranty Policy</div>
-                                <div class="service ps-4">30-day money-back guarantee </div>
+                                <div class="username ps-3" style="white-space:nowrap">Warranty Policy</div>
+                                <div class="service" style="white-space: nowrap">30-day money-back guarantee </div>
                             </div>
                         </div>
                     </div>
@@ -289,15 +308,16 @@
         </div>
     </section>
 
-    <section class="mt-5">
-    </section>
-    <!-- footer -->
-    @component("components.footer")
+    <section style="margin-top: 150px;">
+      <!-- footer -->
+      @component("components.footer")
     @endcomponent
     <!-- - -->
+    </section>
+    @component("components.toast")
+    @endcomponent
 
     <script src="js/bootstrap.bundle.min.js"> </script>
-
     <script src="js/heart_action.js"></script>
 
 </body>

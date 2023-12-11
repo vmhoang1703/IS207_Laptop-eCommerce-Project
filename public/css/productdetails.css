@@ -23,6 +23,7 @@
 }
 .card-wrapper {
     line-height: 1.5;
+
 }
 
 .card-wrapper .card {
@@ -70,7 +71,6 @@
 .product-content {
     padding: 2rem 1rem;
 }
-
 .product-title {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
@@ -195,39 +195,49 @@
     color: white;
 }
 
-.product-content .btn {
+.product-content .btn1 {
     display: flex;
     justify-content: space-between;
     outline: none;
 }
 
 
-.product-content table
+ .delivery
 {
     border: 1px solid black;
-    border-radius: 6px;
-    width: 80%;
+    border-radius: 3.86px;
+    border-collapse:unset;
+    float: right;
+    margin-right: 10%;
 }
-.product-content table tr
+.delivery tr
 {
     border: 1px solid black;
-    border-radius: 6px;
+    border-radius: 3.86px;
     height: 100px;
 }
-.product-content table td .heading
+.delivery td .heading
 {
     font-size: 16px;
     font-weight: 500;
 
 }
-.product-content table td .text
+.delivery td .text
 {
     font-size: 14px;
     font-weight: 400;
     text-decoration-line: underline;
 
 }
-.product-content .btn button
+.delivery td:nth-child(1)
+{
+    width: 100px;
+}
+.delivery td:nth-child(2)
+{
+    width: 300px;
+}
+.product-content .btn1 button
 {
     background-color: #DB4444;
     font-size: 16px;
@@ -235,7 +245,7 @@
     font-family: 'Poppins',sans-serif;
     border: none;
     color: white;
-    width: 30%;
+    width: 40%;
     height: 43px;
     border-radius: 4px;
 }
@@ -261,13 +271,160 @@
     color: #DB4444;
     ;
   }
+ .review-card
+ {
+    position: fixed;
+    left: 100%;
+    width: auto;
+    height: 550px;
+    animation: close 0.4s 1 linear;
+ }
+ .header-review
+ {
+  font-weight: 500;
+ }
+.body-review
+{
+    margin-top: 15px;
+    width: 100%;
+    overflow-y: scroll ;
+    overflow-x: hidden;
+    background-color: #FBFBFB !important;
+    border: none;
+    border-radius: 5px;
+    transition: 0.5s;
+    height: 500px;
+
+}
+.nav-review
+{
+    display: flex;
+    justify-content: space-between;
+}
+.menu-review
+{
+    border : 1px solid lightblue ;
+    border-radius: 6px;
+    padding: 10px;
+    color : black ;
+    width: 13%;
+    text-align: center;
+    font-size: 14px;
+    white-space: nowrap;
+
+}
+.allreview
+{
+    color : #40BFFF ;
+    font-weight: 500;
+    width: 25%;
+}
+
+ .action .review-card
+ {
+    position: static;
+    animation: teleport 0.5s 1 linear;
+ }
+
+
+ .rv-btn
+ {
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ .rv-btn:hover
+ {
+    color: #DB4444 ;
+    font-weight: 500;
+ }
+
+ .close
+ {
+    cursor: pointer;
+ }
+ .close:hover
+ {
+    stroke : #40BFFF  ;
+ }
+ @keyframes teleport
+ {
+    from  {transform:translateX(400px);}
+    to {transform:translateX(0)}
+ }
+ @keyframes hidden
+ {
+    from { overflow-x: hidden;}
+    to {overflow-x:unset;}
+ }
+ @keyframes close
+ {
+    from {}
+    to {
+        transform: translateX(400px);
+    }
+ }
+ .remove .body-review
+ {
+    animation: close 0.5s 1 linear;
+ }
+
+ .date
+ {
+    font-size: 9px;
+    color : #9098B1;
+ }
+ .avt
+ {
+
+    margin  : 10px;
+    padding : 10px;
+ }
+ .avt img
+ {
+    border-radius : 50% ;
+    width :44px !important ;
+    height: 44px !important;
+ }
+ .name
+ {
+    font-weight: bold;
+    font-size: 13px;
+ }
+ .reviewer .description
+ {
+    font-weight: 400;
+    font-size: 11px;
+ }
+ .img-fb
+ {
+    display: flex;
+ }
+ .img-fb span
+ {
+    border-radius: 6px;
+
+ }
+ .img-fb span img
+ {
+    width: 66px !important;
+    height: 66px !important;
+ }
 
 @media screen and (min-width: 992px) {
-    .card {
+
+   .card-wrapper .card {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1.5rem;
     }
-
+    .action .card
+    {
+       grid-template-columns: repeat(3,1fr) !important;
+       animation: hidden 0.5s 1 linear;
+    }
+    .header-review
+    {
+        margin-top: -60px;
+    }
     .card-wrapper {
         height: 100vh;
         display: flex;

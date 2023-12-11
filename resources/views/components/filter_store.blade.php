@@ -97,8 +97,6 @@
                                     <li><label><input name="storage" value="SSD 128GB" type="checkbox"> SSD 128GB</label> </li>
                                 </ul>
                             </li>
-
-
                         </ul>
                     </li>
                     <li class="li-hr">
@@ -111,11 +109,11 @@
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
                         <ul class="menu-bar">
-                            <li>Power banks </li>
-                            <li>Cables, chargers </li>
-                            <li>Phone cases </li>
-                            <li>Speakers </li>
-                            <li>Headphones </li>
+                            <li> <label><input name="accessories" value="POWER BANKS" type="checkbox">Power banks </li>
+                            <li> <label><input name="accessories" value="CABLES CHARGERS" type="checkbox">Cables, chargers </li>
+                            <li> <label><input name="accessories" value="PHONE CASES" type="checkbox">Phone cases </li>
+                            <li> <label><input name="accessories" value="SPEAKERS" type="checkbox">Speakers </li>
+                            <li> <label><input name="accessories" value="HEADPHONES" type="checkbox">Headphones </li>
                         </ul>
                     </li>
                     <li class="li-hr">
@@ -127,11 +125,44 @@
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
                         <ul class="menu-bar">
-                            <li>Printers </li>
-                            <li>Printer ink </li>
-                            <li>Monitor </li>
-                            <li>Gaming PC </li>
+                            <li> <label><input name="PCs, printer, screens" value="PRINTERS" type="checkbox">Printers </li>
+                            <li> <label><input name="PCs, printer, screens" value="PRINTER INK" type="checkbox">Printer ink </li>
+                            <li> <label><input name="PCs, printer, screens" value="MONITOR" type="checkbox">Monitor </li>
+                            <li> <label><input name="PCs, printer, screens" value="GAMING PC" type="checkbox">Gaming PC </li>
                         </ul>
+                    </li>
+                    <li class="li-hr">
+                        <hr>
+                    </li>
+                    <li>
+                        <div class="drop-down filter-item">
+                            <span>Branding</span>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <ul class="menu-bar">
+                            <li><label><input name="Branding" value="ASUS" type="checkbox"> Asus </label> </li>
+                            <li><label><input name="Branding" value="DELL" type="checkbox"> Dell </label> </li>
+                            <li><label><input name="Branding" value="HP" type="checkbox"> HP </label> </li>
+                            <li><label><input name="Branding" value="LENOVO" type="checkbox"> Lenovo </label> </li>
+                            <li><label><input name="Branding" value="SAMSUNG" type="checkbox"> Samsung </label> </li>
+                        </ul>
+                    </li>
+                    <li class="li-hr">
+                        <hr>
+                    </li>
+                    <li>
+                        <div class="drop-down filter-item">
+                            <span>Stock</span></span>
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <ul class="menu-bar">
+                            <li><label><input name="Stock" value="IN STOCK" type="checkbox"> In stock </label> </li>
+                            <li><label><input name="Stock" value="UP COMMING" type="checkbox"> Up coming </label> </li>
+                            <li><label><input name="Stock" value="OUT STOCK" type="checkbox"> Out stock </label> </li>
+                        </ul>
+                    </li>
+
+
             </td>
         </tr>
     </table>
