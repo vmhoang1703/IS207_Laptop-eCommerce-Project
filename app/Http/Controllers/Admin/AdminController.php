@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function showAdminPage()
+    {
+        return redirect()->route('dashboard.show');
+    }
     public function showDashboardPage(): View
     {
         return view('admin.dashboard');

@@ -14,18 +14,24 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->bigIncrements('product_id');
-            $table->string('name');
+            $table->string('product_id', 6)->primary();
+            $table->string('user_id'); //Liên kết với nhân viên đăng sản phẩm
+            $table->string('title');
+            $table->string('meta_title');
+            $table->string('slug');
             $table->text('description');
             $table->decimal('price', 10, 2);
-            $table->decimal('oldPrice', 10, 2);
-            $table->integer('discount')->nullable()->default(null);
-            $table->integer('stock_quantity');
-            $table->unsignedBigInteger('category_id');
-            $table->string('image')->nullable()->default(null);
-            $table->string('image_url')->nullable()->default(null);
-            $table->string('video')->nullable()->default(null);
-            $table->string('video_url')->nullable()->default(null);
+            $table->integer('discount')->nullable()->default(0);
+            $table->integer('quantity');
+            $table->string('status');
+            $table->string('category_id');
+            $table->unsignedInteger('total_favorites')->default(0);
+            $table->string('brand');
+            $table->string('screen_size');
+            $table->string('CPU');
+            $table->string('RAM');
+            $table->string('storage');
+            $table->string('event');
             $table->timestamps();
 
             $table->foreign('category_id')->references('category_id')->on('categories');

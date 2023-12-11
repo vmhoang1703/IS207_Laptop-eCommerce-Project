@@ -26,15 +26,14 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Products</td>
-                            <td>Information about products.</td>
+                            <td>Categories</td>
+                            <td>Information about categories.</td>
                             <td><a href="" class="btn btn-primary">View</a></td>
                         </tr>
-                        <!-- Add similar rows for other tables (Customers, Orders, Finances, ...) -->
                         <tr>
                             <td>2</td>
-                            <td>Customers</td>
-                            <td>Information about customers.</td>
+                            <td>Products</td>
+                            <td>Information about products.</td>
                             <td><a href="" class="btn btn-primary">View</a></td>
                         </tr>
                         <tr>
@@ -43,10 +42,17 @@
                             <td>Information about orders.</td>
                             <td><a href="" class="btn btn-primary">View</a></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>4</td>
                             <td>Financials</td>
                             <td>Financial information.</td>
+                            <td><a href="" class="btn btn-primary">View</a></td>
+                        </tr> -->
+                        
+                        <tr>
+                            <td>4</td>
+                            <td>Customers</td>
+                            <td>Information about customers.</td>
                             <td><a href="" class="btn btn-primary">View</a></td>
                         </tr>
                         <tr>
@@ -64,7 +70,7 @@
                         <tr>
                             <td>7</td>
                             <td>Inventory</td>
-                            <td>Information about inventory.</td>
+                            <td>Information about inventory.</td>   4eg2w22
                             <td><a href="" class="btn btn-primary">View</a></td>
                         </tr>
                         <tr>

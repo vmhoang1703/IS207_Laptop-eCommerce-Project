@@ -1,22 +1,33 @@
 <li class="card">
-    <div class="discount-tag">-{{ $product->discount }}%</div>
-    <div class="img"><img style="width: 190px; height: 101px" src="{{ asset('img/macbookproM2.png') }}" alt="img" draggable="false"></div>
+    <div class="discount-tag">-{{ $product->discount }}% </div>
+    <div class="img">
+        @if ($product->images->where('is_main', 1)->isNotEmpty())
+        <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+        @else
+        <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+        @endif
+    </div>
     <div class="card-action">
-
         <div class="btn">
             <button>Buy now</button>
-            <button>Add To Cart</button>
+            <button>Add cart</button>
         </div>
-        <div class="fa fa-heart heart"> </div>
     </div>
-    <div class="productname">{{ $product->name }}</div>
-    <div class="cost"> {{ $product->price }}$ <span class="discount">{{ $product->price }}$</span></div>
-    <div class="star-bar ms-4">
-        <span class="fa fa-star star"></span>
-        <span class="fa fa-star star"></span>
-        <span class="fa fa-star star"></span>
-        <span class="fa fa-star star"></span>
-        <span class="fa fa-star star"></span>
-        <span class="numbered">(4.3)</span>
+    <div class="info-card">
+        <div class="productname">{{ $product->name }}</div>
+        <div class="cost"> {{ $product->price }}$ <span class="discount">{{ $product->oldPrice }}$</span></div>
+        <div class="star-bar">
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <span class="fa fa-star star"></span>
+            <!-- @for ($i = 0; $i < 5; $i++) @if ($i < $product->starRating)
+                <span class="fa fa-star star"></span>
+                @else
+                <span class="fa fa-star"></span>
+                @endif
+                @endfor -->
+        </div>
     </div>
 </li>

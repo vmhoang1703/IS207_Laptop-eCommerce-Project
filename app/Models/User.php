@@ -8,20 +8,19 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
-
+    protected $table = 'users';
+    public $incrementing = false;
+    protected $primaryKey = 'user_id';
+    protected $keyType = 'string';
     protected $fillable = [
+        'user_id',
         'name',
-        'username',
         'password',
         'google_id',
         'email',
         'phone',
-        'ident',
-        'avatarLink',
         'role',
         'knownFrom',
-        'momoWallet_id',
     ];
 
     protected $hidden = [

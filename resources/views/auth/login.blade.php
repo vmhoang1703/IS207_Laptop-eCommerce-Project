@@ -26,7 +26,7 @@
                     <h1 class="tittle_signin">SIGN
                         <strong>IN</strong>
                     </h1>
-                    <p>You don't have an account?<a href="{{ route('login.show') }}" class="text_sign_up">Sign up</a></p>
+                    <p>You don't have an account? <a href="{{ route('register.show') }}" class="text_sign_up">Sign up</a></p>
                 </div>
                 <!-- Input information  -->
                 <form class="container text-center" action="{{ route('login.send') }}" method="post">

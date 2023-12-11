@@ -14,7 +14,7 @@
     <!-- Scripts -->
     <script src="js/cardslider.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <title>Chi tiết sản phẩm</title>
+    <title>E-lec World</title>
 </head>
 
 <body>
@@ -40,14 +40,30 @@
 
                         </div>
                         <div class="img-showcase">
-                            <img src="{{asset('img/detail product 4.png')}}" alt="shoe image">
-                            <img src="{{asset('img/detail product 1.png')}}" alt="shoe image">
-                            <img src="{{asset('img/detail product 2.png')}}" alt="shoe image">
-                            <img src="{{asset('img/detail product 3.png')}}" alt="shoe image">
+                            @if($product->images->isNotEmpty())
+                            @foreach($product->images as $image)
+                            <img src="{{ asset($image->image_path) }}" alt="{{ $product->name }}" class="img-fluid" width="200px" height="200px">
+                            @endforeach
+                            @else
+                            <p>No images available</p>
+                            @endif
                         </div>
                     </div>
                     <div class="img-select">
+                        <!-- @foreach($product->images as $image)
                         <div class="img-item">
+                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}" class="img-fluid">
+                        </div>
+                        @endforeach -->
+                        @foreach($product->images as $index => $image)
+                        <div class="img-item">
+                            <a href="#" data-id="{{ $index + 1 }}">
+                                <img src="{{ asset($image->image_path) }}" alt="{{ $product->name }}">
+                            </a>
+                        </div>
+                        @endforeach
+
+                        <!-- <div class="img-item">
                             <a href="#" data-id="1">
                                 <img src="{{asset('img/detail product 4.png')}}" alt="shoe image">
                             </a>
@@ -66,12 +82,12 @@
                             <a href="#" data-id="4">
                                 <img src="{{asset('img/detail product 3.png')}}" alt="shoe image">
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- card right -->
                 <div class="product-content">
-                    <div class="product-title">Dell XPS 9710 17 inch Core i7-11800H RAM 32GB SSD 1TB UHD RTX3050 Ti</div>
+                    <div class="product-title">{{ $product->name }}</div>
                     <div class="product-rating mt-3">
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path id="Vector" d="M14.673 7.17173C15.7437 6.36184 15.1709 4.65517 13.8284 4.65517H11.3992C10.7853 4.65517 10.243 4.25521 10.0617 3.66868L9.33754 1.32637C8.9309 0.0110567 7.0691 0.0110564 6.66246 1.32637L5.93832 3.66868C5.75699 4.25521 5.21469 4.65517 4.60078 4.65517H2.12961C0.791419 4.65517 0.215919 6.35274 1.27822 7.16654L3.39469 8.78792C3.85885 9.1435 4.05314 9.75008 3.88196 10.3092L3.11296 12.8207C2.71416 14.1232 4.22167 15.1704 5.30301 14.342L7.14861 12.9281C7.65097 12.5432 8.34903 12.5432 8.85139 12.9281L10.6807 14.3295C11.7636 15.159 13.2725 14.1079 12.8696 12.8046L12.09 10.2827C11.9159 9.71975 12.113 9.10809 12.5829 8.75263L14.673 7.17173Z" fill="#FFAD33" />
@@ -92,13 +108,14 @@
                     </div>
 
                     <div class="product-price">
-                        <p class="last-price">$2000</p>
+                        <p class="last-price">{{ $product->price }}</p>
                     </div>
 
                     <div class="product-detail">
                         <div class="Description">Description </div>
                         <div class="infor">
-                            <div>New 100%, Fullbox</div>
+                            {{ $product->description }}
+                            <!-- <div>New 100%, Fullbox</div>
                             <div>Color: Black CPU: i7-11800H (2.3GHz, 24MB cache, Up to 4.6GHz)</div>
                             <div>RAM: 32GB DDR4-3200MHz</div>
                             <div>Storage: 1TB M.2 PCIe NVMe SSD</div>
@@ -106,10 +123,10 @@
                             <div>Anti-Reflective 500-Nit Display</div>
                             <div>GPU: NVIDIA® GeForce RTX™ 3050 Ti 4GB GDDR6</div>
                             <div>Connectivity: 4x ThunderBolt 4, 1x SD slot, 3.5mm Jack </div>
-                            <div>Weight: 2.21 kg</div>
+                            <div>Weight: 2.21 kg</div> -->
                         </div>
 
-                        <div class="Description mt-2 ">Quantity </div>
+                        <div class="Description mt-2 ">{{ $product->stock_quantity }} </div>
                     </div>
                     <div class="purchase-info ms-5 mt-3">
                         <div class="minus">-</div>
@@ -138,7 +155,7 @@
                                 }
                             });
                         </script>
-                        <button>Buy now</button>
+                        <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
                     </div>
                     <div class="mt-5" style="margin-left:15%;">
                         <table>
@@ -200,110 +217,14 @@
         </div>
         <div class="store">
             <div class="carousel">
-                <div class="card">
-                    <div class="heart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                    <div class="card-action">
-                        <div class="btn">
-                            <button>Buy now</button>
-                            <button>Add cart</button>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="productname">AK-900 Wired Keyboard1</div>
-                        <div class="cost"> 50$ <span class="discount">53$</span></div>
-                        <div class="star-bar">
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="heart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                    <div class="card-action">
-                        <div class="btn">
-                            <button>Buy now</button>
-                            <button>Add cart</button>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="productname">AK-900 Wired Keyboard1</div>
-                        <div class="cost"> 50$ <span class="discount">53$</span></div>
-                        <div class="star-bar">
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="heart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                    <div class="card-action">
-                        <div class="btn">
-                            <button>Buy now</button>
-                            <button>Add cart</button>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="productname">AK-900 Wired Keyboard1</div>
-                        <div class="cost"> 50$ <span class="discount">53$</span></div>
-                        <div class="star-bar">
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="heart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="black" class="heart1">
-                            <path d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="img"><img src="{{asset('img/keboard.png')}}" alt="img"></div>
-                    <div class="card-action">
-                        <div class="btn">
-                            <button>Buy now</button>
-                            <button>Add cart</button>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="productname">AK-900 Wired Keyboard1</div>
-                        <div class="cost"> 50$ <span class="discount">53$</span></div>
-                        <div class="star-bar">
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                            <span class="fa fa-star star"></span>
-                        </div>
-                    </div>
-                </div>
+                @foreach($products as $product)
+                @component('components.card', ['product' => $product])
+                @endcomponent
+                @endforeach
             </div>
         </div>
         <!-- heart action -->
-        <script>
+        <!-- <script>
             document.querySelectorAll(".heart1").forEach(item =>
                 item.addEventListener('click', function() {
                     if (this.style.fill == "none") {
@@ -315,7 +236,7 @@
                     }
                 })
             )
-        </script>
+        </script> -->
 
 
 
@@ -329,6 +250,7 @@
     @endcomponent
     <!-- - -->
 
+    <script src="js/hear_action.js"></script>
 </body>
 
 </html>
