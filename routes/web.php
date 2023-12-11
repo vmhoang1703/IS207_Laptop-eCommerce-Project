@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StoreController;
+use App\Http\Middleware\CheckLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,33 +39,41 @@ Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-// Route::get('/admin', [AdminController::class, 'showAdminPage'])->middleware('checklogin::class');
-Route::get('/admin', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
-Route::get('/admin/tables', [AdminController::class, 'showTablesPage'])->name('tables.show');
-Route::get('/admin/charts', [AdminController::class, 'showChartsPage'])->name('charts.show');
+// Group admin routes with middleware
+Route::middleware([CheckLogin::class])->group(function () {
 
-// Route categories management
-Route::get('/admin/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('categories.management');
-Route::get('/admin/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('category.create');
-Route::post('/admin/categories-management', [CategoriesManagementController::class, 'storeCategory'])->name('category.store');
-Route::get('/admin/categories-management/{id}/view', [CategoriesManagementController::class, 'viewCategoryPage'])->name('category.view');
-Route::get('/admin/categories-management/{id}/edit', [CategoriesManagementController::class, 'editCategoryPage'])->name('category.edit');
-Route::put('/admin/categories-management/{id}', [CategoriesManagementController::class, 'updateCategory'])->name('category.update');
-Route::get('/admin/categories-management/{id}/delete', [CategoriesManagementController::class, 'deleteCategory'])->name('category.delete');
+    // Admin routes
+    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/admin/dashboard', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
+    Route::get('/admin/tables', [AdminController::class, 'showTablesPage'])->name('tables.show');
+    Route::get('/admin/charts', [AdminController::class, 'showChartsPage'])->name('charts.show');
 
-// Route products management
-Route::get('/admin/products-management', [ProductsManagementController::class, 'showProductsManagementPage'])->name('products.management');
-Route::get('/admin/products-management/create', [ProductsManagementController::class, 'createProductPage'])->name('product.create');
-Route::post('/admin/products-management', [ProductsManagementController::class, 'storeProduct'])->name('product.store');
-Route::get('/admin/products-management/{id}/view', [ProductsManagementController::class, 'viewProductPage'])->name('product.view');
-Route::get('/admin/products-management/{id}/edit', [ProductsManagementController::class, 'editProductPage'])->name('product.edit');
-Route::put('/admin/products-management/{id}', [ProductsManagementController::class, 'updateProduct'])->name('product.update');
-Route::get('/admin/products-management/{id}/delete', [ProductsManagementController::class, 'deleteProduct'])->name('product.delete');
+    // Categories management
+    Route::get('/admin/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('categories.management');
+    Route::get('/admin/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('category.create');
+    Route::post('/admin/categories-management/store', [CategoriesManagementController::class, 'storeCategory'])->name('category.store');
+    Route::get('/admin/categories-management/{id}/view', [CategoriesManagementController::class, 'viewCategoryPage'])->name('category.view');
+    Route::get('/admin/categories-management/{id}/edit', [CategoriesManagementController::class, 'editCategoryPage'])->name('category.edit');
+    Route::put('/admin/categories-management/{id}', [CategoriesManagementController::class, 'updateCategory'])->name('category.update');
+    Route::get('/admin/categories-management/{id}/delete', [CategoriesManagementController::class, 'deleteCategory'])->name('category.delete');
 
-// Route orders management
-Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('orders.management');
-// Route users management
-Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage'])->name('users.management');
+    // Products management
+    Route::get('/admin/products-management', [ProductsManagementController::class, 'showProductsManagementPage'])->name('products.management');
+    Route::get('/admin/products-management/create', [ProductsManagementController::class, 'createProductPage'])->name('product.create');
+    Route::post('/admin/products-management/store', [ProductsManagementController::class, 'storeProduct'])->name('product.store');
+    Route::get('/admin/products-management/{id}/view', [ProductsManagementController::class, 'viewProductPage'])->name('product.view');
+    Route::get('/admin/products-management/{id}/edit', [ProductsManagementController::class, 'editProductPage'])->name('product.edit');
+    Route::put('/admin/products-management/{id}', [ProductsManagementController::class, 'updateProduct'])->name('product.update');
+    Route::get('/admin/products-management/{id}/delete', [ProductsManagementController::class, 'deleteProduct'])->name('product.delete');
+
+    // Orders management
+    Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('orders.management');
+
+    // Users management
+    Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage'])->name('users.management');
+    // ... Other user routes
+});
+
 
 
 //Route home
