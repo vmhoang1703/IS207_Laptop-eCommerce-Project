@@ -158,7 +158,7 @@
                                 }
                             });
                         </script>
-                        <button>Buy now</button>
+                        <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
                     </div>
 
 

@@ -14,9 +14,9 @@
         </a>
     </div>
     <div class="card-action">
-        <div class="btn1 buttons">
-            <button onclick="location.href='#'">Buy now</button>
-            <button  class="btn" id="success">Add to cart</button>
+        <div class="btn">
+            <button onclick="location.href='/checkout'">Buy now</button>
+            <button>Add to cart</button>
         </div>
     </div>
     <div class="info-card">

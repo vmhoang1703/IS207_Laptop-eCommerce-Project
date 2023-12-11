@@ -16,5 +16,6 @@ class VerifyCsrfToken extends Middleware
         '/update-favorite-count',
         '/store/filter',
         '/store/filter/{id}/main-image',
+        '/checkout/update-quantity',
     ];
 }

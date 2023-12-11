@@ -16,3 +16,5 @@ class DetailProductController extends Controller
         return view('website.productdetails', compact('product', 'products'));
     }
 }
+
+

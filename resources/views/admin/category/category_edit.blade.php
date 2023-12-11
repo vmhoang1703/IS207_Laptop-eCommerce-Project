@@ -13,8 +13,18 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="form-control" value="{{ $category->name }}">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="form-control" value="{{ $category->title }}">
+            </div>
+
+            <div class="form-group">
+                <label for="meta_title">Meta Title:</label>
+                <input type="text" name="meta_title" class="form-control" value="{{ $category->meta_title }}">
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea name="content" class="form-control">{{ $category->content }}</textarea>
             </div>
 
             <!-- Add other form fields based on your model's $fillable attributes -->

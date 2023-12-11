@@ -12,36 +12,36 @@
             <div class="col-md-6">
                 @if($product->images->isNotEmpty())
                 @foreach($product->images as $image)
-                <img src="{{ asset($image->image_path) }}" alt="{{ $product->name }}" class="img-fluid" width="200px" height="200px">
+                <img src="{{ asset($image->image_path) }}" alt="{{ $product->title }}" class="img-fluid" width="200px" height="200px">
                 @endforeach
                 @else
                 <p>No images available</p>
                 @endif
             </div>
             <div class="col-md-6">
-                <h2>{{ $product->name }}</h2>
+                <h2>{{ $product->title }}</h2>
                 <p><strong>Category:</strong>
                     @foreach($categories as $category)
                     @if($product->category_id == $category->category_id)
-                    {{ $category->name }}
+                    {{ $category->title }}
                     @endif
                     @endforeach
                 </p>
+                <p><strong>Meta title:</strong> {{ $product->meta_title }}</p>
+                <p><strong>Slug:</strong> {{ $product->slug }}</p>
                 <p><strong>Description:</strong> {{ $product->description }}</p>
                 <p><strong>Price:</strong> {{ $product->price }}$</p>
-                <p><strong>Old Price:</strong> {{ $product->oldPrice }}$</p>
                 <p><strong>Discount:</strong> {{ $product->discount }}%</p>
-                <p><strong>Stock Quantity:</strong> {{ $product->stock_quantity }}</p>
-                <p><strong>Favourites:</strong> {{ $product->total_favourite_count }}</p>
+                <p><strong>Quantity:</strong> {{ $product->quantity }}</p>
+                <p><strong>Status:</strong> {{ $product->status }}</p>
+                <p><strong>Favourites:</strong> {{ $product->total_favorites }}</p>
+                <p><strong>Brand:</strong> {{ $product->brand }}</p>
                 <p><strong>Screen size:</strong> {{ $product->screen_size }}</p>
                 <p><strong>CPU:</strong> {{ $product->CPU }}</p>
                 <p><strong>RAM:</strong> {{ $product->RAM }}</p>
                 <p><strong>Storage:</strong> {{ $product->storage }}</p>
-
-                <!-- <p><strong>Favourites:</strong> {{ $product->total_favourite_count }}</p> -->
-                <!-- Add other product details based on your model's attributes -->
-
-                <!-- You can also add an "Edit" button that links to the edit page -->
+                <p><strong>Event:</strong> {{ $product->event }}</p>
+                
                 <a href="{{ route('product.edit', $product->product_id) }}" class="btn btn-primary">Edit Product</a>
             </div>
         </div>
