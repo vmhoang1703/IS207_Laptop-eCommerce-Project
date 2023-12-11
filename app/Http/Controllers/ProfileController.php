@@ -21,4 +21,37 @@ class ProfileController extends Controller
 
         return view('website.profile.editprofile');
     }
+
+       // show my order
+       public function showMyOrderPage(): View
+       {
+           // Lấy thông tin người dùng hiện tại
+           // $user = Auth::user();
+   
+           return view('website.profile.my-order');
+       }
+
+       public function showMyCancellationPage(): View
+       {
+           // Lấy thông tin người dùng hiện tại
+           // $user = Auth::user();
+   
+           return view('website.profile.cancellation-order');
+       }
+
+       public function showMyPreOderPage(): View
+       {
+           // Lấy thông tin người dùng hiện tại
+           // $user = Auth::user();
+   
+           return view('website.profile.pre-order');
+       }
+
+       public function showMyHistoryOderPage(): View
+       {
+           // Lấy thông tin người dùng hiện tại
+           // $user = Auth::user();
+   
+           return view('website.profile.history-order');
+       }
 }

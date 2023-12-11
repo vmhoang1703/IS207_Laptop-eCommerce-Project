@@ -95,3 +95,16 @@ Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('pro
 
 // edit Profile
 Route::get('/profile/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
+
+//Profile - My order 
+Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
+
+//Profile - cancellation order 
+Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
+
+//Profile - pre order 
+Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
+
+
+//Profile - history order 
+Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
