@@ -17,5 +17,6 @@ class VerifyCsrfToken extends Middleware
         '/store/filter',
         '/store/filter/{id}/main-image',
         '/checkout/update-quantity',
+        'google-login',
     ];
 }

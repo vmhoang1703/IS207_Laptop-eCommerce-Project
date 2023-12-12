@@ -29,7 +29,7 @@ function updateFavouriteCount(productId, isIncrement) {
 
     // Send AJAX request to update favorite count on the server
     $.ajax({
-        url: "/update-favourite-count",
+        url: "/update-favorite-count",
         type: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function updateFavouriteCount(productId, isIncrement) {
             // $("#total-favorite-count").text(
             //     data.total_favorite_count_per_product
             // );
-            console.log(data.total_favourite_count_per_product);
+            console.log(data.total_favorite_count_per_product);
         },
         error: function (error) {
             console.error("Error:", error);

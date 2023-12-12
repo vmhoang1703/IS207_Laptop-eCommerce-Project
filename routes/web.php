@@ -16,7 +16,6 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StoreController;
-use App\Http\Middleware\CheckLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +36,11 @@ Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 
 //Route đăng nhập với Google
-Route::get('/api', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
-Route::get('/api/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::post('/google-login', [GoogleController::class, 'login'])->name('google.login');
+// Route::get('/api', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
+// Route::get('/api/callback', [GoogleController::class, 'callbackFromGoogle']);
 
-// Group admin routes with middleware
-Route::middleware([CheckLogin::class])->group(function () {
-
+Route::middleware(['checklogin'])->group(function () {
     // Admin routes
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
     Route::get('/admin/dashboard', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
@@ -76,23 +74,22 @@ Route::middleware([CheckLogin::class])->group(function () {
 });
 
 
-
 //Route home
 Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
-Route::post('/update-favourite-count', [HomeController::class, 'updateFavouriteCount']);
+Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCount']);
 
 //Route cửa hàng
-Route::get('/store', [StoreController::class,'showStorePage'])->name('store.show');
-Route::post('/store/filter', [StoreController::class,'filterProduct'])->name('store.filter');
-Route::get('/store/filter/{id}/main-image', [StoreController::class,'getMainImage'])->name('store.getMainImage');
+Route::get('/store', [StoreController::class, 'showStorePage'])->name('store.show');
+Route::post('/store/filter', [StoreController::class, 'filterProduct'])->name('store.filter');
+Route::get('/store/filter/{id}/main-image', [StoreController::class, 'getMainImage'])->name('store.getMainImage');
 
 //Route chi tiết sản phẩm
-Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage'])->name('detail.show');
+Route::get('/store/{id}', [DetailProductController::class, 'showDetailProductPage'])->name('detail.show');
 
 //Route giao diện Order
-Route::get('/checkout/{id}', [OrderController::class,'showCheckout'])->name('checkout.show');
-Route::get('/payment', [OrderController::class,'showPaymentPage'])->name('payment.show');
-Route::post('/checkout/update-quantity', [OrderController::class,'updateQuantity']);
+Route::get('/checkout/{id}', [OrderController::class, 'showCheckout'])->name('checkout.show');
+Route::get('/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
+Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
 
 //Route About us
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
