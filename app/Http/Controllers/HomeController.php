@@ -29,12 +29,12 @@ class HomeController extends Controller
         $product = Product::find($productId);
         // dd($product);
         if ($product) {
-            $product->total_favorite_count += $increment ? 1 : -1;
+            $product->total_favorites += $increment ? 1 : -1;
             $product->save();
         }
 
         // Lấy tổng số lượt yêu thích của từng sản phẩm
-        $totalFavoriteCountPerProduct =  $product->total_favorite_count;
+        $totalFavoriteCountPerProduct =  $product->total_favorites;
 
         return response()->json(['total_favorite_count_per_product' => $totalFavoriteCountPerProduct]);
     }

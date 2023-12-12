@@ -18,7 +18,7 @@ class CheckLogin
     public function handle(Request $request, Closure $next)
     {
         // dd(Auth::user()->role);
-        if (Auth::check()&&Auth::user()->role == "admin\r\n") {
+        if (Auth::check()&&Auth::user()->role == "admin") {
             return $next($request);
         } else {
             return redirect("/login");

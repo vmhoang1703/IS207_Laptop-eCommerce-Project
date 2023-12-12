@@ -47,7 +47,7 @@ class RegisterController extends Controller
             'user_id' => $user_id,
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->input('password')),
             'knownFrom' => $request->how_did_you_hear,
         ]);
         // Đăng nhập người dùng sau khi đăng ký (tuỳ chọn)
@@ -59,7 +59,7 @@ class RegisterController extends Controller
     private function generateUserId(): string
     {
         // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+=';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $user_id = '';
         for ($i = 0; $i < 6; $i++) {
             $user_id .= $characters[rand(0, strlen($characters) - 1)];

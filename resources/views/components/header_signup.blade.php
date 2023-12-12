@@ -6,7 +6,7 @@
 
 <!-- scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="{{asset('js/home_dropdown.js')}}"  ></script>
+<script src="{{asset('js/dropdown.js')}}"  ></script>
  <!-- Header -->
  <section class="header">
         <div class="Top-header">

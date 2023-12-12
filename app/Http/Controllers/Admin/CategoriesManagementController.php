@@ -13,7 +13,7 @@ class CategoriesManagementController extends Controller
     public function showCategoriesManagementPage(): View
     {
         $categories = Category::all();
-        return view('admin.categories', compact('categories'));
+        return view('admin.category.categories', compact('categories'));
     }
 
     public function createCategoryPage(): View
@@ -74,7 +74,7 @@ class CategoriesManagementController extends Controller
         $category = Category::find($id);
         $category->update($request->all());
 
-        return redirect('/admin/categories-management')->with('success', 'Category updated successfully!');
+        return redirect()->route('categories.management')->with('success', 'Category updated successfully!');
     }
 
     public function deleteCategory($id)

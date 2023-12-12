@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsManagementController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductsManagementController extends Controller
     public function showProductsManagementPage(): View
     {
         $products = Product::all();
-        return view('admin.products', compact('products'));
+        return view('admin.product.products', compact('products'));
     }
 
     public function createProductPage(): View
@@ -50,9 +51,11 @@ class ProductsManagementController extends Controller
                 $product_id = $this->generateProductId();
             } while (Product::where('product_id', $product_id)->exists());
 
+            $user_id = Auth::user()->user_id;
             // Create a new Product instance
             $product = new Product([
                 'product_id' => $product_id,
+                'user_id' => $user_id,
                 'title' => $request->input('title'),
                 'meta_title' => $request->input('meta_title'), 
                 'description' => $request->input('description'),
@@ -116,7 +119,6 @@ class ProductsManagementController extends Controller
                     $productImage->save();
                 }
             }
-            dd('Reached the end of the try block');
             // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
             return redirect()->route('products.management')->with('success', 'Product created successfully');
         } catch (\Exception $e) {

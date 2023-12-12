@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
-@section('title', 'Products Management Page')
+@section('title', 'Categories Management Page')
 
 @section('content')
-<h1 class="h3 mb-2 text-gray-800">Products table</h1>
+<h1 class="h3 mb-2 text-gray-800">Categories table</h1>
 <p class="mb-4"></p>
 
-<!-- Add Product Button -->
-<a href="{{ route('product.create') }}" class="btn btn-success mb-4">Add Product</a>
+<!-- Add Category Button -->
+<a href="{{ route('category.create') }}" class="btn btn-success mb-4">Add Category</a>
 
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -16,9 +16,8 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Stock</th>
+                        <th>Title</th>
+                        <th>Total products</th>
                         <th>Added date</th>
                         <th>Modified date</th>
                         <th>Actions</th>
@@ -28,32 +27,30 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th>Stock</th>
+                        <th>Total products</th>
                         <th>Added date</th>
                         <th>Modified date</th>
                         <th>Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach($products as $product)
+                    @foreach($categories as $category)
                     <tr>
-                        <td>{{ $product->product_id }}</td>
-                        <td>{{ $product->name }}</td>
-                        <td>{{ $product->price }}$</td>
-                        <td>{{ $product->stock_quantity }}</td>
-                        <td>{{ $product->created_at }}</td>
-                        <td>{{ $product->updated_at }}</td>
+                        <td>{{ $category->category_id }}</td>
+                        <td>{{ $category->title }}</td>
+                        <td>{{ $category->total_products }}</td>
+                        <td>{{ $category->created_at }}</td>
+                        <td>{{ $category->updated_at }}</td>
                         <td>
-                            <a href="{{ route('product.delete', $product->product_id) }}" style="text-decoration: none;">
+                            <a href="{{ route('category.delete', $category->category_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
                             </a>
                             &nbsp;
-                            <a href="{{ route('product.edit', $product->product_id) }}" style="text-decoration: none;">
+                            <a href="{{ route('category.edit', $category->category_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
                             </a>
                             &nbsp;
-                            <a href="{{ route('product.view', $product->product_id) }}" style="text-decoration: none;">
+                            <a href="{{ route('category.view', $category->category_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
                         </td>

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -16,14 +17,17 @@ class AdminController extends Controller
     }
     public function showDashboardPage(): View
     {
-        return view('admin.dashboard');
+        $user = Auth::user();
+        return view('admin.dashboard', compact('user'));
     }
     public function showTablesPage(): View
     {
-        return view('admin.tables');
+        $user = Auth::user();
+        return view('admin.tables', compact('user'));
     }
     public function showChartsPage(): View
     {
-        return view('admin.charts');
+        $user = Auth::user();
+        return view('admin.charts', compact('user'));
     }
 }

@@ -69,8 +69,19 @@ Route::middleware(['checklogin'])->group(function () {
     Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('orders.management');
 
     // Users management
-    Route::get('/admin/users-management', [UsersManagementController::class, 'showUsersManagementPage'])->name('users.management');
+    Route::get('/admin/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('customers.management');
+    Route::get('/admin/employees-management', [UsersManagementController::class, 'showEmployeesManagementPage'])->name('employees.management');
+    Route::get('/admin/employees-management/create', [UsersManagementController::class, 'createEmployeePage'])->name('employee.create');
+    Route::post('/admin/employees-management/store', [UsersManagementController::class, 'storeEmployee'])->name('employee.store');
+    Route::get('/admin/customers-management/{id}/view', [UsersManagementController::class, 'viewCustomerPage'])->name('customer.view');
+    Route::get('/admin/employees-management/{id}/view', [UsersManagementController::class, 'viewEmployeePage'])->name('employee.view');
+    Route::get('/admin/employees-management/{id}/edit', [UsersManagementController::class, 'editEmployeePage'])->name('employee.edit');
+    Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
+    Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
     // ... Other user routes
+
+    
+
 });
 
 

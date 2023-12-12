@@ -18,11 +18,11 @@ $(document).ready(function () {
         }
 
         // Send request to update favorite count on the server
-        updateFavouriteCount(productId, $(this).css("fill") != "none");
+        updateFavoriteCount(productId, $(this).css("fill") != "none");
     });
 });
 
-function updateFavouriteCount(productId, isIncrement) {
+function updateFavoriteCount(productId, isIncrement) {
     // Get the CSRF token from the meta tag
     var csrfToken = $('meta[name="csrf-token"]').attr("content");
     console.log(csrfToken);

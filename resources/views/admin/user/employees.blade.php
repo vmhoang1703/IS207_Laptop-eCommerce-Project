@@ -1,22 +1,16 @@
 @extends('layouts.admin')
 
-@section('title', 'Users Management Page')
+@section('title', 'Employees Management Page')
 
 @section('content')
 <!-- <h1>Welcome to my homepage!</h1> -->
 <!-- Your page content goes here -->
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Users table</h1>
+<h1 class="h3 mb-2 text-gray-800">Employees table</h1>
 <p class="mb-4">
-    <!-- DataTables is a third party plugin that is used to generate the
-              demo table below. For more information about DataTables, please
-              visit the -->
-    <!-- <a target="_blank" href="https://datatables.net"
-                >official DataTables documentation</a
-              >. -->
 </p>
-
-<!-- DataTales Example -->
+<!-- Add Product Button -->
+<a href="{{ route('employee.create') }}" class="btn btn-success mb-4">Add Employee</a>
 <div class="card shadow mb-4">
     <!-- <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">
@@ -31,9 +25,9 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Joined date</th>
-                        <th>Phone number</th>
+                        <!-- <th>Phone number</th> -->
                         <th>Email</th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -41,21 +35,21 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Joined date</th>
-                        <th>Phone number</th>
+                        <!-- <th>Phone number</th> -->
                         <th>Email</th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                     @foreach($users as $user)
+                    @foreach($employeeUsers as $user)
                     <tr>
-                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->user_id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->created_at}}</td>
-                        <td>{{ $user->phone	}}</td>
+                        <!-- <td>{{ $user->phone	}}</td> -->
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route('user.view', $user->id) }}" style="text-decoration: none;">
+                            <a href="{{ route('employee.view', $user->user_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
                         </td>
