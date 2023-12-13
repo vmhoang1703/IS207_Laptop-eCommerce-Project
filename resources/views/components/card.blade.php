@@ -5,7 +5,7 @@
         </svg>
     </div>
     <div class="img">
-        <a href="{{ route('detail.show', $product->product_id) }}" style="text-decoration: none;">
+        <a href="{{ route('detail.show', $product->slug) }}" style="text-decoration: none;">
             @if ($product->images->where('is_main', 1)->isNotEmpty())
             <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" >
             @else
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="info-card">
-        <a href="{{ route('detail.show', $product->product_id) }}" style="text-decoration: none; color: black">
+        <a href="{{ route('detail.show', $product->slug) }}" style="text-decoration: none; color: black">
             <div class="productname">{{ $product->title }}</div>
         </a>
         <div class="cost">{{ $product->price }}$ <span class="discount">{{ $product->oldPrice }}$</span></div>

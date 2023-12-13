@@ -18,6 +18,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 </head>
 
 <body id="page-top">
@@ -29,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.show') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.show') }}">
                 <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
@@ -42,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard.show') }}">
+                <a class="nav-link" href="{{ route('admin.show') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -63,13 +64,20 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        @if(Auth::user()->role == 'admin')
                         <a class="collapse-item" href="{{ route('categories.management') }}">Categories</a>
                         <a class="collapse-item" href="{{ route('products.management') }}">Products</a>
+                        @elseif(Auth::user()->role == 'products_manager')
+                        <a class="collapse-item" href="{{ route('products_manager.categories.management') }}">Categories</a>
+                        <a class="collapse-item" href="{{ route('products_manager.products.management') }}">Products</a>
+                        @endif
+
                         <a class="collapse-item" href="{{ route('customers.management') }}">Customers</a>
                         <a class="collapse-item" href="{{ route('orders.management') }}">Orders</a>
                     </div>
                 </div>
             </li>
+
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -77,7 +85,6 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Business Overview Charts</span></a>
             </li>
-
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('tables.show') }}">
@@ -364,7 +371,7 @@
     <script src="{{ asset('js/demo/chart-bar-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
-
+    <script src="{{ asset('js/chart.js') }}"></script>
 </body>
 
 </html>

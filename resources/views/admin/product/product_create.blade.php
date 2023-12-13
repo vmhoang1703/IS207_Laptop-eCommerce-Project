@@ -36,8 +36,9 @@
 
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea name="description" class="form-control">{{ old('description') }}</textarea>
+                <textarea name="description" id="editor">{{ old('description') }}</textarea>
             </div>
+
 
             <div class="form-group">
                 <label for="price">Price:</label>
@@ -140,4 +141,7 @@
         </form>
     </div>
 </div>
+<script>
+    CKEDITOR.replace('editor');
+</script>
 @endsection

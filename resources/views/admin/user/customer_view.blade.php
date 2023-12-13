@@ -17,8 +17,6 @@
                     <p><strong>Modified at:</strong> {{ $customer->updated_at }}</p>
                 </div>
             </div>
-
-            <a href="{{ route('customers.edit', $customer->user_id) }}" class="btn btn-primary">Edit customer</a>
         </div>
     </div>
 @endsection

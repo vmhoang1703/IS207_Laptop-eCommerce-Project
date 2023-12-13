@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriesManagementController extends Controller
 {
@@ -25,9 +26,9 @@ class CategoriesManagementController extends Controller
     {
         // Đánh giá, kiểm tra form
         $request->validate([
-            'title' => 'required',  
+            'title' => 'required',
             'meta_title' => 'required',
-            'content' => 'required'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            'content' => 'required'
             // Thêm các quy tắc kiểm tra khác tùy thuộc vào yêu cầu của bạn
         ]);
 
@@ -50,8 +51,13 @@ class CategoriesManagementController extends Controller
             // Lưu vào db
             $category->save();
 
-            // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
-            return redirect()->route('categories.management')->with('success', 'Category created successfully');
+            if (Auth::user()->role == "admin") {
+                // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
+                return redirect()->route('categories.management')->with('success', 'Category created successfully');
+            } else if (Auth::user()->role == "products_manager") {
+                // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
+                return redirect()->route('products_manager.categories.management')->with('success', 'Category created successfully');
+            }
         } catch (\Exception $e) {
             // Nếu có lỗi, quay trở lại form với thông báo lỗi
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -74,7 +80,12 @@ class CategoriesManagementController extends Controller
         $category = Category::find($id);
         $category->update($request->all());
 
-        return redirect()->route('categories.management')->with('success', 'Category updated successfully!');
+        if (Auth::user()->role == "admin") {
+            return redirect()->route('categories.management')->with('success', 'Category updated successfully!');
+        } else if (Auth::user()->role == "products_manager") {
+            // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
+            return redirect()->route('products_manager.categories.management')->with('success', 'Category updated successfully');
+        }
     }
 
     public function deleteCategory($id)
@@ -85,7 +96,7 @@ class CategoriesManagementController extends Controller
         // Redirect về trang quản lý sản phẩm với thông báo thành công
         return redirect()->route('categories.management')->with('success', 'Category deleted successfully');
     }
-    
+
     private function generateCategoryId(): string
     {
         // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)

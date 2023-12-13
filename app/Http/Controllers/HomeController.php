@@ -5,19 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     //
     public function showHomePage(): View
     {
+        $user = Auth::user();
         // Truy vấn sản phẩm có danh mục là "flash sale"
         $flashSalesProducts = Product::where('event', 'Flash Sales')->get();
         // Truy vấn sản phẩm ở tùy chọn "Sản phẩm yêu thích"
         $products = Product::orderByFavoriteCountDesc()->get();
 
-        return view('website.home', compact('flashSalesProducts', 'products'));
+        return view('website.home', compact('flashSalesProducts', 'products', 'user'));
     }
 
     public function updateFavoriteCount(Request $request)

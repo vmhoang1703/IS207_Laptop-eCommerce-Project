@@ -47,10 +47,14 @@
             <div class="form-group">
                 <label for="role">Role:</label>
                 <select name="role" class="form-control">
-                    <option value="customer">Customer</option>
+                    @if(Auth::user()->role == 'admin')
                     <option value="admin">Admin</option>
-                    <option value="employee">Employee</option>
-                    <option value="moderator">Moderator</option>
+                    <option value="manager">Manager</option>
+                    @endif
+                    <option value="products_manager">Products Manager (Categories, Products, Blogs)</option>
+                    <option value="sales">Sales (Orders, Customer)</option>
+                    <option value="accounting">Accounting (Revenue)</option>
+                    <option value="marketing">Marketing (Customer)</option>
                 </select>
             </div>
 
@@ -66,12 +70,18 @@
 
             <div class="form-group">
                 <label for="department">Department:</label>
-                <input type="text" name="department" class="form-control" value="{{ old('department') }}">
+                <select name="department" class="form-control">
+                    <option value="business">Business Department </option>
+                    <option value="production">Production Department</option>
+                    <option value="marketing">Marketing Department</option>
+                    <option value="finance">Finance Department</option>
+                </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="positionGroup">
                 <label for="position">Position:</label>
-                <input type="text" name="position" class="form-control" value="{{ old('position') }}">
+                <select name="position" class="form-control">
+                </select>
             </div>
 
             <div class="form-group">
@@ -83,11 +93,50 @@
                 <label for="hire_date">Hire Date:</label>
                 <input type="date" name="hire_date" class="form-control" value="{{ old('hire_date') }}">
             </div>
-
-            <!-- Add other form fields based on your model's $fillable attributes -->
-
             <button type="submit" class="btn btn-primary mt-3">Add Employee</button>
         </form>
     </div>
 </div>
+<script>
+    // Lắng nghe sự kiện khi giá trị của dropdown "Department" thay đổi
+    document.addEventListener('DOMContentLoaded', function() {
+        var departmentDropdown = document.querySelector('select[name="department"]');
+        var positionDropdown = document.querySelector('select[name="position"]');
+        var positionGroup = document.getElementById('positionGroup');
+
+        // Thiết lập các vị trí cho từng phòng ban
+        var positions = {
+            'business': ['Manager', 'Sales Representative', 'Customer Service'],
+            'production': ['Warehouse Manager', 'Production Worker'],
+            'marketing': ['Marketing Manager', 'Content Creator'],
+            'finance': ['Accountant', 'Financial Analyst'],
+        };
+
+        // Hàm cập nhật nội dung của dropdown "Position"
+        function updatePositionDropdown() {
+            var selectedDepartment = departmentDropdown.value;
+            var departmentPositions = positions[selectedDepartment] || [];
+
+            // Xóa tất cả các option cũ
+            positionDropdown.innerHTML = '';
+
+            // Thêm các option mới
+            departmentPositions.forEach(function(position) {
+                var option = document.createElement('option');
+                option.value = position;
+                option.text = position;
+                positionDropdown.appendChild(option);
+            });
+        }
+
+        // Gọi hàm cập nhật ban đầu
+        updatePositionDropdown();
+
+        // Lắng nghe sự kiện khi giá trị của dropdown "Department" thay đổi
+        departmentDropdown.addEventListener('change', function() {
+            updatePositionDropdown();
+        });
+    });
+</script>
+
 @endsection

@@ -55,7 +55,7 @@
                         <!-- <td>{{ $user->phone	}}</td> -->
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route('user.view', $user->user_id) }}" style="text-decoration: none;">
+                            <a href="{{ route('customer.view', $user->user_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
                         </td>

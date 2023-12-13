@@ -7,7 +7,11 @@
 <p class="mb-4"></p>
 
 <!-- Add Category Button -->
+@if(Auth::user()->role == 'admin')
 <a href="{{ route('category.create') }}" class="btn btn-success mb-4">Add Category</a>
+@elseif(Auth::user()->role == 'products_manager')
+<a href="{{ route('products_manager.category.create') }}" class="btn btn-success mb-4">Add Category</a>
+@endif
 
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -42,6 +46,7 @@
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at }}</td>
                         <td>
+                            @if(Auth::user()->role == 'admin')
                             <a href="{{ route('category.delete', $category->category_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
                             </a>
@@ -53,6 +58,19 @@
                             <a href="{{ route('category.view', $category->category_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
+                            @elseif(Auth::user()->role == 'products_manager')
+                            <a href="{{ route('products_manager.category.delete', $category->category_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            &nbsp;
+                            <a href="{{ route('products_manager.category.edit', $category->category_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            &nbsp;
+                            <a href="{{ route('products_manager.category.view', $category->category_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

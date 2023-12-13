@@ -15,7 +15,11 @@
                 <p><strong>Content:</strong> {{ $category->content }}</p>
                 <p><strong>Slug:</strong> {{ $category->slug }}</p>
                 <p><strong>Total products:</strong> {{ $category->total_products }}</p>
+                @if(Auth::user()->role == 'admin')
                 <a href="{{ route('category.edit', $category->category_id) }}" class="btn btn-primary">Edit Category</a>
+                @elseif(Auth::user()->role == 'products_manager')
+                <a href="{{ route('products_manager.category.edit', $category->category_id) }}" class="btn btn-primary">Edit Category</a>
+                @endif
             </div>
         </div>
     </div>

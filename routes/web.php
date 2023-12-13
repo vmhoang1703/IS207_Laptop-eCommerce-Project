@@ -38,9 +38,48 @@ Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 //Route đăng nhập với Google
 Route::post('/google-login', [GoogleController::class, 'login'])->name('google.login');
 // Route::get('/api', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
-// Route::get('/api/callback', [GoogleController::class, 'callbackFromGoogle']);
+// Route::get('/api/callback', [GoogleController::class, 'callbackFromGoogle'])
 
-Route::middleware(['checklogin'])->group(function () {
+//Route home
+Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
+Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCount']);
+//Route cửa hàng
+Route::get('/store', [StoreController::class, 'showStorePage'])->name('store.show');
+Route::post('/store/filter', [StoreController::class, 'filterProduct'])->name('store.filter');
+Route::get('/store/filter/{id}/main-image', [StoreController::class, 'getMainImage'])->name('store.getMainImage');
+//Route chi tiết sản phẩm
+Route::get('/store/{id}', [DetailProductController::class, 'showDetailProductPage'])->name('detail.show');
+//Route About us
+Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
+//Route Contact
+Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
+//Profile
+Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
+
+Route::middleware(['auth'])->group(function () {
+    //Route giao diện Order
+    Route::get('/checkout/{id}', [OrderController::class, 'showCheckout'])->name('checkout.show');
+    Route::get('/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
+    Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
+
+    // edit Profile
+    Route::get('/profile/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
+
+    //Profile - My order 
+    Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
+
+    //Profile - cancellation order 
+    Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
+
+    //Profile - pre order 
+    Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
+
+    //Profile - history order 
+    Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
+});
+
+
+Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     // Admin routes
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
     Route::get('/admin/dashboard', [AdminController::class, 'showDashboardPage'])->name('dashboard.show');
@@ -78,50 +117,48 @@ Route::middleware(['checklogin'])->group(function () {
     Route::get('/admin/employees-management/{id}/edit', [UsersManagementController::class, 'editEmployeePage'])->name('employee.edit');
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
-    // ... Other user routes
-
-    
-
 });
 
+Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
+    // Products Manager routes
+    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    // Categories management
+    Route::get('/products-manager/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('products_manager.categories.management');
+    Route::get('/products-manager/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('products_manager.category.create');
+    Route::post('/products-manager/categories-management/store', [CategoriesManagementController::class, 'storeCategory'])->name('products_manager.category.store');
+    Route::get('/products-manager/categories-management/{id}/view', [CategoriesManagementController::class, 'viewCategoryPage'])->name('products_manager.category.view');
+    Route::get('/products-manager/categories-management/{id}/edit', [CategoriesManagementController::class, 'editCategoryPage'])->name('products_manager.category.edit');
+    Route::put('/products-manager/categories-management/{id}', [CategoriesManagementController::class, 'updateCategory'])->name('products_manager.category.update');
+    Route::get('/products-manager/categories-management/{id}/delete', [CategoriesManagementController::class, 'deleteCategory'])->name('products_manager.category.delete');
 
-//Route home
-Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
-Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCount']);
+    // Products management
+    Route::get('/products-manager/products-management', [ProductsManagementController::class, 'showProductsManagementPage'])->name('products_manager.products.management');
+    Route::get('/products-manager/products-management/create', [ProductsManagementController::class, 'createProductPage'])->name('products_manager.product.create');
+    Route::post('/products-manager/products-management/store', [ProductsManagementController::class, 'storeProduct'])->name('products_manager.product.store');
+    Route::get('/products-manager/products-management/{id}/view', [ProductsManagementController::class, 'viewProductPage'])->name('products_manager.product.view');
+    Route::get('/products-manager/products-management/{id}/edit', [ProductsManagementController::class, 'editProductPage'])->name('products_manager.product.edit');
+    Route::put('/products-manager/products-management/{id}', [ProductsManagementController::class, 'updateProduct'])->name('products_manager.product.update');
+    Route::get('/products-manager/products-management/{id}/delete', [ProductsManagementController::class, 'deleteProduct'])->name('products_manager.product.delete');
+});
 
-//Route cửa hàng
-Route::get('/store', [StoreController::class, 'showStorePage'])->name('store.show');
-Route::post('/store/filter', [StoreController::class, 'filterProduct'])->name('store.filter');
-Route::get('/store/filter/{id}/main-image', [StoreController::class, 'getMainImage'])->name('store.getMainImage');
+Route::middleware(['auth', 'checkRole:sales'])->group(function () {
+    // Sales routes
+    // Orders management
+    Route::get('/sales/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('sales.orders.management');
 
-//Route chi tiết sản phẩm
-Route::get('/store/{id}', [DetailProductController::class, 'showDetailProductPage'])->name('detail.show');
+    // Customers management
+    Route::get('/sales/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('sales.customers.management');
+    Route::get('/sales/customers-management/{id}/view', [UsersManagementController::class, 'viewCustomerPage'])->name('sales.customer.view');
+});
 
-//Route giao diện Order
-Route::get('/checkout/{id}', [OrderController::class, 'showCheckout'])->name('checkout.show');
-Route::get('/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
-Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
+Route::middleware(['auth', 'checkRole:accounting'])->group(function () {
+    // Accounting routes
+    // Revenue management
+    // Add your routes for accounting here
+});
 
-//Route About us
-Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
-//Route Contact
-Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
-
-//Profile
-Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
-
-// edit Profile
-Route::get('/profile/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
-
-//Profile - My order 
-Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
-
-//Profile - cancellation order 
-Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
-
-//Profile - pre order 
-Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
-
-
-//Profile - history order 
-Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
+Route::middleware(['auth', 'checkRole:marketing'])->group(function () {
+    // Marketing routes
+    // Customers management
+    // Add your routes for marketing here
+});

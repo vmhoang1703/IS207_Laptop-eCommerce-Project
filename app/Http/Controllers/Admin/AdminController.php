@@ -13,7 +13,8 @@ class AdminController extends Controller
 {
     public function showAdminPage()
     {
-        return redirect()->route('dashboard.show');
+        $user = Auth::user();
+        return view('admin.welcome', compact('user'));
     }
     public function showDashboardPage(): View
     {

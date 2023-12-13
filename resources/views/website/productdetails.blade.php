@@ -27,7 +27,7 @@
         <div class="title pt-5">
             <span class="Deactive">Store / </span>
             <span class="Deactive"> Laptop / </span>
-            <span class="Active"> Dell XPS 9710 17 inch Core i7</span>
+            <span class="Active"> {{ $product->title }}</span>
         </div>
         <!-- Product-Details -->
         <div class="card-wrapper ">
@@ -52,11 +52,6 @@
                         </div>
                     </div>
                     <div class="img-select">
-                        <!-- @foreach($product->images as $image)
-                        <div class="img-item">
-                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}" class="img-fluid">
-                        </div>
-                        @endforeach -->
                         @foreach($product->images as $index => $image)
                         <div class="img-item">
                             <a href="#" data-id="{{ $index + 1 }}">
@@ -64,27 +59,6 @@
                             </a>
                         </div>
                         @endforeach
-
-                        <!-- <div class="img-item">
-                            <a href="#" data-id="1">
-                                <img src="{{asset('img/detail product 4.png')}}" alt="shoe image">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="2">
-                                <img src="{{asset('img/detail product 1.png')}}" alt="shoe image">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="3">
-                                <img src="{{asset('img/detail product 2.png')}}" alt="shoe image">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="4">
-                                <img src="{{asset('img/detail product 3.png')}}" alt="shoe image">
-                            </a>
-                        </div> -->
                     </div>
                 </div>
                 <!-- card right -->
@@ -111,7 +85,7 @@
                     </div>
 
                     <div class="product-price">
-                        <p class="last-price">{{ $product->price }}</p>
+                        <p class="last-price">${{ $product->price }}</p>
                     </div>
 
                     <div class="product-detail">
@@ -129,7 +103,7 @@
                             <div>Weight: 2.21 kg</div> -->
                         </div>
 
-                        <div class="Description mt-2 ">{{ $product->quantity }} </div>
+                        <div class="Description mt-2 ">Quantity: {{ $product->quantity }} </div>
                     </div>
                     <div class="purchase-info ms-5 mt-3">
                         <div class="minus">-</div>
