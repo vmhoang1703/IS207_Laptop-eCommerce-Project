@@ -35,4 +35,11 @@ class LoginController extends Controller
             return redirect(route('login.show'))->with('error', 'Đăng nhập thất bại!');
         }
     }
+    public function logout()
+    {
+        Auth::logout();
+
+        // If you want to redirect the user after logout, you can specify the URL
+        return redirect()->route('login.show'); // Replace 'home' with the route you want to redirect to after logout
+    }
 }

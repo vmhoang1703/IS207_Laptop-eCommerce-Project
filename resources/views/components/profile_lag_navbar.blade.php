@@ -47,9 +47,9 @@
           >My Order History</a
         >
       </li>
-      <button class=" btn-logout nav-title d-flex align-items-center gap-4 ">
-        Log out
-        <img src="{{asset('img/Logout.svg')}}" alt="">
-      </button>
+      <button onclick="location.href='/logout'" class="btn-logout nav-title d-flex align-items-center gap-4">
+    Log out
+    <img src="{{ asset('img/Logout.svg') }}" alt="">
+</button>
     </ul>
   </nav>

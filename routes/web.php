@@ -34,6 +34,7 @@ Route::post('/register', [RegisterController::class, 'sendForm'])->name('registe
 //Route đăng nhập
 Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Route đăng nhập với Google
 Route::post('/google-login', [GoogleController::class, 'login'])->name('google.login');
