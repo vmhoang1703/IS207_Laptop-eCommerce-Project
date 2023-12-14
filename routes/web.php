@@ -96,6 +96,8 @@ Route::middleware(['auth'])->group(function () {
 
     //Profile - history order 
     Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
+
+   
 });
 
 

@@ -10,6 +10,6 @@ class CartController extends Controller
     //
     public function showCartList(): View
     {
-        return view('');
+        return view('website.cartlist');
     }
 }
