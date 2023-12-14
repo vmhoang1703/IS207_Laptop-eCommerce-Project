@@ -57,11 +57,11 @@ class ProductsManagementController extends Controller
                 'product_id' => $product_id,
                 'user_id' => $user_id,
                 'title' => $request->input('title'),
-                'meta_title' => $request->input('meta_title'), 
+                'meta_title' => $request->input('meta_title'),
                 'description' => $request->input('description'),
                 'price' => $request->input('price'),
                 'discount' => $request->input('discount'),
-                'quantity' => $request->input('quantity'), 
+                'quantity' => $request->input('quantity'),
                 'status' => $request->input('status'),
                 'category_id' => $request->input('category_id'),
                 'brand' => $request->input('brand'),
@@ -119,11 +119,15 @@ class ProductsManagementController extends Controller
                     $productImage->save();
                 }
             }
-            // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
-            return redirect()->route('products.management')->with('success', 'Product created successfully');
+            if (Auth::user()->role == "admin") {
+                // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
+                return redirect()->route('products.management')->with('success', 'Product created successfully');
+            } else if (Auth::user()->role == "products_manager") {
+                return redirect()->route('products_manager.products.management')->with('success', 'Product created successfully');
+            }
         } catch (\Exception $e) {
             // Nếu có lỗi, quay trở lại form với thông báo lỗi
-            dd($e->getMessage());   
+            dd($e->getMessage());
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -147,7 +151,11 @@ class ProductsManagementController extends Controller
         $product = Product::find($id);
         $product->update($request->all());
 
-        return redirect('/admin/products-management')->with('success', 'Product updated successfully!');
+        if (Auth::user()->role == "admin") {
+            return redirect()->route('products.management')->with('success', 'Product updated successfully');
+        } else if (Auth::user()->role == "products_manager") {
+            return redirect()->route('products_manager.products.management')->with('success', 'Product updated successfully');
+        }
     }
 
     public function deleteProduct($id)
@@ -159,8 +167,11 @@ class ProductsManagementController extends Controller
         $category->total_products -= 1; // Decrement by 1
         $category->save();
 
-        // Redirect về trang quản lý sản phẩm với thông báo thành công
-        return redirect()->route('products.management')->with('success', 'Product deleted successfully');
+        if (Auth::user()->role == "admin") {
+            return redirect()->route('products.management')->with('success', 'Product deleted successfully');
+        } else if (Auth::user()->role == "products_manager") {
+            return redirect()->route('products_manager.products.management')->with('success', 'Product deleted successfully');
+        }
     }
 
 

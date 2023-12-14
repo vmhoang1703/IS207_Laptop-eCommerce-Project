@@ -41,8 +41,11 @@
                 <p><strong>RAM:</strong> {{ $product->RAM }}</p>
                 <p><strong>Storage:</strong> {{ $product->storage }}</p>
                 <p><strong>Event:</strong> {{ $product->event }}</p>
-                
+                @if(Auth::user()->role == 'admin')
                 <a href="{{ route('product.edit', $product->product_id) }}" class="btn btn-primary">Edit Product</a>
+                @elseif(Auth::user()->role == 'products_manager')
+                <a href="{{ route('products_manager.product.edit', $product->product_id) }}" class="btn btn-primary">Edit Product</a>
+                @endif
             </div>
         </div>
     </div>

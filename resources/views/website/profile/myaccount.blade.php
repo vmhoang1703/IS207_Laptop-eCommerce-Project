@@ -61,13 +61,12 @@
       @endcomponent
     </div>
     <div class="  col-xxl-8 col-xl-12 col-lg-12">
-
       <div id="read-mode" class="container-xxl container-xl container-lg box-infor d-flex flex-column gap-4">
         <h2 class="box-infor-title">Your Profile</h2>
-        <div class="row">
+        <!-- <div class="row">
           <div class="first-name-and-email col-xxl-6 col-xl-12 d-lg-flex flex-column gap-4 pe-4 padding-right-mobile-12">
             <div class="form-item">
-              <label for="custom-first-name" class="form-label">First name</label>
+              <label for="custom-first-name" class="form-label">Full name</label>
               <input type="text" class="form-control" id="custom-first-name" value="{{ $user->name }}" required readonly />
             </div>
             <div class="form-item">
@@ -85,8 +84,36 @@
               <input type="text" class="form-control" id="custom-address" value="{{ $user->address }}" required readonly />
             </div>
           </div>
+        </div> -->
+        <div class="row">
+          <div class="form-item">
+            <label for="custom-first-name" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="custom-first-name" value="{{ $user->name }}" required readonly />
+          </div>
         </div>
         <div class="row">
+          <div class="form-item">
+            <label for="custom-email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="custom-email" value="{{ $user->email }}" required readonly />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item">
+            <label for="custom-email" class="form-label">Address</label>
+            <input type="text" class="form-control" id="custom-address" value="{{ $user->address }}" required readonly />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item">
+            <label for="custom-email" class="form-label">Phone number</label>
+            <input type="text" class="form-control" id="custom-address" value="{{ $user->phone }}" required readonly />
+          </div>
+        </div>
+        <a id="change-infor" class="mobile-font-size-14 btn btn-danger" href="{{ route('profile.edit', $user->user_id) }}">
+          Edit Profile
+        </a>
+      </div>
+      <!-- <div class="row">
           <div class="form-item">
             <label for="custom-password" class="form-label">Password</label>
             <div class="password-line d-flex input-group">
@@ -97,16 +124,9 @@
               </button>
             </div>
           </div>
-        </div>
-        <button id="change-infor" type="button" class="btn btn-danger ">
-          <a class="mobile-font-size-14" href="#"> Edit Profile </a>
-        </button>
-      </div>
-
-
-
-      <!--  -->
+        </div> -->
     </div>
+  </div>
   </div>
 
   {{-- <div class="footer-fake mt-5"></div> --}}

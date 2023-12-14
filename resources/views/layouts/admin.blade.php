@@ -42,11 +42,13 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
+            @if(Auth::user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.show') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -72,14 +74,22 @@
                         <a class="collapse-item" href="{{ route('products_manager.products.management') }}">Products</a>
                         @endif
 
+                        @if(Auth::user()->role == 'admin')
                         <a class="collapse-item" href="{{ route('customers.management') }}">Customers</a>
                         <a class="collapse-item" href="{{ route('orders.management') }}">Orders</a>
+                        @elseif(Auth::user()->role == 'sales')
+                        <a class="collapse-item" href="{{ route('sales.customers.management') }}">Customers</a>
+                        <a class="collapse-item" href="{{ route('sales.orders.management') }}">Orders</a>
+                        @elseif(Auth::user()->role == 'marketing')
+                        <a class="collapse-item" href="{{ route('marketing.customers.management') }}">Customers</a>
+                        @endif
                     </div>
                 </div>
             </li>
 
 
             <!-- Nav Item - Charts -->
+            @if(Auth::user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('charts.show') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -91,7 +101,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Business Overview Tables</span></a>
             </li>
-
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -288,7 +298,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -343,7 +353,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('login.show') }}">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
                 </div>
             </div>
         </div>

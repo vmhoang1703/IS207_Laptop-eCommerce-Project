@@ -55,9 +55,19 @@
                         <!-- <td>{{ $user->phone	}}</td> -->
                         <td>{{ $user->email }}</td>
                         <td>
+                            @if(Auth::user()->role == 'admin')
                             <a href="{{ route('customer.view', $user->user_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
+                            @elseif(Auth::user()->role == 'sales')
+                            <a href="{{ route('sales.customer.view', $user->user_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            @elseif(Auth::user()->role == 'marketing')
+                            <a href="{{ route('marketing.customer.view', $user->user_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

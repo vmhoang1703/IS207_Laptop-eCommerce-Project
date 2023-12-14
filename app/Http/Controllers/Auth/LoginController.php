@@ -38,8 +38,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-
-        // If you want to redirect the user after logout, you can specify the URL
-        return redirect()->route('login.show'); // Replace 'home' with the route you want to redirect to after logout
+        return redirect()->route('login.show');
     }
 }

@@ -93,8 +93,13 @@ class CategoriesManagementController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        // Redirect về trang quản lý sản phẩm với thông báo thành công
-        return redirect()->route('categories.management')->with('success', 'Category deleted successfully');
+        if (Auth::user()->role == "admin") {
+            // Redirect về trang quản lý sản phẩm với thông báo thành công
+            return redirect()->route('categories.management')->with('success', 'Category deleted successfully');
+        } else if (Auth::user()->role == "products_manager") {
+            // Redirect về trang quản lý sản phẩm với thông báo thành công
+            return redirect()->route('products_manager.categories.management')->with('success', 'Category deleted successfully');
+        }
     }
 
     private function generateCategoryId(): string
@@ -105,7 +110,6 @@ class CategoriesManagementController extends Controller
         for ($i = 0; $i < 6; $i++) {
             $category_id .= $characters[rand(0, strlen($characters) - 1)];
         }
-
         return $category_id;
     }
 }

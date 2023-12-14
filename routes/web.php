@@ -64,7 +64,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
 
     // edit Profile
-    Route::get('/profile/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
+    Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
+    Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
     //Profile - My order 
     Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
@@ -144,6 +145,7 @@ Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:sales'])->group(function () {
     // Sales routes
+    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Orders management
     Route::get('/sales/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('sales.orders.management');
 
@@ -154,12 +156,14 @@ Route::middleware(['auth', 'checkRole:sales'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:accounting'])->group(function () {
     // Accounting routes
+    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Revenue management
-    // Add your routes for accounting here
 });
 
 Route::middleware(['auth', 'checkRole:marketing'])->group(function () {
     // Marketing routes
+    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Customers management
-    // Add your routes for marketing here
+    Route::get('/marketing/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('marketing.customers.management');
+    Route::get('/marketing/customers-management/{id}/view', [UsersManagementController::class, 'viewCustomerPage'])->name('marketing.customer.view');
 });
