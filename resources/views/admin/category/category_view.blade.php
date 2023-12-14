@@ -11,10 +11,12 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>{{ $category->title }}</h2>
-                <p><strong>Meta title:</strong> {{ $category->meta_title }}</p>
-                <p><strong>Content:</strong> {{ $category->content }}</p>
-                <p><strong>Slug:</strong> {{ $category->slug }}</p>
-                <p><strong>Total products:</strong> {{ $category->total_products }}</p>
+                <ul>
+                    <li><strong>Meta title:</strong> {{ $category->meta_title }}</li>
+                    <li><strong>Content:</strong> {{ $category->content }}</li>
+                    <li><strong>Slug:</strong> {{ $category->slug }}</li>
+                    <li><strong>Total products:</strong> {{ $category->total_products }}</li>
+                </ul>
                 @if(Auth::user()->role == 'admin')
                 <a href="{{ route('category.edit', $category->category_id) }}" class="btn btn-primary">Edit Category</a>
                 @elseif(Auth::user()->role == 'products_manager')

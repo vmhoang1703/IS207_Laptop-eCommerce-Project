@@ -14,6 +14,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StoreController;
 
@@ -56,6 +58,12 @@ Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('ab
 Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
 //Profile
 Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
+//Cart
+Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
+//Blog
+Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
+Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
+Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
 
 Route::middleware(['auth'])->group(function () {
     //Route giao diện Order
@@ -123,7 +131,7 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
     // Products Manager routes
-    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/products_manager', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Categories management
     Route::get('/products-manager/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('products_manager.categories.management');
     Route::get('/products-manager/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('products_manager.category.create');
@@ -145,7 +153,7 @@ Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:sales'])->group(function () {
     // Sales routes
-    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/sales', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Orders management
     Route::get('/sales/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('sales.orders.management');
 
@@ -156,13 +164,13 @@ Route::middleware(['auth', 'checkRole:sales'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:accounting'])->group(function () {
     // Accounting routes
-    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/accounting', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Revenue management
 });
 
 Route::middleware(['auth', 'checkRole:marketing'])->group(function () {
     // Marketing routes
-    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/marketing', [AdminController::class, 'showAdminPage'])->name('admin.show');
     // Customers management
     Route::get('/marketing/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('marketing.customers.management');
     Route::get('/marketing/customers-management/{id}/view', [UsersManagementController::class, 'viewCustomerPage'])->name('marketing.customer.view');

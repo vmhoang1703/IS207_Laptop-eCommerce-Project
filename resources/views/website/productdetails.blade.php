@@ -91,7 +91,7 @@
                     <div class="product-detail">
                         <div class="Description">Description </div>
                         <div class="infor">
-                            {{ $product->description }}
+                            {!! $product->description !!}
                             <!-- <div>New 100%, Fullbox</div>
                             <div>Color: Black CPU: i7-11800H (2.3GHz, 24MB cache, Up to 4.6GHz)</div>
                             <div>RAM: 32GB DDR4-3200MHz</div>
@@ -155,7 +155,7 @@
                         </div>
                         <div class="container-review">
                             <div class="reviewer mt-3">
-                            <div class="date">December 4, 2023 </div>
+                                <div class="date">December 4, 2023 </div>
                                 <div class="user row">
                                     <div class="col-1 avt">
                                         <img src="{{asset('img/user.png')}}">
@@ -175,13 +175,13 @@
                                 </div>
 
                                 <div class="img-fb mt-3">
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
                                 </div>
                             </div>
                             <div class="reviewer mt-3">
-                            <div class="date">December 4, 2023 </div>
+                                <div class="date">December 4, 2023 </div>
                                 <div class="user row">
                                     <div class="col-1 avt">
                                         <img src="{{asset('img/user.png')}}">
@@ -201,13 +201,13 @@
                                 </div>
 
                                 <div class="img-fb mt-3">
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
                                 </div>
                             </div>
                             <div class="reviewer mt-3">
-                            <div class="date">December 4, 2023 </div>
+                                <div class="date">December 4, 2023 </div>
                                 <div class="user row">
                                     <div class="col-1 avt">
                                         <img src="{{asset('img/HungPham.jpg')}}">
@@ -227,9 +227,9 @@
                                 </div>
 
                                 <div class="img-fb mt-3">
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
                                 </div>
                             </div>
 
