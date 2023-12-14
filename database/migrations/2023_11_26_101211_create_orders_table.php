@@ -19,12 +19,10 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('status');
             $table->decimal('subtotal', 10, 2);
-            $table->decimal('tax', 10, 2);
             $table->decimal('shipping', 10, 2);
             $table->decimal('total', 10, 2);
             $table->string('promo')->nullable();
             $table->decimal('discount', 10, 2);
-            $table->decimal('grandtotal', 10, 2);
             $table->string('fullname');
             $table->string('phone');
             $table->string('email');

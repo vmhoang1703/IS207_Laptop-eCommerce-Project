@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StoreController;
 
@@ -116,6 +117,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
     // Orders management
     Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('orders.management');
+    Route::get('/admin/orders-management/{id}/view', [OrdersManagementController::class, 'viewOrderPage'])->name('order.view');
+    Route::get('/admin/orders-management/{id}/edit', [OrdersManagementController::class, 'editOrderPage'])->name('order.edit');
+    Route::put('/admin/orders-management/{id}', [OrdersManagementController::class, 'updateOrder'])->name('order.update');
 
     // Users management
     Route::get('/admin/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('customers.management');
@@ -127,6 +131,12 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin/employees-management/{id}/edit', [UsersManagementController::class, 'editEmployeePage'])->name('employee.edit');
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
+
+    //Chart
+    Route::get('/api/get-total-products-data-by-category', [ChartController::class, 'getTotalProductsDataByCategory']);
+    Route::get('/api/get-customer-registration-data', [ChartController::class, 'getCustomerRegistrationData']);
+    Route::get('/api/get-customer-knownFrom-data', [ChartController::class, 'getCustomerKnownFromData']);
+    Route::get('/api/get-employee-chart-data', [ChartController::class, 'getEmployeeChartData']);
 });
 
 Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {

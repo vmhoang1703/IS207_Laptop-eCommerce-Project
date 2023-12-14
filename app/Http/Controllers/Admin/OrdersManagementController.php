@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
@@ -13,6 +14,7 @@ class OrdersManagementController extends Controller
     // Controller for orders management
     public function showOrdersManagementPage(): View
     {
-        return view('admin.orders');
+        $orders = Order::all();
+        return view('admin.order.orders', compact('orders'));
     }
 }
