@@ -29,6 +29,7 @@ class Order extends Model
         'city', 
         'province', 
         'note',
+        'payment_method'
     ];
 
     protected $casts = [

@@ -18,6 +18,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MomoPaymentController;
 use App\Http\Controllers\StoreController;
 
 /*
@@ -59,19 +60,27 @@ Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('ab
 Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
 //Profile
 Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
-//Cart
+//Add to Cart
 Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+//Buy now
+Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
+Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
+Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
+Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
+
 //Blog
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
 Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
 Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
 
-Route::middleware(['auth'])->group(function () {
-    //Route giao diện Order
-    Route::get('/checkout/{id}', [OrderController::class, 'showCheckout'])->name('checkout.show');
-    Route::get('/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
-    Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/momo-payment', [MomoPaymentController::class, 'makePayment'])->name('momo.payment');
     // edit Profile
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
     Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');

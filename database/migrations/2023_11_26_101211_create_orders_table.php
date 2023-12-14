@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('province');
             $table->text('note')->nullable();
+            $table->string('payment_method')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('product_id')->on('products');
