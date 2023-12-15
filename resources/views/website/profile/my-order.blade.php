@@ -4,15 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/my-order.css') }}">
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="{{ asset('css/my-order.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   
     <title>My order</title>
 </head>
 <body class="d-flex flex-column align-items-center" >
@@ -144,6 +141,104 @@
           </div>
         </div>
        
+      </div>
+    </div>
+  </div>
+
+
+  {{--  modal cancel  --}}
+
+  <div class="modal fade" id="cancel_order-modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-cancel-popup modal-body" data-delivery="ordering">
+
+          <div id="cancel_step_1" class="container d-flex flex-column justify-content-center ">
+            <div class="box-icon-cancel d-flex justify-content-center align-items-center m-5 row">
+               <img src="{{asset('img/icon-cancel-order.svg')}}" alt="" class="icon-cancel-oder">
+            </div>
+            <div class="question_cancel d-flex justify-content-center align-items-center ">
+              Are you sure to cancel your order?
+            </div> 
+          </div>
+
+          <div id="cancel_step_2" class="reason-cancel d-flex flex-column justify-content-center align-items-center gap-3 mt-4 d-none">
+            <div class="reason-head d-flex flex-column justify-content-center align-items-center "> Chose the reason why you want to cancel your order? </div>
+            <div class="form-check_cancel "> 
+
+              <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
+                <input class="form-check-input" type="radio" name="reason cancel" id="not-address-inquiries">
+                <label class="form-check-label d-flex align-items-center  justify-content-center" for="not-address-inquiries">
+                  The seller does not address inquiries
+                </label>
+              </div>
+
+
+              <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
+                <input class="form-check-input" type="radio" name="reason cancel" id="change-the-product">
+                <label class="form-check-label d-flex align-items-center  justify-content-center" for="change-the-product">
+                  Want to change the product model
+                </label>
+              </div>
+
+
+              <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
+                <input class="form-check-input" type="radio" name="reason cancel" id="change-the-address">
+                <label class="form-check-label d-flex align-items-center  justify-content-center" for="change-the-address">
+                  Want to change the address
+                </label>
+              </div>
+
+              <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
+                <input class="form-check-input" type="radio" name="reason cancel" id="Change-my-mind">
+                <label class="form-check-label d-flex align-items-center  justify-content-center" for="Change-my-mind">
+                  Change my mind
+                </label>
+              </div>
+
+
+              <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3"> 
+               <input  class="type-check" type="text" placeholder=" Type other answer" name="Type-other-answer"  id="Type-other-answer"> </input>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div id="cancel_step_3" class="container d-flex flex-column justify-content-center d-none " data-status="failure" >
+            <div class="box-icon-cancel d-flex justify-content-center align-items-center m-5 row">
+               <img src="{{asset('img/cancel_success-icon.svg ')}}" alt="" class="icon-cancel-oder">
+            </div>
+            <div class="question_cancel d-flex justify-content-center align-items-center ">
+              Canceling suceed
+            </div> 
+          </div>
+
+
+          <div id="cancel_step_4" class="container d-flex flex-column justify-content-center d-none  " data-status="success" >
+            <div class="box-icon-cancel d-flex justify-content-center align-items-center m-5 row">
+               <img src=" {{asset('img/cancel_success-icon.svg ')}}" alt="" class="icon-cancel-oder">
+            </div>
+            <div class="question_cancel d-flex justify-content-center align-items-center ">
+              Canceling unsuceed
+            </div>
+            <div class="question_cancel-reason mt-2 text-center">
+              You cannot cancel the order because it is in transit. Please contact the shipper directly if you wish to cancel
+            </div>
+          </div>
+        </div>
+
+
+        
+        <div class="modal-footer mb-4  cancel_order-modal__footer  ">
+            <button id="return_btn" type="button" class="btn btn-primary btn-cancel-modal " data-bs-dismiss="modal" > Return</button>
+            <button id="confirm_btn" type="button" class="btn btn-primary btn-cancel-modal " > Confirm </button> 
+            <button id="proceed_btn" type="button" class="btn btn-primary btn-cancel-modal d-none ">Proceed to cancel</button>
+        
+
+
+      </div>
       </div>
     </div>
   </div>

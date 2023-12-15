@@ -18,5 +18,8 @@
         <div class=" "> 
             <button class="product-item-text btn btn-danger btn-detail" data-bs-toggle="modal" data-bs-target="#delivery-modal"> Detail</button>
         </div>
+        <div class=" "> 
+            <button class="product-item-text btn btn-primary btn-cancel-oder" data-bs-toggle="modal" data-bs-target="#cancel_order-modal"> Cancel</button>
+        </div>
     </div>
 </div>
