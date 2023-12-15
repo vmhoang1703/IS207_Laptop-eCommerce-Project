@@ -16,7 +16,7 @@
     <div class="card-action">
         <div class="btn1">
             <button onclick="location.href='/checkout'">Buy now</button>
-            <button>Add to cart</button>
+            <button class="add-to-cart-btn" data-product-id="{{ $product->product_id }}">Add to cart</button>
         </div>
     </div>
     <div class="info-card">
@@ -35,3 +35,9 @@
         </div>
     </div>
 </div>
+<script>
+    var csrfToken = "{{ csrf_token() }}";
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{{ asset('js/addToCart.js') }}"></script>
+
