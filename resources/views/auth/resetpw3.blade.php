@@ -12,6 +12,10 @@
 </head>
 
 <body>
+     <!-- header -->
+     @component("components.header_signup")
+      @endcomponent
+    <!-- container -->
     <div class="container mt-5">
       <div class="row">
         <div class="col-lg-4 col-sm-12 mb-5"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 68 26" fill="none" class="back">
