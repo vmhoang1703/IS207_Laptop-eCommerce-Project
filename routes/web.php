@@ -81,6 +81,7 @@ Route::get('/store/{id}', [DetailProductController::class,'showDetailProductPage
 //Route giao diện Order
 Route::get('/checkout', [OrderController::class,'showCheckout'])->name('order.show');
 Route::get('/checkout/payment', [OrderController::class,'showPaymentPage'])->name('order.payment');
+Route::get('/checkout/preorder', [OrderController::class,'showPreorderPage'])->name('order.preorder');
 
 //Route About us
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');

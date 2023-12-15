@@ -17,4 +17,8 @@ class OrderController extends Controller
     {
         return view('website.oder_process.order_payment');
     }
+    public function showPreorderPage():View
+    {
+        return view('website.oder_process.preorder');
+    }
 }

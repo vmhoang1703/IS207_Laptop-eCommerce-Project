@@ -19,12 +19,12 @@
           </svg></div>
 
       <div class="col-lg-8 col-sm-12">
-         <h5>Reset your password </h5>
+         <h5 style="text-indent:3cm;">Recover Email Sent ! </h5>
         <form>
           <div class="form-group">
-            <label for="formGroupExampleInput" class="text">Type in your registered email address to reset password</label>
-            <input type="text" class="form-control mt-3" id="formGroupExampleInput" placeholder="Email Address *">
-            <button type="submit" class="btn btn-danger mt-3 btn-rspw">NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <label for="formGroupExampleInput">Please check your email for next steps to reset your password.</label>
+            <div class="button-CONTACT "><button type="submit" class="mt-3 btn btn-danger btn-CONTACT">CONTACT SUPPORT</button> </div>
+
           </div>
         </form> </div>  </div>
     </div>

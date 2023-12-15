@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{asset('css/resetpass.css')}}">
+  <title>reset password </title>
+</head>
+
+<body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 mb-5"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 68 26" fill="none" class="back">
+          <path d="M0.833683 11.9336C0.191564 12.5776 0.193087 13.6202 0.837085 14.2623L11.3317 24.7263C11.9757 25.3684 13.0183 25.3669 13.6604 24.7229C14.3025 24.0789 14.301 23.0363 13.657 22.3941L4.32848 13.0928L13.6298 3.76429C14.2719 3.12029 14.2704 2.07768 13.6264 1.43556C12.9824 0.793437 11.9398 0.79496 11.2977 1.43896L0.833683 11.9336ZM67.8638 11.3533L1.99734 11.4496L2.00216 14.7429L67.8686 14.6467L67.8638 11.3533Z" fill="black"/>
+          </svg></div>
+
+      <div class="col-lg-8 col-sm-12">
+         <h5>Reset your password</h5>
+         <form>
+         <label for="inputPassword5" style="text-indent: 2cm;">Type in your new password</label>
+         <input type="password" id="inputPassword5" class="form-control mt-4" aria-describedby="passwordHelpBlock" placeholder="New password *">
+        <input type="password" id="inputPassword5" class="form-control mt-4" aria-describedby="passwordHelpBlock" placeholder="Retry new password *">
+        <div class="d-grid mt-4">
+            <div class="row payment-method mt-3 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#Toggle_succeed">
+              <button type="button" class="btn btn-danger btn-rspw">Reset</button>
+              <div
+                class="col-xxl-4 col-xl-4 col-lg-4 col-md-3 col-sm-3 col-3 text-end method-change text-end ms-auto">
+              </div>
+            </div>
+          </div></form>
+        </div>  </div>
+    </div>
+
+
+
+    <div class="modal fade modalS" id="Toggle_succeed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center " >
+          <div class="modal-content toggle" style="width:700px ;height:556px;border-radius: 16px;">
+          <img class="img_succeed" src="{{asset('img/Group1.png')}}">
+          <div class="text_succeed">
+             <div class="heading mt-4">Reset password succeed</div>
+              <div class="description mt-2 mx-5">You have reset succesfully</div>
+          </div>
+            <div class="btn_succeed mt-3">
+              <button  data-bs-dismiss="modal" aria-label="Close">Back to login </button>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
