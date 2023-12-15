@@ -1,44 +1,76 @@
+$(document).ready(function () {
+    // Attach event listeners to quantity inputs
+    $(".product-quantity").on("change", function () {
+        updateSubtotal($(this));
+    });
 
+    // Proceed to payment function
+    $(".btn-payment").on("click", function () {
+        var noticeError = $(".notice-error");
+        var checkedCheckboxes = $(".form-check-input:checked");
 
+        if (checkedCheckboxes.length === 0) {
+            noticeError.html("Please select at least one item.");
+            return;
+        }
 
+        // Additional validation logic if needed
 
-//Proceed to payment function
-function proceedToPayment() {
-    var noticeError = document.querySelector('.notice-error');
+        // If all conditions are met, proceed to payment
+        alert("Proceed to payment successfully!");
+        // For actual redirection, you can use window.location.href
+        // window.location.href = "URL của trang thanh toán";
+    });
+});
 
-    // Tạo một mảng chứa các ô checkbox đã được chọn
-    var checkedCheckboxes = Array.from(document.querySelectorAll('.form-check-input:checked'));
+function updateSubtotal(input) {
+    var cartItemId = input.data("id");
+    var newQuantity = input.val();
 
-    if (checkedCheckboxes.length === 0) {
-        noticeError.innerHTML = "Please select at least one item.";
-        return;
-    }
-
-    // // // Kiểm tra giá trị của ô input số tương ứng nếu checkbox đã được chọn
-    // var isValidQuantity = checkedCheckboxes.every(function (checkbox) {
-    //     var quantityInput = document.querySelector('.product-quantity[data-id="' + checkbox.id + '"]');
-
-    //     if (!quantityInput) {
-    //         noticeError.innerHTML = "Invalid quantity input.";
-    //         return false; // Nếu không tìm thấy ô input số tương ứng, coi như không hợp lệ
-    //     }
-
-    //     var quantityValue = parseInt(quantityInput.value, 10);
-
-    //     if (isNaN(quantityValue) || quantityValue < 1) {
-    //         noticeError.innerHTML = "Quantity must be a positive number and greater than or equal to 1.";
-    //         return false;
-    //     }
-
-    //     return true;
-    // });
-
-    // if (!isValidQuantity) {
-    //     return;
-    // }
-
-    // Nếu tất cả điều kiện đều đúng, hiển thị thông báo và thực hiện các bước khác
-    alert("Proceed to payment successfully!");
-    // Đối với chuyển hướng thực tế, bạn có thể sử dụng window.location.href
-    // window.location.href = "URL của trang thanh toán";
+    // Make an Ajax request to update the quantity on the server
+    $.ajax({
+        url: "/cart/update",
+        type: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: JSON.stringify({
+            cartItem_id: cartItemId,
+            quantity: newQuantity,
+        }),
+        success: function (data) {
+            var subtotalElement = $('.subtotal[data-id="' + cartItemId + '"]');
+            if (subtotalElement.length) {
+                subtotalElement.text("$" + data.update_subtotal); // Update the subtotal value
+            }
+        },
+        error: function (error) {
+            console.error("Error updating quantity:", error);
+        },
+    });
 }
+
+function deleteCartItem(cartItemId) {
+    // Make an Ajax request to delete the cart item on the server
+    $.ajax({
+        url: "/cart/remove",
+        type: "POST",
+        headers: {
+            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+        },
+        data: {
+            cartItem_id: cartItemId,
+        },
+        success: function (data) {
+            // Remove the deleted cart item from the UI
+            var deletedCartItem = document.querySelector('.line-item[data-id="' + cartItemId + '"]');
+            if (deletedCartItem) {
+                deletedCartItem.remove();
+            }
+        },
+        error: function (error) {
+            console.error("Error deleting cart item:", error);
+        },
+    });
+}
+

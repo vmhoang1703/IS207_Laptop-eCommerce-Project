@@ -19,5 +19,7 @@ class VerifyCsrfToken extends Middleware
         '/checkout/update-quantity',
         'google-login',
         '/cart/add',
+        '/cart/update',
+        '/cart/remove',
     ];
 }

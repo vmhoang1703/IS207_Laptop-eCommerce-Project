@@ -7,7 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/cartlist.css') }}">
-    <script src="{{ asset('js/cartlist.js')}}" defer> </script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -46,5 +45,8 @@
     <script>
         var csrfToken = "{{ csrf_token() }}";
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('js/cartlist.js')}}" defer> </script>
 </body>
+
 </html>
