@@ -17,15 +17,16 @@
     @component("components.header")
     @endcomponent
 
-    <form id="myForm" action=" " class="container-xxl list-item d-flex flex-column  gap-2">
-        <div class=" d-flex align-items-center row mt-3 mb-3 container-xxl">
-            <div class="col-xxl-1"></div>
-            <div class=" row col-xxl-11 border-box  d-flex align-items-center pe-5 ps-5">
-                <div class="col-xxl-4 table-title text-start"> Product </div>
-                <div class="col-xxl-3 table-title text-start "> Price </div>
-                <div class="col-xxl-3 table-title text-start "> Quantity </div>
-                <div class="col-xxl-2 table-title text-end  "> Subtotal</div>
+    <form id="myForm" action=" " class="container-xxl  container-xcontainer-lg  container-md container-sm  list-item d-flex flex-column  gap-2">
+        <div  class=" d-flex row mt-3 mb-3 container-xxl container-xl container-lg  container-md container-sm">
+            <div class="col-xxl-1 col-xl-1 col-lg-1  "></div>
+            <div id="tabel_title"  class=" row col-xxl-10  col-xl-10 col-lg-10 border-box  d-flex align-items-center pe-5 ps-5">
+                <div class="col-xxl-4 col-xl-4 col-lg-5 table-title text-start"> Product </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-2 ps-5 table-title text-start "> Price </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-3 ps-5  table-title text-start "> Quantity </div>
+                <div class="col-xxl-2 col-xl-2 col-lg-2 table-title text-end  "> Subtotal</div>
             </div>
+            <div class="col-xxl-1 col-xl-1 col-lg-1"></div>
         </div>
 
         @foreach ($cartItems as $cartItem)
@@ -35,7 +36,10 @@
 
 
         <div class=" ms-auto notice-error "></div>
-        <button type="button" class=" ms-auto mt-1 btn-payment btn btn-danger" onclick="proceedToPayment()">Proceed to payment</button>
+        <div class="btn-end d-flex justify-content-end row ">
+            <button type="button" class=" col-xxl-10  col-xl-11 col-lg-12  mt-1 btn-payment btn btn-danger " onclick="proceedToPayment()">Proceed to payment</button>
+            <div class="col-xxl-1 col-xl-1 col-lg-1"></div>
+        </div>
 
 
     </form>
