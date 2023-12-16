@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsManagementController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductsManagementController extends Controller
     public function showProductsManagementPage(): View
     {
         $products = Product::all();
-        return view('admin.products', compact('products'));
+        return view('admin.product.products', compact('products'));
     }
 
     public function createProductPage(): View
@@ -26,45 +27,60 @@ class ProductsManagementController extends Controller
 
     public function storeProduct(Request $request)
     {
-        // Đánh giá, kiểm tra form
+        // Validation rules
         $request->validate([
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required',
+            'title' => 'required',
             'price' => 'required|numeric',
-            'stock_quantity' => 'required|integer',
+            'quantity' => 'required|integer',
             'description' => 'required',
-            // Thêm các quy tắc kiểm tra khác tùy thuộc vào yêu cầu của bạn
+            'status' => 'required|in:In stock,Upcoming,Out stock',
+            'category_id' => 'required|exists:categories,category_id',
+            'brand' => 'required',
+            'screen_size' => 'required',
+            'CPU' => 'required',
+            'RAM' => 'required',
+            'storage' => 'required',
+            'event' => 'required|in:None,Flash Sales',
         ]);
 
         try {
-            // Tạo user_id mới và kiểm tra xem nó có tồn tại trong cơ sở dữ liệu hay không
+            // Generate a unique product_id
             do {
                 $product_id = $this->generateProductId();
             } while (Product::where('product_id', $product_id)->exists());
 
-            // Gán dữ liệu nhập vào các trường thông tin
+            $user_id = Auth::user()->user_id;
+            // Create a new Product instance
             $product = new Product([
                 'product_id' => $product_id,
-                'name' => $request->input('name'),
+                'user_id' => $user_id,
+                'title' => $request->input('title'),
+                'meta_title' => $request->input('meta_title'),
                 'description' => $request->input('description'),
                 'price' => $request->input('price'),
-                'oldPrice' => $request->input('oldPrice'),
                 'discount' => $request->input('discount'),
-                'stock_quantity' => $request->input('stock_quantity'),
+                'quantity' => $request->input('quantity'),
+                'status' => $request->input('status'),
                 'category_id' => $request->input('category_id'),
+                'brand' => $request->input('brand'),
                 'screen_size' => $request->input('screen_size'),
                 'CPU' => $request->input('CPU'),
                 'RAM' => $request->input('RAM'),
                 'storage' => $request->input('storage'),
                 'event' => $request->input('event'),
-                // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
+                // Add other fields as needed
             ]);
 
-            $category = Category::find($request->input('category_id'));
-            $category->total_products += 1; // Increment by 1
+            // Generate and set the slug
+            $product->slug = $product->generateSlug();
 
-            // Lưu vào db
+            // Find the category and update total_products count
+            $category = Category::find($request->input('category_id'));
+            $category->total_products += 1;
+
+            // Save product and category
             $product->save();
             $category->save();
 
@@ -103,15 +119,18 @@ class ProductsManagementController extends Controller
                     $productImage->save();
                 }
             }
-
-            // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
-            return redirect()->route('products.management')->with('success', 'Product created successfully');
+            if (Auth::user()->role == "admin") {
+                // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
+                return redirect()->route('products.management')->with('success', 'Product created successfully');
+            } else if (Auth::user()->role == "products_manager") {
+                return redirect()->route('products_manager.products.management')->with('success', 'Product created successfully');
+            }
         } catch (\Exception $e) {
             // Nếu có lỗi, quay trở lại form với thông báo lỗi
+            dd($e->getMessage());
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
 
     public function viewProductPage($id)
     {
@@ -132,7 +151,11 @@ class ProductsManagementController extends Controller
         $product = Product::find($id);
         $product->update($request->all());
 
-        return redirect('/admin/products-management')->with('success', 'Product updated successfully!');
+        if (Auth::user()->role == "admin") {
+            return redirect()->route('products.management')->with('success', 'Product updated successfully');
+        } else if (Auth::user()->role == "products_manager") {
+            return redirect()->route('products_manager.products.management')->with('success', 'Product updated successfully');
+        }
     }
 
     public function deleteProduct($id)
@@ -144,8 +167,11 @@ class ProductsManagementController extends Controller
         $category->total_products -= 1; // Decrement by 1
         $category->save();
 
-        // Redirect về trang quản lý sản phẩm với thông báo thành công
-        return redirect()->route('products.management')->with('success', 'Product deleted successfully');
+        if (Auth::user()->role == "admin") {
+            return redirect()->route('products.management')->with('success', 'Product deleted successfully');
+        } else if (Auth::user()->role == "products_manager") {
+            return redirect()->route('products_manager.products.management')->with('success', 'Product deleted successfully');
+        }
     }
 
 

@@ -1,0 +1,226 @@
+body {
+    font-family: Poppins;
+  }
+  .header-fake {
+    width: 100%;
+    height: 165px;
+    background-color: aliceblue;
+  }
+  .footer-fake {
+    width: 100%;
+    height: 365px;
+    background-color: aliceblue;
+  }
+  .head-title {
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 64px;
+    letter-spacing: 3.24px;
+    color: #000;
+    min-height: 170px;
+  }
+  .display-none {
+    display: none;
+  }
+  .box-infor-title {
+    color: var(--Secondary-2, #db4444);
+    font-size: 21.683px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30.356px;
+  }
+  .form-item label {
+    color: var(--Text2, #000);
+    font-size: 17.346px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26.019px;
+  }
+  .form-item input {
+    /* width: 357.762px; */
+    height: 54.206px;
+    font-size: 17.346px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26.019px; /* 150% */
+  
+    border-radius: 4.337px;
+  background: var(--Secondary, #F5F5F5);
+  }
+  .box-infor {
+    
+    min-width: 943.19px;
+    min-height: 600px;
+    border-radius: 4.337px;
+    background: var(--Primary, #fff);
+    box-shadow: 0px 1.08413px 14.09365px 0px rgba(0, 0, 0, 0.05);
+    padding: 9%;
+    margin-bottom: 50px;
+  }
+  .hide-password {
+    display: none;
+  }
+
+
+  .show-password {
+    display: inline-block; 
+}
+
+
+  .password-line button {
+    width: 44px;
+  }
+  .form-item .btn:hover {
+    background-color: inherit;
+  }
+  
+  
+  
+  #change-infor a {
+    color: var(--Text, #fafafa);
+    font-family: Poppins;
+    font-size: 17.346px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26.019px;
+    text-decoration: none;
+  }
+  
+  .btn-logout{
+    border: none;
+    width: 60%;
+    background-color: #fff;
+  }
+  
+  
+  
+  
+  
+  
+  /* responsive */
+  @media (min-width: 375px) {
+   
+     .nav-mobile{
+      color: var(--Text2, #000);
+      font-size: 17.346px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.019px;
+      border-radius: 4.337px;
+      background: var(--Primary, #fff);
+      
+     }
+     .padding-left-mobile-14{
+      padding-left: 14px !important;
+    }
+    .padding-right-mobile-12{
+      padding-right: 12px !important;
+    }
+  
+    .padding-mobile-none{
+      padding: 0;
+    }
+    .mobile-font-size-14{
+      font-size: 14px !important;
+    }
+     
+  }
+  
+  
+  
+  /* xl */
+  @media (min-width: 1200px) {
+    
+  }
+  /* lg */
+  @media (min-width: 992px) and (max-width: 1400px) {
+    .display-mobile-none{
+      display: none;
+     }
+     .nav-mobile{
+      display: block;
+     }
+     .last-name-and-address{
+      margin-top: 24px;
+    }
+  }
+  /* md  min-width: 768px */
+  @media (min-width: 577px) and (max-width: 991px) {
+    .display-mobile-none{
+      display: none;
+     }
+     .nav-mobile{
+      display: block;
+     }
+     .last-name-and-address{
+      margin-top: 24px;
+    }
+     .head-title {
+      font-size: 40px;
+      font-weight: 530;
+      line-height: 45px;
+      min-height: 60px;
+  }
+  .nav-mobile * {
+    font-size: 97%;
+  }
+  
+  .box-infor {
+    min-width: auto !important;
+    min-height: auto !important;
+  }
+  #read-mode *{
+    font-size: 97%;
+  }
+  
+  
+  
+  }
+  /* mobile */
+  @media (max-width: 576px) {
+    .display-mobile-none{
+      display: none;
+     }
+     .nav-mobile{
+      display: block;
+     }
+     .head-title {
+      font-size: 40px;
+      font-weight: 530;
+      line-height: 45px;
+      min-height: 60px;
+  }
+  
+     /*  */
+    .nav-mobile * {
+      font-size: 94%;
+    }
+    
+    .box-infor {
+      min-width: auto !important;
+      min-height: auto !important;
+    }
+    #read-mode *{
+      font-size: 94%;
+    }
+    /*  */
+  
+    .form-item input{
+      height: 35px;
+    } 
+    #read-mode {
+      gap: 8px !important ;
+    }
+    #change-infor{
+      margin-top: 8px;
+    }
+    .btn-group{
+      flex-direction: column;
+    }
+    .btn-group button {
+      border-radius: 5px !important;
+    }
+  }
+  
+  

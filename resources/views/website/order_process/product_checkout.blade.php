@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/oder_show.css') }}">
     <title>E-lec World</title>
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column checkout-section">
     <!-- Header  -->
     @component('components.header')
     @endcomponent
@@ -20,7 +21,7 @@
         <ul id="myBreadcrumb" class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Cửa hàng </a></li>
             <li class="breadcrumb-item"><a href="#">Laptop </a></li>
-            <li class="breadcrumb-item"><a href="#">Dell XPS 9710 17 inch Core i7 </a></li>
+            <li class="breadcrumb-item"><a href="#">{{ $product-> title }}</a></li>
             <li class="breadcrumb-item active">Buy now</li>
         </ul>
     </div>
@@ -37,19 +38,19 @@
             <!-- khung chứa các sản phẩm đã đặt -->
             <div class="d-flex flex-column margin-top-mobile-16  ">
                 <!-- Dòng thông tin 1 sản phẩm -->
-                <div class="cart-section mb-2 row  w-100 mobile-font-size-14">
+                <div class="cart-section mb-2 row  w-100 mobile-font-size-14" data-id="{{ $product->product_id }}">
                     <a class="card flex-row col-xxl-4 col-xl-4  col-lg-4 col-md-4 col-sm-4  " id="product-img" href="">
-                        <img src="https://via.placeholder.com/150" class="card-img-left product-img">
+                        <img src="{{ asset($mainImage->image_path) }}" class="card-img-left product-img">
                         <div class="card-body">
-                            <p id="product-name" class="card-title product-title mobile-font-size-14 ">Dell XPS 9710 17 inch Core i7</p>
+                            <p id="product-name" class="card-title product-title mobile-font-size-14 ">{{ $product->title }}</p>
                         </div>
                     </a>
-                    <div class="text-center  col-xxl-3 col-xl-3  col-lg-3  col-md-3 col-sm-3  d-flex align-items-center justify-content-center ">$<div id=" product-price">650</div>
+                    <div class="text-center  col-xxl-3 col-xl-3  col-lg-3  col-md-3 col-sm-3  d-flex align-items-center justify-content-center ">$<div id=" product-price">{{ $product->price }}</div>
                     </div>
-                    <div class="text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2   ">
+                    <div class="text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 update-quantity">
                         <input type="number" class="input-quantity mobile-font-size-14 " id="quantityInput" value="1" min="1">
                     </div>
-                    <div class="text-center col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  d-flex align-items-center justify-content-center">$<div id=" subtotal-price">2000</div>
+                    <div class="text-center col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  d-flex align-items-center justify-content-center">$<div class="subtotal-price">{{ $product->price }}</div>
                     </div>
                 </div>
 
@@ -57,15 +58,15 @@
 
                 <div class="cart-section-mobile d-none  w-100 mobile-font-size-14">
                     <a class=" " id="product-img" href="">
-                        <img src="https://via.placeholder.com/150" style="width: 70px " class="card-img-left product-img">
+                        <img src="{{ asset($mainImage->image_path) }}" style="width: 70px " class="card-img-left product-img">
                     </a>
                     <div class=" cart-mobile-infor   ">
-                        <a class="cart-mobile-infor-title d-flex justify-content-between align-items-start" id="product-name-mobile"> Dell XPS 9710 17 inch Core i7 </a>
+                        <a class="cart-mobile-infor-title d-flex justify-content-between align-items-start" id="product-name-mobile"> {{ $product->name }} </a>
                         <div class="  d-flex justify-content-between align-items-end ">
-                            <div class="cart-mobile-infor-price" id=" product-price-mobile"> 650$ </div>
+                            <div class="cart-mobile-infor-price" id=" product-price-mobile"> ${{ $product->price }} </div>
                             <div class="input-quantity-mobile d-flex">
                                 <span class="minus d-flex justify-content-center align-items-center" onclick="decreaseQuantity()">-</span>
-                                <input type="text" value="1" readonly="readonly" id="quantityInput-mobile">
+                                <input type="text" value="1" readonly="readonly" id="quantityInput-mobile" oninput="updateSubtotal()">
                                 <span class="plus d-flex justify-content-center align-items-center" onclick="increaseQuantity()">+</span>
                             </div>
                         </div>
@@ -88,25 +89,25 @@
                         <div class="cart-total"> Cart Total </div>
                         <div class="total-infor__subtotal row mt-2 ">
                             <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6  text-start mobile-font-size-14"> Subtotal: </div>
-                            <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $2000 </div>
-                        </div>
-                        <div class="line-grey mt-2 mb-3"></div>
-                        <div class="total-infor__shipping row mt-2 ">
-                            <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Shipping: </div>
-                            <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> Free </div>
-                        </div>
-                        <div class="line-grey mt-2 mb-3"></div>
-                        <div class="total-infor__total row mt-2 ">
-                            <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Total: </div>
-                            <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $2000 </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button id="total-infor-btn__checkout" type="button" class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14 ">Checkout</button>
+                            <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
+                            </div>
+                            <div class="line-grey mt-2 mb-3"></div>
+                            <div class="total-infor__shipping row mt-2 ">
+                                <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Shipping: </div>
+                                <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> Free </div>
+                            </div>
+                            <div class="line-grey mt-2 mb-3"></div>
+                            <div class="total-infor__total row mt-2 ">
+                                <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Total: </div>
+                                <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button id="total-infor-btn__checkout" type="button" class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14" data-update-subtotal="{{ $product->price }}" data-quantity="1">Checkout</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </form>
 
     <!-- Footer -->
@@ -132,6 +133,7 @@
             quantityInput.value = currentValue + 1;
         }
     </script>
+    <script src="{{ asset('js/checkout.js') }}" defer></script>
 </body>
 
 </html>

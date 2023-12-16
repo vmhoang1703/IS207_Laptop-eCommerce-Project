@@ -5,23 +5,23 @@
         </svg>
     </div>
     <div class="img">
-        <a href="{{ route('detail.show', $product->product_id) }}" style="text-decoration: none;">
+        <a href="{{ route('detail.show', $product->slug) }}" style="text-decoration: none;">
             @if ($product->images->where('is_main', 1)->isNotEmpty())
             <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" >
             @else
-            <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+            <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->title }}" style="height: 150px; width: 190px">
             @endif
         </a>
     </div>
     <div class="card-action">
-        <div class="btn1 buttons">
-            <button onclick="location.href='#'">Buy now</button>
-            <button  class="btn" id="success">Add to cart</button>
+        <div class="btn1">
+            <button onclick="location.href='/checkout'">Buy now</button>
+            <button class="add-to-cart-btn" data-product-id="{{ $product->product_id }}">Add to cart</button>
         </div>
     </div>
     <div class="info-card">
-        <a href="{{ route('detail.show', $product->product_id) }}" style="text-decoration: none; color: black">
-            <div class="productname">{{ $product->name }}</div>
+        <a href="{{ route('detail.show', $product->slug) }}" style="text-decoration: none; color: black">
+            <div class="productname">{{ $product->title }}</div>
         </a>
         <div class="cost">{{ $product->price }}$ <span class="discount">{{ $product->oldPrice }}$</span></div>
         <div class="star-bar">
@@ -35,3 +35,9 @@
         </div>
     </div>
 </div>
+<script>
+    var csrfToken = "{{ csrf_token() }}";
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{{ asset('js/addToCart.js') }}"></script>
+

@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Users Management Page')
+@section('title', 'Customers Management Page')
 
 @section('content')
 <!-- <h1>Welcome to my homepage!</h1> -->
 <!-- Your page content goes here -->
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Users table</h1>
+<h1 class="h3 mb-2 text-gray-800">Customers table</h1>
 <p class="mb-4">
     <!-- DataTables is a third party plugin that is used to generate the
               demo table below. For more information about DataTables, please
@@ -31,9 +31,9 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Joined date</th>
-                        <th>Phone number</th>
+                        <!-- <th>Phone number</th> -->
                         <th>Email</th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -41,23 +41,33 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Joined date</th>
-                        <th>Phone number</th>
+                        <!-- <th>Phone number</th> -->
                         <th>Email</th>
-                        <th></th>
+                        <th>Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                     @foreach($users as $user)
+                    @foreach($customerUsers as $user)
                     <tr>
-                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->user_id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->created_at}}</td>
-                        <td>{{ $user->phone	}}</td>
+                        <!-- <td>{{ $user->phone	}}</td> -->
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route('user.view', $user->id) }}" style="text-decoration: none;">
+                            @if(Auth::user()->role == 'admin')
+                            <a href="{{ route('customer.view', $user->user_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
+                            @elseif(Auth::user()->role == 'sales')
+                            <a href="{{ route('sales.customer.view', $user->user_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            @elseif(Auth::user()->role == 'marketing')
+                            <a href="{{ route('marketing.customer.view', $user->user_id) }}" style="text-decoration: none;">
+                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

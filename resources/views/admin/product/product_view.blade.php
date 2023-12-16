@@ -12,37 +12,43 @@
             <div class="col-md-6">
                 @if($product->images->isNotEmpty())
                 @foreach($product->images as $image)
-                <img src="{{ asset($image->image_path) }}" alt="{{ $product->name }}" class="img-fluid" width="200px" height="200px">
+                <img src="{{ asset($image->image_path) }}" alt="{{ $product->title }}" class="img-fluid" width="200px" height="200px">
                 @endforeach
                 @else
                 <p>No images available</p>
                 @endif
             </div>
             <div class="col-md-6">
-                <h2>{{ $product->name }}</h2>
-                <p><strong>Category:</strong>
-                    @foreach($categories as $category)
-                    @if($product->category_id == $category->category_id)
-                    {{ $category->name }}
-                    @endif
-                    @endforeach
-                </p>
-                <p><strong>Description:</strong> {{ $product->description }}</p>
-                <p><strong>Price:</strong> {{ $product->price }}$</p>
-                <p><strong>Old Price:</strong> {{ $product->oldPrice }}$</p>
-                <p><strong>Discount:</strong> {{ $product->discount }}%</p>
-                <p><strong>Stock Quantity:</strong> {{ $product->stock_quantity }}</p>
-                <p><strong>Favourites:</strong> {{ $product->total_favourite_count }}</p>
-                <p><strong>Screen size:</strong> {{ $product->screen_size }}</p>
-                <p><strong>CPU:</strong> {{ $product->CPU }}</p>
-                <p><strong>RAM:</strong> {{ $product->RAM }}</p>
-                <p><strong>Storage:</strong> {{ $product->storage }}</p>
+                <h2>{{ $product->title }}</h2>
+                <ul>
+                    <li><strong>Category:</strong>
+                        @foreach($categories as $category)
+                        @if($product->category_id == $category->category_id)
+                        {{ $category->title }}
+                        @endif
+                        @endforeach
+                    </li>
+                    <li><strong>Meta title:</strong> {{ $product->meta_title }}</li>
+                    <li><strong>Slug:</strong> {{ $product->slug }}</li>
+                    <li><strong>Description:</strong> {!! $product->description !!}</li>
+                    <li><strong>Price:</strong> {{ $product->price }}$</li>
+                    <li><strong>Discount:</strong> {{ $product->discount }}%</li>
+                    <li><strong>Quantity:</strong> {{ $product->quantity }}</li>
+                    <li><strong>Status:</strong> {{ $product->status }}</li>
+                    <li><strong>Favourites:</strong> {{ $product->total_favorites }}</li>
+                    <li><strong>Brand:</strong> {{ $product->brand }}</li>
+                    <li><strong>Screen size:</strong> {{ $product->screen_size }}</li>
+                    <li><strong>CPU:</strong> {{ $product->CPU }}</li>
+                    <li><strong>RAM:</strong> {{ $product->RAM }}</li>
+                    <li><strong>Storage:</strong> {{ $product->storage }}</li>
+                    <li><strong>Event:</strong> {{ $product->event }}</li>
+                </ul>
 
-                <!-- <p><strong>Favourites:</strong> {{ $product->total_favourite_count }}</p> -->
-                <!-- Add other product details based on your model's attributes -->
-
-                <!-- You can also add an "Edit" button that links to the edit page -->
+                @if(Auth::user()->role == 'admin')
                 <a href="{{ route('product.edit', $product->product_id) }}" class="btn btn-primary">Edit Product</a>
+                @elseif(Auth::user()->role == 'products_manager')
+                <a href="{{ route('products_manager.product.edit', $product->product_id) }}" class="btn btn-primary">Edit Product</a>
+                @endif
             </div>
         </div>
     </div>

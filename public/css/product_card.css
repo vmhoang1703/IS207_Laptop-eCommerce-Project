@@ -98,7 +98,7 @@
 }
 
 .card .img img {
-    width: 190px;
+    width: 150px;
     height: 150px;
     transition: 0.5s;
 
@@ -273,7 +273,7 @@
 }
 
 .store .carousel .card .img img {
-    width: 190px;
+    width: 150px;
     height: 150px;
     transition: 0.5s;
 

@@ -18,18 +18,18 @@ $(document).ready(function () {
         }
 
         // Send request to update favorite count on the server
-        updateFavouriteCount(productId, $(this).css("fill") != "none");
+        updateFavoriteCount(productId, $(this).css("fill") != "none");
     });
 });
 
-function updateFavouriteCount(productId, isIncrement) {
+function updateFavoriteCount(productId, isIncrement) {
     // Get the CSRF token from the meta tag
     var csrfToken = $('meta[name="csrf-token"]').attr("content");
     console.log(csrfToken);
 
     // Send AJAX request to update favorite count on the server
     $.ajax({
-        url: "/update-favourite-count",
+        url: "/update-favorite-count",
         type: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function updateFavouriteCount(productId, isIncrement) {
             // $("#total-favorite-count").text(
             //     data.total_favorite_count_per_product
             // );
-            console.log(data.total_favourite_count_per_product);
+            console.log(data.total_favorite_count_per_product);
         },
         error: function (error) {
             console.error("Error:", error);

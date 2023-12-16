@@ -27,7 +27,7 @@
         <div class="title pt-5">
             <span class="Deactive">Store / </span>
             <span class="Deactive"> Laptop / </span>
-            <span class="Active"> Dell XPS 9710 17 inch Core i7</span>
+            <span class="Active"> {{ $product->title }}</span>
         </div>
         <!-- Product-Details -->
         <div class="card-wrapper ">
@@ -52,11 +52,6 @@
                         </div>
                     </div>
                     <div class="img-select">
-                        <!-- @foreach($product->images as $image)
-                        <div class="img-item">
-                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}" class="img-fluid">
-                        </div>
-                        @endforeach -->
                         @foreach($product->images as $index => $image)
                         <div class="img-item">
                             <a href="#" data-id="{{ $index + 1 }}">
@@ -64,32 +59,11 @@
                             </a>
                         </div>
                         @endforeach
-
-                        <!-- <div class="img-item">
-                            <a href="#" data-id="1">
-                                <img src="{{asset('img/detail product 4.png')}}" alt="shoe image">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="2">
-                                <img src="{{asset('img/detail product 1.png')}}" alt="shoe image">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="3">
-                                <img src="{{asset('img/detail product 2.png')}}" alt="shoe image">
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <a href="#" data-id="4">
-                                <img src="{{asset('img/detail product 3.png')}}" alt="shoe image">
-                            </a>
-                        </div> -->
                     </div>
                 </div>
                 <!-- card right -->
                 <div class="product-content">
-                    <div class="product-title">{{ $product->name }}</div>
+                    <div class="product-title">{{ $product->title }}</div>
                     <div class="product-rating mt-3">
                         <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path id="Vector" d="M14.673 7.17173C15.7437 6.36184 15.1709 4.65517 13.8284 4.65517H11.3992C10.7853 4.65517 10.243 4.25521 10.0617 3.66868L9.33754 1.32637C8.9309 0.0110567 7.0691 0.0110564 6.66246 1.32637L5.93832 3.66868C5.75699 4.25521 5.21469 4.65517 4.60078 4.65517H2.12961C0.791419 4.65517 0.215919 6.35274 1.27822 7.16654L3.39469 8.78792C3.85885 9.1435 4.05314 9.75008 3.88196 10.3092L3.11296 12.8207C2.71416 14.1232 4.22167 15.1704 5.30301 14.342L7.14861 12.9281C7.65097 12.5432 8.34903 12.5432 8.85139 12.9281L10.6807 14.3295C11.7636 15.159 13.2725 14.1079 12.8696 12.8046L12.09 10.2827C11.9159 9.71975 12.113 9.10809 12.5829 8.75263L14.673 7.17173Z" fill="#FFAD33" />
@@ -111,39 +85,30 @@
                     </div>
 
                     <div class="product-price">
-                        <p class="last-price">{{ $product->price }}</p>
+                        <p class="last-price">${{ $product->price }}</p>
                     </div>
 
                     <div class="product-detail">
                         <div class="Description">Description </div>
                         <div class="infor">
-                            {{ $product->description }}
-                            <!-- <div>New 100%, Fullbox</div>
-                            <div>Color: Black CPU: i7-11800H (2.3GHz, 24MB cache, Up to 4.6GHz)</div>
-                            <div>RAM: 32GB DDR4-3200MHz</div>
-                            <div>Storage: 1TB M.2 PCIe NVMe SSD</div>
-                            <div>Display: 17.0″ UHD+ (3840 x 2400) InfinityEdge Touch</div>
-                            <div>Anti-Reflective 500-Nit Display</div>
-                            <div>GPU: NVIDIA® GeForce RTX™ 3050 Ti 4GB GDDR6</div>
-                            <div>Connectivity: 4x ThunderBolt 4, 1x SD slot, 3.5mm Jack </div>
-                            <div>Weight: 2.21 kg</div> -->
+                            {!! $product->description !!}
                         </div>
 
-                        <div class="Description mt-2 ">{{ $product->stock_quantity }} </div>
+                        <div class="Description mt-2 ">Quantity: {{ $product->quantity }} </div>
                     </div>
                     <div class="purchase-info ms-5 mt-3">
                         <div class="minus">-</div>
-                        <div class="num"> 0 </div>
+                        <div class="num"> 1 </div>
                         <div class="plus">+</div>
                     </div>
                     <hr class="mt-5">
                     <div class="btn1 buttons">
-                        <button class="btn" id="success">Add to cart </button>
+                        <button class="btn add-to-cart-btn" data-product-id="{{ $product->product_id }}" id="success">Add to cart </button>
                         <script>
                             const plus = document.querySelector(".plus"),
                                 minus = document.querySelector(".minus"),
                                 num = document.querySelector(".num");
-                            let a = 0;
+                            let a = 1;
                             plus.addEventListener("click", () => {
                                 a++;
                                 a = (a < 10) ? "" + a : a;
@@ -151,14 +116,14 @@
 
                             });
                             minus.addEventListener("click", () => {
-                                if (a > 0) {
+                                if (a > 1) {
                                     a--;
                                     a = (a < 10) ? "" + a : a;
                                     num.innerText = a;
                                 }
                             });
                         </script>
-                        <button>Buy now</button>
+                        <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
                     </div>
 
 
@@ -181,7 +146,7 @@
                         </div>
                         <div class="container-review">
                             <div class="reviewer mt-3">
-                            <div class="date">December 4, 2023 </div>
+                                <div class="date">December 4, 2023 </div>
                                 <div class="user row">
                                     <div class="col-1 avt">
                                         <img src="{{asset('img/user.png')}}">
@@ -201,13 +166,13 @@
                                 </div>
 
                                 <div class="img-fb mt-3">
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
                                 </div>
                             </div>
                             <div class="reviewer mt-3">
-                            <div class="date">December 4, 2023 </div>
+                                <div class="date">December 4, 2023 </div>
                                 <div class="user row">
                                     <div class="col-1 avt">
                                         <img src="{{asset('img/user.png')}}">
@@ -227,13 +192,13 @@
                                 </div>
 
                                 <div class="img-fb mt-3">
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
                                 </div>
                             </div>
                             <div class="reviewer mt-3">
-                            <div class="date">December 4, 2023 </div>
+                                <div class="date">December 4, 2023 </div>
                                 <div class="user row">
                                     <div class="col-1 avt">
                                         <img src="{{asset('img/HungPham.jpg')}}">
@@ -253,9 +218,9 @@
                                 </div>
 
                                 <div class="img-fb mt-3">
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
-                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}">  </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
+                                    <span class="me-2"> <img src="{{asset('img/feedback.png')}}"> </span>
                                 </div>
                             </div>
 

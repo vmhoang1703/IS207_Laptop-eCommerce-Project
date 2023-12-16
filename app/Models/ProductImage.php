@@ -11,6 +11,7 @@ class ProductImage extends Model
     public $incrementing = false;
     protected $table = 'product_images';
     protected $primaryKey = 'productimg_id';
+    protected $keyType = 'string';
     protected $fillable = [
         'product_id',
         'image_path',
