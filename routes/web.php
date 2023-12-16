@@ -60,20 +60,20 @@ Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('ab
 Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
 //Profile
 Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
-//Add to Cart
-Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
-Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
-Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
-Route::match(['get', 'post'], '/cart/payment', [CartController::class, 'showCartPaymentPage']);
-Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
-Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
-//Buy now
-Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
-Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
-Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
-Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
+// //Add to Cart
+// Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
+// Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+// Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+// Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+// Route::match(['get', 'post'], '/cart/payment', [CartController::class, 'showCartPaymentPage']);
+// Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
+// Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+// Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+// //Buy now
+// Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
+// Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
+// Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
+// Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
 
 //Blog
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
@@ -82,6 +82,20 @@ Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('cat
 
 
 Route::middleware(['auth'])->group(function () {
+    //Add to Cart
+    Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::match(['get', 'post'], '/cart/payment', [CartController::class, 'showCartPaymentPage']);
+    Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
+    Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+    //Buy now
+    Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
+    Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
+    Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
+    Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
     Route::get('/momo-payment', [MomoPaymentController::class, 'makePayment'])->name('momo.payment');
     // edit Profile
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
@@ -98,8 +112,6 @@ Route::middleware(['auth'])->group(function () {
 
     //Profile - history order 
     Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
-
-   
 });
 
 

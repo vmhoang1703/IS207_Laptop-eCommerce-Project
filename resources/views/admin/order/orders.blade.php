@@ -34,7 +34,8 @@
                         <th>Ordered date</th>
                         <th>Customer name</th>
                         <th>Total</th>
-                        <th>Status</th>
+                        <th>Order status</th>
+                        <th>Payment status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -46,7 +47,8 @@
                         <th>Ordered date</th>
                         <th>Customer name</th>
                         <th>Total</th>
-                        <th>Status</th>
+                        <th>Order status</th>
+                        <th>Payment status</th>
                         <th>Actions</th>
                     </tr>
                 </tfoot>
@@ -54,46 +56,21 @@
                     @foreach($orders as $index => $order)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $order->id }}</td>
-                        <td>{{ $order->product_name }}</td>
-                        <td>{{ $order->ordered_date }}</td>
-                        <td>{{ $order->customer_name }}</td>
-                        <td>{{ $order->total }}</td>
-                        <td>
-                            <form action="{{ route('order.update', $order->order_id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <select name="status" onchange="this.form.submit()">
-                                    <option value="Preparing" {{ $order->status == 'Preparing' ? 'selected' : '' }}>Preparing</option>
-                                    <option value="Shipping" {{ $order->status == 'Shipping' ? 'selected' : '' }}>Shipping</option>
-                                    <option value="Delivered" {{ $order->status == 'Delivered' ? 'selected' : '' }}>Delivered</option>
-                                </select>
-                            </form>
-                        </td>
+                        <td>{{ $order->order_id }}</td>
+                        <td>{{ $order->product->title }}</td>
+                        <td>{{ $order->created_at }}</td>
+                        <td>{{ $order->user->name }}</td>
+                        <td>${{ $order->total }}</td>
+                        <td>{{ $order->status }}</td>
+                        <td>{{ $order->payment_status }}</td>
                         <td>
                             @if(Auth::user()->role == 'admin')
-                            <a href="{{ route('category.delete', $category->category_id) }}" style="text-decoration: none;">
-                                <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
-                            </a>
-                            &nbsp;
-                            <a href="{{ route('category.edit', $category->category_id) }}" style="text-decoration: none;">
-                                <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
-                            </a>
-                            &nbsp;
-                            <a href="{{ route('category.view', $category->category_id) }}" style="text-decoration: none;">
+                            <a href="{{ route('order.view', $order->order_id) }}" style="text-decoration: none;">
                                 <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
                             </a>
-                            @elseif(Auth::user()->role == 'products_manager')
-                            <a href="{{ route('products_manager.category.delete', $category->category_id) }}" style="text-decoration: none;">
-                                <img src="{{ asset('img/delete.png') }}" alt="" width="20px" height="20px" />
-                            </a>
                             &nbsp;
-                            <a href="{{ route('products_manager.category.edit', $category->category_id) }}" style="text-decoration: none;">
-                                <img src="{{ asset('img/edit.png') }}" alt="" width="20px" height="20px" />
-                            </a>
-                            &nbsp;
-                            <a href="{{ route('products_manager.category.view', $category->category_id) }}" style="text-decoration: none;">
-                                <img src="{{ asset('img/show.png') }}" alt="" width="20px" height="20px" />
+                            <a href="#" class="edit-status" data-order-id="{{ $order->order_id }}" data-toggle="modal" data-target="#editStatusModal">
+                                <img src="{{ asset('img/edit.png') }}" alt="Edit" width="20px" height="20px" />
                             </a>
                             @endif
                         </td>
@@ -104,4 +81,48 @@
         </div>
     </div>
 </div>
+<!-- Edit Status Modal -->
+<div class="modal fade" id="editStatusModal" tabindex="-1" role="dialog" aria-labelledby="editStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editStatusModalLabel">Edit Order Status</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editStatusForm" action="#" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="editStatus">New Status</label>
+                        <select name="status" class="form-control" id="editStatus">
+                            <option value="Preparing">Preparing</option>
+                            <option value="Shipping">Shipping</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateOrderStatus()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var selectedOrderId;
+
+    $('.edit-status').on('click', function() {
+        selectedOrderId = $(this).data('order-id');
+    });
+
+    function updateOrderStatus() {
+        var newStatus = $('#editStatus').val();
+        $('#editStatusForm').attr('action', '/admin/orders-management/' + selectedOrderId);
+        $('#editStatusForm').submit();
+    }
+</script>
 @endsection

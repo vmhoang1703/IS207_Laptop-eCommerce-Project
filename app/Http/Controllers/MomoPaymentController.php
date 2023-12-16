@@ -85,7 +85,7 @@ class MomoPaymentController extends Controller
 
             $order = Order::find($orderId);
             if ($jsonResult['message'] == "Thành công.") {
-                $order->status = "paid";
+                $order->payment_status = "Paid";
                 $order->transaction_id = $jsonResult['responseTime'];
                 $order->save();
             }

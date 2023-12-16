@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('transaction_id');
             $table->integer('quantity')->default(1);
             $table->string('status');
+            $table->string('payment_status');
             $table->decimal('subtotal', 10, 2);
             $table->decimal('shipping', 10, 2);
             $table->decimal('total', 10, 2);
