@@ -92,37 +92,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editStatusForm" action="#" method="POST">
+                <form id="editStatusForm" action="{{ route('order.update', $order->order_id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label for="editStatus">New Status</label>
                         <select name="status" class="form-control" id="editStatus">
-                            <option value="Preparing">Preparing</option>
-                            <option value="Shipping">Shipping</option>
-                            <option value="Delivered">Delivered</option>
+                            @foreach($orderStatusOptions as $statusOption)
+                            <option value="{{ $statusOption }}" {{ $order->status == $statusOption ? 'selected' : '' }}>
+                                {{ $statusOption }}
+                            </option>
+                            @endforeach
                         </select>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="updateOrderStatus()">Save changes</button>
             </div>
         </div>
     </div>
 </div>
-<script>
-    var selectedOrderId;
-
-    $('.edit-status').on('click', function() {
-        selectedOrderId = $(this).data('order-id');
-    });
-
-    function updateOrderStatus() {
-        var newStatus = $('#editStatus').val();
-        $('#editStatusForm').attr('action', '/admin/orders-management/' + selectedOrderId);
-        $('#editStatusForm').submit();
-    }
-</script>
 @endsection
