@@ -100,7 +100,6 @@ function activateNavItem(element) {
       eyeIconShow.style.display = 'inline-block';
       eyeIconHide.style.display = 'none';
     }
-  });
-
+  }); 
   </script>
 </body>

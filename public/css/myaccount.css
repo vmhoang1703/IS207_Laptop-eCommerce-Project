@@ -136,7 +136,7 @@ body {
   /* lg */
   @media (min-width: 992px) and (max-width: 1400px) {
     .display-mobile-none{
-      display: none;
+      display: none !important;
      }
      .nav-mobile{
       display: block;
@@ -144,11 +144,28 @@ body {
      .last-name-and-address{
       margin-top: 24px;
     }
+
+    .nav {
+      display: none; /* Hide the navigation by default */
+    }
+  
+    /* Style for the icon that will be displayed */
+    .nav-icon {
+      display: block; /* Show the icon */
+      /* Add styles for the icon, for example, use a background image or an icon font */
+    }
+  
+    /* Show the navigation when the icon is clicked */
+    .nav-icon.active + .nav {
+      display: block;
+    }
+
+
   }
   /* md  min-width: 768px */
   @media (min-width: 577px) and (max-width: 991px) {
     .display-mobile-none{
-      display: none;
+      display: none !important;
      }
      .nav-mobile{
       display: block;
@@ -180,7 +197,7 @@ body {
   /* mobile */
   @media (max-width: 576px) {
     .display-mobile-none{
-      display: none;
+      display: none !important;
      }
      .nav-mobile{
       display: block;

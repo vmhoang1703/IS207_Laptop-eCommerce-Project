@@ -28,7 +28,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('profile.showHistoryOrder') }}" onclick="activateNavItem(this)">My Order History</a>
       </li>
-      <button data-toggle="modal" data-target="#logoutModal" class="btn-logout nav-title d-flex align-items-center gap-4">
+      <button data-toggle="modal" data-target="#logoutModal" class="btn-logout nav-title d-flex align-items-center gap-4 w-100">
         Log out
         <img src="{{ asset('img/Logout.svg') }}" alt="">
       </button>
