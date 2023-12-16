@@ -207,25 +207,25 @@ body {
     color: #000;
 }
 
-/* responsive */
-/* xl */
-@media (min-width: 1200px) {
+  /* responsive */
+  /* xl */
+  @media only screen and  (min-width: 1200px) {
     .form-control {
         width: 100% !important;
     }
     .padding-right-xl {
         padding-right: 30px;
     }
-}
-/* lg */
-@media (min-width: 992px) and (max-width: 1200px) {
+  }
+  /* lg */
+  @media only screen and  (min-width: 992px) and (max-width: 1200px) {
     .form-control {
         width: 100% !important;
         font-size: 22px;
     }
-}
-/* md  min-width: 768px */
-@media (min-width: 577px) and (max-width: 991px) {
+  }
+  /* md  min-width: 768px */
+  @media only screen and  (min-width: 577px) and (max-width: 991px) {
     .form-control {
         width: 100% !important;
         font-size: 20px;
@@ -236,9 +236,9 @@ body {
     .height-mobile-5 {
         height: 5px !important;
     }
-}
-/* mobile */
-@media (max-width: 576px) {
+  }
+  /* mobile */
+  @media only screen and  (max-width: 576px) {
     .form-control {
         width: 100% !important;
         font-size: 18px;

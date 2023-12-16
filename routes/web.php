@@ -152,6 +152,7 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/api/get-employee-chart-data', [ChartController::class, 'getEmployeeChartData']);
 });
 
+
 Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
     // Products Manager routes
     Route::get('/products_manager', [AdminController::class, 'showAdminPage'])->name('admin.show');
