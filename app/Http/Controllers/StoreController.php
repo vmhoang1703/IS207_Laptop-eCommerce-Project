@@ -7,14 +7,17 @@ use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Pagination\Paginator;
 
 class StoreController extends Controller
 {
     //
     public function showStorePage(): View
     {
-        // $products = Product::with('images')->get();
-        $products = Product::all();
+        $products = Product::paginate(15);
+        $products->withPath(url()->current());
+
+        Paginator::useBootstrap();
         return view('website.store', compact('products'));
     }
     public function filterProduct(Request $request)
