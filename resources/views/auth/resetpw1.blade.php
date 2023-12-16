@@ -16,7 +16,7 @@
       @component("components.header_signup")
       @endcomponent
     <!-- container -->
-    <div class="container mt-5">
+    <div class="container mt-5" style="margin: botom 200px;">
       <div class="row">
         <div class="col-lg-4 col-sm-12 mb-5"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 68 26" fill="none" class="back">
           <path d="M0.833683 11.9336C0.191564 12.5776 0.193087 13.6202 0.837085 14.2623L11.3317 24.7263C11.9757 25.3684 13.0183 25.3669 13.6604 24.7229C14.3025 24.0789 14.301 23.0363 13.657 22.3941L4.32848 13.0928L13.6298 3.76429C14.2719 3.12029 14.2704 2.07768 13.6264 1.43556C12.9824 0.793437 11.9398 0.79496 11.2977 1.43896L0.833683 11.9336ZM67.8638 11.3533L1.99734 11.4496L2.00216 14.7429L67.8686 14.6467L67.8638 11.3533Z" fill="black"/>
@@ -32,6 +32,9 @@
           </div>
         </form> </div>  </div>
     </div>
+     <!-- footer -->
+     @component("components.footer")
+        @endcomponent
 </body>
 
 </html>

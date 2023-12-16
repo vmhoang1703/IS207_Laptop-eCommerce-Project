@@ -57,9 +57,9 @@ function updateProducts() {
                                     </a>
                                 </div>
                                 <div class="card-action">
-                                    <div class="btn">
+                                    <div class="btn1 buttons">
                                         <button>Buy now</button>
-                                        <button>Add to cart</button>
+                                        <button class="btn" id="success">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="info-card">
@@ -91,3 +91,62 @@ function updateProducts() {
         },
     });
 }
+
+// Event delegation cho các phần tử được thêm mới vào DOM
+$(document).ready(function () {
+    $(document).on("click", ".heart1", function () {
+        var parentCard = $(this).closest(".card");
+        var productId = parentCard.data("id");
+
+        // Xử lý logic cho heart icon
+        if ($(this).css("fill") == "none") {
+            $(this).css("fill", "#DB4444");
+            $(this).css("stroke", "#DB4444");
+        } else {
+            $(this).css("fill", "none");
+            $(this).css("stroke", "black");
+        }
+
+        updateFavouriteCount(productId, $(this).css("fill") != "none");
+    });
+
+    $(document).on("click", ".btn.success", function () {
+        // Xử lý logic cho nút "Add to cart"
+        const notifications = document.querySelector(".notifications"),
+buttons = document.querySelectorAll(".buttons .btn");
+
+// Object containing details for different types of toasts
+const toastDetails = {
+    timer: 5000,
+    success: {
+        icon: 'fa-circle-check',
+        text: 'Đã thêm vào giỏ hàng ',
+    }
+}
+
+const removeToast = (toast) => {
+    toast.classList.add("hide");
+    if(toast.timeoutId) clearTimeout(toast.timeoutId); // Clearing the timeout for the toast
+    setTimeout(() => toast.remove(), 500); // Removing the toast after 500ms
+}
+
+const createToast = (id) => {
+    // Getting the icon and text for the toast based on the id passed
+    const { icon, text } = toastDetails[id];
+    const toast = document.createElement("li"); // Creating a new 'li' element for the toast
+    toast.className = `toast ${id}`; // Setting the classes for the toast
+    // Setting the inner HTML for the toast
+    toast.innerHTML = `<div class="column">
+                         <i class="fa-solid ${icon}"></i>
+                         <span>${text}</span> </div>
+                         <i class="fa-solid fa-xmark close" onclick="removeToast(this.parentElement)"></i>
+                    `;
+    notifications.appendChild(toast); // Append the toast to the notification ul
+    // Setting a timeout to remove the toast after the specified duration
+    toast.timeoutId = setTimeout(() => removeToast(toast), toastDetails.timer);
+}
+
+// Adding a click event listener to each button to create a toast when clicked
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => createToast(btn.id));
+});} ) } )

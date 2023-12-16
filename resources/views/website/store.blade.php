@@ -33,7 +33,7 @@
         <!-- main content -->
         <section class="main-content">
             <div class="container">
-                <div class="row pb-5">
+                <div class="row pb-5" style="width:100%">
                     <!-- filter bar & menu -->
                     <div class="col-lg-3 col-md-2  filter-responsive">
                         @component('components.filter_store')

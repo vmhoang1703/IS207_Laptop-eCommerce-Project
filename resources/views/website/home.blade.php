@@ -21,6 +21,8 @@
     <script src="js/carousel.js" defer> </script>
     <script src="js/range.js" defer></script>
     <script src="js/feedback_scroll.js" defer></script>
+    <script src="js/bootstrap.bundle.min.js"> </script>
+    <script src="{{asset('js/heart_action.js')}}"></script>
 
 
 </head>
@@ -317,8 +319,7 @@
     @component("components.toast")
     @endcomponent
 
-    <script src="js/bootstrap.bundle.min.js"> </script>
-    <script src="js/heart_action.js"></script>
+
 
 </body>
 

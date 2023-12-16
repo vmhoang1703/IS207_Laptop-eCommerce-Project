@@ -33,6 +33,9 @@
           </div>
         </form> </div>  </div>
     </div>
+     <!-- footer -->
+     @component("components.footer")
+        @endcomponent
 </body>
 
 </html>
