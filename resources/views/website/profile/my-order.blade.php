@@ -199,7 +199,7 @@
 
 
               <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3"> 
-               <input  class="type-check" type="text" placeholder=" Type other answer" name="Type-other-answer"  id="Type-other-answer"> </input>
+               <input  class="type-check" type="text" placeholder=" Type other answer" name="Type-other-answer"  id="Type-other-answer"> 
               </div>
 
             </div>

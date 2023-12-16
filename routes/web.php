@@ -65,6 +65,18 @@ Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
 Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
 Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
 
+ //Profile - My order 
+ Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
+
+ //Profile - cancellation order 
+ Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
+
+ //Profile - pre order 
+ Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
+
+ //Profile - history order 
+ Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
+
 Route::middleware(['auth'])->group(function () {
     //Route giao diện Order
     Route::get('/checkout/{id}', [OrderController::class, 'showCheckout'])->name('checkout.show');
@@ -75,17 +87,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
     Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
-    //Profile - My order 
-    Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
+    // //Profile - My order 
+    // Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
 
-    //Profile - cancellation order 
-    Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
+    // //Profile - cancellation order 
+    // Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
 
-    //Profile - pre order 
-    Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
+    // //Profile - pre order 
+    // Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
 
-    //Profile - history order 
-    Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
+    // //Profile - history order 
+    // Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
 
    
 });
@@ -130,6 +142,7 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
 });
+
 
 Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
     // Products Manager routes
