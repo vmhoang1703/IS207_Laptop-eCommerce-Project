@@ -34,6 +34,7 @@
           <div class="form-custommer-infor">
             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
             <input type="hidden" name="subtotal" id="subtotal" value="{{ $subtotal }}">
+            <input type="hidden" name="quantity" id="subtotal" value="{{ $quantity }}">
             <input type="hidden" name="selected_payment_method" id="selectedPaymentMethod" value="">
             <div class="mb-3 mt-3">
               <label for="fullname" class="form-label">Full Name:

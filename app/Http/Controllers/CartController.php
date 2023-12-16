@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartItem;
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -88,6 +92,109 @@ class CartController extends Controller
         return response()->json(['message' => 'Cart item not found in the cart'], 404);
     }
 
+    public function showCartPaymentPage(Request $request)
+    {
+        $cartItemIds = explode(',', $request->input('cartItemIds'));
+        $selectedCartItems = CartItem::whereIn('cartItem_id', $cartItemIds)->get();
+        $subtotal = 0;
+        foreach ($selectedCartItems as $cartItem) {
+            $mainImage = ProductImage::where('product_id', $cartItem->product->product_id)
+                ->where('is_main', 1)
+                ->first();
+
+            $cartItem->product->mainImage = $mainImage;
+            $subtotal += $cartItem->quantity * ($cartItem->product->price ?? 0);
+            $subtotal = number_format($subtotal, 2, '.', '');
+        }
+
+        return view('website.order_process.cart_payment', [
+            'selectedCartItems' => $selectedCartItems,
+            'subtotal' => $subtotal,
+        ]);
+    }
+
+    public function submitCartOrder(Request $request)
+    {
+        // Validate the request data
+        $validator = Validator::make($request->all(), [
+            'fullname' => 'required',
+            'street_address' => 'required',
+            'city' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            // 'cartItem_id' => 'required',
+            'subtotal' => 'required',
+            'selected_payment_method' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        try {
+            // Other data needed for the order
+            $cartItemIds = explode(',', $request->input('cartItem_id'));
+            Log::info('Submitted Cart Item IDs: ' . implode(',', $cartItemIds));
+            $selectedCartItems = CartItem::whereIn('cartItem_id', $cartItemIds)->get();
+
+            foreach ($selectedCartItems as $cartItem) {
+                $mainImage = ProductImage::where('product_id', $cartItem->product->product_id)
+                    ->where('is_main', 1)
+                    ->first();
+                $cartItem->product->mainImage = $mainImage;
+            }
+
+            // Calculate subtotal
+            $subtotal = 0;
+            foreach ($selectedCartItems as $cartItem) {
+                $subtotal += $cartItem->quantity * ($cartItem->product->price ?? 0);
+            }
+
+            do {
+                $order_id = $this->generateOrderId();
+            } while (Order::where('order_id', $order_id)->exists());
+
+            // Save the order to the database
+            $order = Order::create([
+                'order_id' => $order_id,
+                'user_id' => auth()->id(),
+                'product_id' => '',
+                'cartItem_id' => implode(',', $cartItemIds),
+                'quantity' => '',
+                'status' => 'pending',
+                'subtotal' => $subtotal,
+                'shipping' => 0,
+                'total' => $subtotal,
+                'promo' => 0,
+                'discount' => 0,
+                'fullname' => $request->input('fullname'),
+                'phone' => $request->input('phone'),
+                'email' => $request->input('email'),
+                'street_address' => $request->input('street_address'),
+                'number_address' => $request->input('number_address'),
+                'city' => $request->input('city'),
+                'province' => '',
+                'payment_method' => $request->input('selected_payment_method'),
+            ]);
+
+            // Redirect based on payment method
+            if ($order->payment_method === 'Pay in store') {
+                return redirect()->route('home.show')->with('success', 'Order placed successfully!');
+            } elseif ($order->payment_method === 'MoMo') {
+                return redirect()->route('momo.payment', ['order_id' => $order_id, 'subtotal' => $subtotal]);
+            }
+
+        } catch (\Exception $e) {
+            // Log the exception
+            Log::error('Exception in submitCartOrder: ' . $e->getMessage());
+    
+            // Return or redirect with an error message
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
     private function generateCartItemId(): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -96,5 +203,17 @@ class CartController extends Controller
             $cartItem_id .= $characters[rand(0, strlen($characters) - 1)];
         }
         return $cartItem_id;
+    }
+
+    private function generateOrderId(): string
+    {
+        // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $order_id = '';
+        for ($i = 0; $i < 6; $i++) {
+            $order_id .= $characters[rand(0, strlen($characters) - 1)];
+        }
+
+        return $order_id;
     }
 }

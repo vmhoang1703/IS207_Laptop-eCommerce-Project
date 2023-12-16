@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('order_id', 6)->primary();
             $table->string('product_id');
             $table->string('user_id');
+            $table->string('cartItem_id');
+            $table->string('transaction_id');
+            $table->integer('quantity')->default(1);
             $table->string('status');
             $table->decimal('subtotal', 10, 2);
             $table->decimal('shipping', 10, 2);

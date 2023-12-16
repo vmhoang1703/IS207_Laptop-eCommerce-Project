@@ -28,11 +28,9 @@
             </div>
             <div class="col-xxl-1 col-xl-1 col-lg-1"></div>
         </div>
-
-        @foreach ($cartItems as $cartItem)
-        @component("components.cartItem", ['cartItem' => $cartItem])
-        @endcomponent
-        @endforeach
+    </div>
+    @component("components.cartlist")
+    @endcomponent
 
 
         <div class=" ms-auto notice-error "></div>
