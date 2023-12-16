@@ -18,33 +18,35 @@
     @component("components.header")
     @endcomponent
 
-    <div class="head-title container-xxl d-lg-flex align-items-center justify-content-center mt-3 mb-3">
-        My account
+    <div class="head-title container-xxl container-xl container-lg container-md container-sm d-lg-flex align-items-center justify-content-center mt-3 mb-3">
+        My order
     </div>
-    <div class="container-xxl row">
-        <div class="container-xxl col-xxl-4">
-            @component("components.profile_lag_navbar")
+    <div class="container-xxl container-xl container-lg container-md container-sm row">
+        <div class="container-xxl container-xl container-lg container-md container-sm col-xxl-4 col-xl-4 col-lg-3 col-md-4 col-sm-4">
+            @component("components.profile_my-order_navbar")
             @endcomponent
         </div>
-        <div class="col-xxl-8">
-            <div class="  container-xxl box-infor d-flex flex-column gap-4">
+        <div class="col-xxl-8 col-xl-8 col-lg-9 col-md-8 col-sm-8">
+            <div class=" p-5  container-xxl container-xl container-lg container-md container-sm box-infor d-flex flex-column gap-4">
                 <div class="line-product-head row  ">
-                    <div class=" col-xxl-2 d-flex me-auto   ">
+                    <div class=" col-xxl-2 col-xl-2 col-lg-1 col-md-2 col-sm-2 d-flex  ">
                     </div>
-                    <div class="main-title  col-xxl-2 d-flex   ">
-                        <div class=" me-auto "> Product name </div>
+                    <div class="main-title  col-xxl-3 col-xl-3 col-lg-4 col-md-3 col-sm-3 d-flex   ">
+                        <div class="  "> Product name </div>
                     </div>
-                    <div class="main-title  col-xxl-2   ">
-                        <div class=" "> Quantity </div>
-                    </div>
-                    <div class="main-title  col-xxl-2   ">
-                        <div class=" "> Price </div>
-                    </div>
-                    <div class="main-title  col-xxl-2 d-flex   ">
-                        <div class=" "> Status </div>
-                    </div>
-                    <div class="main-title  col-xxl-2 d-flex   ">
-                        <div class=" "> Following </div>
+                    <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-7 col-sm-7 row ">
+                      <div class="main-title  col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3   ">
+                          <div class=" "> Quantity </div>
+                      </div>
+                      <div class="main-title  col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3   ">
+                          <div class=""> Price </div>
+                      </div>
+                      <div class="main-title  col-xxl-3 col-xl-3 col-lg-2 col-md-2 col-sm-3 d-flex   ">
+                          <div class=""> Status </div>
+                      </div>
+                      <div class="main-title  col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 d-flex   ">
+                          <div class=" ms-auto"> Following </div>
+                      </div>
                     </div>
                 </div>
                 <div class="  d-flex flex-column  gap-3 ">
