@@ -622,4 +622,114 @@ $(document).ready(function () {
             console.log(error);
         },
     });
+
+    //Dashboard
+    $.ajax({
+        url: "/api/get-earnings-overview-data",
+        method: "GET",
+        success: function (response) {
+            // Initialize Chart.js
+            var ctx = document.getElementById("myAreaChart").getContext("2d");
+            var myAreaChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: response.labels,
+                    datasets: [
+                        {
+                            label: "Earnings Overview",
+                            borderColor: "#4e73df",
+                            backgroundColor: "rgba(78, 115, 223, 0.05)",
+                            data: response.earnings,
+                            pointRadius: 5,
+                            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHitRadius: 20,
+                            pointBorderWidth: 2,
+                        },
+                    ],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 25,
+                            top: 25,
+                            bottom: 0,
+                        },
+                    },
+                    scales: {
+                        xAxes: [
+                            {
+                                time: {
+                                    unit: "month",
+                                },
+                                gridLines: {
+                                    display: false,
+                                    drawBorder: false,
+                                },
+                                ticks: {
+                                    maxTicksLimit: 12,
+                                },
+                                maxBarThickness: 25,
+                            },
+                        ],
+                        yAxes: [
+                            {
+                                ticks: {
+                                    min: 0,
+                                    maxTicksLimit: 5,
+                                    padding: 10,
+                                    callback: function (value, index, values) {
+                                        return "$" + value;
+                                    },
+                                },
+                                gridLines: {
+                                    color: "rgb(234, 236, 244)",
+                                    zeroLineColor: "rgb(234, 236, 244)",
+                                    drawBorder: false,
+                                    borderDash: [2],
+                                    zeroLineBorderDash: [2],
+                                },
+                            },
+                        ],
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    tooltips: {
+                        titleMarginBottom: 10,
+                        titleFontColor: "#6e707e",
+                        titleFontSize: 14,
+                        backgroundColor: "rgb(255,255,255)",
+                        bodyFontColor: "#858796",
+                        borderColor: "#dddfeb",
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        caretPadding: 10,
+                        callbacks: {
+                            label: function (tooltipItem, chart) {
+                                var datasetLabel =
+                                    chart.datasets[tooltipItem.datasetIndex]
+                                        .label || "";
+                                return (
+                                    datasetLabel +
+                                    ": $" +
+                                    tooltipItem.yLabel.toFixed(2)
+                                );
+                            },
+                        },
+                    },
+                },
+            });
+        },
+        error: function (error) {
+            console.log(error);
+        },
+    });
 });

@@ -22,10 +22,18 @@ class AdminController extends Controller
     {
         $user = Auth::user();
 
+        $monthlyEarnings = Order::where('status', 'Completed')
+            ->whereMonth('created_at', now()->month)
+            ->sum('total');
+
+        $annualEarnings = Order::where('status', 'Completed')
+            ->whereYear('created_at', now()->year)
+            ->sum('total');
+
         $totalProductsSold = Order::where('status', 'completed')->sum('quantity');
         $customersCount = User::where('role', 'customer')->count();
 
-        return view('admin.dashboard', compact('user', 'totalProductsSold', 'customersCount'));
+        return view('admin.dashboard', compact('user', 'monthlyEarnings', 'annualEarnings', 'totalProductsSold', 'customersCount'));
     }
     public function showTablesPage(): View
     {

@@ -162,9 +162,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/api/get-customer-registration-data', [ChartController::class, 'getCustomerRegistrationData']);
     Route::get('/api/get-customer-knownFrom-data', [ChartController::class, 'getCustomerKnownFromData']);
     Route::get('/api/get-employee-chart-data', [ChartController::class, 'getEmployeeChartData']);
-    Route::get('/api/get-revenue-data', [ChartController::class, 'getRevenueData']); 
-    Route::get('/api/get-products-sold', [ChartController::class, 'getProductssold']);
-   
+    Route::get('/api/get-revenue-data', [ChartController::class, 'getRevenueData']);
+    Route::get('/api/get-earnings-overview-data', [ChartController::class, 'getEarningsOverviewData']);
+
 });
 
 

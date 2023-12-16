@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -109,5 +110,23 @@ class ChartController extends Controller
         $revenue = $revenueData->pluck('total_revenue')->toArray();
 
         return response()->json(compact('labels', 'revenue'));
+    }
+
+    public function getEarningsOverviewData()
+    {
+        $earningsData = Order::selectRaw('MONTH(created_at) as month, SUM(total) as earnings')
+            ->where('status', 'Completed')
+            ->groupByRaw('MONTH(created_at)')
+            ->get();
+
+        $labels = [];
+        $earnings = [];
+
+        foreach ($earningsData as $data) {
+            $labels[] = Carbon::createFromDate(null, $data->month, null)->format('F');
+            $earnings[] = $data->earnings;
+        }
+
+        return response()->json(compact('labels', 'earnings'));
     }
 }
