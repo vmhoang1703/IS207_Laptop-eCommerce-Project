@@ -44,7 +44,7 @@
                     <a href="{{ route('aboutus.show') }}">ABOUT US </a>
                 </div>
                 <div class="menu-header ps-5 ">
-                    <a href="#">CONTACT </a>
+                    <a href="{{ route('contactus.show') }}">CONTACT </a>
                 </div>
                 </div>
                 <div class="signup col-lg-2 col-md-12">
@@ -62,7 +62,7 @@
                         <li><a href="{{ route('store.show') }}"> STORE </a></li>
                         <li><a href="#"> BLOG </a></li>
                         <li><a href="{{ route('aboutus.show') }}" style="white-space:nowrap"> ABOUT US </a></li>
-                        <li><a href="#"> CONTACT </a></li>
+                        <li><a href="{{ route('contactus.show') }}"> CONTACT </a></li>
                     </ul>
                 </div>
 

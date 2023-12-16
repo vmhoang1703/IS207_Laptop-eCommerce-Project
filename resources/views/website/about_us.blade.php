@@ -16,8 +16,13 @@
 </head>
 
 <body>
-    @component('components.header_signup')
+    @if(Auth::check())
+    @component("components.header")
     @endcomponent
+    @else
+    @component("components.header_signup")
+    @endcomponent
+    @endif
     <div class="row container-aboutus">
         <div class="row col-12 col-lg-12 col-md-12 col-sm-12 container-fluid container-text " style="margin-top: 5%;">
             <div class="offset-1 col-10 col-lg-5 col-md-10 col-sm-10 pt-5">
@@ -33,14 +38,14 @@
             </div>
         </div>
         <div class="row col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center" style="padding: 100px 0 100px;">
-            <div class="row col-12 col-lg-10 col-md-10 col-sm-12 container-service-aboutus " >
+            <div class="row col-12 col-lg-10 col-md-10 col-sm-12 container-service-aboutus ">
                 <div class="col-4 col-sm-4 col-md-2 col-lg-2 service-aboutus">
                     <img src="{{ asset('img/Services(3).png') }}" alt="">
                     <p><strong>10.5k </strong><br> Sellers active our site</p>
                 </div>
                 <div class="col-4 col-sm-4 col-md-2 col-lg-2 service-aboutus" style="background-color: #DB4444;">
                     <img src="{{ asset('img/Services(4).png') }}" alt="">
-                    <p class="text-white" ><strong>33k </strong><br>Monthly Product Sale</p>
+                    <p class="text-white"><strong>33k </strong><br>Monthly Product Sale</p>
                 </div>
                 <div class="col-4 col-sm-4 col-md-2 col-lg-2 service-aboutus">
                     <img src="{{ asset('img/Services(5).png') }}" alt="">
@@ -56,4 +61,5 @@
     @component('components.footer')
     @endcomponent
 </body>
+
 </html>

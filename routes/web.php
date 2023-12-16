@@ -91,18 +91,23 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
     Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+
     //Buy now
     Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
     Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
     Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
     Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
     Route::get('/momo-payment', [MomoPaymentController::class, 'makePayment'])->name('momo.payment');
+
     // edit Profile
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
     Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
     //Profile - My order 
     Route::get('/profile/myorder', [ProfileController::class, 'showMyOrderPage'])->name('myorder.show');
+    Route::get('/order-details', [ProfileController::class, 'getOrderDetails']);
+    Route::get('/check-order-status', [ProfileController::class, 'checkOrderStatus']);
+    Route::post('/cancel-order', [ProfileController::class, 'cancelOrder']);
 
     //Profile - cancellation order 
     Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');

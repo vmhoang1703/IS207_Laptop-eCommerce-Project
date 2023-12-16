@@ -16,6 +16,11 @@ class OrdersManagementController extends Controller
     {
         $orders = Order::all();
         $orderStatusOptions = ['Pending', 'Preparing', 'In delivery', 'Delivered', 'Completed'];
+
+        foreach($orders as $order) {
+            $product = Product::find($order->product_id);
+            
+        }
         return view('admin.order.orders', compact('orders', 'orderStatusOptions'));
     }
 
@@ -28,7 +33,7 @@ class OrdersManagementController extends Controller
     public function updateOrder(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required|in:Pending,Preparing,In delivery,Delivered,Completed',
+            'status' => 'required',
         ]);
 
         $order = Order::find($id);

@@ -42,7 +42,7 @@ class ProductsManagementController extends Controller
             'CPU' => 'required',
             'RAM' => 'required',
             'storage' => 'required',
-            'event' => 'required|in:None,Flash Sales',
+            'event' => 'required',
         ]);
 
         try {

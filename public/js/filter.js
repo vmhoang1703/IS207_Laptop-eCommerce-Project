@@ -52,14 +52,14 @@ function updateProducts() {
                                     </svg>
                                 </div>
                                 <div class="img">
-                                    <a href="/store/${product.product_id}" style="text-decoration: none;">
-                                        <img src="${mainImagePath}" alt="${product.title}" style="height: 150px; width: 190px">
+                                    <a href="/store/${product.slug}" style="text-decoration: none;">
+                                        <img src="${mainImagePath}" alt="${product.title}" style="height: 150px; width: 150px">
                                     </a>
                                 </div>
                                 <div class="card-action">
-                                    <div class="btn">
+                                    <div class="btn1 buttons">
                                         <button>Buy now</button>
-                                        <button>Add to cart</button>
+                                        <button class="add-to-cart-btn btn" id="success" data-product-id="${product.product_id}">Add to cart</button>
                                     </div>
                                 </div>
                                 <div class="info-card">

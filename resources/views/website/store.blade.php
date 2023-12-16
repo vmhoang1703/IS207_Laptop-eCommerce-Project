@@ -27,14 +27,19 @@
 
 <body>
     <!-- header -->
+    @if(Auth::check())
     @component("components.header")
     @endcomponent
+    @else
+    @component("components.header_signup")
+    @endcomponent
+    @endif
 
     <section class="maincontain">
         <!-- main content -->
         <section class="main-content">
             <div class="container">
-                <div class="row pb-5">
+                <div class="row pb-5" style="width: 100%;">
                     <!-- filter bar & menu -->
                     <div class="col-lg-3 col-md-2  filter-responsive">
                         @component('components.filter_store')
@@ -77,6 +82,11 @@
         @endcomponent
 
         <script src="js/heart_action.js"></script>
+        <script>
+            var csrfToken = "{{ csrf_token() }}";
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="{{ asset('js/addToCart.js') }}"></script>
 </body>
 
 </html>
