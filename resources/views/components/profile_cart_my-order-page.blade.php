@@ -252,16 +252,26 @@
                 success: function(data) {
                     var orderStatus = data.status;
                     if (orderStatus === 'Pending' || orderStatus === 'Preparing') {
-                        // Show the "cancel_step_1" modal
                         $('#' + modalId + ' #cancel_step_1').removeClass('d-none');
-                        $('#' + modalId + ' #cancel_step_2').addClass('d-none');
-                        $('#' + modalId + ' #cancel_step_3').addClass('d-none');
-                        $('#' + modalId + ' #cancel_step_4').addClass('d-none');
-                        $('#' + modalId).modal('show');
+                        $('#' + modalId + ' #confirm_btn').on('click', function() {
+                            $('#' + modalId + ' #cancel_step_1').addClass('d-none');
+                            $('#' + modalId + ' #cancel_step_2').removeClass('d-none');
+                            $('#' + modalId + ' #return_btn').addClass('d-none');
+                            $('#' + modalId + ' #confirm_btn').addClass('d-none');
+                            $('#' + modalId + ' #proceed_btn').removeClass('d-none');
+
+                            $('#' + modalId + ' #proceed_btn').on('click', function() {
+                                $('#' + modalId + ' #cancel_step_2').addClass('d-none');
+                                $('#confirm_btn').addClass('d-none');
+                                $('#' + modalId + ' #cancel_step_3').removeClass('d-none');
+                                $('#' + modalId + ' #return_btn').removeClass('d-none');
+                                $('#' + modalId + ' #proceed_btn').addClass('d-none');
+                            })
+                        })
                     } else {
-                        // Handle the case where the order cannot be canceled
-                        // You can show a different modal or display a message to the user
-                        alert('Cannot cancel order with status: ' + orderStatus);
+                        $('#' + modalId + ' #cancel_step_1').addClass('d-none');
+                        $('#confirm_btn').addClass('d-none');
+                        $('#' + modalId + ' #cancel_step_4').removeClass('d-none');
                     }
                 },
                 error: function(error) {
