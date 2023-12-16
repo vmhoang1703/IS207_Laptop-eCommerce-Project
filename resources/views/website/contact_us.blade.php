@@ -16,8 +16,13 @@
 </head>
 
 <body>
-    @component('components.header_signup')
+    @if(Auth::check())
+    @component("components.header")
     @endcomponent
+    @else
+    @component("components.header_signup")
+    @endcomponent
+    @endif
 
     <div class="row mb-5">
         <h1 class="row col-lg-12 col-md-12 col-sm-12 title-contact-us mt-3 mb-3"> Contact us</h1>

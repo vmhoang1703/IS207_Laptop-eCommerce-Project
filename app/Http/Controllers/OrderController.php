@@ -100,7 +100,8 @@ class OrderController extends Controller
                 'transaction_id' => '',
                 'cartItem_id' => '',
                 'quantity' => $quantity,
-                'status' => 'pending',
+                'status' => 'Pending',
+                'payment_status' => 'Unpaid',
                 'subtotal' => $subtotal,
                 'shipping' => 0,
                 'total' => $subtotal,
@@ -137,5 +138,9 @@ class OrderController extends Controller
         }
 
         return $order_id;
+    }
+    public function showPreorderPage():View
+    {
+        return view('website.oder_process.preorder');
     }
 }

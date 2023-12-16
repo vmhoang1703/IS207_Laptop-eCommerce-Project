@@ -11,7 +11,7 @@ class CheckRole
     {
         // Check if the user has any of the specified roles
         if (!$request->user() || !$request->user()->hasAnyRole(...$roles)) {
-            abort(403, 'Unauthorized action.');
+            abort(403, "You don't have access");
         }
 
         return $next($request);

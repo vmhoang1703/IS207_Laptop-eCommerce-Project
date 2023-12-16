@@ -21,8 +21,13 @@
 
 <body>
     <!-- header -->
+    @if(Auth::check())
     @component("components.header")
     @endcomponent
+    @else
+    @component("components.header_signup")
+    @endcomponent
+    @endif
     <div class="container mb-5">
         <div class="title pt-5">
             <span class="Deactive">Store / </span>

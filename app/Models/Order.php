@@ -19,6 +19,7 @@ class Order extends Model
         'transaction_id',
         'quantity',
         'status', 
+        'payment_status', 
         'subtotal', 
         'shipping',
         'total', 

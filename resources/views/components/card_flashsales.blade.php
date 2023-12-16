@@ -11,7 +11,7 @@
     <div class="card-action">
         <div class="btn1 buttons">
             <button onclick="location.href='#'" >Buy now</button>
-            <button class="btn" id="success">Add to cart</button>
+            <button class="add-to-cart-btn btn" id="success" data-product-id="{{ $product->product_id }}">Add to cart</button>
         </div>
     </div>
     <div class="info-card">

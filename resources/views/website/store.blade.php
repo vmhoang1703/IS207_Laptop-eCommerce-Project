@@ -27,21 +27,28 @@
 
 <body>
     <!-- header -->
+    @if(Auth::check())
     @component("components.header")
     @endcomponent
+    @else
+    @component("components.header_signup")
+    @endcomponent
+    @endif
+
     <section class="maincontain">
         <!-- main content -->
         <section class="main-content">
             <div class="container">
-                <div class="row pb-5">
+                <div class="row pb-5" style="width: 100%;">
                     <!-- filter bar & menu -->
                     <div class="col-lg-3 col-md-2  filter-responsive">
                         @component('components.filter_store')
                         @endcomponent
                     </div>
+
                     <!-- Store -->
                     <div class="col-lg-9 col-md-10  fix mt-5">
-                        <div class="store " >
+                        <div class="store ">
                             <div class="carousel_store carousel ">
                                 @foreach($products as $product)
                                 @component('components.card', ['product' => $product])
@@ -50,22 +57,36 @@
                                 <!-- ----------------------------------------- -->
                             </div>
                         </div>
+
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $products->links('vendor.pagination.bootstrap-4') }}
+                        </div>
+                        <!-- /Pagination -->
+
                     </div>
-        </section>
-        <div class="box">
-            <div class="pagination">
-                <ul>
-                    <!-- trong script -->
-                </ul>
+                </div>
             </div>
+        </section>
+
+        <div class="box">
+            <!-- ... (your box content) ... -->
         </div>
+
         <!-- footer -->
         @component("components.footer")
         @endcomponent
+
         <!-- - -->
         @component("components.toast")
-    @endcomponent
+        @endcomponent
+
         <script src="js/heart_action.js"></script>
+        <script>
+            var csrfToken = "{{ csrf_token() }}";
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="{{ asset('js/addToCart.js') }}"></script>
 </body>
 
 </html>

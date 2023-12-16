@@ -53,6 +53,49 @@ class ProfileController extends Controller
         return view('website.profile.my-order', compact('orders'));
     }
 
+    public function getOrderDetails(Request $request)
+    {
+        $orderId = $request->get('orderId');
+        $order = Order::with('product.images')->find($orderId);
+
+        if (!$order) {
+            return response()->json(['error' => 'Order not found'], 404);
+        }
+
+        $data = [
+            'order_id' => $order->order_id,
+            'product' => [
+                'title' => $order->product->title,
+            ],
+            'quantity' => $order->quantity,
+            'total' => $order->total,
+        ];
+
+        return response()->json($data);
+    }
+
+    public function checkOrderStatus(Request $request)
+    {
+        $orderId = $request->input('orderId');
+        $order = Order::find($orderId);
+
+        if ($order) {
+            return response()->json(['status' => $order->status]);
+        } else {
+            return response()->json(['status' => 'error']);
+        }
+    }
+
+    public function cancelOrder(Request $request)
+    {
+        $orderId = $request->input('orderId');
+        $note = $request->input('reason');
+
+        
+
+        return response()->json(['success' => true]);
+    }
+
     public function showMyCancellationPage(): View
     {
         // Lấy thông tin người dùng hiện tại
