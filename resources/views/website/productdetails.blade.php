@@ -92,32 +92,23 @@
                         <div class="Description">Description </div>
                         <div class="infor">
                             {!! $product->description !!}
-                            <!-- <div>New 100%, Fullbox</div>
-                            <div>Color: Black CPU: i7-11800H (2.3GHz, 24MB cache, Up to 4.6GHz)</div>
-                            <div>RAM: 32GB DDR4-3200MHz</div>
-                            <div>Storage: 1TB M.2 PCIe NVMe SSD</div>
-                            <div>Display: 17.0″ UHD+ (3840 x 2400) InfinityEdge Touch</div>
-                            <div>Anti-Reflective 500-Nit Display</div>
-                            <div>GPU: NVIDIA® GeForce RTX™ 3050 Ti 4GB GDDR6</div>
-                            <div>Connectivity: 4x ThunderBolt 4, 1x SD slot, 3.5mm Jack </div>
-                            <div>Weight: 2.21 kg</div> -->
                         </div>
 
                         <div class="Description mt-2 ">Quantity: {{ $product->quantity }} </div>
                     </div>
                     <div class="purchase-info ms-5 mt-3">
                         <div class="minus">-</div>
-                        <div class="num"> 0 </div>
+                        <div class="num"> 1 </div>
                         <div class="plus">+</div>
                     </div>
                     <hr class="mt-5">
                     <div class="btn1 buttons">
-                        <button class="btn" id="success">Add to cart </button>
+                        <button class="btn add-to-cart-btn" data-product-id="{{ $product->product_id }}" id="success">Add to cart </button>
                         <script>
                             const plus = document.querySelector(".plus"),
                                 minus = document.querySelector(".minus"),
                                 num = document.querySelector(".num");
-                            let a = 0;
+                            let a = 1;
                             plus.addEventListener("click", () => {
                                 a++;
                                 a = (a < 10) ? "" + a : a;
@@ -125,7 +116,7 @@
 
                             });
                             minus.addEventListener("click", () => {
-                                if (a > 0) {
+                                if (a > 1) {
                                     a--;
                                     a = (a < 10) ? "" + a : a;
                                     num.innerText = a;

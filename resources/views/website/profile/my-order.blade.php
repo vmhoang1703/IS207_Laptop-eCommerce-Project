@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,74 +13,73 @@
    
     <title>My order</title>
 </head>
-<body class="d-flex flex-column align-items-center" >
+
+<body class="d-flex flex-column align-items-center">
     @component("components.header")
     @endcomponent
 
-    <div
-    class="head-title container-xxl d-lg-flex align-items-center justify-content-center mt-3 mb-3"
-  >
-    My account
-  </div>
-  <div class="container-xxl row">
-    <div class="container-xxl col-xxl-4">
-        @component("components.profile_lag_navbar")
-        @endcomponent
+    <div class="head-title container-xxl d-lg-flex align-items-center justify-content-center mt-3 mb-3">
+        My account
     </div>
-    <div class="col-xxl-8">
-        <div class="  container-xxl box-infor d-flex flex-column gap-4">
-            <div class="line-product-head row  ">
-                <div class=" col-xxl-2 d-flex me-auto   ">
-                </div>
-                <div class="main-title  col-xxl-2 d-flex   ">
-                    <div class=" me-auto "> Product name </div>
-                </div>
-                <div class="main-title  col-xxl-2   ">
-                    <div class=" "> Quantity </div>
-                </div>
-                <div class="main-title  col-xxl-2   ">
-                    <div class=" "> Price </div>
-                </div>
-                <div class="main-title  col-xxl-2 d-flex   ">
-                    <div class=" "> Status </div>
-                </div>
-                <div class="main-title  col-xxl-2 d-flex   ">
-                    <div class=" "> Following </div>
-                </div>
-            </div>
-            <div class="  d-flex flex-column  gap-3 ">
-              
-                @component("components.profile_cart_my-order-page")
-                @endcomponent
-
-            </div>
-
-
+    <div class="container-xxl row">
+        <div class="container-xxl col-xxl-4">
+            @component("components.profile_lag_navbar")
+            @endcomponent
         </div>
-
-        <!--  -->
-    <!-- Button trigger modal -->
-
-  
-  <!-- Modal -->
-  <div class="modal fade" id="delivery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Following</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        <div class="modal-body">
-          <div class="container d-flex flex-column justify-content-center">
-            <div class="card-item row">
-                <div class=" col-xxl-2">
-                    <img  class=" product-img " src="../Screen_3/18051e29a0086c873a703c6861f2eefb.jpg" alt=" ">
+        <div class="col-xxl-8">
+            <div class="  container-xxl box-infor d-flex flex-column gap-4">
+                <div class="line-product-head row  ">
+                    <div class=" col-xxl-2 d-flex me-auto   ">
+                    </div>
+                    <div class="main-title  col-xxl-2 d-flex   ">
+                        <div class=" me-auto "> Product name </div>
+                    </div>
+                    <div class="main-title  col-xxl-2   ">
+                        <div class=" "> Quantity </div>
+                    </div>
+                    <div class="main-title  col-xxl-2   ">
+                        <div class=" "> Price </div>
+                    </div>
+                    <div class="main-title  col-xxl-2 d-flex   ">
+                        <div class=" "> Status </div>
+                    </div>
+                    <div class="main-title  col-xxl-2 d-flex   ">
+                        <div class=" "> Following </div>
+                    </div>
                 </div>
-                <div class=" col-xxl-8 d-flex flex-column gap-2">
-                    <div class=" card-item-name ">Dell XPS 9710 17 inch Core i7</div>
-                    <div class=" card-item-id ">ID: dkgnlsjg</div>
-                    <div class=" card-item-quantity ">Quantity: 1</div>
-                    <div class=" card-item-price "> 2000$</div>
+                <div class="  d-flex flex-column  gap-3 ">
+                    @foreach ($orders as $order)
+                    @component("components.profile_cart_my-order-page",  ['order' => $order])
+                    @endcomponent
+                    @endforeach
+                </div>
+
+
+            </div>
+
+            <!--  -->
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="delivery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Following</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container d-flex flex-column justify-content-center">
+                                <div class="card-item row">
+                                    <div class=" col-xxl-2">
+                                        <img class=" product-img " src="../Screen_3/18051e29a0086c873a703c6861f2eefb.jpg" alt=" ">
+                                    </div>
+                                    <div class=" col-xxl-8 d-flex flex-column gap-2">
+                                        <div class=" card-item-name ">Dell XPS 9710 17 inch Core i7</div>
+                                        <div class=" card-item-id ">ID: dkgnlsjg</div>
+                                        <div class=" card-item-quantity ">Quantity: 1</div>
+                                        <div class=" card-item-price "> 2000$</div>
 
                 </div>
             </div>
@@ -248,9 +248,10 @@
 
 
 
-     <!-- footer -->
-   @component("components.footer")
-   @endcomponent
-   <script src=" {{ asset('js/my-order.js') }}"></script>
+    <!-- footer -->
+    @component("components.footer")
+    @endcomponent
+    <script src=" {{ asset('js/my-order.js') }}"></script>
 </body>
+
 </html>

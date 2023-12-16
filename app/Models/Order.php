@@ -15,14 +15,15 @@ class Order extends Model
         'order_id', 
         'product_id', 
         'user_id', 
+        'cartItem_id',
+        'transaction_id',
+        'quantity',
         'status', 
         'subtotal', 
-        'tax', 
         'shipping',
         'total', 
         'promo', 
         'discount', 
-        'grandtotal', 
         'fullname', 
         'phone', 
         'email',
@@ -31,6 +32,7 @@ class Order extends Model
         'city', 
         'province', 
         'note',
+        'payment_method'
     ];
 
     protected $casts = [

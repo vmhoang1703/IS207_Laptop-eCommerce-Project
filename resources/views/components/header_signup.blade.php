@@ -48,7 +48,7 @@
                 </div>
                 </div>
                 <div class="signup col-lg-2 col-md-12">
-                    <button class="btn-signup"> Sign up </button>
+                    <button onclick="location.href='/register'" class="btn-signup"> Sign up </button>
                 </div>
             </div>
             <div class="row">

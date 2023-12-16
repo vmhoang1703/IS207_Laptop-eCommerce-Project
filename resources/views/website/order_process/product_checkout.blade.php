@@ -21,7 +21,7 @@
         <ul id="myBreadcrumb" class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Cửa hàng </a></li>
             <li class="breadcrumb-item"><a href="#">Laptop </a></li>
-            <li class="breadcrumb-item"><a href="#">{{ $product-> name }}</a></li>
+            <li class="breadcrumb-item"><a href="#">{{ $product-> title }}</a></li>
             <li class="breadcrumb-item active">Buy now</li>
         </ul>
     </div>
@@ -42,7 +42,7 @@
                     <a class="card flex-row col-xxl-4 col-xl-4  col-lg-4 col-md-4 col-sm-4  " id="product-img" href="">
                         <img src="{{ asset($mainImage->image_path) }}" class="card-img-left product-img">
                         <div class="card-body">
-                            <p id="product-name" class="card-title product-title mobile-font-size-14 ">{{ $product->name }}</p>
+                            <p id="product-name" class="card-title product-title mobile-font-size-14 ">{{ $product->title }}</p>
                         </div>
                     </a>
                     <div class="text-center  col-xxl-3 col-xl-3  col-lg-3  col-md-3 col-sm-3  d-flex align-items-center justify-content-center ">$<div id=" product-price">{{ $product->price }}</div>
@@ -50,7 +50,7 @@
                     <div class="text-center col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 update-quantity">
                         <input type="number" class="input-quantity mobile-font-size-14 " id="quantityInput" value="1" min="1">
                     </div>
-                    <div class="text-center col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  d-flex align-items-center justify-content-center">$<div id="subtotal-price">{{ $product->price }}</div>
+                    <div class="text-center col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  d-flex align-items-center justify-content-center">$<div class="subtotal-price">{{ $product->price }}</div>
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@
                             <div class="cart-mobile-infor-price" id=" product-price-mobile"> ${{ $product->price }} </div>
                             <div class="input-quantity-mobile d-flex">
                                 <span class="minus d-flex justify-content-center align-items-center" onclick="decreaseQuantity()">-</span>
-                                <input type="text" value="1" readonly="readonly" id="quantityInput-mobile">
+                                <input type="text" value="1" readonly="readonly" id="quantityInput-mobile" oninput="updateSubtotal()">
                                 <span class="plus d-flex justify-content-center align-items-center" onclick="increaseQuantity()">+</span>
                             </div>
                         </div>
@@ -89,25 +89,25 @@
                         <div class="cart-total"> Cart Total </div>
                         <div class="total-infor__subtotal row mt-2 ">
                             <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6  text-start mobile-font-size-14"> Subtotal: </div>
-                            <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div id="subtotal-price">{{ $product->price }} </div>
-                        </div>
-                        <div class="line-grey mt-2 mb-3"></div>
-                        <div class="total-infor__shipping row mt-2 ">
-                            <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Shipping: </div>
-                            <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> Free </div>
-                        </div>
-                        <div class="line-grey mt-2 mb-3"></div>
-                        <div class="total-infor__total row mt-2 ">
-                            <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Total: </div>
-                            <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div id="subtotal-price">{{ $product->price }} </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button id="total-infor-btn__checkout" type="button" class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14 ">Checkout</button>
+                            <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
+                            </div>
+                            <div class="line-grey mt-2 mb-3"></div>
+                            <div class="total-infor__shipping row mt-2 ">
+                                <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Shipping: </div>
+                                <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> Free </div>
+                            </div>
+                            <div class="line-grey mt-2 mb-3"></div>
+                            <div class="total-infor__total row mt-2 ">
+                                <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Total: </div>
+                                <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button id="total-infor-btn__checkout" type="button" class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14" data-update-subtotal="{{ $product->price }}" data-quantity="1">Checkout</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </form>
 
     <!-- Footer -->

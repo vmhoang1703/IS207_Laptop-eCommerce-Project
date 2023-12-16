@@ -1,11 +1,14 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
     var paymentMethodBtn = document.getElementById("paymentMethodBtn");
-    var methodDisplayName = document.querySelector("#paymentMethodBtn .method-name");
-    var methodChangeBtn = document.querySelector("#paymentMethodBtn .method-change");
+    var methodDisplayName = document.querySelector(
+        "#paymentMethodBtn .method-name"
+    );
+    var methodChangeBtn = document.querySelector(
+        "#paymentMethodBtn .method-change"
+    );
     var btnAgree = document.getElementById("btn-agree");
     var methodImg = document.getElementById("method-img-main");
+    var selectedMethodInput = document.getElementById("selectedPaymentMethod");
 
     var selectedMethod = ""; // Variable to store the selected payment method
     var selectedImgSrc = ""; // Variable to store the selected image source
@@ -26,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Get the method image source and store it in the variable
             selectedImgSrc = methodLine.querySelector(".method-img").src;
+
+            // Set the value of the selectedPaymentMethod input field
+            selectedMethodInput.value = selectedMethod;
         });
     });
 

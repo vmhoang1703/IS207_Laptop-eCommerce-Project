@@ -16,7 +16,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MomoPaymentController;
 use App\Http\Controllers\StoreController;
 
 /*
@@ -58,46 +60,44 @@ Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('ab
 Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
 //Profile
 Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
-//Cart
+//Add to Cart
 Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::match(['get', 'post'], '/cart/payment', [CartController::class, 'showCartPaymentPage']);
+Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
+//Buy now
+Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
+Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
+Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
+Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
+
 //Blog
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
 Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
 Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
 
- //Profile - My order 
- Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
-
- //Profile - cancellation order 
- Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
-
- //Profile - pre order 
- Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
-
- //Profile - history order 
- Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
 
 Route::middleware(['auth'])->group(function () {
-    //Route giao diện Order
-    Route::get('/checkout/{id}', [OrderController::class, 'showCheckout'])->name('checkout.show');
-    Route::get('/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
-    Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
-
+    Route::get('/momo-payment', [MomoPaymentController::class, 'makePayment'])->name('momo.payment');
     // edit Profile
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
     Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
-    // //Profile - My order 
-    // Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
+    //Profile - My order 
+    Route::get('/profile/myorder', [ProfileController::class, 'showMyOrderPage'])->name('myorder.show');
 
-    // //Profile - cancellation order 
-    // Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
+    //Profile - cancellation order 
+    Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
 
-    // //Profile - pre order 
-    // Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
+    //Profile - pre order 
+    Route::get('/profile/preorder', [ProfileController::class, 'showMyPreOderPage'])->name('profile.showPreOrder');
 
-    // //Profile - history order 
-    // Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
+    //Profile - history order 
+    Route::get('/profile/history', [ProfileController::class, 'showMyHistoryOderPage'])->name('profile.showHistoryOrder');
 
    
 });
@@ -130,6 +130,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
     // Orders management
     Route::get('/admin/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('orders.management');
+    Route::get('/admin/orders-management/{id}/view', [OrdersManagementController::class, 'viewOrderPage'])->name('order.view');
+    Route::get('/admin/orders-management/{id}/edit', [OrdersManagementController::class, 'editOrderPage'])->name('order.edit');
+    Route::put('/admin/orders-management/{id}', [OrdersManagementController::class, 'updateOrder'])->name('order.update');
 
     // Users management
     Route::get('/admin/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('customers.management');
@@ -141,6 +144,12 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin/employees-management/{id}/edit', [UsersManagementController::class, 'editEmployeePage'])->name('employee.edit');
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
+
+    //Chart
+    Route::get('/api/get-total-products-data-by-category', [ChartController::class, 'getTotalProductsDataByCategory']);
+    Route::get('/api/get-customer-registration-data', [ChartController::class, 'getCustomerRegistrationData']);
+    Route::get('/api/get-customer-knownFrom-data', [ChartController::class, 'getCustomerKnownFromData']);
+    Route::get('/api/get-employee-chart-data', [ChartController::class, 'getEmployeeChartData']);
 });
 
 

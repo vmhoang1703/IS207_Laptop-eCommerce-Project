@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/cartlist.css') }}">
-    <script src="{{ asset('js/cartlist.js')}}" defer> </script>
 
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
-<body class="d-flex flex-column align-items-center" >
+
+<body class="d-flex flex-column align-items-center">
     @component("components.header")
     @endcomponent
 
@@ -35,12 +34,16 @@
     <div class=" ms-auto notice-error "></div>
     <button type="button" class=" ms-auto mt-1 btn-payment btn btn-danger" onclick="proceedToPayment()">Proceed to payment</button>
 
-   
-</form>
 
+    </form>
+    @component("components.footer")
+    @endcomponent
 
-
-@component("components.footer")
-@endcomponent
+    <script>
+        var csrfToken = "{{ csrf_token() }}";
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ asset('js/cartlist.js')}}" defer> </script>
 </body>
+
 </html>
