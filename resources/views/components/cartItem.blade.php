@@ -1,6 +1,6 @@
 <div class="line-item d-flex align-items-center row mt-3 container-xxl">
     <div class="col-xxl-1">
-        <input class="form-check-input" type="checkbox" value="" id="check-box-item">
+        <input class="form-check-input checkbox-item" type="checkbox" value="" data-id="{{ $cartItem->cartItem_id }}">
     </div>
     <label for="check-box-item" class="form-check-label row col-xxl-11 border-box-item d-flex align-items-center pe-5 ps-5">
         <a href="#" class="product-infor d-flex gap-2 col-xxl-4 table-title text-start">

@@ -21,7 +21,7 @@
       </li>
       <h3 class="nav-title">My Orders</h3>
       <li class="nav-item">
-        <a class="nav-link" href="#" onclick="activateNavItem(this)">My Order</a>
+        <a class="nav-link" href="{{ route('myorder.show') }}" onclick="activateNavItem(this)">My Order</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" onclick="activateNavItem(this)">My Pre-order</a>

@@ -17,7 +17,7 @@
     @component("components.header")
     @endcomponent
 
-    <form id="myForm" action=" " class="container-xxl list-item d-flex flex-column  gap-2">
+    <form id="myForm" action="" method="post" class="container-xxl list-item d-flex flex-column  gap-2">
         <div class=" d-flex align-items-center row mt-3 mb-3 container-xxl">
             <div class="col-xxl-1"></div>
             <div class=" row col-xxl-11 border-box  d-flex align-items-center pe-5 ps-5">
@@ -33,9 +33,8 @@
         @endcomponent
         @endforeach
 
-
         <div class=" ms-auto notice-error "></div>
-        <button type="button" class=" ms-auto mt-1 btn-payment btn btn-danger" onclick="proceedToPayment()">Proceed to payment</button>
+        <button type="button" class="ms-auto mt-1 btn-payment btn btn-danger">Proceed to payment</button>
 
 
     </form>

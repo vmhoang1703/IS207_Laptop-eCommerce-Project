@@ -21,7 +21,7 @@ class OrderController extends Controller
             ->first();
 
 
-        return view('website.order_process.order_show', compact('product', 'mainImage'));
+        return view('website.order_process.product_checkout', compact('product', 'mainImage'));
     }
 
     public function showPaymentPage(Request $request, $id)
@@ -38,7 +38,7 @@ class OrderController extends Controller
             // Định dạng $subtotal với định dạng decimal(10,2)
             $subtotal = number_format($subtotal, 2, '.', '');
         }
-        return view('website.order_process.order_payment', compact('product', 'mainImage', 'quantity', 'subtotal'));
+        return view('website.order_process.product_payment', compact('product', 'mainImage', 'quantity', 'subtotal'));
     }
 
     public function updateQuantity(Request $request)
@@ -69,6 +69,7 @@ class OrderController extends Controller
             'email' => 'required|email',
             'product_id' => 'required',
             'subtotal' => 'required',
+            'quantity' => 'required',
             'selected_payment_method' => 'required',
         ]);
 
@@ -96,6 +97,9 @@ class OrderController extends Controller
                 'order_id' => $order_id,
                 'product_id' => $productId,
                 'user_id' => auth()->id(),
+                'transaction_id' => '',
+                'cartItem_id' => '',
+                'quantity' => $quantity,
                 'status' => 'pending',
                 'subtotal' => $subtotal,
                 'shipping' => 0,
@@ -112,7 +116,7 @@ class OrderController extends Controller
                 'payment_method' => $payment_method,
             ]);
             // Redirect based on payment method
-            if ($payment_method === 'pay_in_store') {
+            if ($payment_method === 'Pay in store') {
                 return redirect()->route('home.show');
             } elseif ($payment_method === 'MoMo') {
                 return redirect()->route('momo.payment', ['order_id' => $order_id, 'subtotal' => $subtotal]);

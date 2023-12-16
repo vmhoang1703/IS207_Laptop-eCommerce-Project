@@ -14,12 +14,14 @@ $(document).ready(function () {
             return;
         }
 
-        // Additional validation logic if needed
-
-        // If all conditions are met, proceed to payment
-        alert("Proceed to payment successfully!");
-        // For actual redirection, you can use window.location.href
-        // window.location.href = "URL của trang thanh toán";
+        var selectedCartItemIds = [];
+        checkedCheckboxes.each(function () {
+            var cartItemId = $(this).data("id");
+            selectedCartItemIds.push(cartItemId);
+        });
+        $("#myForm").append('<input type="hidden" name="cartItemIds" value="' + selectedCartItemIds.join(',') + '">');
+        $("#myForm").attr("action", "/cart/payment");
+        $("#myForm").submit();
     });
 });
 
@@ -63,7 +65,9 @@ function deleteCartItem(cartItemId) {
         },
         success: function (data) {
             // Remove the deleted cart item from the UI
-            var deletedCartItem = document.querySelector('.line-item[data-id="' + cartItemId + '"]');
+            var deletedCartItem = document.querySelector(
+                '.line-item[data-id="' + cartItemId + '"]'
+            );
             if (deletedCartItem) {
                 deletedCartItem.remove();
             }
@@ -73,4 +77,3 @@ function deleteCartItem(cartItemId) {
         },
     });
 }
-

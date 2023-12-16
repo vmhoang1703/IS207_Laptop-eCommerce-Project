@@ -65,6 +65,8 @@ Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::match(['get', 'post'], '/cart/payment', [CartController::class, 'showCartPaymentPage']);
+Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
 Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
 //Buy now
@@ -86,7 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
     //Profile - My order 
-    Route::get('/profile/myoder', [ProfileController::class, 'showMyOrderPage'])->name('profile.showorder');
+    Route::get('/profile/myorder', [ProfileController::class, 'showMyOrderPage'])->name('myorder.show');
 
     //Profile - cancellation order 
     Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');

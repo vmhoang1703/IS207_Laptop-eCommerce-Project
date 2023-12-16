@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\ProductImage;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -36,10 +38,19 @@ class ProfileController extends Controller
     // show my order
     public function showMyOrderPage(): View
     {
-        // Lấy thông tin người dùng hiện tại
-        // $user = Auth::user();
+        $orders = Order::where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('website.profile.my-order');
+        foreach ($orders as $order) {
+            $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                ->where('is_main', 1)
+                ->first();
+
+            $order->product->mainImage = $mainImage;
+        }
+
+        return view('website.profile.my-order', compact('orders'));
     }
 
     public function showMyCancellationPage(): View

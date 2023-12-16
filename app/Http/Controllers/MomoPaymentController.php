@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
@@ -39,12 +40,13 @@ class MomoPaymentController extends Controller
     {
         $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
 
+        $amount = $request->input('subtotal') * 25000;
 
         $partnerCode = 'MOMOBKUN20180529';
         $accessKey = 'klm05TvNBzhg7h7j';
         $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
         $orderInfo = "E-lec World - Thanh toán qua MoMo";
-        $amount = "10000";
+        // $amount = "$amount";
         $orderId = $request->input('order_id');
         $redirectUrl = "http://127.0.0.1:8000/";
         $ipnUrl = "http://127.0.0.1:8000/";
@@ -80,6 +82,13 @@ class MomoPaymentController extends Controller
         } else {
             // dd($result);  // Debugging output
             $jsonResult = json_decode($result, true);
+
+            $order = Order::find($orderId);
+            if ($jsonResult['message'] == "Thành công.") {
+                $order->status = "paid";
+                $order->transaction_id = $jsonResult['responseTime'];
+                $order->save();
+            }
 
             // Just an example, please check more in there
             return redirect()->to($jsonResult['payUrl']);
