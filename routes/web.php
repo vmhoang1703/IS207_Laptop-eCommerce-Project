@@ -162,12 +162,15 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/api/get-customer-registration-data', [ChartController::class, 'getCustomerRegistrationData']);
     Route::get('/api/get-customer-knownFrom-data', [ChartController::class, 'getCustomerKnownFromData']);
     Route::get('/api/get-employee-chart-data', [ChartController::class, 'getEmployeeChartData']);
+    Route::get('/api/get-revenue-data', [ChartController::class, 'getRevenueData']); 
+    Route::get('/api/get-products-sold', [ChartController::class, 'getProductssold']);
+   
 });
 
 
 Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
     // Products Manager routes
-    Route::get('/products_manager', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/products_manager', [AdminController::class, 'showAdminPage'])->name('products_manager.show');
     // Categories management
     Route::get('/products-manager/categories-management', [CategoriesManagementController::class, 'showCategoriesManagementPage'])->name('products_manager.categories.management');
     Route::get('/products-manager/categories-management/create', [CategoriesManagementController::class, 'createCategoryPage'])->name('products_manager.category.create');
@@ -189,7 +192,7 @@ Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:sales'])->group(function () {
     // Sales routes
-    Route::get('/sales', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/sales', [AdminController::class, 'showAdminPage'])->name('sales.show');
     // Orders management
     Route::get('/sales/orders-management', [OrdersManagementController::class, 'showOrdersManagementPage'])->name('sales.orders.management');
 
@@ -200,13 +203,13 @@ Route::middleware(['auth', 'checkRole:sales'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:accounting'])->group(function () {
     // Accounting routes
-    Route::get('/accounting', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/accounting', [AdminController::class, 'showAdminPage'])->name('accounting.show');
     // Revenue management
 });
 
 Route::middleware(['auth', 'checkRole:marketing'])->group(function () {
     // Marketing routes
-    Route::get('/marketing', [AdminController::class, 'showAdminPage'])->name('admin.show');
+    Route::get('/marketing', [AdminController::class, 'showAdminPage'])->name('marketing.show');
     // Customers management
     Route::get('/marketing/customers-management', [UsersManagementController::class, 'showCustomersManagementPage'])->name('marketing.customers.management');
     Route::get('/marketing/customers-management/{id}/view', [UsersManagementController::class, 'viewCustomerPage'])->name('marketing.customer.view');

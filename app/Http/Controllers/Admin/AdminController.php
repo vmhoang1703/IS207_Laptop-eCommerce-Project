@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +18,14 @@ class AdminController extends Controller
         $user = Auth::user();
         return view('admin.welcome', compact('user'));
     }
-    public function showDashboardPage(): View
+    public function showDashboardPage()
     {
         $user = Auth::user();
-        return view('admin.dashboard', compact('user'));
+
+        $totalProductsSold = Order::where('status', 'completed')->sum('quantity');
+        $customersCount = User::where('role', 'customer')->count();
+
+        return view('admin.dashboard', compact('user', 'totalProductsSold', 'customersCount'));
     }
     public function showTablesPage(): View
     {

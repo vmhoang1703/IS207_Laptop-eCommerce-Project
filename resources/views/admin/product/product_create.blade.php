@@ -264,7 +264,7 @@
             <div class="form-group">
                 <label for="event">Event:</label>
                 <select name="event" class="form-control">
-                    <option value="none" {{ old('event') == 'None' ? 'selected' : '' }}>None</option>
+                    <option value="None" {{ old('event') == 'None' ? 'selected' : '' }}>None</option>
                     <option value="Flash Sales" {{ old('event') == 'Flash Sales' ? 'selected' : '' }}>Flash Sales</option>
                 </select>
             </div>
