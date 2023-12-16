@@ -5,7 +5,7 @@
         @if ($product->images->where('is_main', 1)->isNotEmpty())
         <img src="{{ asset($product->images->where('is_main', 1)->first()->image_path) }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
         @else
-        <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->name }}" style="height: 150px; width: 190px">
+        <img src="{{ asset('img/logo.jpg') }}" alt="{{ $product->title }}" style="height: 150px; width: 190px">
         @endif
     </div>
     <div class="card-action">
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="info-card">
-        <div class="productname">{{ $product->name }}</div>
+        <div class="productname">{{ $product->title }}</div>
         <div class="cost"> {{ $product->price }}$ <span class="discount">{{ $product->oldPrice }}$</span></div>
         <div class="star-bar">
             <span class="fa fa-star star"></span>

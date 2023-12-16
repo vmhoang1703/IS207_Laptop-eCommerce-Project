@@ -29,8 +29,13 @@
 
 <body>
     <!-- header -->
+    @if(Auth::check())
+    @component("components.header")
+    @endcomponent
+    @else
     @component("components.header_signup")
     @endcomponent
+    @endif
     <!-- main content -->
     <section class="main-content">
         <div class="header-content">
@@ -311,10 +316,10 @@
     </section>
 
     <section style="margin-top: 150px;">
-      <!-- footer -->
-      @component("components.footer")
-    @endcomponent
-    <!-- - -->
+        <!-- footer -->
+        @component("components.footer")
+        @endcomponent
+        <!-- - -->
     </section>
     @component("components.toast")
     @endcomponent

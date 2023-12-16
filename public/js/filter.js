@@ -11,7 +11,7 @@ function updateProducts() {
 
     // Lấy giá trị các lựa chọn từ filter
     var filters = {};
-    $(".menu-bar input:checked").each(function () {
+    $('.menu-bar input[type="checkbox"]:checked').each(function () {
         var category = $(this).attr("name");
         var value = $(this).val();
         if (!filters[category]) {
@@ -53,7 +53,7 @@ function updateProducts() {
                                 </div>
                                 <div class="img">
                                     <a href="/store/${product.product_id}" style="text-decoration: none;">
-                                        <img src="${mainImagePath}" alt="${product.name}" style="height: 150px; width: 190px">
+                                        <img src="${mainImagePath}" alt="${product.title}" style="height: 150px; width: 190px">
                                     </a>
                                 </div>
                                 <div class="card-action">
@@ -64,9 +64,9 @@ function updateProducts() {
                                 </div>
                                 <div class="info-card">
                                     <a href="${product.detail_route}" style="text-decoration: none; color: black">
-                                        <div class="productname">${product.name}</div>
+                                        <div class="productname">${product.title}</div>
                                     </a>
-                                    <div class="cost">${product.price}$ <span class="discount">${product.oldPrice}$</span></div>
+                                    <div class="cost">${product.price}$ <span class="discount">$</span></div>
                                     <div class="star-bar">
                                         <span class="fa fa-star star"></span>
                                         <span class="fa fa-star star"></span>

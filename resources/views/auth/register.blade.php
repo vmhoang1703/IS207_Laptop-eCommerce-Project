@@ -28,8 +28,17 @@
                 </div>
                 <form action="{{ route('register.send') }}" method="POST" class="input_info_signup">
                     @csrf
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <input type="text" name="name" placeholder="Name" class="fullname ">
-                    <input type="text" name="username" placeholder="Username" class="username">
+                    <!-- <input type="text" name="username" placeholder="Username" class="username"> -->
                     <input type="email" name="email" placeholder="Email" class="email">
                     <input type="password" name="password" placeholder="Password" class="password">
                     <input type="password" name="password_confirmation" placeholder="Confirm password" class="confirm_password">
