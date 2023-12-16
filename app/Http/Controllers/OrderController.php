@@ -139,4 +139,8 @@ class OrderController extends Controller
 
         return $order_id;
     }
+    public function showPreorderPage():View
+    {
+        return view('website.oder_process.preorder');
+    }
 }
