@@ -13,11 +13,11 @@
     <ul class="navbar-nav">
       <h3 class="nav-title">Manage My Account</h3>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#" onclick="activateNavItem(this)">My Profile</a>
+        <a class="nav-link" aria-current="page" href="{{ route('profile.show') }}" onclick="activateNavItem(this)">My Profile</a>
       </li>
       <h3 class="nav-title">My Orders</h3>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('myorder.show') }}" onclick="activateNavItem(this)">My Order</a>
+        <a class="nav-link  active " href="#" onclick="activateNavItem(this)">My Order</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('profile.showPreOrder') }}" onclick="activateNavItem(this)">My Pre-order</a>

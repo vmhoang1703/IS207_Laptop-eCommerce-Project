@@ -26,7 +26,7 @@
   </div>
   <div class="container-xxl row">
     <div class="container-xxl col-xxl-4">
-        @component("components.profile_lag_navbar")
+        @component("components.profile_cancel-order_navbar")
         @endcomponent
     </div>
     <div class="col-xxl-8">

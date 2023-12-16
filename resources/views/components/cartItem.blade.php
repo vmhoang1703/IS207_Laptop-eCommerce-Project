@@ -1,9 +1,9 @@
 <div class="line-item d-flex align-items-center row mt-3 container-xxl">
-    <div class="col-xxl-1">
+    <div class=" input_row col-xxl-1  col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 ">
         <input class="form-check-input checkbox-item" type="checkbox" value="" data-id="{{ $cartItem->cartItem_id }}">
     </div>
-    <label for="" class="form-check-label row col-xxl-10 border-box-item d-flex align-items-center pe-5 ps-5 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 ">
-        <a href="#" class="  align-item-cart product-infor d-flex gap-2 col-xxl-4 col-xl-4 col-lg-5  table-title text-start">
+    <label for="" class="form-check-label row  border-box-item d-flex align-items-center pe-5 ps-5 col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 ">
+        <a href="#" class="  align-item-cart product-infor gap-2 col-xxl-4 col-xl-4 col-lg-5  table-title text-start">
             <img class="product-img" src="{{ asset($cartItem->product->images->where('is_main', 1)->first()->image_path) }}" alt="">
             <h3 class="product-name text-start">{{ $cartItem->product->title }}</h3>
         </a>
