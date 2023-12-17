@@ -321,10 +321,12 @@
     </section>
     @component("components.toast")
     @endcomponent
-
+    <script>
+        var csrfToken = "{{ csrf_token() }}";
+    </script>
     <script src="js/bootstrap.bundle.min.js"> </script>
     <script src="js/heart_action.js"></script>
-
+    <script src="{{ asset('js/addToCart.js') }}"></script>
 </body>
 
 </html>

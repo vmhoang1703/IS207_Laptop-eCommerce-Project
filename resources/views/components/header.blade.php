@@ -36,7 +36,7 @@
                      <a href="{{ route('store.show') }}">STORE </a>
                  </div>
                  <div class="menu-header ps-5 " style="white-space: nowrap;">
-                     <a href="#">BLOG </a>
+                     <a href="{{ route('blog.show') }}">BLOG </a>
                  </div>
                  <div class="menu-header ps-5 " style="white-space: nowrap;">
                      <a href="{{ route('aboutus.show') }}">ABOUT US </a>
@@ -88,7 +88,7 @@
                  <ul class="menu-bar menu-text">
                      <li><a href="{{ route('home.show') }}"> HOME </a></li>
                      <li> <a href="{{ route('store.show') }}"> STORE </a></li>
-                     <li><a href="#"> BLOG </a></li>
+                     <li><a href="{{ route('blog.show') }}"> BLOG </a></li>
                      <li><a href="{{ route('aboutus.show') }}" style="white-space:nowrap"> ABOUT US </a></li>
                      <li><a href="{{ route('contactus.show') }}"> CONTACT </a></li>
                  </ul>

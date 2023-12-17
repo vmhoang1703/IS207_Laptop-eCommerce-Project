@@ -108,6 +108,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/order-details', [ProfileController::class, 'getOrderDetails']);
     Route::get('/check-order-status', [ProfileController::class, 'checkOrderStatus']);
     Route::post('/cancel-order', [ProfileController::class, 'cancelOrder']);
+    Route::post('/update-order-status', [ProfileController::class, 'updateStatus']);
 
     //Profile - cancellation order 
     Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
