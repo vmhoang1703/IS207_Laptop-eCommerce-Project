@@ -1,0 +1,443 @@
+body {
+    font-family: Poppins;
+}
+
+.text-start {
+    white-space: nowrap;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #000;
+    opacity: 0.5;
+}
+
+.breadcrumb {
+    width: 100%;
+}
+
+.title-form {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 1.44px;
+    color: #000000;
+}
+
+.form-custommer-infor label:not(.exclude) {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 0.6;
+}
+
+.form-custommer-infor input:not(.exclude) {
+    width: 470px;
+    height: 50px;
+    border-radius: 4px;
+    background: var(--Secondary, #F5F5F5);
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    right: 8.85cm;
+    height: 24px;
+    width: 24px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+/* Show the checkmark when checked */
+.form-check-label input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Show the checkmark when checked */
+.form-check-labe input:checked~.checkmark:after {
+    display: block;
+}
+
+/* On mouse-over, add a grey background color */
+.form-check-label:hover input~.checkmark {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-check-label input:checked~.checkmark {
+    background-color: #ff2840;
+    border-radius: 4px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Style the checkmark/indicator */
+.form-check-label .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.infor-payment {
+    color: var(--Text2, #000);
+    font-size: 19.849px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29.773px;
+}
+
+.line-grey {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    opacity: 0.4;
+}
+
+.product-tite {
+
+    gap: 15px;
+}
+
+.product-img {
+    transition: transform 0.3s ease-in-out;
+    border-radius: 4px;
+}
+
+.product-img:hover {
+    transform: scale(1.1);
+}
+
+/* Đảm bảo cửa sổ modal hiển thị ở giữa trang */
+.modal-dialog {
+    margin: auto;
+}
+
+/* Đặt chiều rộng cho cửa sổ modal */
+.modal-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.modal-content {
+    margin: auto;
+    width: 600px;
+    height: 700px;
+}
+
+.modal-title {
+    color: #000;
+
+    text-align: center;
+    font-family: Poppins;
+    font-size: 21.891px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16.294px;
+}
+
+.modal-bs5-none {
+    justify-content: initial !important;
+}
+
+.method-line {
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(145, 158, 171, .239);
+    gap: 15px;
+    padding: 10px 15px;
+    position: relative;
+    transition: .1s ease;
+}
+
+.method-line__active {
+    border: 1px solid #ff2840 !important;
+}
+.btn-preorder
+{
+    width: 200px;
+}
+
+#paymentMethodBtn {
+    border: none;
+    /* Bỏ border */
+    background-color: transparent;
+    /* Bỏ background color */
+    padding: 0;
+    /* Bỏ padding để không giữ lại khoảng trắng xung quanh nội dung */
+    cursor: pointer;
+    /* Biến con trỏ thành kiểu pointer khi di chuột qua nút */
+}
+
+#paymentMethodBtn:focus {
+    outline: none;
+    /* Bỏ viền khi button được focus */
+}
+
+.modal-body {
+    max-width: 506px;
+    overflow-y: auto;
+}
+
+.modalS {
+    --bs-modal-width: 708px !important;
+}
+.img_succeed
+{
+    width: 180px;
+    height: 180px;
+    margin: 90px 260px 0 260px;
+}
+.text_succeed
+{
+    text-align: center;
+}
+
+.text_succeed .heading
+{
+    font-weight: bold;
+}
+
+.text_succeed .description
+{
+    font-weight: 500;
+    font-size: 16px ;
+    font-weight: bold;
+}
+.btn_succeed
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn_succeed button
+{
+    width: 263px;
+    height: 58px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    background: #115AAF;
+    font-size: 14px;
+
+}
+
+
+/* responsive */
+/* xl */
+@media (min-width: 1200px) {
+
+    .form-control {
+        width: 100% !important;
+    }
+
+    .padding-right-xl {
+        padding-right: 30px;
+
+    }
+
+}
+
+@media screen and (max-width: 700px){
+    .modalS {
+        --bs-modal-width: 500px !important;
+    }
+    .modalS .modal-dialog .toggle
+    {
+        width: 500px !important;
+    }
+
+    .modalS  .modal-dialog .toggle .img_succeed
+    {
+        margin: 90px 260px 0px 170px !important   ;
+    }
+    .btn_succeed button
+{
+    width: 200px;
+    height: 58px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    background: #115AAF;
+    font-size: 14px;
+}
+}
+
+
+/* lg */
+@media (min-width: 992px) {
+    .form-control {
+        width: 100% !important;
+        font-size: 22px;
+    }
+}
+
+/* md  min-width: 768px */
+@media (min-width: 577px) {
+
+    .form-control {
+        width: 100% !important;
+        font-size: 20px;
+    }
+
+    .margin-left-mobile-0 {
+        margin-left: 0 !important;
+    }
+
+    .height-mobile-5 {
+        height: 5px !important;
+    }
+
+}
+
+/* mobile */
+@media (max-width: 576px) {
+
+    .form-control {
+        width: 100% !important;
+        font-size: 18px;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .title-form {
+        font-size: 25px;
+    }
+
+    .form-custommer-infor label:not(.exclude) {
+
+        font-size: 14px;
+    }
+
+    .form-custommer-infor input:not(.exclude) {
+        height: 35px;
+    }
+
+    .infor-payment {
+        font-weight: 350;
+        line-height: 25px;
+        margin-top: 16px !important;
+    }
+
+    .product-img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .text-mobile-size-14 {
+        font-size: 14px;
+    }
+
+    .margin-left-mobile-0 {
+        margin-left: 0 !important;
+    }
+
+    .margin-top-mobile-16 {
+        margin-top: 16px !important;
+    }
+
+    .total-infor__subtotal {
+        margin-top: 0 !important;
+    }
+
+    .line-grey {
+        margin-top: 8px !important;
+    }
+
+    .img-mobile-40x40 {
+        height: 40px !important;
+        width: 40px !important;
+    }
+
+    .payment-method {
+        margin-top: 0;
+    }
+
+    .modal-content {
+        width: 400px;
+        height: 500px;
+        margin-bottom: 0 !important;
+    }
+
+    .method-img {
+        height: 40px !important;
+        width: 40px !important;
+    }
+
+    .modal-header {
+        height: 50px !important;
+    }
+
+    .modal-body {
+        max-width: 506px;
+        overflow-y: auto;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .height-mobile-5 {
+        height: 5px !important;
+    }
+
+    .mobile-w100 {
+        width: 100%;
+    }
+
+    .modal.fade .modal-dialog {
+        transform: translate(0, 100%);
+    }
+
+    .modal.show .modal-dialog {
+        transform: translate(0, 0);
+    }
+
+    .modal-backdrop {
+        transform: translate(0, -100%);
+    }
+
+    .btn_succeed button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 58px;
+        border: none;
+        outline: none;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 8px;
+        background: #115AAF;
+        font-size: 14px;
+
+    }
+
+}

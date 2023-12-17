@@ -8,23 +8,34 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
-
+    use Notifiable;
+    protected $table = 'users';
+    public $incrementing = false;
+    protected $primaryKey = 'user_id';
+    protected $keyType = 'string';
     protected $fillable = [
+        'user_id',
         'name',
-        'username',
         'password',
         'google_id',
         'email',
         'phone',
-        'ident',
-        'avatarLink',
         'role',
         'knownFrom',
-        'momoWallet_id',
+        'date_of_birth',
+        'address',
+        'department',
+        'position',
+        'salary',
+        'hire_date',
     ];
 
     protected $hidden = [
         'provider_name', 'provider_id', 'password', 'remember_token',
     ];
+
+    public function hasAnyRole(...$roles)
+    {
+        return in_array($this->role, $roles);
+    }
 }

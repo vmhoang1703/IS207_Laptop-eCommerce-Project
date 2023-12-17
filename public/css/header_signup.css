@@ -1,60 +1,327 @@
-.top_header {
-    align-items: center;
-    background-color: #115AAF;
-    padding: 10px;
-  }
-  
-  .text_topheader {
-    text-align: right;
-  }
-  .container_nav{
-    padding: 10px;
-    align-items: center;
-    border-bottom: 1px solid #333;
-  }
-  .header_logo{
-    display: block;
-    align-items: center;
-  
-  }
-  .logo {
+/* header */
+
+.header {
+    font-family: "Poppins", sans-serif;
     width: 100%;
-    height: 48px;
-    margin-bottom: 5px;
-    display: block;
   }
-  
-  .nameee {
-    font-size: 9.75px;
-    position: relative;
-    left: 75%;
+
+  .Top-header {
+    background-color: #115AAF;
+    width: 100%;
+    height: 10%;
+    color: #FAFAFA;
+    font-size: 14px;
   }
-  
-  .menu {
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    flex: 0.7;
-    position: relative;
-    margin: auto;
+  .SSS
+  {
+    margin-left: 20% ;
+    color: white;
+
   }
-  
-  .nav-link {
-    font-size: 16px;
-    font-weight: 400;
-    display: inline-block;
-    background-position: left bottom; 
-    transition: background-size 0.5s; 
-  }
-  .nav-link:hover{
+  .SHOPNOW
+  {
     text-decoration: underline;
   }
-  .btn{
+  .header .container
+  {
+    margin: 0 auto;
+  }
+
+  .Top-header .container
+  {
+    margin: 0 auto;
+  }
+
+  .Top-header a {
+    font-weight: 600;
+    color: #FAFAFA;
+  }
+
+  .Top-header .container {
+    text-align: center;
+    position: static;
+    left: 3cm; }
+
+  .Top-header .container {
+    text-align: center;
+    position: static;
+    left: 3cm;
+  }
+
+  .logo-text {
+    color: #080707;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 9.95px;
+    white-space: nowrap;
+
+  }
+
+  .menu-header a {
+
+  .logo-text {
+    color: #080707;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 9.95px;
+
+  } }
+
+  .menu-header a {
+    display: inline-block;
+    text-decoration: none;
+    color: #080707;
+    font-size: 14px ;
+    background-image: linear-gradient(#000 0 0) ;
+    background-position: left bottom;
+    /* OR left bottom*/
+    background-size: 0% 2px ;
+    background-repeat: no-repeat ;
+    transition: background-size 0.5s ;
+    font-weight: 600 ;
+    text-decoration: none ;
+    color: #080707 ;
+    font-size: 14px ;
+    background-image: linear-gradient(#000 0 0) ;
+    background-position: left bottom ;
+    /* OR left bottom*/
+    background-size: 0% 2px ;
+    background-repeat: no-repeat ;
+    transition: background-size 0.5s;
+    font-weight: 600 ;
+  }
+
+  .menu-header a:hover {
+    background-size: 100% 2px; }
+
+  .menu-header a:hover {
+    background-size: 100% 2px;
+  }
+  .signup
+  {
+    position: relative;
+  }
+
+  .btn-signup {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+  .btn-signup {
+    color: white;
+    text-align: center;
+    font-size: 12px;
     background-color: #FE7243;
-    border-radius: 18px;
+    border-radius: 18.12px;
+    width: 135px;
+    height: 37px;
+    border-style: none;
+    position: absolute;
+    right: 0;
+    top : 0 ;
+  }
+
+  .menu-bar {
+    list-style: none;
+    font-weight: 400;
+    font-size: 10px;
+  }
+
+  .responsive-menu {
+    display: none;
+  }
+
+  .menu-bar a {
+    text-decoration: none;
+    color: #9B9B9B;
+
+  }
+
+  .search_box_input::placeholder
+  {
+      font-family: Poppins;
+      font-size: 12px;
+      text-align: center;
+  }
+
+
+   .search_box
+   {
+    display: flex;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    width: 200px;
+    height: 30px;
+
+   }
+   .search_box_input
+   {
+     width: 100% ;
+     border : none ;
+     background-color: transparent;
+     outline: none;
+   }
+   .btn_search
+   {
     border: none;
+    background-color: whitesmoke;
+    border-radius: 4px;
+   }
+   .icon_menu
+   {
+    cursor: pointer;
+   }
+
+/* Tablet: 740px < width < 1281px  */
+  @media only screen and (min-width: 741px) and (max-width: 990px){
+    /* header */
+     .Top-header .row .col-md-12
+ {
+    margin-left: 0 !important;
+ }
+
+    .header .col-md-12 img
+    {
+     width: 100%;
+     height: 100%;
+    }
+
+  .container
+  {
+      max-width: 90%;
   }
-  .btn:hover{
-    background-color:#cf4d22;
+
+  .menu-header
+  {
+    display: none;
   }
-  
+  .responsive-menu
+  {
+    display: block;
+  }
+  .responsive-menu button
+  {
+    color : white ;
+    background-color: #115AAF;
+    border-color: white;
+
+  }
+  .responsive-menu button:active
+  {
+    animation: fade ;
+  -webkit-animation: fade 5s;
+  -moz-animation: fade 5s;
+  -o-animation: fade 5s;
+  -ms-animation: fade 5s;
+  transition: 0.4s;
+  }
+  .responsive-menu
+  {
+
+    animation: fade ;
+    -webkit-animation: fade ;
+    transition-delay:0.4s;
+  }
+
+
+
+  .responsive-menu li a
+  {
+    color : #115AAF;
+    font-weight: 500;
+
+  }
+
+
+}
+
+/* Mobile:  width < 740px  */
+@media only screen  and (max-width: 740px)
+{
+  /* header */
+  .Top-header .row
+  {
+     margin-left: 0 !important;
+  }
+  .SHOPNOW
+  {
+    padding-left: 20px;
+  }
+  .header-logo
+  {
+    max-width: 100%;
+  }
+  .logo
+  {
+    width: 100%;
+    height: auto;
+  }
+  .logo-text
+  {
+    text-align: center;
+  }
+  .menu-header
+  {
+    display: none;
+  }
+  .responsive-menu
+  {
+    display: block;
+  }
+  .responsive-menu button
+  {
+    color : white ;
+    background-color: #115AAF;
+    border-color: white;
+
+  }
+  .responsive-menu button:active
+  {
+    animation: fade ;
+  -webkit-animation: fade 5s;
+  -moz-animation: fade 5s;
+  -o-animation: fade 5s;
+  -ms-animation: fade 5s;
+  transition: 0.4s;
+  }
+  .responsive-menu
+  {
+
+    animation: fade ;
+    -webkit-animation: fade ;
+    transition-delay:0.4s;
+  }
+
+
+
+  .responsive-menu li a
+  {
+    color : #115AAF;
+    font-weight: 500;
+
+  }
+
+ .SSS
+ {
+  display: contents;
+  white-space: nowrap;
+
+ }
+ .btn-signup
+ {
+    top : 1cm;
+ }
+}
+
+@media screen and (min-width:915px) and (max-width: 1200px)
+{
+   .btn-signup
+  {
+    width: 100px;
+    height: 30px;
+    margin-right: -100%;
+    margin-top: 30%;
+  }
+
+}

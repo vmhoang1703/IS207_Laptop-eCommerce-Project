@@ -10,33 +10,45 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
 {
-   public function redirectToGoogle()
+   public function login(Request $request)
    {
-      return Socialite::driver("google")->redirect();
-   }
+      // Retrieve user information sent from the frontend
+      $name = $request->input('name');
+      $email = $request->input('email');
 
-   public function handleGoogleCallback($value = '')
-   {
-      $user = Socialite::driver('google')->user();
+      // Check if the user already exists in your database
+      $user = User::where('email', $email)->first();
 
-      // Kiểm tra xem người dùng đã tồn tại trong cơ sở dữ liệu chưa
-      $existingUser = User::where('email', $user->email)->first();
-
-      if ($existingUser) {
-         // Đăng nhập người dùng
-         auth()->login($existingUser);
-      } else {
-         // Tạo người dùng mới
-         $newUser = User::create([
-            'name' => $user->name,
-            'username' => ' ',
-            'email' => $user->email,
-            // Thêm các trường thông tin khác tùy theo yêu cầu
+      if (!$user) {
+         do {
+            $user_id = $this->generateUserId();
+        } while (User::where('user_id', $user_id)->exists());
+         // If the user doesn't exist, create a new user
+         $user = User::create([
+            'user_id' => $user_id,
+            'name' => $name,
+            'email' => $email,
+            'password' => '',
+            'knownFrom' => '',
+            // Add other fields as needed
          ]);
-         auth()->login($newUser);
       }
 
-      // Điều hướng người dùng sau khi đăng nhập
-      return redirect('/');
+      // Log in the user
+      auth()->login($user);
+
+      return response()->json(['message' => 'User logged in successfully']);
+   }
+
+   private function generateUserId(): string
+   {
+       // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
+       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+=';
+       $user_id = '';
+       for ($i = 0; $i < 6; $i++) {
+           $user_id .= $characters[rand(0, strlen($characters) - 1)];
+       }
+
+       return $user_id;
    }
 }

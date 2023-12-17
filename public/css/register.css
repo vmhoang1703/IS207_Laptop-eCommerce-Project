@@ -66,9 +66,9 @@ a {
     color: #8c8888;
     text-indent: 1cm;
 }
-.btn_signup_maincontent {
-    height: 69px;
-    width: 252px;
+.btn_signup {
+    height: 7vh;
+    width: 30%;
     background-color: #115aaf;
     color: #fff;
     border-radius: 31px;

@@ -1,0 +1,63 @@
+  @media only screen and (min-width: 1300px)
+  {   .store{
+        margin-left: 70px;
+  }}
+
+
+    @media only screen and (min-width: 800px) and (max-width: 1200px)
+    {
+         /* filter */
+         .filter-responsive
+         {
+           margin-bottom: 20%;
+         }
+
+         .store .carousel
+    {
+        grid-template-columns: repeat(2,1fr) !important;
+        column-gap: 20px;
+        margin-left: 100px;
+    }
+
+    }
+
+    @media only screen  and (max-width: 411px)
+
+    {
+    .store
+    {
+    grid-template-columns: repeat(1,1fr);
+    margin-right: 20%;
+    }
+
+    }
+
+    @media only screen and (min-width: 412px) and (max-width: 739px)
+    {
+        .store
+        {
+        grid-template-columns: repeat(2,1fr);
+        margin-right: 15%;
+        column-gap: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 900px)
+    {
+        .fix
+        {
+        display: block;
+        width: 100%;
+        }
+        /* filter */
+    .filter-responsive
+    {
+      padding: 0 30%;
+      margin-bottom: 20%;
+    }
+
+    }
+
+
+
+
