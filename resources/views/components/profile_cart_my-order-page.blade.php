@@ -129,7 +129,7 @@
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="not-address-inquiries">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="not-address-inquiries">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="not-address-inquiries">
                                 The seller does not address inquiries
                             </label>
                         </div>
@@ -137,7 +137,7 @@
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="change-the-product">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="change-the-product">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="change-the-product">
                                 Want to change the product model
                             </label>
                         </div>
@@ -145,14 +145,14 @@
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="change-the-address">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="change-the-address">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="change-the-address">
                                 Want to change the address
                             </label>
                         </div>
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="Change-my-mind">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="Change-my-mind">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="Change-my-mind">
                                 Change my mind
                             </label>
                         </div>
