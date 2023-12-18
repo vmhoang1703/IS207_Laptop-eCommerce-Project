@@ -119,8 +119,9 @@ line-height: 120%;
 }
 
 .cancel_order-modal__footer{
- display: flex; 
- justify-content: space-around;
+ display: flex !important; 
+ justify-content: space-around !important;
+ border-top:0px ;
 }
 .btn-cancel-modal {
   display: flex;

@@ -19,6 +19,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MomoPaymentController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\StoreController;
 
 /*
@@ -40,46 +41,38 @@ Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'sendForm'])->name('login.send');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+//Reset password
+Route::get('/reset-password', [ResetPasswordController::class, 'showResetForm'])->name('password.showResetForm');
+
 //Route đăng nhập với Google
 Route::post('/google-login', [GoogleController::class, 'login'])->name('google.login');
-// Route::get('/api', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
-// Route::get('/api/callback', [GoogleController::class, 'callbackFromGoogle'])
+
 
 //Route home
 Route::get('/', [HomeController::class, 'showHomePage'])->name('home.show');
 Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCount']);
+
 //Route cửa hàng
 Route::get('/store', [StoreController::class, 'showStorePage'])->name('store.show');
 Route::post('/store/filter', [StoreController::class, 'filterProduct'])->name('store.filter');
 Route::get('/store/filter/{id}/main-image', [StoreController::class, 'getMainImage'])->name('store.getMainImage');
+
 //Route chi tiết sản phẩm
 Route::get('/store/{id}', [DetailProductController::class, 'showDetailProductPage'])->name('detail.show');
+
 //Route About us
 Route::get('/about-us', [AboutUsController::class, 'showAboutUsPage'])->name('aboutus.show');
+
 //Route Contact
 Route::get('/contact-us', [ContactUsController::class, 'showContactUsPage'])->name('contactus.show');
+
 //Profile
 Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.show');
-// //Add to Cart
-// Route::get('/cart', [CartController::class, 'showCartList'])->name('cart.show');
-// Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-// Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
-// Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
-// Route::match(['get', 'post'], '/cart/payment', [CartController::class, 'showCartPaymentPage']);
-// Route::post('/submit-cart-order', [CartController::class, 'submitCartOrder'])->name('submitCart.order');
-// Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
-// Route::post('/cart/checkout/process', [CartController::class, 'processCheckout'])->name('cart.checkout.process');
-// //Buy now
-// Route::get('/{id}/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
-// Route::get('/{id}/payment', [OrderController::class, 'showPaymentPage'])->name('payment.show');
-// Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
-// Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
 
 //Blog
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
 Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
 Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
-
 
 Route::middleware(['auth'])->group(function () {
     //Add to Cart
@@ -108,6 +101,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/order-details', [ProfileController::class, 'getOrderDetails']);
     Route::get('/check-order-status', [ProfileController::class, 'checkOrderStatus']);
     Route::post('/cancel-order', [ProfileController::class, 'cancelOrder']);
+    Route::post('/update-order-status', [ProfileController::class, 'updateStatus']);
 
     //Profile - cancellation order 
     Route::get('/profile/cancellation', [ProfileController::class, 'showMyCancellationPage'])->name('profile.showCancellation');
@@ -169,9 +163,7 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/api/get-employee-chart-data', [ChartController::class, 'getEmployeeChartData']);
     Route::get('/api/get-revenue-data', [ChartController::class, 'getRevenueData']);
     Route::get('/api/get-earnings-overview-data', [ChartController::class, 'getEarningsOverviewData']);
-
 });
-
 
 Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
     // Products Manager routes

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -30,7 +32,7 @@
             @endcomponent
         </div>
         <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-12 col-sm-12">
-            <div class=" p-5  container-xxl container-xl container-lg container-md container-sm box-infor d-flex flex-column gap-4">
+            <div class=" p-5 mb-5 container-xxl container-xl container-lg container-md container-sm box-infor d-flex flex-column gap-4">
                 <div class="line-product-head row display-mobile-none ">
                     <div class=" col-xxl-2 col-xl-2 col-lg-1 col-md-2 col-sm-2 d-flex  ">
                     </div>
@@ -62,9 +64,13 @@
 
             </div>
 
-            <!-- footer -->
-            @component("components.footer")
-            @endcomponent
+     
+        </div>
+      
+    </div> 
+           <!-- footer -->
+    @component("components.footer")
+    @endcomponent 
             <script src=" {{ asset('js/my-order.js') }}"></script>
 </body>
 

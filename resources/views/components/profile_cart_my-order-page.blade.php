@@ -10,7 +10,7 @@
             <div class="product-item-text">{{ $order->quantity }}</div>
         </div>
         <div class="subtotal_product display-mobile-none line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
-            <div class="product-item-text">{{ $order->total }}</div>
+            <div class="product-item-text">${{ $order->total }}</div>
 
         </div>
         <div class="status_product display-mobile-none line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 d-flex">
@@ -198,12 +198,7 @@
     </div>
 </div>
 
-<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<!-- Bootstrap JS (Bundle) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
     $(document).ready(function() {
         function loadOrderDetails(orderId, modalId) {
@@ -241,6 +236,7 @@
         $('.btn-cancel-order').on('click', function() {
             var orderId = $(this).data('order-id');
             var modalId = 'cancel-order-modal-' + orderId;
+            var csrfToken = $('meta[name="csrf-token"]').attr("content");
 
             // Fetch order status via AJAX
             $.ajax({
@@ -261,13 +257,33 @@
                             $('#' + modalId + ' #proceed_btn').removeClass('d-none');
 
                             $('#' + modalId + ' #proceed_btn').on('click', function() {
+                                $.ajax({
+                                    url: '/update-order-status',
+                                    method: 'POST',
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                        "X-CSRF-TOKEN": csrfToken,
+                                    },
+                                    data: JSON.stringify({
+                                        orderId: orderId,
+                                        newStatus: 'Canceled'
+                                    }),
+                                    success: function(updateData) {
+                                        console.log('Order status updated to Canceled:', updateData);
+                                        location.reload();
+                                    },
+                                    error: function(updateError) {
+                                        console.error('Error updating order status:', updateError);
+                                    }
+                                });
+
                                 $('#' + modalId + ' #cancel_step_2').addClass('d-none');
                                 $('#confirm_btn').addClass('d-none');
                                 $('#' + modalId + ' #cancel_step_3').removeClass('d-none');
                                 $('#' + modalId + ' #return_btn').removeClass('d-none');
                                 $('#' + modalId + ' #proceed_btn').addClass('d-none');
-                            })
-                        })
+                            });
+                        });
                     } else {
                         $('#' + modalId + ' #cancel_step_1').addClass('d-none');
                         $('#confirm_btn').addClass('d-none');
@@ -278,6 +294,7 @@
                     console.error('Error fetching order status:', error);
                 }
             });
+
         });
 
     });

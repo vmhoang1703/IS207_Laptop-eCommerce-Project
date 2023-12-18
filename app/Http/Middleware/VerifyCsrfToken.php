@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
         '/cart/update',
         '/cart/remove',
         '/cart/payment',
+        '/update-order-status',
     ];
 }

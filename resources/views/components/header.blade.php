@@ -36,7 +36,7 @@
                      <a href="{{ route('store.show') }}">STORE </a>
                  </div>
                  <div class="menu-header ps-5 " style="white-space: nowrap;">
-                     <a href="#">BLOG </a>
+                     <a href="{{ route('blog.show') }}">BLOG </a>
                  </div>
                  <div class="menu-header ps-5 " style="white-space: nowrap;">
                      <a href="{{ route('aboutus.show') }}">ABOUT US </a>
@@ -61,6 +61,11 @@
                      <a href="{{ route('cart.show') }}" style="color:black !important">
                          <span class="pe-2">
                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3">
+                                <style>
+                                    .bi-cart3 {
+                                        fill: black; 
+                                    }
+                                </style>
                                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                              </svg>
                          </span>
@@ -88,7 +93,7 @@
                  <ul class="menu-bar menu-text">
                      <li><a href="{{ route('home.show') }}"> HOME </a></li>
                      <li> <a href="{{ route('store.show') }}"> STORE </a></li>
-                     <li><a href="#"> BLOG </a></li>
+                     <li><a href="{{ route('blog.show') }}"> BLOG </a></li>
                      <li><a href="{{ route('aboutus.show') }}" style="white-space:nowrap"> ABOUT US </a></li>
                      <li><a href="{{ route('contactus.show') }}"> CONTACT </a></li>
                  </ul>
