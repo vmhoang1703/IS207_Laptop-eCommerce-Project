@@ -140,11 +140,11 @@
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
                         <ul class="menu-bar">
-                            <li><label><input name="Branding" value="ASUS" type="checkbox"> Asus </label> </li>
-                            <li><label><input name="Branding" value="DELL" type="checkbox"> Dell </label> </li>
-                            <li><label><input name="Branding" value="HP" type="checkbox"> HP </label> </li>
-                            <li><label><input name="Branding" value="LENOVO" type="checkbox"> Lenovo </label> </li>
-                            <li><label><input name="Branding" value="SAMSUNG" type="checkbox"> Samsung </label> </li>
+                            <li><label><input name="brand" value="Asus" type="checkbox"> Asus </label> </li>
+                            <li><label><input name="brand" value="Dell" type="checkbox"> Dell </label> </li>
+                            <li><label><input name="brand" value="HP" type="checkbox"> HP </label> </li>
+                            <li><label><input name="brand" value="Lenovo" type="checkbox"> Lenovo </label> </li>
+                            <li><label><input name="brand" value="Samsung" type="checkbox"> Samsung </label> </li>
                         </ul>
                     </li>
                     <li class="li-hr">
@@ -156,9 +156,9 @@
                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </div>
                         <ul class="menu-bar">
-                            <li><label><input name="Stock" value="IN STOCK" type="checkbox"> In stock </label> </li>
-                            <li><label><input name="Stock" value="UP COMMING" type="checkbox"> Up coming </label> </li>
-                            <li><label><input name="Stock" value="OUT STOCK" type="checkbox"> Out stock </label> </li>
+                            <li><label><input name="status" value="In stock" type="checkbox"> In stock </label> </li>
+                            <li><label><input name="status" value="Up coming" type="checkbox"> Up coming </label> </li>
+                            <li><label><input name="status" value="Out stock" type="checkbox"> Out stock </label> </li>
                         </ul>
                     </li>
 

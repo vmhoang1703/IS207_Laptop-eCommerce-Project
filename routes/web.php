@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoriesManagementController;
 use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
+use App\Http\Controllers\Admin\RevenueController;
 use App\Http\Controllers\Admin\UsersManagementController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\OrderController;
@@ -157,6 +158,10 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
 
+    //Revenue management
+    Route::get('/admin/revenue-statistics', [RevenueController::class, 'showRevenueStatistics'])->name('revenue.management');
+
+
     //Chart
     Route::get('/api/get-total-products-data-by-category', [ChartController::class, 'getTotalProductsDataByCategory']);
     Route::get('/api/get-customer-registration-data', [ChartController::class, 'getCustomerRegistrationData']);
@@ -202,6 +207,7 @@ Route::middleware(['auth', 'checkRole:sales'])->group(function () {
 Route::middleware(['auth', 'checkRole:accounting'])->group(function () {
     // Accounting routes
     Route::get('/accounting', [AdminController::class, 'showAdminPage'])->name('accounting.show');
+    Route::get('/accounting/dashboard', [AdminController::class, 'showDashboardPage'])->name('accounting.dashboard.show');
     // Revenue management
 });
 

@@ -15,6 +15,27 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#" onclick="activateNavItem(this)">My Profile</a>
       </li>
+      @if(Auth::user()->role == 'admin')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('admin.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'products_manager')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('products_manager.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'sales')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('sales.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'accounting')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('accounting.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'marketing')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('marketing.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @endif
       <h3 class="nav-title">My Orders</h3>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('myorder.show') }}" onclick="activateNavItem(this)">My Order</a>
@@ -71,35 +92,35 @@
   <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
   <script>
     // điều hướng navbar
-function activateNavItem(element) {
-    // Remove 'active' class from all nav links
-    var navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(function(link) {
-      link.classList.remove('active');
-      link.removeAttribute('aria-current');
-    });
+    function activateNavItem(element) {
+      // Remove 'active' class from all nav links
+      var navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+      });
 
-    // Add 'active' class and 'aria-current' attribute to the clicked nav link
-    element.classList.add('active');
-    element.setAttribute('aria-current', 'page');
-  }
-
-
-
-  document.getElementById('toggle-password').addEventListener('click', function () {
-    var passwordInput = document.getElementById('custom-password');
-    var eyeIconShow = document.querySelector('.show-password');
-    var eyeIconHide = document.querySelector('.hide-password');
-
-    if (passwordInput.getAttribute('type') === 'password') {
-      passwordInput.setAttribute('type', 'text');
-      eyeIconShow.style.display = 'none';
-      eyeIconHide.style.display = 'inline-block';
-    } else {
-      passwordInput.setAttribute('type', 'password');
-      eyeIconShow.style.display = 'inline-block';
-      eyeIconHide.style.display = 'none';
+      // Add 'active' class and 'aria-current' attribute to the clicked nav link
+      element.classList.add('active');
+      element.setAttribute('aria-current', 'page');
     }
-  }); 
+
+
+
+    document.getElementById('toggle-password').addEventListener('click', function() {
+      var passwordInput = document.getElementById('custom-password');
+      var eyeIconShow = document.querySelector('.show-password');
+      var eyeIconHide = document.querySelector('.hide-password');
+
+      if (passwordInput.getAttribute('type') === 'password') {
+        passwordInput.setAttribute('type', 'text');
+        eyeIconShow.style.display = 'none';
+        eyeIconHide.style.display = 'inline-block';
+      } else {
+        passwordInput.setAttribute('type', 'password');
+        eyeIconShow.style.display = 'inline-block';
+        eyeIconHide.style.display = 'none';
+      }
+    });
   </script>
 </body>

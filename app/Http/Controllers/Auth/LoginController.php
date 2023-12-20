@@ -27,11 +27,9 @@ class LoginController extends Controller
         $user = User::where('email', $email)->first();
  
         if ($user && password_verify($password, $user->password)) {
-            // Đăng nhập thành công
             Auth::login($user);
             return redirect(route('home.show'))->with('success', 'Đăng nhập thành công!');
         } else {
-            // Đăng nhập thất bại
             return redirect(route('login.show'))->with('error', 'Đăng nhập thất bại!');
         }
     }

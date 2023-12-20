@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class UsersManagementController extends Controller
 {
-    // Controller for users management
     public function showCustomersManagementPage(): View
     {
         $customerUsers = User::where('role', 'customer')->get();
@@ -22,7 +21,7 @@ class UsersManagementController extends Controller
 
     public function showEmployeesManagementPage(): View
     {
-        $employeeUsers = User::whereIn('role', ['employee', 'moderator'])->get();
+        $employeeUsers = User::whereIn('role', ['admin', 'products_manager', 'sales', 'accounting', 'marketing'])->get();
 
         return view('admin.user.employees', compact('employeeUsers'));
     }
@@ -34,13 +33,12 @@ class UsersManagementController extends Controller
 
     public function storeEmployee(Request $request)
     {
-        // Đánh giá và kiểm tra form
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'phone' => 'required',
-            'role' => 'required|in:customer,admin,employee,moderator',
+            'role' => 'required',
             'date_of_birth' => 'required|date',
             'address' => 'required',
             'department' => 'required',
@@ -60,7 +58,6 @@ class UsersManagementController extends Controller
                 $user_id = $this->generateUserId();
             } while (User::where('user_id', $user_id)->exists());
 
-            // Tạo một đối tượng Employee với dữ liệu từ form
             $employee = new User([
                 'user_id' => $user_id,
                 'name' => $request->input('name'),
@@ -78,10 +75,8 @@ class UsersManagementController extends Controller
 
             $employee->save();
 
-            // Điều hướng đến trang quản lý nhân viên và gửi thông báo thành công
             return redirect()->route('employees.management')->with('success', 'Employee created successfully');
         } catch (\Exception $e) {
-            // Nếu có lỗi, quay trở lại form với thông báo lỗi
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -117,13 +112,11 @@ class UsersManagementController extends Controller
         $employee = User::find($id);
         $employee->delete();
 
-        // Redirect về trang quản lý sản phẩm với thông báo thành công
         return redirect()->route('employees.management')->with('success', 'Category deleted successfully');
     }
 
     private function generateUserId(): string
     {
-        // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $user_id = '';
         for ($i = 0; $i < 6; $i++) {

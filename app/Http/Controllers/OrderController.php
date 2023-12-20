@@ -35,7 +35,6 @@ class OrderController extends Controller
 
         if ($product) {
             $subtotal = $product->price * $quantity;
-            // Định dạng $subtotal với định dạng decimal(10,2)
             $subtotal = number_format($subtotal, 2, '.', '');
         }
         return view('website.order_process.product_payment', compact('product', 'mainImage', 'quantity', 'subtotal'));
@@ -51,7 +50,6 @@ class OrderController extends Controller
 
         if ($product) {
             $subtotal = $product->price * $quantity;
-            // Định dạng $subtotal với định dạng decimal(10,2)
             $subtotal = number_format($subtotal, 2, '.', '');
         }
 
@@ -60,7 +58,6 @@ class OrderController extends Controller
     public function submitOrder(Request $request)
     {
 
-        // Validate the request data
         $validator = Validator::make($request->all(), [
             'fullname' => 'required',
             'street_address' => 'required',
@@ -80,7 +77,6 @@ class OrderController extends Controller
         }
 
         try {
-            // Other data needed for the order
             $productId = $request->input('product_id');
             $quantity = $request->input('quantity');
             $subtotal = $request->input('subtotal');
@@ -92,7 +88,6 @@ class OrderController extends Controller
                 $order_id = $this->generateOrderId();
             } while (Order::where('order_id', $order_id)->exists());
 
-            // Save the order to the database
             $order = Order::create([
                 'order_id' => $order_id,
                 'product_id' => $productId,
@@ -116,21 +111,18 @@ class OrderController extends Controller
                 'province' => '',
                 'payment_method' => $payment_method,
             ]);
-            // Redirect based on payment method
             if ($payment_method === 'Pay in store') {
                 return redirect()->route('home.show');
             } elseif ($payment_method === 'MoMo') {
                 return redirect()->route('momo.payment', ['order_id' => $order_id, 'subtotal' => $subtotal]);
             }
         } catch (\Exception $e) {
-            // Nếu có lỗi, quay trở lại form với thông báo lỗi
             dd($e->getMessage());
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
     private function generateOrderId(): string
     {
-        // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $order_id = '';
         for ($i = 0; $i < 6; $i++) {

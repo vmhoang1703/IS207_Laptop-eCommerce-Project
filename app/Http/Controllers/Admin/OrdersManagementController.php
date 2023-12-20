@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 
 class OrdersManagementController extends Controller
 {
-    // Controller for orders management
     public function showOrdersManagementPage(): View
     {
         $orders = Order::all();

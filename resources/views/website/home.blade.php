@@ -221,8 +221,8 @@
                     <i class="nxt-btn fa fa-angle-right"></i>
                     <div class="feedback_bar row ms-5">
                         <div class="col-4">
-                            <img src="images/usercomment.png" height="240px" width="240px">
-                            <div class="user ms-5 mt-4">
+                            <img src="{{asset('img/HungPham.jpg')}}" height="240px" width="240px">
+                            <div class="user ms-6 mt-4">
                                 <div class="username">Miss Lucy Nguyen</div>
                                 <div class="usercomment">“Your products are so wonderful.”</div>
                                 <div> <span class="fa fa-star star"></span>
@@ -235,8 +235,8 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <img src="images/usercomment.png" height="240px" width="240px">
-                            <div class="user ms-5 mt-4">
+                            <img src="{{asset('img/HungPham.jpg')}}" height="240px" width="240px">
+                            <div class="user ms-6 mt-4">
                                 <div class="username">Miss Lucy Nguyen</div>
                                 <div class="usercomment">“Your products are so wonderful.”</div>
                                 <div> <span class="fa fa-star star"></span>
@@ -249,8 +249,8 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <img src="images/usercomment.png" height="240px" width="240px">
-                            <div class="user ms-5 mt-4">
+                            <img src="{{asset('img/HungPham.jpg')}}" height="240px" width="240px">
+                            <div class="user ms-6 mt-4">
                                 <div class="username">Miss Lucy Nguyen</div>
                                 <div class="usercomment">“Your products are so wonderful.”</div>
                                 <div> <span class="fa fa-star star"></span>
@@ -263,8 +263,8 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <img src="images/usercomment.png" height="240px" width="240px">
-                            <div class="user ms-5 mt-4">
+                            <img src="{{asset('img/HungPham.jpg')}}" height="240px" width="240px">
+                            <div class="user ms-6 mt-4">
                                 <div class="username">Miss Lucy Nguyen</div>
                                 <div class="usercomment">“Your products are so wonderful.”</div>
                                 <div> <span class="fa fa-star star"></span>

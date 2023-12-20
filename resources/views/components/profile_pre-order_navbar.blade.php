@@ -15,6 +15,27 @@
       <li class="nav-item">
         <a class="nav-link" aria-current="page" href="{{ route('profile.show') }}" onclick="activateNavItem(this)">My Profile</a>
       </li>
+      @if(Auth::user()->role == 'admin')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('admin.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'products_manager')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('products_manager.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'sales')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('sales.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'accounting')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('accounting.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @elseif(Auth::user()->role == 'marketing')
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{{ route('marketing.show') }}" onclick="activateNavItem(this)">Go to management site</a>
+      </li>
+      @endif
       <h3 class="nav-title">My Orders</h3>
       <li class="nav-item">
         <a class="nav-link  " href="{{ route('myorder.show') }}" onclick="activateNavItem(this)">My Order</a>
