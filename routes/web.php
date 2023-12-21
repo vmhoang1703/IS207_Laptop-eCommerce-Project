@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BlogsManagementController;
 use App\Http\Controllers\Admin\CategoriesManagementController;
 use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
@@ -72,7 +73,7 @@ Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('pro
 
 //Blog
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
-Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
+Route::get('/blog/{id}', [BlogController::class, 'showArticle'])->name('article.show');
 Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
 
 Route::middleware(['auth'])->group(function () {
@@ -157,6 +158,15 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin/employees-management/{id}/edit', [UsersManagementController::class, 'editEmployeePage'])->name('employee.edit');
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
+
+    //Blogs management
+    Route::get('/admin/blogs-management', [BlogsManagementController::class, 'showBlogsManagementPage'])->name('blogs.management');
+    Route::get('/admin/blogs-management/create', [BlogsManagementController::class, 'createBlogPage'])->name('blog.create');
+    Route::post('/admin/blogs-management/store', [BlogsManagementController::class, 'storeBlog'])->name('blog.store');
+    Route::get('/admin/blogs-management/{id}/view', [BlogsManagementController::class, 'viewBlogPage'])->name('blog.view');
+    Route::get('/admin/blogs-management/{id}/edit', [BlogsManagementController::class, 'editBlogPage'])->name('blog.edit');
+    Route::put('/admin/blogs-management/{id}', [BlogsManagementController::class, 'updateBlog'])->name('blog.update');
+    Route::get('/admin/blogs-management/{id}/delete', [BlogsManagementController::class, 'deleteBlog'])->name('blog.delete');
 
     //Revenue management
     Route::get('/admin/revenue-statistics', [RevenueController::class, 'showRevenueStatistics'])->name('revenue.management');

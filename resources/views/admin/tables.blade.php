@@ -59,6 +59,12 @@
                             <td>Revenue statistics.</td>
                             <td><a href="{{ route('revenue.management') }}" class="btn btn-primary">View</a></td>
                         </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Blogs</td>
+                            <td>Information about blogs.</td>
+                            <td><a href="{{ route('blogs.management') }}" class="btn btn-primary">View</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
