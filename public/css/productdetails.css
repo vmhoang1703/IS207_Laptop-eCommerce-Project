@@ -130,6 +130,10 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+
+}
+.product-detail .info :-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .product-detail ul {

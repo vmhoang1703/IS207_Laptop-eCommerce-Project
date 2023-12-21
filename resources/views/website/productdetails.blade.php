@@ -100,7 +100,8 @@
 
                     <div class="product-detail">
                         <div class="Description">Description </div>
-                        <div class="infor">
+                        <div class="infor" style="  height: 400px !important;
+    overflow-y: scroll !important">
                             {!! $product->description !!}
                         </div>
 
