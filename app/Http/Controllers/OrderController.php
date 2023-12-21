@@ -135,4 +135,14 @@ class OrderController extends Controller
     {
         return view('website.oder_process.preorder');
     }
+
+    public function showPaymentSuccess():View
+    {
+        return view('website.payment_process.payment_success');
+    }
+
+    public function showPaymentError():View
+    {
+        return view('website.payment_process.payment_error');
+    }
 }

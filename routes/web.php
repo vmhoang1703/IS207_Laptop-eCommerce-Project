@@ -93,6 +93,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
     Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
     Route::get('/momo-payment', [MomoPaymentController::class, 'makePayment'])->name('momo.payment');
+    Route::get('/payment-success', [OrderController::class, 'showPaymentSuccess'])->name('payment.success');
+    Route::get('/payment-error', [OrderController::class, 'showPaymentError'])->name('payment.success');
+
 
 
     // edit Profile
