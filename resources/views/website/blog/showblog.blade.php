@@ -60,7 +60,7 @@
       @endforeach
 
     </div>
-    <div class="pagination-box mt-5">
+    <!-- <div class="pagination-box mt-5">
       <nav aria-label="Page navigation example">
         <ul class="pagination custom-pagination">
           <li class="page-item">
@@ -79,24 +79,57 @@
         </ul>
       </nav>
 
-    </div>
+    </div> -->
 
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4">
+      {{ $blogs->links('vendor.pagination.bootstrap-4') }}
+    </div>
+    <!-- /Pagination -->
 
     <div class="all-categories mt-2 text-start w-100">All Categories </div>
     <div class="list-categories mt-3 w-100 ">
       <div class="category_box-mobile row ">
-        @component("components.blog_show_category")
-        @endcomponent
 
-        @component("components.blog_show_category")
-        @endcomponent
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
+          <a href="" class=" pe-4">
+            <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
+              <img src="{{ asset('img/Business-icon.png') }}" alt="" class="categories_icon">
+              <div class="cart_title-categories">Bussiness</div>
+              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+            </div>
+          </a>
+        </div>
 
-        @component("components.blog_show_category")
-        @endcomponent
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
+          <a href="" class=" pe-4">
+            <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
+              <img src="{{ asset('img/Startup-icon.png') }}" alt="" class="categories_icon">
+              <div class="cart_title-categories">Startup</div>
+              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+            </div>
+          </a>
+        </div>
 
-        @component("components.blog_show_category")
-        @endcomponent
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
+          <a href="" class=" pe-4">
+            <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
+              <img src="{{ asset('img/Economy-icon.png') }}" alt="" class="categories_icon">
+              <div class="cart_title-categories">Economy</div>
+              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+            </div>
+          </a>
+        </div>
 
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
+          <a href="" class=" pe-4">
+            <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
+              <img src="{{ asset('img/Technology-icon.png') }}" alt="" class="categories_icon">
+              <div class="cart_title-categories">Technology</div>
+              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>

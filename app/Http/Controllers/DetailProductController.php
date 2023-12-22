@@ -19,9 +19,12 @@ class DetailProductController extends Controller
 
         $product->load('images');
 
-        $products = Product::all();
+        $similarProducts = Product::where('brand', $product->brand)
+        ->where('product_id', '!=', $product->product_id)
+        ->take(4)
+        ->get();
 
-        return view('website.productdetails', compact('product', 'products'));
+        return view('website.productdetails', compact('product', 'similarProducts'));
     }
 }
 

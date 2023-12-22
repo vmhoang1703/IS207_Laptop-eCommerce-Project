@@ -7,13 +7,17 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Pagination\Paginator;
 
 class BlogController extends Controller
 {
     //
     public function showBlog(): View
     {
-        $blogs = Blog::all();
+        $blogs = Blog::paginate(3);
+        $blogs->withPath(url()->current());
+
+        Paginator::useBootstrap();
         $users = User::all();
         $blog_featured = Blog::with('images')->where('featured_post', 'Yes')->first();
         $createdAt = Carbon::parse($blog_featured->created_at);

@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+            <button type="submit" class="btn btn-primary mt-3">Add Blog</button>
         </form>
         @elseif(Auth::user()->role == 'products_manager')
         <form action="{{ route('products_manager.product.store') }}" method="POST" enctype="multipart/form-data">

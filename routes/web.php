@@ -37,6 +37,7 @@ use App\Http\Controllers\StoreController;
 //Route đăng ký
 Route::get('/register', [RegisterController::class, 'showForm'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'sendForm'])->name('register.send');
+Route::get('user/activation/{token}', [RegisterController::class, 'activateUser'])->name('user.activate');
 
 //Route đăng nhập
 Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');

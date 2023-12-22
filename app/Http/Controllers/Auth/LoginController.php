@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
@@ -11,6 +12,9 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+    // use AuthenticatesUsers;
+    protected $redirectTo = '/';
+    protected $activationService;
     /**
      * Show the login form.
      */
@@ -32,6 +36,15 @@ class LoginController extends Controller
         } else {
             return redirect(route('login.show'))->with('error', 'Đăng nhập thất bại!');
         }
+    }
+    protected function authenticated(Request $request, $user)
+    {
+        if (!$user->active) {
+            $this->activationService->sendActivationMail($user);
+            auth()->logout();
+            return back()->with('warning', 'Bạn cần xác thực tài khoản, chúng tôi đã gửi mã xác thực vào email của bạn, hãy kiểm tra và làm theo hướng dẫn.');
+        }
+        return redirect()->intended($this->redirectPath());
     }
     public function logout()
     {

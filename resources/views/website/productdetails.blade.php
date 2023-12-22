@@ -311,7 +311,7 @@
         </div>
         <div class="store">
             <div class="carousel">
-                @foreach($products as $product)
+                @foreach($similarProducts as $product)
                 @component('components.card', ['product' => $product])
                 @endcomponent
                 @endforeach
@@ -325,6 +325,11 @@
     @component("components.toast")
     @endcomponent
 
+    <script>
+        var csrfToken = "{{ csrf_token() }}";
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{ asset('js/addToCart.js') }}"></script>
 </body>
 
 </html>

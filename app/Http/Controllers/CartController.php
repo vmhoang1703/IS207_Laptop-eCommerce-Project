@@ -115,15 +115,13 @@ class CartController extends Controller
 
     public function submitCartOrder(Request $request)
     {
-        // Validate the request data
         $validator = Validator::make($request->all(), [
             'fullname' => 'required',
             'street_address' => 'required',
             'city' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
-            // 'cartItem_id' => 'required',
-            'subtotal' => 'required',
+            'cartItemIds' => 'required|array',
             'selected_payment_method' => 'required',
         ]);
 
@@ -134,9 +132,10 @@ class CartController extends Controller
         }
 
         try {
-            // Other data needed for the order
-            $cartItemIds = explode(',', $request->input('cartItem_id'));
+            $payment_method = $request->input('selected_payment_method');
+            $cartItemIds = $request->input('cartItemIds');
             Log::info('Submitted Cart Item IDs: ' . implode(',', $cartItemIds));
+
             $selectedCartItems = CartItem::whereIn('cartItem_id', $cartItemIds)->get();
 
             foreach ($selectedCartItems as $cartItem) {
@@ -146,10 +145,11 @@ class CartController extends Controller
                 $cartItem->product->mainImage = $mainImage;
             }
 
-            // Calculate subtotal
             $subtotal = 0;
+            $quantity = 0;
             foreach ($selectedCartItems as $cartItem) {
                 $subtotal += $cartItem->quantity * ($cartItem->product->price ?? 0);
+                $quantity += $cartItem->quantity;
             }
 
             do {
@@ -162,8 +162,9 @@ class CartController extends Controller
                 'user_id' => auth()->id(),
                 'product_id' => '',
                 'cartItem_id' => implode(',', $cartItemIds),
-                'quantity' => '',
-                'status' => 'pending',
+                'quantity' => $quantity,
+                'status' => 'Pending',
+                'payment_status' => 'Unpaid',
                 'subtotal' => $subtotal,
                 'shipping' => 0,
                 'total' => $subtotal,
@@ -176,22 +177,19 @@ class CartController extends Controller
                 'number_address' => $request->input('number_address'),
                 'city' => $request->input('city'),
                 'province' => '',
-                'payment_method' => $request->input('selected_payment_method'),
+                'payment_method' => $payment_method,
+                'transaction_id' => '',
             ]);
 
-            // Redirect based on payment method
-            if ($order->payment_method === 'Pay in store') {
+            if ($payment_method === 'Pay in store') {
                 return redirect()->route('home.show')->with('success', 'Order placed successfully!');
-            } elseif ($order->payment_method === 'MoMo') {
+            } elseif ($payment_method === 'MoMo') {
                 return redirect()->route('momo.payment', ['order_id' => $order_id, 'subtotal' => $subtotal]);
             }
-
         } catch (\Exception $e) {
-            // Log the exception
             Log::error('Exception in submitCartOrder: ' . $e->getMessage());
-    
-            // Return or redirect with an error message
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+
+            return redirect()->back()->withErrors(['error' => 'An error occurred while processing your order. Please try again later.']);
         }
     }
 

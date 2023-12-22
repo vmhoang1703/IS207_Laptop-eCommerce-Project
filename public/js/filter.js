@@ -79,7 +79,7 @@ function updateProducts() {
                         var imgAnchor = document.createElement("a");
                         imgAnchor.setAttribute(
                             "href",
-                            `/store/${product.title}`
+                            `/store/${product.slug}`
                         );
                         imgAnchor.style.textDecoration = "none";
 

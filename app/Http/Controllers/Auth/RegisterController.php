@@ -7,11 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Providers\ActivationService;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    // use RegistersUsers;
+    protected $redirectTo = '/login';
+
+    protected $activationService;
+
+    public function __construct(ActivationService $activationService) // Add ActivationService to constructor
+    {
+        $this->activationService = $activationService; // Initialize activationService
+    }
     /**
      * Show the registration form.
      */
@@ -50,6 +62,19 @@ class RegisterController extends Controller
             'knownFrom' => $request->how_did_you_hear,
         ]);
         return redirect(route('login.show'))->with('success', 'Đăng ký thành công!');
+        // event(new Registered($user));
+        // $this->activationService->sendActivationMail($user);
+
+        // return redirect(route('login.show'))->with('status', 'Bạn hãy kiểm tra email và thực hiện xác thực theo hướng dẫn.');
+    }
+
+    public function activateUser($token)
+    {
+        if ($user = $this->activationService->activateUser($token)) {
+            auth()->login($user);
+            return redirect('/login');
+        }
+        abort(404);
     }
 
     private function generateUserId(): string

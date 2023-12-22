@@ -112,7 +112,7 @@ class OrderController extends Controller
                 'payment_method' => $payment_method,
             ]);
             if ($payment_method === 'Pay in store') {
-                return redirect()->route('home.show');
+                return redirect()->route('home.show')->with('success', 'Order placed successfully!');
             } elseif ($payment_method === 'MoMo') {
                 return redirect()->route('momo.payment', ['order_id' => $order_id, 'subtotal' => $subtotal]);
             }
@@ -131,17 +131,17 @@ class OrderController extends Controller
 
         return $order_id;
     }
-    public function showPreorderPage():View
+    public function showPreorderPage(): View
     {
         return view('website.oder_process.preorder');
     }
 
-    public function showPaymentSuccess():View
+    public function showPaymentSuccess(): View
     {
         return view('website.payment_process.payment_success');
     }
 
-    public function showPaymentError():View
+    public function showPaymentError(): View
     {
         return view('website.payment_process.payment_error');
     }

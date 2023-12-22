@@ -80,7 +80,7 @@ class MomoPaymentController extends Controller
         if ($result === false) {
             echo 'Curl error: ' . curl_error($this->ch);
         } else {
-            // dd($result);  // Debugging output
+            //dd($result);  // Debugging output
             $jsonResult = json_decode($result, true);
 
             $order = Order::find($orderId);
@@ -90,7 +90,6 @@ class MomoPaymentController extends Controller
                 $order->save();
             }
 
-            // Just an example, please check more in there
             return redirect()->to($jsonResult['payUrl']);
         }
     }

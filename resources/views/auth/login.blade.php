@@ -30,7 +30,11 @@
                     </h1>
                     <p>You don't have an account? <a href="{{ route('register.show') }}" class="text_sign_up">Sign up</a></p>
                 </div>
-
+                @if (session('warning'))
+                <span class="alert alert-warning help-block">
+                    <strong>{{ session('warning') }}</strong>
+                </span>
+                @endif
                 <!-- Input information  -->
                 <form class="container text-center" action="{{ route('login.send') }}" method="post">
                     @csrf

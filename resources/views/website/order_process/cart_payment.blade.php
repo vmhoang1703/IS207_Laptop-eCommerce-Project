@@ -11,6 +11,15 @@
 </head>
 
 <body class="d-flex flex-column ">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <!-- Header  -->
     @component('components.header')
     @endcomponent
@@ -31,6 +40,10 @@
                 <div class=" padding-right-xl  col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 d-flex flex-column mt-4">
                     <h3 class="title-form"> Billing Details</h3>
                     <div class="form-custommer-infor">
+                        @foreach ($selectedCartItems as $cartItem)
+                        <input type="hidden" name="cartItemIds[]" value="{{ $cartItem->cartItem_id }}">
+                        @endforeach
+                        <input type="hidden" name="subtotal" value="{{ $subtotal }}">
                         <input type="hidden" name="selected_payment_method" id="selectedPaymentMethod" value="">
                         <div class="mb-3 mt-3">
                             <label for="fullname" class="form-label">Full Name:
