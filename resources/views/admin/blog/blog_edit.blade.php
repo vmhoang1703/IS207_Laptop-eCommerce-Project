@@ -68,7 +68,7 @@
             <button type="submit" class="btn btn-primary">Update Product</button>
         </form>
         @elseif(Auth::user()->role == 'products_manager')
-        <form action="{{ route('products_manager.product.update', $blog->product_id) }}" method="post">
+        <form action="{{ route('products_manager.blog.update', $blog->blog_id) }}" method="post">
             @csrf
             @method('PUT')
 

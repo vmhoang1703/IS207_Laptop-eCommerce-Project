@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Success and Error Modal Popups In HTML CSS and Javascript</title>
+	<title>E-lec World</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/payment_success-error.css') }}">
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 </head>

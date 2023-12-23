@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/payment_end_screen.css') }}">
     <script src="{{asset('js/order_payment.js')}}"></script>
-    <title>Pre-Order</title>
+    <title>E-lec World</title>
 </head>
 
 <body class="d-flex flex-column ">
@@ -26,17 +26,17 @@
     @endcomponent
     <div class="body-box d-flex align-items-center justify-content-center container-fluid">
         <div class="popup d-flex flex-column align-items-center justify-content-center gap-3 ">
-            <img  src="{{ asset ('img/outstock.png')}}" alt="" class="icon-payment">
-            <div class="head-title">Out-of-stock!</div>
+            <img src="{{ asset ('img/Group1.png')}}" alt="" class="icon-payment">
+            <div class="head-title">Pre-0rder succeed</div>
             <div class="sub-title">
-            This product is out of stock. If you would like to pre-order, please click "Pre-order."
+                Successful pre-order! We'll notify you by email or system alert when your reserved product is ready. Complete the remaining payment upon availability.
             </div>
             <div class=" d-flex gap-5 mt-4">
-                <a href="#">
+                <a href="{{ route('home.show') }}">
                     <button type="button" class="btn-payment btn btn-primary btn-lg">Return</button>
                 </a>
-                <a href="#">
-                    <button type="button" class="btn-payment btn btn-primary btn-lg">Pre-order</button>
+                <a href="{{ route('profile.showPreOrder') }}">
+                    <button type="button" class="btn-payment btn btn-primary btn-lg">Watch detailed Pre-order</button>
                 </a>
             </div>
 

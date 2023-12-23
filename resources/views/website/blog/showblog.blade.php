@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
+  <title>E-lec World</title>
   <link rel="stylesheet" href="{{ asset('css/showblog.css') }}">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -91,45 +91,54 @@
     <div class="list-categories mt-3 w-100 ">
       <div class="category_box-mobile row ">
 
+        @if($blogsBusiness->title == 'Business - Blog')
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
-          <a href="" class=" pe-4">
+          <a href="{{ route('category.show', $blogsBusiness->slug) }}" class=" pe-4">
             <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
               <img src="{{ asset('img/Business-icon.png') }}" alt="" class="categories_icon">
-              <div class="cart_title-categories">Bussiness</div>
-              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+              <div class="cart_title-categories">Business</div>
+              <div class="cart_sub_categories">{{ $blogsBusiness->meta_title }}</div>
             </div>
           </a>
         </div>
+        @endif
 
+        @if($blogsStartup->title == 'Startup - Blog')
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
-          <a href="" class=" pe-4">
+          <a href="{{ route('category.show', $blogsStartup->slug) }}" class=" pe-4">
             <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
               <img src="{{ asset('img/Startup-icon.png') }}" alt="" class="categories_icon">
               <div class="cart_title-categories">Startup</div>
-              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+              <div class="cart_sub_categories">{{ $blogsStartup->meta_title }}</div>
             </div>
           </a>
         </div>
+        @endif
 
+        @if($blogsEconomy->title == 'Economy - Blog')
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
-          <a href="" class=" pe-4">
+          <a href="{{ route('category.show', $blogsEconomy->slug) }}" class=" pe-4">
             <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
               <img src="{{ asset('img/Economy-icon.png') }}" alt="" class="categories_icon">
               <div class="cart_title-categories">Economy</div>
-              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+              <div class="cart_sub_categories">{{ $blogsEconomy->meta_title }}</div>
             </div>
           </a>
         </div>
+        @endif
 
+        @if($blogsTechnology->title == 'Technology - Blog')
         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3  pe-4">
-          <a href="" class=" pe-4">
+          <a href="{{ route('category.show', $blogsTechnology->slug) }}" class=" pe-4">
             <div class="cart-categories d-flex flex-column gap-2 p-pc-4 border-2">
               <img src="{{ asset('img/Technology-icon.png') }}" alt="" class="categories_icon">
               <div class="cart_title-categories">Technology</div>
-              <div class="cart_sub_categories">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+              <div class="cart_sub_categories">{{ $blogsTechnology->meta_title }}</div>
             </div>
           </a>
         </div>
+        @endif
+        
       </div>
     </div>
   </div>

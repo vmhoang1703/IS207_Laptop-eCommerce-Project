@@ -10,7 +10,7 @@
 @if(Auth::user()->role == 'admin')
 <a href="{{ route('blog.create') }}" class="btn btn-success mb-4">Add Blog</a>
 @elseif(Auth::user()->role == 'products_manager')
-<a href="{{ route('blogs_manager.blog.create') }}" class="btn btn-success mb-4">Add Blog</a>
+<a href="{{ route('products_manager.blog.create') }}" class="btn btn-success mb-4">Add Blog</a>
 @endif
 
 <div class="card shadow mb-4">

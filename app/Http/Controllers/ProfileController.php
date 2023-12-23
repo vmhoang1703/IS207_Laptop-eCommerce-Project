@@ -42,6 +42,7 @@ class ProfileController extends Controller
     {
         $orders = Order::where('user_id', auth()->id())
             ->where('status', '!=', 'Canceled')
+            ->where('status', '!=', 'Pre-Order')
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -196,8 +197,20 @@ class ProfileController extends Controller
     {
         // Lấy thông tin người dùng hiện tại
         // $user = Auth::user();
+        $orders = Order::where('user_id', auth()->id())
+            ->where('status', '=', 'Pre-Order')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('website.profile.pre-order');
+        foreach ($orders as $order) {
+            $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                ->where('is_main', 1)
+                ->first();
+
+            $order->product->mainImage = $mainImage;
+        }
+
+        return view('website.profile.pre-order', compact('orders'));
     }
 
     public function showMyHistoryOderPage(): View

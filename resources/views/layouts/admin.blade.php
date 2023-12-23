@@ -113,6 +113,7 @@
                         @elseif(Auth::user()->role == 'products_manager')
                         <a class="collapse-item" href="{{ route('products_manager.categories.management') }}">Categories</a>
                         <a class="collapse-item" href="{{ route('products_manager.products.management') }}">Products</a>
+                        <a class="collapse-item" href="{{ route('products_manager.blogs.management') }}">Blogs</a>
                         @endif
 
                         @if(Auth::user()->role == 'admin')

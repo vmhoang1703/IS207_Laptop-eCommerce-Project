@@ -11,7 +11,7 @@
     rel="stylesheet"
   />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
+    <title>E-lec World</title>
 </head>
 <body class="d-flex flex-column align-items-center"  >
     @component("components.header")
@@ -21,10 +21,9 @@
             <img  src="{{ asset ('img/Group.svg')}}" alt="" class="icon-payment">
             <div class="head-title">Payment succeed</div>
             <div class="sub-title">
-                Successful pre-order! We'll notify you by email or system alert when your reserved product is ready. Complete the remaining payment upon availability.
             </div>
             <div class=" d-flex gap-5 mt-4">
-                <a href="#">
+                <a href="{{ route('myorder.show') }}">
                     <button type="button" class="btn-payment btn btn-primary btn-lg">Watch detailed order</button>
                 </a>
             </div>

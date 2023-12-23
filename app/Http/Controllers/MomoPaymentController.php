@@ -48,8 +48,8 @@ class MomoPaymentController extends Controller
         $orderInfo = "E-lec World - Thanh toán qua MoMo";
         // $amount = "$amount";
         $orderId = $request->input('order_id');
-        $redirectUrl = "http://127.0.0.1:8000/";
-        $ipnUrl = "http://127.0.0.1:8000/";
+        $redirectUrl = "http://127.0.0.1:8000/payment-success";
+        $ipnUrl = "http://127.0.0.1:8000/payment-success";
         $extraData = "";
 
 

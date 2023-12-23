@@ -11,7 +11,7 @@
     rel="stylesheet"
   />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
+    <title>E-lec World</title>
 </head>
 <body class="d-flex flex-column align-items-center"  >
     @component("components.header")

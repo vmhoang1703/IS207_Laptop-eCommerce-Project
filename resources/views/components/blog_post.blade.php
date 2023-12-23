@@ -1,5 +1,4 @@
 <div class="cart-post mt-5 row">
-      
     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 d-flex justify-content-end">
       <a class="" href="{{ route('article.show', $blog->slug) }}">
       @if($blog->images->isNotEmpty())

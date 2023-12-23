@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="{{asset('css/preorder.css')}}">
   <script src="{{asset('js/order_payment.js')}}"></script>
-  <title>Pre-Order</title>
+  <title>E-lec World</title>
 </head>
 
 <body class="d-flex flex-column ">

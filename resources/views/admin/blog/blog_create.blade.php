@@ -70,7 +70,7 @@
             <button type="submit" class="btn btn-primary mt-3">Add Blog</button>
         </form>
         @elseif(Auth::user()->role == 'products_manager')
-        <form action="{{ route('products_manager.product.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('products_manager.blog.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <!-- Thêm input cho ảnh chính -->
@@ -97,11 +97,6 @@
             </div>
 
             <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
-            </div>
-
-            <div class="form-group">
                 <label for="category_id">Category:</label>
                 <select name="category_id" class="form-control">
                     @foreach($categories as $category)
@@ -114,7 +109,7 @@
 
             <div class="form-group">
                 <label for="summary">Summary:</label>
-                <textarea name="summary" >{{ old('summary') }}</textarea>
+                <textarea name="summary" class="form-control">{{ old('summary') }}</textarea>
             </div>
 
             <div class="form-group">

@@ -55,4 +55,13 @@ class StoreController extends Controller
             return response()->json(['error' => 'Main image not found']);
         }
     }
+
+    public function searchProduct(Request $request)
+    {
+        $searchQuery = $request->input('searchQuery');
+
+        $products = Product::where('title', 'like', '%' . $searchQuery . '%')->get();
+
+        return response()->json(['products' => $products]);
+    }
 }

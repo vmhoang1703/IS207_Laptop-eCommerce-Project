@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/my-order.css') }}">
 
-    <title>My order</title>
+    <title>E-lec World</title>
 </head>
 
 <body class="d-flex flex-column align-items-center">
