@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-<script type="text/javascript" src="https://ahachat.com/customer-chats/customer_chat_tJsEIMrFie6550f19e812da.js"></script>
 <div class="container-fluid footer ">
     <div class="row pt-5 pb-4">
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 row name-footer mb-5">
