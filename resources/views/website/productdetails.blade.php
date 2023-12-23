@@ -114,10 +114,18 @@
                         <div class="plus">+</div>
                     </div> -->
                     <hr class="mt-5">
-                    <div class="btn1 buttons"  data-bs-toggle="modal" data-bs-target="#Toggle_succeed">
+                    @if($product->quantity > 0)
+                    <div class="btn1 buttons">
                         <button class="btn add-to-cart-btn" data-product-id="{{ $product->product_id }}" id="success">Add to cart </button>
                         <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
                     </div>
+                    @else
+                    <div class="btn1 buttons">
+                        <button data-bs-toggle="modal" data-bs-target="#Toggle_succeed">Add to cart </button>
+                        <button data-bs-toggle="modal" data-bs-target="#Toggle_succeed">Buy now</button>
+                    </div>
+                    @endif
+
                 </div>
                 <!-- review board -->
                 <div class="review-card ">
@@ -271,32 +279,25 @@
                 </tr>
             </table>
         </div>
-
-
-
-
-
+    </div>
     </div>
 
-    </div>
-
-
-
-          <div class="modal fade modalS" id="Toggle_succeed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog d-flex justify-content-center " >
-          <div class="modal-content toggle" style="width:700px ;height:556px;border-radius: 16px;">
-          <img class="img_succeed" src="{{asset('img/outstock.png')}}">
-          <div class="text_succeed">
-             <div class="heading mt-4">Out-of-stock!</div>
-              <div class="description mt-2 mx-5">This product is out of stock. If you would like to pre-order, please click "Pre-order."</div>
-          </div>
-            <div class="btn_succeed mt-5">
-              <button  data-bs-dismiss="modal" aria-label="Close">Return </button>
-              <button   onclick="location.href ">Pre-order </button>
+    <!-- Modal OUT OF STOCK -->
+    <div class="modal fade modalS" id="Toggle_succeed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center ">
+            <div class="modal-content toggle" style="width:700px ;height:556px;border-radius: 16px;">
+                <img class="img_succeed" src="{{asset('img/outstock.png')}}">
+                <div class="text_succeed">
+                    <div class="heading mt-4">Out-of-stock!</div>
+                    <div class="description mt-2 mx-5">This product is out of stock. If you would like to pre-order, please click "Pre-order."</div>
+                </div>
+                <div class="btn_succeed mt-5">
+                    <button data-bs-dismiss="modal" aria-label="Close">Return </button>
+                    <button onclick="location.href=`{{ route('preorder.show', $product->product_id) }}`">Pre-order</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     </div>
     <!-- Similar Product -->

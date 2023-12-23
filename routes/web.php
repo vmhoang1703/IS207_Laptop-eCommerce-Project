@@ -97,7 +97,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/payment-success', [OrderController::class, 'showPaymentSuccess'])->name('payment.success');
     Route::get('/payment-error', [OrderController::class, 'showPaymentError'])->name('payment.success');
 
-
+    //PreOrder
+    Route::get('/preorder/{id}', [OrderController::class, 'showPreorderPage'])->name('preorder.show');
+    Route::post('/submit-preorder', [OrderController::class, 'submitPreorder'])->name('submit.preorder');
+    Route::get('/preorder-success', [OrderController::class, 'showPreorderSuccess'])->name('preorder.success');
 
     // edit Profile
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
