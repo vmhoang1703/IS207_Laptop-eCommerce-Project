@@ -16,6 +16,7 @@
     <script src="{{asset('js/reviewcard.js')}}" defer> </script>
     <script src="{{asset('js/heart_action.js')}}" defer> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>E-lec World</title>
 </head>
 
@@ -113,31 +114,10 @@
                         <div class="plus">+</div>
                     </div> -->
                     <hr class="mt-5">
-                    <div class="btn1 buttons">
+                    <div class="btn1 buttons"  data-bs-toggle="modal" data-bs-target="#Toggle_succeed">
                         <button class="btn add-to-cart-btn" data-product-id="{{ $product->product_id }}" id="success">Add to cart </button>
-                        <script>
-                            const plus = document.querySelector(".plus"),
-                                minus = document.querySelector(".minus"),
-                                num = document.querySelector(".num");
-                            let a = 1;
-                            plus.addEventListener("click", () => {
-                                a++;
-                                a = (a < 10) ? "" + a : a;
-                                num.innerText = a;
-
-                            });
-                            minus.addEventListener("click", () => {
-                                if (a > 1) {
-                                    a--;
-                                    a = (a < 10) ? "" + a : a;
-                                    num.innerText = a;
-                                }
-                            });
-                        </script>
                         <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
                     </div>
-
-
                 </div>
                 <!-- review board -->
                 <div class="review-card ">
@@ -289,18 +269,34 @@
                         <div class="text">One week from the date of receipt</div>
                     </td>
                 </tr>
-
-
             </table>
         </div>
 
 
 
 
-    </div>
 
     </div>
 
+    </div>
+
+
+
+          <div class="modal fade modalS" id="Toggle_succeed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center " >
+          <div class="modal-content toggle" style="width:700px ;height:556px;border-radius: 16px;">
+          <img class="img_succeed" src="{{asset('img/outstock.png')}}">
+          <div class="text_succeed">
+             <div class="heading mt-4">Out-of-stock!</div>
+              <div class="description mt-2 mx-5">This product is out of stock. If you would like to pre-order, please click "Pre-order."</div>
+          </div>
+            <div class="btn_succeed mt-5">
+              <button  data-bs-dismiss="modal" aria-label="Close">Return </button>
+              <button   onclick="location.href ">Pre-order </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <!-- Similar Product -->
