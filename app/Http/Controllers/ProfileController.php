@@ -121,6 +121,7 @@ class ProfileController extends Controller
     {
         $orderId = $request->input('orderId');
         $newStatus = $request->input('newStatus', 'Canceled');
+        $cancellationReason = $request->input('cancellationReason');
 
         $order = Order::find($orderId);
 
@@ -129,6 +130,7 @@ class ProfileController extends Controller
         }
 
         $order->status = $newStatus;
+        $order->note = $cancellationReason;
         $order->save();
 
         return response()->json(['message' => 'Order status updated successfully'], 200);
@@ -206,11 +208,39 @@ class ProfileController extends Controller
             ->get();
 
         foreach ($orders as $order) {
-            $mainImage = ProductImage::where('product_id', $order->product->product_id)
-                ->where('is_main', 1)
-                ->first();
+            if ($order->product) {
+                // For orders with a single product
+                $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                    ->where('is_main', 1)
+                    ->first();
 
-            $order->product->mainImage = $mainImage;
+                $order->product->mainImage = $mainImage;
+            } else {
+                // For orders with multiple products
+                $cartItemIds = explode(',', $order->cartItem_id);
+
+                $products = [];
+                foreach ($cartItemIds as $cartItemId) {
+                    $cartItem = CartItem::find($cartItemId);
+
+                    if ($cartItem) {
+                        $productId = $cartItem->product_id;
+                        $product = Product::find($productId);
+
+                        if ($product) {
+                            $mainImage = ProductImage::where('product_id', $productId)
+                                ->where('is_main', 1)
+                                ->first();
+
+                            $product->mainImage = $mainImage;
+                            $products[] = $product;
+                        }
+                    }
+                }
+
+                $order->products = $products;
+                // dd($products);
+            }
         }
 
         return view('website.profile.history-order', compact('orders'));

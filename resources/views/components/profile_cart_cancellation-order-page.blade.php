@@ -3,7 +3,7 @@
         @if ($order->product_id === '')
         @foreach ($order->products as $product)
         <img class="product-img" src="{{ asset($product['images']->where('is_main', 1)->first()->image_path) }}" alt="">
-        @break
+        <br>
         @endforeach
         @else
         <img class="product-img" src="{{ asset($order->product->images->where('is_main', 1)->first()->image_path) }}" alt="">
@@ -14,7 +14,7 @@
             @if ($order->product_id === '')
             @foreach ($order->products as $product)
             {{ $product['title'] }}
-            @break
+            <br>
             @endforeach
             @else
             {{ $order->product->title }}
@@ -33,7 +33,7 @@
         </div>
         <div class="line-product-item-text button-box main-title col-xxl-3 col-xl-3 col-lg-3 col-md-12 col-sm-12 d-flex">
 
-            <div class=" product-item-text  "> Change my mind </div>
+            <div class=" product-item-text  "> {{ $order->note }} </div>
 
         </div>
     </div>

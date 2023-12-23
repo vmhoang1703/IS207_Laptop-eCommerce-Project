@@ -3,19 +3,18 @@
         @if ($order->product_id === '')
         @foreach ($order->products as $product)
         <img class="product-img" src="{{ asset($product['images']->where('is_main', 1)->first()->image_path) }}" alt="">
-        @break
+        <br>
         @endforeach
         @else
         <img class="product-img" src="{{ asset($order->product->images->where('is_main', 1)->first()->image_path) }}" alt="">
         @endif
     </div>
-
     <div class="name_product line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-4 col-md-3  d-flex">
         <div class="pe-3 product-item-text me-auto">
             @if ($order->product_id === '')
             @foreach ($order->products as $product)
             {{ $product['title'] }}
-            @break
+            <br>
             @endforeach
             @else
             {{ $order->product->title }}
@@ -63,7 +62,7 @@
                             @if ($order->product_id === '')
                             @foreach ($order->products as $product)
                             <img class="product-img" src="{{ asset($product['images']->where('is_main', 1)->first()->image_path) }}" alt="">
-                            @break
+                            <br>
                             @endforeach
                             @else
                             <img class="product-img" src="{{ asset($order->product->images->where('is_main', 1)->first()->image_path) }}" alt="">
@@ -74,7 +73,7 @@
                                 @if ($order->product_id === '')
                                 @foreach ($order->products as $product)
                                 {{ $product['title'] }}
-                                @break
+                                <br>
                                 @endforeach
                                 @else
                                 {{ $order->product->title }}
@@ -294,6 +293,19 @@
                             $('#' + modalId + ' #proceed_btn').removeClass('d-none');
 
                             $('#' + modalId + ' #proceed_btn').on('click', function() {
+                                var cancellationReason = '';
+
+                                if ($('#not-address-inquiries').prop('checked')) {
+                                    cancellationReason = 'The seller does not address inquiries';
+                                } else if ($('#change-the-product').prop('checked')) {
+                                    cancellationReason = 'Want to change the product model';
+                                } else if ($('#change-the-address').prop('checked')) {
+                                    cancellationReason = 'Want to change the address';
+                                } else if ($('#Change-my-mind').prop('checked')) {
+                                    cancellationReason = 'Change my mind';
+                                } else {
+                                    cancellationReason = $('#Type-other-answer').val();
+                                }
                                 $.ajax({
                                     url: '/update-order-status',
                                     method: 'POST',
@@ -303,7 +315,8 @@
                                     },
                                     data: JSON.stringify({
                                         orderId: orderId,
-                                        newStatus: 'Canceled'
+                                        newStatus: 'Canceled',
+                                        cancellationReason: cancellationReason,
                                     }),
                                     success: function(updateData) {
                                         console.log('Order status updated to Canceled:', updateData);
