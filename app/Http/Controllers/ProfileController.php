@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartItem;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -40,17 +42,46 @@ class ProfileController extends Controller
     {
         $orders = Order::where('user_id', auth()->id())
             ->where('status', '!=', 'Canceled')
+            ->where('status', '!=', 'Pre-Order')
             ->orderBy('created_at', 'desc')
             ->get();
 
         foreach ($orders as $order) {
-            $mainImage = ProductImage::where('product_id', $order->product->product_id)
-                ->where('is_main', 1)
-                ->first();
+            if ($order->product) {
+                // For orders with a single product
+                $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                    ->where('is_main', 1)
+                    ->first();
 
-            $order->product->mainImage = $mainImage;
+                $order->product->mainImage = $mainImage;
+            } else {
+                // For orders with multiple products
+                $cartItemIds = explode(',', $order->cartItem_id);
+
+                $products = [];
+                foreach ($cartItemIds as $cartItemId) {
+                    $cartItem = CartItem::find($cartItemId);
+
+                    if ($cartItem) {
+                        $productId = $cartItem->product_id;
+                        $product = Product::find($productId);
+
+                        if ($product) {
+                            $mainImage = ProductImage::where('product_id', $productId)
+                                ->where('is_main', 1)
+                                ->first();
+
+                            $product->mainImage = $mainImage;
+                            $products[] = $product;
+                        }
+                    }
+                }
+
+                $order->products = $products;
+                // dd($products);
+            }
         }
-
+        // dd($orders);
         return view('website.profile.my-order', compact('orders'));
     }
 
@@ -91,6 +122,7 @@ class ProfileController extends Controller
     {
         $orderId = $request->input('orderId');
         $newStatus = $request->input('newStatus', 'Canceled');
+        $cancellationReason = $request->input('cancellationReason');
 
         $order = Order::find($orderId);
 
@@ -99,6 +131,7 @@ class ProfileController extends Controller
         }
 
         $order->status = $newStatus;
+        $order->note = $cancellationReason;
         $order->save();
 
         return response()->json(['message' => 'Order status updated successfully'], 200);
@@ -122,11 +155,39 @@ class ProfileController extends Controller
             ->get();
 
         foreach ($orders as $order) {
-            $mainImage = ProductImage::where('product_id', $order->product->product_id)
-                ->where('is_main', 1)
-                ->first();
+            if ($order->product) {
+                // For orders with a single product
+                $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                    ->where('is_main', 1)
+                    ->first();
 
-            $order->product->mainImage = $mainImage;
+                $order->product->mainImage = $mainImage;
+            } else {
+                // For orders with multiple products
+                $cartItemIds = explode(',', $order->cartItem_id);
+
+                $products = [];
+                foreach ($cartItemIds as $cartItemId) {
+                    $cartItem = CartItem::find($cartItemId);
+
+                    if ($cartItem) {
+                        $productId = $cartItem->product_id;
+                        $product = Product::find($productId);
+
+                        if ($product) {
+                            $mainImage = ProductImage::where('product_id', $productId)
+                                ->where('is_main', 1)
+                                ->first();
+
+                            $product->mainImage = $mainImage;
+                            $products[] = $product;
+                        }
+                    }
+                }
+
+                $order->products = $products;
+                // dd($products);
+            }
         }
 
         return view('website.profile.cancellation-order', compact('orders'));
@@ -136,8 +197,20 @@ class ProfileController extends Controller
     {
         // Lấy thông tin người dùng hiện tại
         // $user = Auth::user();
+        $orders = Order::where('user_id', auth()->id())
+            ->where('status', '=', 'Pre-Order')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('website.profile.pre-order');
+        foreach ($orders as $order) {
+            $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                ->where('is_main', 1)
+                ->first();
+
+            $order->product->mainImage = $mainImage;
+        }
+
+        return view('website.profile.pre-order', compact('orders'));
     }
 
     public function showMyHistoryOderPage(): View
@@ -148,11 +221,39 @@ class ProfileController extends Controller
             ->get();
 
         foreach ($orders as $order) {
-            $mainImage = ProductImage::where('product_id', $order->product->product_id)
-                ->where('is_main', 1)
-                ->first();
+            if ($order->product) {
+                // For orders with a single product
+                $mainImage = ProductImage::where('product_id', $order->product->product_id)
+                    ->where('is_main', 1)
+                    ->first();
 
-            $order->product->mainImage = $mainImage;
+                $order->product->mainImage = $mainImage;
+            } else {
+                // For orders with multiple products
+                $cartItemIds = explode(',', $order->cartItem_id);
+
+                $products = [];
+                foreach ($cartItemIds as $cartItemId) {
+                    $cartItem = CartItem::find($cartItemId);
+
+                    if ($cartItem) {
+                        $productId = $cartItem->product_id;
+                        $product = Product::find($productId);
+
+                        if ($product) {
+                            $mainImage = ProductImage::where('product_id', $productId)
+                                ->where('is_main', 1)
+                                ->first();
+
+                            $product->mainImage = $mainImage;
+                            $products[] = $product;
+                        }
+                    }
+                }
+
+                $order->products = $products;
+                // dd($products);
+            }
         }
 
         return view('website.profile.history-order', compact('orders'));

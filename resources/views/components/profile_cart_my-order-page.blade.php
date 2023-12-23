@@ -1,25 +1,45 @@
 <div class="line-product-item row">
-    <div class="col-xxl-2 col-xl-2 col-lg-1 col-md-2 col-sm-2 d-flex justify-content-center align-items-center ">
+    <div class="col-xxl-2 col-xl-2 col-lg-1 col-md-2 col-sm-2 d-flex justify-content-center align-items-center">
+        @if ($order->product_id === '')
+        @foreach ($order->products as $product)
+        <img class="product-img" src="{{ asset($product['images']->where('is_main', 1)->first()->image_path) }}" alt="">
+        <br>
+        @endforeach
+        @else
         <img class="product-img" src="{{ asset($order->product->images->where('is_main', 1)->first()->image_path) }}" alt="">
+        @endif
     </div>
     <div class="name_product line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-4 col-md-3  d-flex">
-        <div class="pe-3 product-item-text me-auto">{{ $order->product->title }}</div>
+        <div class="pe-3 product-item-text me-auto">
+            @if ($order->product_id === '')
+            @foreach ($order->products as $product)
+            {{ $product['title'] }}
+            <br>
+            @endforeach
+            @else
+            {{ $order->product->title }}
+            @endif
+        </div>
     </div>
+
     <div class="row col-xxl-7 col-xl-7 col-lg-7 col-md-7 ">
         <div class="quantity_product display-mobile-none line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
             <div class="product-item-text">{{ $order->quantity }}</div>
         </div>
+
         <div class="subtotal_product display-mobile-none line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
             <div class="product-item-text">${{ $order->total }}</div>
-
         </div>
+
         <div class="status_product display-mobile-none line-product-item-text main-title col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 d-flex">
             <div class="product-item-text display-mobile-none">{{ $order->status }}</div>
         </div>
+
         <div class="line-product-item-text button-box main-title col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 d-flex">
             <button class="product-item-text btn btn-danger btn-detail" data-bs-toggle="modal" data-bs-target="#delivery-modal-{{ $order->order_id }}" data-order-id="{{ $order->order_id }}" data-modal-id="delivery-modal-{{ $order->order_id }}">
                 Detail
             </button>
+
             <button class="product-item-text btn btn-primary btn-cancel-order" data-bs-toggle="modal" data-bs-target="#cancel-order-modal-{{ $order->order_id }}" data-order-id="{{ $order->order_id }}" data-modal-id="delivery-modal">
                 Cancel
             </button>
@@ -39,10 +59,26 @@
                 <div class="container d-flex flex-column justify-content-center">
                     <div class="card-item row">
                         <div class=" col-xxl-2">
-                            <img class=" product-img " src="{{ asset($order->product->images->where('is_main', 1)->first()->image_path) }}" alt=" ">
+                            @if ($order->product_id === '')
+                            @foreach ($order->products as $product)
+                            <img class="product-img" src="{{ asset($product['images']->where('is_main', 1)->first()->image_path) }}" alt="">
+                            <br>
+                            @endforeach
+                            @else
+                            <img class="product-img" src="{{ asset($order->product->images->where('is_main', 1)->first()->image_path) }}" alt="">
+                            @endif
                         </div>
                         <div class=" col-xxl-8 d-flex flex-column gap-2">
-                            <div class=" card-item-name ">{{ $order->product->title }}</div>
+                            <div class=" card-item-name ">
+                                @if ($order->product_id === '')
+                                @foreach ($order->products as $product)
+                                {{ $product['title'] }}
+                                <br>
+                                @endforeach
+                                @else
+                                {{ $order->product->title }}
+                                @endif
+                            </div>
                             <div class=" card-item-id ">ID: {{ $order->order_id }}</div>
                             <div class=" card-item-quantity ">Quantity: {{ $order->quantity }}</div>
                             <div class=" card-item-price "> ${{ $order->total }}</div>
@@ -129,7 +165,7 @@
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="not-address-inquiries">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="not-address-inquiries">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="not-address-inquiries">
                                 The seller does not address inquiries
                             </label>
                         </div>
@@ -137,7 +173,7 @@
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="change-the-product">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="change-the-product">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="change-the-product">
                                 Want to change the product model
                             </label>
                         </div>
@@ -145,14 +181,14 @@
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="change-the-address">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="change-the-address">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="change-the-address">
                                 Want to change the address
                             </label>
                         </div>
 
                         <div class="line-check mt-3 w-80 d-flex justify-content-start gap-3">
                             <input class="form-check-input" type="radio" name="reason cancel" id="Change-my-mind">
-                            <label class="form-check-label d-flex align-items-center  justify-content-center" for="Change-my-mind">
+                            <label class="form-check-label  d-flex align-items-center  justify-content-center" for="Change-my-mind">
                                 Change my mind
                             </label>
                         </div>
@@ -257,6 +293,19 @@
                             $('#' + modalId + ' #proceed_btn').removeClass('d-none');
 
                             $('#' + modalId + ' #proceed_btn').on('click', function() {
+                                var cancellationReason = '';
+
+                                if ($('#not-address-inquiries').prop('checked')) {
+                                    cancellationReason = 'The seller does not address inquiries';
+                                } else if ($('#change-the-product').prop('checked')) {
+                                    cancellationReason = 'Want to change the product model';
+                                } else if ($('#change-the-address').prop('checked')) {
+                                    cancellationReason = 'Want to change the address';
+                                } else if ($('#Change-my-mind').prop('checked')) {
+                                    cancellationReason = 'Change my mind';
+                                } else {
+                                    cancellationReason = $('#Type-other-answer').val();
+                                }
                                 $.ajax({
                                     url: '/update-order-status',
                                     method: 'POST',
@@ -266,7 +315,8 @@
                                     },
                                     data: JSON.stringify({
                                         orderId: orderId,
-                                        newStatus: 'Canceled'
+                                        newStatus: 'Canceled',
+                                        cancellationReason: cancellationReason,
                                     }),
                                     success: function(updateData) {
                                         console.log('Order status updated to Canceled:', updateData);

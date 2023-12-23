@@ -28,6 +28,8 @@ class User extends Authenticatable
         'position',
         'salary',
         'hire_date',
+        'status',
+        'token',
     ];
 
     protected $hidden = [

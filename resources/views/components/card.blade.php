@@ -15,7 +15,7 @@
     </div>
     <div class="card-action">
         <div class="btn1 buttons">
-            <button onclick="location.href='/checkout'">Buy now</button>
+            <button onclick="location.href=`{{ route('checkout.show', $product->product_id) }}`">Buy now</button>
             <button class="add-to-cart-btn btn" id="success" data-product-id="{{ $product->product_id }}">Add to cart</button>
         </div>
     </div>

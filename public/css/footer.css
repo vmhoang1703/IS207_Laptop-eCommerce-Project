@@ -20,6 +20,7 @@ a {
     list-style: none;
     margin-bottom: 5%;
     color: #ffffff;
+    overflow-x: hidden;
 }
 
 .footer_list strong {
@@ -49,4 +50,18 @@ a {
     .container-icon {
         display: flex;
     }
+}
+
+@media screen and (max-width : 930px){
+   .container-icon img
+    {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .container-icon
+    {
+        justify-content: unset;
+    }
+
+
 }

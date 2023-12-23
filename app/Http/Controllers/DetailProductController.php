@@ -11,20 +11,20 @@ class DetailProductController extends Controller
     //
     public function showDetailProductPage($slug)
     {
-        // Lấy sản phẩm dựa trên slug
         $product = Product::where('slug', $slug)->first();
 
-        // Kiểm tra nếu sản phẩm không tồn tại
         if (!$product) {
             abort(404);
         }
 
-        // Lấy các hình ảnh của sản phẩm
         $product->load('images');
 
-        $products = Product::all();
+        $similarProducts = Product::where('brand', $product->brand)
+        ->where('product_id', '!=', $product->product_id)
+        ->take(4)
+        ->get();
 
-        return view('website.productdetails', compact('product', 'products'));
+        return view('website.productdetails', compact('product', 'similarProducts'));
     }
 }
 

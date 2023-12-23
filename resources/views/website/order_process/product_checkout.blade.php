@@ -38,7 +38,7 @@
             <!-- khung chứa các sản phẩm đã đặt -->
             <div class="d-flex flex-column margin-top-mobile-16  ">
                 <!-- Dòng thông tin 1 sản phẩm -->
-                <div class="cart-section mb-2 row  w-100 mobile-font-size-14" data-id="{{ $product->product_id }}">
+                <div class=" cart__item cart-section mb-2 row  w-100 mobile-font-size-14" data-id="{{ $product->product_id }}">
                     <a class="card flex-row col-xxl-4 col-xl-4  col-lg-4 col-md-4 col-sm-4  " id="product-img" href="">
                         <img src="{{ asset($mainImage->image_path) }}" class="card-img-left product-img">
                         <div class="card-body">
@@ -89,17 +89,17 @@
                         <div class="cart-total"> Cart Total </div>
                         <div class="total-infor__subtotal row mt-2 ">
                             <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6  text-start mobile-font-size-14"> Subtotal: </div>
-                            <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
+                            <div id="total-infor__subtotal " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 d-flex justify-content-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
                             </div>
                             <div class="line-grey mt-2 mb-3"></div>
                             <div class="total-infor__shipping row mt-2 ">
                                 <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Shipping: </div>
-                                <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> Free </div>
+                                <div id="total-infor__shipping " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 d-flex  justify-content-end mobile-font-size-14 pe-0 "> Free </div>
                             </div>
                             <div class="line-grey mt-2 mb-3"></div>
                             <div class="total-infor__total row mt-2 ">
                                 <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-start mobile-font-size-14"> Total: </div>
-                                <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-end mobile-font-size-14"> $<div class="subtotal-price">{{ $product->price }} </div>
+                                <div id="total-infor__total " class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 d-flex  justify-content-end mobile-font-size-14 pe-0 "> $<div class="subtotal-price">{{ $product->price }} </div>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <button id="total-infor-btn__checkout" type="button" class="total-infor__checkout btn btn-danger  mt-3 mobile-font-size-14" data-update-subtotal="{{ $product->price }}" data-quantity="1">Checkout</button>

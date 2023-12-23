@@ -7,11 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Providers\ActivationService;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    // use RegistersUsers;
+    protected $redirectTo = '/login';
+
+    protected $activationService;
+
+    public function __construct(ActivationService $activationService) // Add ActivationService to constructor
+    {
+        $this->activationService = $activationService; // Initialize activationService
+    }
     /**
      * Show the registration form.
      */
@@ -38,7 +50,6 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-        // Tạo user_id mới và kiểm tra xem nó có tồn tại trong cơ sở dữ liệu hay không
         do {
             $user_id = $this->generateUserId();
         } while (User::where('user_id', $user_id)->exists());
@@ -50,15 +61,24 @@ class RegisterController extends Controller
             'password' => bcrypt($request->input('password')),
             'knownFrom' => $request->how_did_you_hear,
         ]);
-        // Đăng nhập người dùng sau khi đăng ký (tuỳ chọn)
-        // Auth::login($user);
-        // Hoặc chuyển hướng đến đăng nhập để đăng nhập lại
         return redirect(route('login.show'))->with('success', 'Đăng ký thành công!');
+        // event(new Registered($user));
+        // $this->activationService->sendActivationMail($user);
+
+        // return redirect(route('login.show'))->with('status', 'Bạn hãy kiểm tra email và thực hiện xác thực theo hướng dẫn.');
+    }
+
+    public function activateUser($token)
+    {
+        if ($user = $this->activationService->activateUser($token)) {
+            auth()->login($user);
+            return redirect('/login');
+        }
+        abort(404);
     }
 
     private function generateUserId(): string
     {
-        // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $user_id = '';
         for ($i = 0; $i < 6; $i++) {

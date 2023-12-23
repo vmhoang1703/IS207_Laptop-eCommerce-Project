@@ -24,42 +24,33 @@ class CategoriesManagementController extends Controller
 
     public function storeCategory(Request $request)
     {
-        // Đánh giá, kiểm tra form
         $request->validate([
             'title' => 'required',
             'meta_title' => 'required',
             'content' => 'required'
-            // Thêm các quy tắc kiểm tra khác tùy thuộc vào yêu cầu của bạn
         ]);
 
         try {
             do {
                 $category_id = $this->generateCategoryId();
             } while (Category::where('category_id', $category_id)->exists());
-            // Gán dữ liệu nhập vào các trường thông tin
             $category = new Category([
                 'category_id' => $category_id,
                 'title' => $request->input('title'),
                 'meta_title' => $request->input('meta_title'),
                 'content' => $request->input('content')
-                // Thêm các trường khác tùy thuộc vào yêu cầu của bạn
             ]);
 
-            // Generate and set the slug
             $category->slug = $category->generateSlug();
 
-            // Lưu vào db
             $category->save();
 
             if (Auth::user()->role == "admin") {
-                // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
                 return redirect()->route('categories.management')->with('success', 'Category created successfully');
             } else if (Auth::user()->role == "products_manager") {
-                // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
                 return redirect()->route('products_manager.categories.management')->with('success', 'Category created successfully');
             }
         } catch (\Exception $e) {
-            // Nếu có lỗi, quay trở lại form với thông báo lỗi
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -83,7 +74,6 @@ class CategoriesManagementController extends Controller
         if (Auth::user()->role == "admin") {
             return redirect()->route('categories.management')->with('success', 'Category updated successfully!');
         } else if (Auth::user()->role == "products_manager") {
-            // Điều hướng đến trang quản lý sản phẩm và gửi thông báo thành công
             return redirect()->route('products_manager.categories.management')->with('success', 'Category updated successfully');
         }
     }
@@ -94,17 +84,14 @@ class CategoriesManagementController extends Controller
         $category->delete();
 
         if (Auth::user()->role == "admin") {
-            // Redirect về trang quản lý sản phẩm với thông báo thành công
             return redirect()->route('categories.management')->with('success', 'Category deleted successfully');
         } else if (Auth::user()->role == "products_manager") {
-            // Redirect về trang quản lý sản phẩm với thông báo thành công
             return redirect()->route('products_manager.categories.management')->with('success', 'Category deleted successfully');
         }
     }
 
     private function generateCategoryId(): string
     {
-        // Tạo một chuỗi ngẫu nhiên có chiều dài 6 kí tự (bao gồm số, chữ, kí tự đặc biệt)
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $category_id = '';
         for ($i = 0; $i < 6; $i++) {

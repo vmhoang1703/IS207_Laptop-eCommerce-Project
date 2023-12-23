@@ -33,6 +33,9 @@ body {
     border: none;
     align-items: center;
 }
+.cart__item{
+    height: 150px !important;
+}
 a {
     text-decoration: none;
 }

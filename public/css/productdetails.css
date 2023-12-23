@@ -130,6 +130,10 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+
+}
+.product-detail .info :-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .product-detail ul {
@@ -409,6 +413,50 @@
     width: 66px !important;
     height: 66px !important;
  }
+ .modalS {
+    --bs-modal-width: 708px !important;
+}
+.img_succeed
+{
+    width: 180px;
+    height: 180px;
+    margin: 90px 260px 0 260px;
+}
+.text_succeed
+{
+    text-align: center;
+}
+
+.text_succeed .heading
+{
+    font-weight: bold;
+}
+
+.text_succeed .description
+{
+    font-weight: 300 !important;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+.btn_succeed
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn_succeed button
+{
+    width: 263px;
+    height: 58px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    background: #115AAF;
+    font-size: 14px;
+}
 
 @media screen and (min-width: 992px) {
 

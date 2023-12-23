@@ -41,7 +41,16 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $order->order_id }}</td>
-                        <td>{{ $order->product->title }}</td>
+                        <td>
+                            @if ($order->product_id === '')
+                            @foreach ($order->products as $product)
+                            {{ $product['title'] }}
+                            <br>
+                            @endforeach
+                            @else
+                            {{ $order->product->title }}
+                            @endif
+                        </td>
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->user->name }}</td>
                         <td>${{ $order->total }}</td>

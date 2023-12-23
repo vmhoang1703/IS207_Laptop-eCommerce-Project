@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$(document).ready(heartaction)
+function heartaction() {
     $(".heart1").on("click", function () {
         // Get the closest parent <div> element with class "card"
         var parentCard = $(this).closest(".card");
@@ -20,7 +21,7 @@ $(document).ready(function () {
         // Send request to update favorite count on the server
         updateFavoriteCount(productId, $(this).css("fill") != "none");
     });
-});
+};
 
 function updateFavoriteCount(productId, isIncrement) {
     // Get the CSRF token from the meta tag

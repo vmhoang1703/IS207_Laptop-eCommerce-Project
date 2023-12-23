@@ -19,7 +19,11 @@ $(document).ready(function () {
             var cartItemId = $(this).data("id");
             selectedCartItemIds.push(cartItemId);
         });
-        $("#myForm").append('<input type="hidden" name="cartItemIds" value="' + selectedCartItemIds.join(',') + '">');
+        $("#myForm").append(
+            '<input type="hidden" name="cartItemIds" value="' +
+                selectedCartItemIds.join(",") +
+                '">'
+        );
         $("#myForm").attr("action", "/cart/payment");
         $("#myForm").submit();
     });

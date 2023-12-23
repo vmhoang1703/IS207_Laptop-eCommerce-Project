@@ -3,7 +3,7 @@ body {
 }
 
 .text-start {
-    white-space: nowrap;
+    white-space: wrap;
 }
 
 .breadcrumb-item a {

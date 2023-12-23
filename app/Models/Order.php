@@ -12,26 +12,26 @@ class Order extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'order_id', 
-        'product_id', 
-        'user_id', 
+        'order_id',
+        'product_id',
+        'user_id',
         'cartItem_id',
         'transaction_id',
         'quantity',
-        'status', 
-        'payment_status', 
-        'subtotal', 
+        'status',
+        'payment_status',
+        'subtotal',
         'shipping',
-        'total', 
-        'promo', 
-        'discount', 
-        'fullname', 
-        'phone', 
+        'total',
+        'promo',
+        'discount',
+        'fullname',
+        'phone',
         'email',
-        'street_address', 
-        'number_address', 
-        'city', 
-        'province', 
+        'street_address',
+        'number_address',
+        'city',
+        'province',
         'note',
         'payment_method'
     ];
@@ -48,6 +48,11 @@ class Order extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id', 'product_id');
+    }
+
+    public function cartItem()
+    {
+        return $this->belongsTo(CartItem::class, 'cartItem_id', 'cartItem_id');
     }
 
     public function user()

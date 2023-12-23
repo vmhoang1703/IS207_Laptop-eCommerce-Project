@@ -30,6 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
+            @if(Auth::user()->role == 'admin')
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.show') }}">
                 <div class="sidebar-brand-icon">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
@@ -37,16 +38,56 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">E-LEC WORLD</div>
             </a>
-
+            @elseif(Auth::user()->role == 'products_manager')
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('products_manager.show') }}">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
+                </div>
+                <div class="sidebar-brand-text mx-3">E-LEC WORLD</div>
+            </a>
+            @elseif(Auth::user()->role == 'sales')
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('sales.show') }}">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
+                </div>
+                <div class="sidebar-brand-text mx-3">E-LEC WORLD</div>
+            </a>
+            @elseif(Auth::user()->role == 'accounting')
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('accounting.show') }}">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
+                </div>
+                <div class="sidebar-brand-text mx-3">E-LEC WORLD</div>
+            </a>
+            @elseif(Auth::user()->role == 'marketing')
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('marketing.show') }}">
+                <div class="sidebar-brand-icon">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <img src="{{ asset('img/logo.jpg') }}" height="27px" alt="">
+                </div>
+                <div class="sidebar-brand-text mx-3">E-LEC WORLD</div>
+            </a>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            @if(Auth::user()->role == 'admin' || (Auth::user()->role == 'products_manager') || (Auth::user()->role == 'sales') || (Auth::user()->role == 'accounting') || (Auth::user()->role == 'marketing'))
+            @if(Auth::user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard.show') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            @elseif(Auth::user()->role == 'accounting')
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('accounting.dashboard.show') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
             </li>
             @endif
 
@@ -72,11 +113,13 @@
                         @elseif(Auth::user()->role == 'products_manager')
                         <a class="collapse-item" href="{{ route('products_manager.categories.management') }}">Categories</a>
                         <a class="collapse-item" href="{{ route('products_manager.products.management') }}">Products</a>
+                        <a class="collapse-item" href="{{ route('products_manager.blogs.management') }}">Blogs</a>
                         @endif
 
                         @if(Auth::user()->role == 'admin')
                         <a class="collapse-item" href="{{ route('customers.management') }}">Customers</a>
                         <a class="collapse-item" href="{{ route('orders.management') }}">Orders</a>
+                        <a class="collapse-item" href="{{ route('blogs.management') }}">Blogs</a>
                         @elseif(Auth::user()->role == 'sales')
                         <a class="collapse-item" href="{{ route('sales.customers.management') }}">Customers</a>
                         <a class="collapse-item" href="{{ route('sales.orders.management') }}">Orders</a>

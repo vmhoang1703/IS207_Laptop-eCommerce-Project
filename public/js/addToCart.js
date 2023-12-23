@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$(document).ready(addcart)
+    function addcart() {
     $(".add-to-cart-btn").on("click", function () {
         var productId = $(this).data("product-id");
 
@@ -20,4 +21,4 @@ $(document).ready(function () {
             },
         });
     });
-});
+}

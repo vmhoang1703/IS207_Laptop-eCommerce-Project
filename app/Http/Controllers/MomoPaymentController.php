@@ -48,8 +48,8 @@ class MomoPaymentController extends Controller
         $orderInfo = "E-lec World - Thanh toán qua MoMo";
         // $amount = "$amount";
         $orderId = $request->input('order_id');
-        $redirectUrl = "http://127.0.0.1:8000/";
-        $ipnUrl = "http://127.0.0.1:8000/";
+        $redirectUrl = "http://127.0.0.1:8000/payment-success";
+        $ipnUrl = "http://127.0.0.1:8000/payment-success";
         $extraData = "";
 
 
@@ -80,7 +80,7 @@ class MomoPaymentController extends Controller
         if ($result === false) {
             echo 'Curl error: ' . curl_error($this->ch);
         } else {
-            // dd($result);  // Debugging output
+            //dd($result);  // Debugging output
             $jsonResult = json_decode($result, true);
 
             $order = Order::find($orderId);
@@ -90,7 +90,6 @@ class MomoPaymentController extends Controller
                 $order->save();
             }
 
-            // Just an example, please check more in there
             return redirect()->to($jsonResult['payUrl']);
         }
     }

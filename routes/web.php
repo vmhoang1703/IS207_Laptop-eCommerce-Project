@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BlogsManagementController;
 use App\Http\Controllers\Admin\CategoriesManagementController;
 use App\Http\Controllers\Admin\OrdersManagementController;
 use App\Http\Controllers\Admin\ProductsManagementController;
+use App\Http\Controllers\Admin\RevenueController;
 use App\Http\Controllers\Admin\UsersManagementController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\OrderController;
@@ -35,6 +37,7 @@ use App\Http\Controllers\StoreController;
 //Route đăng ký
 Route::get('/register', [RegisterController::class, 'showForm'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'sendForm'])->name('register.send');
+Route::get('user/activation/{token}', [RegisterController::class, 'activateUser'])->name('user.activate');
 
 //Route đăng nhập
 Route::get('/login', [LoginController::class, 'showForm'])->name('login.show');
@@ -56,6 +59,8 @@ Route::post('/update-favorite-count', [HomeController::class, 'updateFavoriteCou
 Route::get('/store', [StoreController::class, 'showStorePage'])->name('store.show');
 Route::post('/store/filter', [StoreController::class, 'filterProduct'])->name('store.filter');
 Route::get('/store/filter/{id}/main-image', [StoreController::class, 'getMainImage'])->name('store.getMainImage');
+Route::post('/store/search', [StoreController::class, 'searchProduct'])->name('store.search');
+
 
 //Route chi tiết sản phẩm
 Route::get('/store/{id}', [DetailProductController::class, 'showDetailProductPage'])->name('detail.show');
@@ -71,8 +76,8 @@ Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('pro
 
 //Blog
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('blog.show');
-Route::get('/blog/article', [BlogController::class, 'showArticle'])->name('article.show');
-Route::get('/blog/category', [BlogController::class, 'showCategory'])->name('category.show');
+Route::get('/blog/article/{id}', [BlogController::class, 'showArticle'])->name('article.show');
+Route::get('/blog/category/{id}', [BlogController::class, 'showCategory'])->name('category.show');
 
 Route::middleware(['auth'])->group(function () {
     //Add to Cart
@@ -91,6 +96,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout/update-quantity', [OrderController::class, 'updateQuantity']);
     Route::post('/submit-order', [OrderController::class, 'submitOrder'])->name('submit.order');
     Route::get('/momo-payment', [MomoPaymentController::class, 'makePayment'])->name('momo.payment');
+    Route::get('/payment-success', [OrderController::class, 'showPaymentSuccess'])->name('payment.success');
+    Route::get('/payment-error', [OrderController::class, 'showPaymentError'])->name('payment.success');
+
+    //PreOrder
+    Route::get('/preorder/{id}', [OrderController::class, 'showPreorderPage'])->name('preorder.show');
+    Route::post('/submit-preorder', [OrderController::class, 'submitPreorder'])->name('submit.preorder');
+    Route::get('/preorder-success', [OrderController::class, 'showPreorderSuccess'])->name('preorder.success');
 
     // edit Profile
     Route::get('/profile/{id}/edit', [ProfileController::class, 'editProfilePage'])->name('profile.edit');
@@ -156,6 +168,19 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::put('/admin/employees-management/{id}', [UsersManagementController::class, 'updateEmployee'])->name('employee.update');
     Route::get('/admin/employees-management/{id}/delete', [UsersManagementController::class, 'deleteEmployee'])->name('employee.delete');
 
+    //Blogs management
+    Route::get('/admin/blogs-management', [BlogsManagementController::class, 'showBlogsManagementPage'])->name('blogs.management');
+    Route::get('/admin/blogs-management/create', [BlogsManagementController::class, 'createBlogPage'])->name('blog.create');
+    Route::post('/admin/blogs-management/store', [BlogsManagementController::class, 'storeBlog'])->name('blog.store');
+    Route::get('/admin/blogs-management/{id}/view', [BlogsManagementController::class, 'viewBlogPage'])->name('blog.view');
+    Route::get('/admin/blogs-management/{id}/edit', [BlogsManagementController::class, 'editBlogPage'])->name('blog.edit');
+    Route::put('/admin/blogs-management/{id}', [BlogsManagementController::class, 'updateBlog'])->name('blog.update');
+    Route::get('/admin/blogs-management/{id}/delete', [BlogsManagementController::class, 'deleteBlog'])->name('blog.delete');
+
+    //Revenue management
+    Route::get('/admin/revenue-statistics', [RevenueController::class, 'showRevenueStatistics'])->name('revenue.management');
+
+
     //Chart
     Route::get('/api/get-total-products-data-by-category', [ChartController::class, 'getTotalProductsDataByCategory']);
     Route::get('/api/get-customer-registration-data', [ChartController::class, 'getCustomerRegistrationData']);
@@ -185,6 +210,15 @@ Route::middleware(['auth', 'checkRole:products_manager'])->group(function () {
     Route::get('/products-manager/products-management/{id}/edit', [ProductsManagementController::class, 'editProductPage'])->name('products_manager.product.edit');
     Route::put('/products-manager/products-management/{id}', [ProductsManagementController::class, 'updateProduct'])->name('products_manager.product.update');
     Route::get('/products-manager/products-management/{id}/delete', [ProductsManagementController::class, 'deleteProduct'])->name('products_manager.product.delete');
+
+    // Blogs management
+    Route::get('/products-manager/blogs-management', [BlogsManagementController::class, 'showBlogsManagementPage'])->name('products_manager.blogs.management');
+    Route::get('/products-manager/blogs-management/create', [BlogsManagementController::class, 'createBlogPage'])->name('products_manager.blog.create');
+    Route::post('/products-manager/blogs-management/store', [BlogsManagementController::class, 'storeBlog'])->name('products_manager.blog.store');
+    Route::get('/products-manager/blogs-management/{id}/view', [BlogsManagementController::class, 'viewBlogPage'])->name('products_manager.blog.view');
+    Route::get('/products-manager/blogs-management/{id}/edit', [BlogsManagementController::class, 'editBlogPage'])->name('products_manager.blog.edit');
+    Route::put('/products-manager/blogs-management/{id}', [BlogsManagementController::class, 'updateBlog'])->name('products_manager.blog.update');
+    Route::get('/products-manager/blogs-management/{id}/delete', [BlogsManagementController::class, 'deleteBlog'])->name('products_manager.blog.delete');
 });
 
 Route::middleware(['auth', 'checkRole:sales'])->group(function () {
@@ -201,6 +235,7 @@ Route::middleware(['auth', 'checkRole:sales'])->group(function () {
 Route::middleware(['auth', 'checkRole:accounting'])->group(function () {
     // Accounting routes
     Route::get('/accounting', [AdminController::class, 'showAdminPage'])->name('accounting.show');
+    Route::get('/accounting/dashboard', [AdminController::class, 'showDashboardPage'])->name('accounting.dashboard.show');
     // Revenue management
 });
 
