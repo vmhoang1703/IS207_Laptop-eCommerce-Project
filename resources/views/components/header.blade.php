@@ -25,7 +25,6 @@
      <div class="container pt-5">
          <div class="row">
              <div class="header-logo col-lg-2 col-md-12 mb-2">
-                <p style="font-size: 13px;">Vũ Minh Hoàng - 21520244</p>
                  <img class="logo" src="{{asset('img/logo.jpg')}}" width="174px" height="48px">
                  <div class="logo-text">Computer World - Electronic Components </div>
              </div>
